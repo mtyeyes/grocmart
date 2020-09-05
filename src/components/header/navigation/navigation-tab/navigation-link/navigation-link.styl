@@ -1,0 +1,32 @@
+@import '../../../../../variables.styl'
+.navigation__link--selected {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media (max-width 999px)
+  .navigation__link
+    display block
+    color $main-font-color
+    width calc(100% - 40px)
+    transition $animation-speed
+
+  .navigation__link:hover,
+  .navigation__link:focus
+    background-color $accent-color
+    color #ffffff
+
+  .navigation__link
+    padding 5px 20px
+    margin 0
+
+  .navigation__link.navigation__link--selected
+    color #959595
+
+@media (min-width 1000px)
+  .navigation__link.navigation__link--selected
+    color $accent-color
+
+  .navigation__link:hover,
+  .navigation__link:focus
+    color: $accent-color

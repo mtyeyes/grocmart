@@ -1,0 +1,135 @@
+{
+  "chilli": {
+    "name": "chilli peppers",
+    "group": "vegetables",
+    "price": 15.00,
+    "isNew": true,
+    "userScrore": [5,4,3,3,4,2]
+  },
+  "potatoes": {
+    "name": "potatoes",
+    "group": "vegetables",
+    "price": 13.00,
+    "isNew": false,
+    "userScrore": [5,2,3,1,4,2]
+  },
+  "carrots": {
+    "name": "carrots",
+    "group": "vegetables",
+    "price": 17.00,
+    "isNew": false,
+    "userScrore": [5,2,3,5,4,2]
+  },
+  "cabbages": {
+    "name": "cabbages",
+    "group": "vegetables",
+    "price": 10.00,
+    "isNew": true,
+    "userScrore": [3,3,5,4,2]
+  },
+  "bread": {
+    "name": "whole grain bread",
+    "group": "bakery",
+    "price": 11.00,
+    "isNew": false,
+    "userScrore": [5,4,1,3,2,2]
+  },
+  "peppers": {
+    "name": "sweet peppers",
+    "group": "vegetables",
+    "price": 14.00,
+    "isNew": false,
+    "userScrore": [5,3,3,1,2]
+  },
+  "strawberries": {
+    "name": "strawberries",
+    "group": "fruits",
+    "price": 25.00,
+    "isNew": false,
+    "userScrore": [5,4,5,4,3,4,2]
+  },
+  "raspberries": {
+    "name": "raspberries",
+    "group": "fruits",
+    "price": 19.00,
+    "isNew": true,
+    "userScrore": [5,4,4,3,4]
+  },
+  "oranges": {
+    "name": "oranges",
+    "group": "fruits",
+    "price": 22.00,
+    "isNew": true,
+    "userScrore": [5,4,4,2]
+  },
+  "yogurt": {
+    "name": "yogurt",
+    "group": "dairy",
+    "price": 16.00,
+    "isNew": true,
+    "userScrore": [4,3,3,4]
+  },
+  "parmesan": {
+    "name": "parmesan cheese",
+    "group": "dairy",
+    "price": 21.00,
+    "isNew": false,
+    "userScrore": [5,3,3]
+  },
+  "broccoli": {
+    "name": "broccoli",
+    "group": "vegetables",
+    "price": 6.00,
+    "isNew": false,
+    "userScrore": [1,1,3,2,1,2,1]
+  },
+  "radishes": {
+    "name": "radishes",
+    "group": "vegetables",
+    "price": 16.00,
+    "isNew": false,
+    "userScrore": [3,3,4,2]
+  },
+  "galia": {
+    "name": "galia melons",
+    "group": "fruits",
+    "price": 6.00,
+    "isNew": false,
+    "userScrore": [5,4,2]
+  },
+  "pears": {
+    "name": "pears",
+    "group": "fruits",
+    "price": 16.00,
+    "isNew": false,
+    "userScrore": [5,4,4,2,3]
+  },
+  "cucumbers": {
+    "name": "cucumbers",
+    "group": "vegetables",
+    "price": 22.00,
+    "isNew": false,
+    "userScrore": [3,3,4,2]
+  },
+  "milk": {
+    "name": "milk",
+    "group": "dairy",
+    "price": 12.00,
+    "isNew": false,
+    "userScrore": [5,4,3,3,4,2]
+  },
+  "bagels": {
+    "name": "bagels",
+    "group": "bakery",
+    "price": 10.00,
+    "isNew": true,
+    "userScrore": [5,4,5]
+  },
+  "bananas": {
+    "name": "bananas",
+    "group": "fruits",
+    "price": 23.00,
+    "isNew": false,
+    "userScrore": [5,5,4,5,4,5]
+  }
+}

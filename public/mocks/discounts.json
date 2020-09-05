@@ -1,0 +1,13 @@
+{
+  "discountsByGroup": {
+    "vegetables": 0.25,
+    "dairy": 0.33,
+    "bakery": 0.15
+  },
+  "discountsByProduct": {
+    "strawberries": 0.10,
+    "parmesan": 0.25,
+    "bread": 0.40,
+    "bananas": 0.50
+  }
+}

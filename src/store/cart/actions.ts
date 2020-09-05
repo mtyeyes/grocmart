@@ -1,0 +1,22 @@
+import { GET_CART_STATE, ADD_TO_CART, REMOVE_FROM_CART, CartState, ProductId } from './types';
+
+export const getCartState = (data: CartState) => {
+  return {
+    type: GET_CART_STATE,
+    payload: data,
+  };
+};
+
+export const addToCart = (productId: ProductId) => {
+  return {
+    type: ADD_TO_CART,
+    payload: productId,
+  };
+};
+
+export const removeFromCart = (productId: ProductId) => {
+  return {
+    type: REMOVE_FROM_CART,
+    payload: productId,
+  };
+};

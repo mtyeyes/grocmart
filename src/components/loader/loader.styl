@@ -1,0 +1,42 @@
+@import '../../variables.styl'
+.loader
+  display flex
+  flex-direction row
+  align-items center
+  justify-content center
+  position absolute
+  top 50%
+  left 50%
+  width 100%
+  height 100%
+  transform translate(-50%, -50%)
+
+.loader__error-text
+  color $accent-color
+  font-family inherit
+  font-size inherit
+
+.loader__shape
+  border-radius 50%
+  background-color $accent-color
+  animation-name pulse
+  animation-duration 2s
+  animation-iteration-count infinite
+  animation-direction alternate
+
+.loader__shape:first-of-type
+  animation-delay 200ms
+
+.loader__shape:nth-of-type(2)
+  animation-delay 400ms
+
+.loader__shape:last-of-type
+  animation-delay 600ms
+
+@keyframes pulse
+  0%
+    opacity 0
+  50%
+    opacity 1
+  100%
+    opacity 0

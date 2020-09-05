@@ -1,0 +1,86 @@
+@import '../../variables.styl'
+.header
+  position relative
+  width 100%
+  height: auto
+  background-color #ffffff
+  z-index 80
+
+.header:after 
+  content ""
+  position absolute
+  left 0
+  bottom 0
+  width 100%
+  height 3px
+  box-shadow 0 3px 3px 0 rgba(0, 0, 0, 0.1)
+
+
+.header--stick
+  position fixed
+  top 0
+  left 0
+
+.header__wrapper
+  display flex
+  align-items center
+  justify-content space-between
+  padding 4px
+  height 48px
+  transition $animation-speed
+
+.header__modal-toggler--search.header__modal-toggler-toggled .btn
+  position relative
+  z-index 90
+  transform rotate(45deg)
+  transform-origin center
+  color transparent
+
+.header__modal-toggler--search.header__modal-toggler-toggled .btn:focus
+  color transparent
+
+.header__modal-toggler--search .btn::before,
+.header__modal-toggler--search .btn::after
+  content ""
+  position absolute
+  width 24px
+  height 4px
+  top calc(50% - 2px)
+  left calc(50% - 12px)
+  background-color transparent
+  transition $animation-speed
+
+.header__modal-toggler--search.header__modal-toggler-toggled .btn::before,
+.header__modal-toggler--search.header__modal-toggler-toggled .btn::after
+  background-color #909090
+
+.header__modal-toggler--search.header__modal-toggler-toggled .btn:hover::before,
+.header__modal-toggler--search.header__modal-toggler-toggled .btn:hover::after,
+.header__modal-toggler--search.header__modal-toggler-toggled .btn:focus::before,
+.header__modal-toggler--search.header__modal-toggler-toggled .btn:focus::after
+  background-color #ffffff
+
+.header__modal-toggler--search.header__modal-toggler-toggled .btn::after
+  transform rotate(90deg)
+
+@media (max-width 999px)
+
+  .header__modal-toggler--search
+    margin: 0 7px 0 auto
+
+  .header__logo
+    margin: 0 auto 0 7px
+
+@media (min-width 1170px)
+
+  .header__wrapper
+    width 1170px
+    height 70px
+    padding 30px 18px
+    margin 0 auto
+
+  .header--stick .header__wrapper
+    padding 3px 18px
+
+  .header__modal-toggler--search
+    margin-right 5px

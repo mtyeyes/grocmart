@@ -1,0 +1,94 @@
+@import '../../../variables.styl'
+.cart-item__container
+  display grid
+  grid-template-areas "thumbnail title ." "thumbnail counter price"
+  grid-template-columns 100px 125px 1fr
+  grid-template-rows 45px 45px
+  grid-gap 0 20px
+  margin-bottom 20px
+  font-family inherit
+  font-size inherit
+  font-weight inherit
+  line-height inherit
+  color inherit
+
+.cart-item__container:last-child
+  margin-bottom 0
+
+.cart-item__title
+  grid-area title
+  margin 0
+  font-family inherit
+  font-size inherit
+  color inherit
+  font-weight inherit
+  text-transform capitalize
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+
+.cart-item__thumbnail
+  grid-area thumbnail
+  height 80px
+  width 90px
+  object-fit contain
+  padding 5px
+  background-color #f1f1f1
+
+.cart-item__price
+  grid-area price
+  font-family inherit
+  font-size inherit
+  color inherit
+  width 100%
+  margin 5px 0
+
+.cart-item__counter
+  grid-area counter
+  width 100%
+  display flex
+  justify-content space-between
+
+.cart-item__quantity
+  align-self center
+
+.cart-item__counter-btn
+  display : flex;
+  align-items : center;
+  justify-content: center;
+  position relative
+  height 38px
+  width 38px
+  font-weight 400
+  border 1px solid #e1e1e1
+  border-radius 10%
+  box-sizing border-box
+
+.cart-item__counter-btn:hover,
+.cart-item__counter-btn:focus
+  border-width 3px
+
+.cart-item__counter-btn:active
+    transform: scale(0.95);
+
+
+.cart-item__counter-btn--decrease
+  order -1
+
+.cart-item__counter-btn::before
+  font-family lato
+  font-size 32px
+  text-align center
+  vertical-align baseline
+  speak never
+
+.cart-item__counter-btn--decrease::before
+  content "-"
+
+.cart-item__counter-btn--increase::before
+  content "+"
+
+@media (max-width: 500px)
+  .cart-item__container
+    grid-template-columns 100px 100px 1fr
+    grid-gap 0 5px

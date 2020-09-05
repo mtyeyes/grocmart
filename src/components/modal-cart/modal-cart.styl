@@ -1,0 +1,130 @@
+@import '../../variables.styl'
+.modal-cart__container
+  position absolute
+  top 45px
+  right -15px
+  width 400px
+  min-height 430px
+  display flex
+  flex-direction column
+  font-family poppins, sans-serif
+  font-size 16px
+  font-weight 600
+  line-height 1.75
+  color $main-font-color
+  background-color #ffffff
+  filter drop-shadow(0 0 4px rgba(0, 0, 0, 0.5))
+  z-index 70
+  animation $smooth-animation-speed fade-in-from-bottom 
+  transition $animation-speed
+
+.modal-toggler__btn:active+.modal-cart__container
+  opacity: 0
+  transform translate(0, 10%)
+
+.modal-cart__container::after
+  content ''
+  position absolute
+  top -25px
+  right 33px
+  width 28px
+  height 28px
+  clip-path polygon(100% 0, 0% 100%, 100% 100%)
+  background-color: #ffffff
+
+.modal-cart__top-wrapper
+  flex-grow 0
+  padding 20px
+  border-bottom 1px solid #e1e1e1
+  text-transform uppercase
+
+.modal-cart__heading
+  margin 0
+  font-family inherit
+  font-size 18px
+  font-weight 600
+  line-height 1.66
+  color inherit
+
+.modal-cart__total-price
+  margin 0
+  font-family inherit
+  font-size 16px
+  font-weight 600
+  line-height 1.75
+  color inherit
+
+.modal-cart__products-list
+  flex-grow 1
+  padding 20px
+  font-family inherit
+  font-size inherit
+  font-weight inherit
+  line-height inherit
+  color inherit
+  min-height 200px
+  max-height 420px
+  overflow-y auto
+  width calc(100% - 40px)
+
+.modal-cart__bottom-wrapper
+  flex-grow 0
+  display: flex
+  justify-content space-between
+  padding 20px
+  border-top 1px solid #e1e1e1
+
+.modal-cart__link-btn
+  display block
+  box-sizing border-box
+  padding 14px 34px
+  width 168px
+  height 56px
+  border-radius 5px
+  text-align center
+  transition $animation-speed
+
+.modal-cart__link-btn:active
+  transform scale(0.95)
+
+.modal-cart__link-btn--hollow
+  padding 12px 32px
+  color $main-font-color
+  border 2px solid $main-font-color
+
+.modal-cart__link-btn--hollow:hover,
+.modal-cart__link-btn--hollow:focus
+  background-color #7fd02c
+  color #ffffff
+  border 2px solid #7fd02c
+
+.modal-cart__link-btn--red
+  color #ffffff
+  background-color $accent-color
+
+.modal-cart__link-btn--red:hover,
+.modal-cart__link-btn--red:focus
+  background-color #c20e16
+
+@media (max-width: 500px)
+  .modal-cart__container
+    width 320px
+
+  .modal-cart__top-wrapper,
+  .modal-cart__products-list,
+  .modal-cart__bottom-wrapper
+    padding 10px
+
+  .modal-cart__link-btn
+    padding 14px 14px
+    width 145px
+
+  .modal-cart__link-btn--hollow
+    padding 12px 12px
+
+@media (max-width: 1000px)
+  .modal-cart__container
+    right -5px
+
+  .modal-cart__container::after
+    right 22px
