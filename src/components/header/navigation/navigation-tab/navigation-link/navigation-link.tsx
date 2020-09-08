@@ -10,7 +10,7 @@ type Props = {
 const NavigationLink: React.FC<Props> = ({ linkTitle, linkPath }) => {
   return (
     <li className="navigation__item">
-      <NavLink className="navigation__link" activeClassName="navigation__link--selected" to={linkPath}>{linkTitle}</NavLink>
+      <NavLink className="navigation__link" exact activeClassName="navigation__link--selected" to={linkPath}>{linkTitle}</NavLink>
     </li>
   );
 };

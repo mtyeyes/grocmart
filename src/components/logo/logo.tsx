@@ -11,7 +11,7 @@ type Props = {
 const Logo: React.FC<Props> = ({ className }) => {
   const classNames = (className) ? `logo ${className}` : 'logo';
   return (
-    <NavLink to='/' className={classNames} activeClassName="logo--selected">
+    <NavLink to='/' className={classNames} exact activeClassName="logo--selected">
       <img alt='Grocmart logo' width="249" height="52" src={logoImage} />
     </NavLink>
   );
