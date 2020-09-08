@@ -1,8 +1,8 @@
 import React from 'react';
 import './modal-cart-item.styl';
 
-import Button from '../../button/button';
-import HiddenText from '../../hidden-text/hidden-text';
+import Button from '../../../button/button';
+import HiddenText from '../../../hidden-text/hidden-text';
 
 type Props = {
   productId: string,

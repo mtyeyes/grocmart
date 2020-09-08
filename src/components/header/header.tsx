@@ -5,8 +5,8 @@ import Logo from '../logo/logo';
 import Navigation from './navigation/navigation';
 
 import ModalToggler from './modal-toggler/modal-toggler';
-import Search from '../search/search';
-import ModalCart from '../modal-cart/modal-cart';
+import Search from './search/search';
+import ModalCart from './modal-cart/modal-cart';
 
 const Header: React.FC = () => {
   const [isSticked, setStick] = useState(false);

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import './search.styl';
 
-import Icon from '../icon/icon';
-import HiddenText from '../hidden-text/hidden-text';
+import Icon from '../../icon/icon';
+import HiddenText from '../../hidden-text/hidden-text';
 
 type Props = {
   switchModalVisibility?: () => void

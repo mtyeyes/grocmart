@@ -1,0 +1,28 @@
+@import '../../../../variables.styl'
+.contact-item
+  display flex
+  flex-wrap nowrap
+  transition $animation-speed
+
+.contact-item__icon
+  color $accent-green-color
+  font-size 18px
+
+.contact-item:hover,
+.contact-item:focus
+  color $accent-green-color
+
+.contact-item__link
+  color inherit
+  letter-spacing 0.05em
+  margin 0 0 10px 20px
+
+@media (max-width 600px)
+  .contact-item
+    flex-wrap wrap
+    align-items center
+    justify-content center
+
+  .contact-item__link
+    width 100%
+    text-align center

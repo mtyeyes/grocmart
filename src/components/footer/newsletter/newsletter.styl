@@ -1,0 +1,71 @@
+@import '../../../variables.styl'
+.newsletter__heading
+  font-family $main-font
+  font-size 24px
+  letter-spacing 3px
+  font-weight 600
+  text-transform uppercase
+  margin 0
+
+.newsletter__paragraph
+  margin-top 40px
+  color #777777
+
+.newsletter__form
+  display flex
+  justify-content center
+  flex-wrap wrap
+  width 90%
+
+.newsletter__email-input
+  width 100%
+  padding 7px 0
+  border-bottom 1px solid #e1e1e1;
+
+.newsletter__email-input::placeholder
+  color #555555
+  font-family $main-font
+  font-size 15px
+  font-weight 400
+  line-height 24px
+  letter-spacing: 0.5px;
+  text-align center
+  opacity 1
+
+.newsletter__email-input:focus::placeholder
+  color transparent
+
+.newsletter__submit-btn
+  position relative
+  height 50px
+  width 50px
+  margin-top 20px
+  border-radius 25px
+  background-color $accent-color
+
+.newsletter__submit-icon
+  position absolute
+  top calc(50% - 18px)
+  left calc(50% - 18px)
+  color #ffffff
+  font-size 22px
+
+.newsletter__submit-btn:hover,
+.newsletter__submit-btn:focus
+  background-color $darker-accent-color
+
+@media (max-width 599px)
+  .newsletter__paragraph
+    text-align center
+
+@media (min-width 600px)
+  .newsletter__submit-btn
+    margin-top 0
+
+  .newsletter__form
+    margin-top 15px
+    flex-wrap nowrap
+    width 100%
+
+  .newsletter__email-input
+    width calc(100% - 50px)

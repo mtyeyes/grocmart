@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import './modal-cart.styl';
 
-import { getCartState, addToCart, removeFromCart } from '../../store/cart/actions';
-import { AppState } from '../../store';
-import { CartState, ProductId, CartActionTypes } from '../../store/cart/types';
-import { getProducts } from '../../store/products/actions';
-import { ProductsState, ProductsActionTypes } from '../../store/products/types';
-import { getDiscounts } from '../../store/discounts/actions';
-import { DiscountsState, DiscountsActionTypes } from '../../store/discounts/types';
-import useCountPrice from '../../hooks/use-count-price';
+import { getCartState, addToCart, removeFromCart } from '../../../store/cart/actions';
+import { AppState } from '../../../store';
+import { CartState, ProductId, CartActionTypes } from '../../../store/cart/types';
+import { getProducts } from '../../../store/products/actions';
+import { ProductsState, ProductsActionTypes } from '../../../store/products/types';
+import { getDiscounts } from '../../../store/discounts/actions';
+import { DiscountsState, DiscountsActionTypes } from '../../../store/discounts/types';
+import useCountPrice from '../../../hooks/use-count-price';
 
 import ModalCartItem from './modal-cart-item/modal-cart-item';
-import Loader from '../loader/loader';
+import Loader from '../../loader/loader';
 
 type DispatchProductsState = (data: ProductsState) => ProductsActionTypes;
 type DispatchDiscountsState = (data: DiscountsState) => DiscountsActionTypes;
