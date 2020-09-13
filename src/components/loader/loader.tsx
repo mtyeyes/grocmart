@@ -5,8 +5,8 @@ import useFetchJson from '../../hooks/use-fetch-json';
 
 type Props = {
   loaderSize?: number,
-  transferData: (requestResult: any) => void;
-  requests: { [key: string]: string }
+  transferData: (requestResult: any) => void,
+  requests: { [key: string]: string },
 }
 
 const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children }) => {
@@ -16,7 +16,9 @@ const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children 
   for (const [requestId, linkToResourse] of Object.entries(requests)) {
     const request = useFetchJson(linkToResourse);
     useEffect(() => {
-      if (request.isLoading === false) {(request.isError) ? setloadingState('error') : setResult((prevResult)=>{return {...prevResult, [requestId]: request.data}})}
+      if (request.isLoading === false) {
+        (request.isError) ? setloadingState('error') : setResult((prevResult)=>{return {...prevResult, [requestId]: request.data}});
+      }
     }, [request]);
   }
   useEffect(() => {
@@ -76,4 +78,3 @@ const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children 
 };
 
 export default Loader;
-

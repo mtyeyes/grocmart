@@ -1,10 +1,10 @@
-import { GET_PRODUCTS, ProductsState, ProductsActionTypes } from './types';
+import { LOAD_PRODUCTS_STATE, ProductsState, ProductsActionTypes } from './types';
 
 const initialState: ProductsState = {};
 
 export const productsReducer = (state = initialState, action: ProductsActionTypes): ProductsState => {
   switch (action.type) {
-  case GET_PRODUCTS: {
+  case LOAD_PRODUCTS_STATE: {
     return action.payload;
   }
   default:

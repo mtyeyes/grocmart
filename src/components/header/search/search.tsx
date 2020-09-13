@@ -5,11 +5,11 @@ import Icon from '../../icon/icon';
 import HiddenText from '../../hidden-text/hidden-text';
 
 type Props = {
-  switchModalVisibility?: () => void
+  switchModalVisibility?: () => void,
 }
 
 type EventKeyup = {
-  key: string
+  key: string,
 }
 
 const Search: React.FC<Props> = ({ switchModalVisibility }) => {

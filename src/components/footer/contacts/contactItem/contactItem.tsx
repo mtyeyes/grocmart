@@ -4,9 +4,9 @@ import './contactItem.styl';
 import Icon, {IconId} from '../../../icon/icon';
 
 export type Props = {
-  contactIcon: IconId;
-  contactLink: string;
-  contactText: string;
+  contactIcon: IconId,
+  contactLink: string,
+  contactText: string,
 }
 
 const ContactItem: React.FC<Props> = ({ contactText, contactLink, contactIcon }) => {

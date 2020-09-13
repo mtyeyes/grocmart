@@ -1,20 +1,20 @@
 export type ProductsState = {[key: string]: ProductInfo};
 
 interface ProductInfo {
-  name: string;
-  group: string;
-  price: number;
-  isNew: boolean;
-  userScore: number[];
+  name: string,
+  group: string,
+  price: number,
+  isNew: boolean,
+  userScore: number[],
 }
 
 type ProductId = string;
 
-export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const LOAD_PRODUCTS_STATE = 'LOAD_PRODUCTS_STATE';
 
-interface GetProductsAction {
-  type: typeof GET_PRODUCTS;
-  payload: ProductsState;
+interface LoadProductsAction {
+  type: typeof LOAD_PRODUCTS_STATE,
+  payload: ProductsState,
 }
 
-export type ProductsActionTypes = GetProductsAction;
+export type ProductsActionTypes = LoadProductsAction;

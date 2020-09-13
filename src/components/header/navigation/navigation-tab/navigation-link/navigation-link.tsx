@@ -4,7 +4,7 @@ import './navigation-link.styl';
 
 type Props = {
   linkTitle: string,
-  linkPath: string
+  linkPath: string,
 }
 
 const NavigationLink: React.FC<Props> = ({ linkTitle, linkPath }) => {

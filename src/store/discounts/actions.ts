@@ -1,8 +1,8 @@
-import { GET_DISCOUNTS, DiscountsState } from './types';
+import { LOAD_DISCOUNTS_STATE, DiscountsState } from './types';
 
-export const getDiscounts = (discounts: DiscountsState) => {
+export const loadDiscountsState = (discounts: DiscountsState) => {
   return {
-    type: GET_DISCOUNTS,
+    type: LOAD_DISCOUNTS_STATE,
     payload: discounts,
   };
 };

@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, $CombinedState } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { cartReducer } from './cart/reducers';
@@ -12,6 +12,8 @@ const rootReducer = combineReducers({
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
+// export type StateKeys = 'cart' | 'products' | 'discounts';
+export type StateKeys = Exclude<keyof AppState, typeof $CombinedState>;
 
 const configureStore = (preloadedState: {}) => (
   createStore(

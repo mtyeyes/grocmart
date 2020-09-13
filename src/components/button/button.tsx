@@ -3,6 +3,7 @@ import './button.styl';
 
 type Props = {
   onClick?: (...args: any) => void,
+  className?: string,
   [key: string]: any
 }
 

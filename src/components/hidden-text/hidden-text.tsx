@@ -2,7 +2,7 @@ import React from 'react';
 import './hidden-text.styl';
 
 type Props = {
-  children: string
+  children: string,
 }
 
 const HiddenText: React.FC<Props> = ({ children }) => {

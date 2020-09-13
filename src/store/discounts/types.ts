@@ -1,17 +1,17 @@
 export type DiscountsState = {
-  discountsByGroup: DiscountsByGroup,
-  discountsByProduct: DiscountsByProduct
+  discountsByGroup?: DiscountsByGroup,
+  discountsByProduct?: DiscountsByProduct,
 };
 
 interface DiscountsByGroup {[key: string]: number}
 
 interface DiscountsByProduct {[key: string]: number}
 
-export const GET_DISCOUNTS = 'GET_DISCOUNTS';
+export const LOAD_DISCOUNTS_STATE = 'LOAD_DISCOUNTS_STATE';
 
-interface GetDiscountsAction {
-  type: typeof GET_DISCOUNTS;
-  payload: DiscountsState;
+interface LoadDiscountsState {
+  type: typeof LOAD_DISCOUNTS_STATE,
+  payload: DiscountsState,
 }
 
-export type DiscountsActionTypes = GetDiscountsAction;
+export type DiscountsActionTypes = LoadDiscountsState;

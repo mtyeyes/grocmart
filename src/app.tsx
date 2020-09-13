@@ -1,28 +1,31 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useStore } from 'react-redux';
+import { StateKeys, AppState } from './store/index';
+import useSyncStateWithLocalStorage from './hooks/use-sync-state-with-local-storage';
 
 import Home from './domain/home/home';
 import Error from './domain/error/error';
-import AboutUs from './domain/about-us/about-us';
+import About from './domain/about/about';
 import Shop from './domain/shop/shop';
 import Cart from './domain/cart/cart';
 import Gallery from './domain/gallery/gallery';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path='/' component={ Home } />
-          <Route exact path='/about' component={ AboutUs }/>
-          <Route exact path='/shop' component={ Shop }/>
-          <Route exact path='/cart' component={ Cart }/>
-          <Route exact path='/gallery' component={ Gallery }/>
-          <Route path='*' component={ Error }/>
-        </Switch>
-      </Router>
-    );
-  }
-}
+const App = () => {
+  const currentState: AppState = useStore().getState();
+  for (const key in currentState) {useSyncStateWithLocalStorage(key as StateKeys)}
+  return (
+    <Router>
+      <Switch>
+        <Route exact path='/' component={ Home } />
+        <Route exact path='/about' component={ About }/>
+        <Route exact path='/shop' component={ Shop }/>
+        <Route exact path='/cart' component={ Cart }/>
+        <Route exact path='/gallery' component={ Gallery }/>
+        <Route path='*' component={ Error }/>
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;

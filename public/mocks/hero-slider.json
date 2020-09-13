@@ -1,20 +1,17 @@
 [
   {
-    "top-subtitle": "Welcome to Our Online Store",
     "title": "Grocery store",
-    "bottom-subtitle": "For true gourmets",
-    "background-image": "---"
+    "topParagraph": "Welcome to Our Online Store",
+    "bottomParagraph": "For true gourmets"
   },
   {
-    "top-subtitle": "A Wide Selection of Artisan Bread",
     "title": "Baked goods",
-    "bottom-subtitle": "Available at our store",
-    "background-image": "---"
+    "topParagraph": "A Wide Selection of Artisan Bread",
+    "bottomParagraph": "Available at our store"
   },
   {
-    "top-subtitle": "Fresh and Tasty",
     "title": "Vegetables",
-    "bottom-subtitle": "That you love",
-    "background-image": "---"
+    "topParagraph": "Fresh and Tasty",
+    "bottomParagraph": "That you love"
   }
 ]

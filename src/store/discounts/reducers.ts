@@ -1,10 +1,10 @@
-import { GET_DISCOUNTS, DiscountsState, DiscountsActionTypes } from './types';
+import { LOAD_DISCOUNTS_STATE, DiscountsState, DiscountsActionTypes } from './types';
 
-const initialState: DiscountsState = {discountsByGroup: {}, discountsByProduct: {}};
+const initialState: DiscountsState = {};
 
 export const discountsReducer = (state = initialState, action: DiscountsActionTypes): DiscountsState => {
   switch (action.type) {
-  case GET_DISCOUNTS: {
+  case LOAD_DISCOUNTS_STATE: {
     return action.payload;
   }
   default:

@@ -4,8 +4,8 @@ import './navigation-tab.styl';
 import NavigationLink from './navigation-link/navigation-link';
 
 type Props = {
-  links: object;
-  showMobileMenu?: boolean;
+  links: object,
+  showMobileMenu?: boolean,
 }
 
 const NavigationTab: React.FC<Props> = ({ links, showMobileMenu }) => {

@@ -1,8 +1,8 @@
-import { GET_PRODUCTS, ProductsState } from './types';
+import { LOAD_PRODUCTS_STATE, ProductsState } from './types';
 
-export const getProducts = (products: ProductsState) => {
+export const loadProductsState = (products: ProductsState) => {
   return {
-    type: GET_PRODUCTS,
+    type: LOAD_PRODUCTS_STATE,
     payload: products,
   };
 };

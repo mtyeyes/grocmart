@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 
-const AboutUs: React.FC = () => {
+const About: React.FC = () => {
   return (
     <>
       <Header />
@@ -15,4 +15,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+export default About;
