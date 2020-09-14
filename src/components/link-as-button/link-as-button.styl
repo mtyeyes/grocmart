@@ -1,6 +1,6 @@
 @import '../../variables.styl'
 .link-as-btn
-  display inline-block
+  display block
   box-sizing border-box
   font-family $main-font
   font-size 14px
@@ -33,12 +33,30 @@
   color $handwriting-font-color
   border 2px solid $accent-green-color
 
+.link-as-btn--round-red,
 .link-as-btn--rectangular-red
   background-color $accent-color
 
+.link-as-btn--round-red:hover,
+.link-as-btn--round-red:focus,
 .link-as-btn--rectangular-red:hover,
 .link-as-btn--rectangular-red:focus
   background-color $darker-accent-color
+
+.link-as-btn--round-green,
+.link-as-btn--round-red
+  text-align center
+  line-height 30px
+  border-radius 50%
+  width 30px
+  height 30px
+
+@media (min-width: 768px)
+  .link-as-btn--round-green,
+  .link-as-btn--round-red
+    width 40px
+    height 40px
+    line-height 40px
 
 @media (min-width: 1000px)
   .link-as-btn--rectangular-red
@@ -46,3 +64,10 @@
 
   .link-as-btn--rectangular-green
     padding 12px 32px
+
+  .link-as-btn--round-green,
+  .link-as-btn--round-red
+    line-height 50px
+    font-size 20px
+    width 50px
+    height 50px

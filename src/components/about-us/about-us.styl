@@ -1,0 +1,172 @@
+@import '../../variables.styl'
+.about-us
+  text-align center
+
+.about-us__image
+  padding-top 30px
+  width 100%
+
+.about-us__hand-written
+  margin-bottom 0
+  letter-spacing 1px
+  font-family $handwriting-font
+  font-size 18px
+  color $accent-green-color
+  text-transform capitalize
+
+.about-us__title
+  margin 10px 0
+  font-size 26px
+  font-family $main-font
+  font-weight 600
+  text-transform uppercase
+  letter-spacing 1px
+  color $main-font-color
+
+.about-us__paragraph
+  width 85%
+  margin 0 auto
+  letter-spacing 0.5px
+  line-height 20px
+  font-family $secondary-font
+  color $secondary-font-color
+  font-size 13px
+
+.about-us__bottom-wrapper
+  width min-content
+  display grid
+  grid-template-areas "link name name" "link position position" "signature signature signature"
+  grid-template-columns 60px 60px 60px
+  grid-template-rows 20px 20px 75px
+  margin 20px auto 40px
+
+.about-us__link
+  grid-area link
+  justify-self center
+  align-self center
+
+.about-us__name
+  grid-area name
+  margin 0
+  font-family $main-font
+  font-size 14px
+  font-weight 600
+  color $main-font-color
+  letter-spacing 1px
+  text-transform uppercase
+
+.about-us__position
+  grid-area position
+  margin 0
+  font-style italic
+  font-family $secondary-font
+  color $accent-green-color
+  font-size 13px
+
+.about-us__signature
+  grid-area signature
+  margin 20px auto 0
+
+@media (min-width 500px)
+  .about-us__hand-written
+    margin-top 30px
+
+  .about-us__title
+    margin-top 5px
+
+  .about-us__paragraph
+    width 90%
+
+  .about-us__bottom-wrapper
+    margin-top 30px
+    grid-template-areas "link name name signature signature" "link position position signature signature" ". . . signature signature"
+    grid-template-columns repeat(3, 60px) repeat(2, 80px)
+    grid-template-rows repeat(2, 25px) 5px
+
+  .about-us__name
+    margin-top auto
+
+  .about-us__position
+    margin-bottom auto
+
+  .about-us__signature
+    margin-top 0
+
+@media (min-width 580px)
+  .about-us
+    width: 570px
+    margin 0 auto
+
+  .about-us__image
+    width 240px
+    margin 0 auto
+
+  .about-us__bottom-wrapper
+    column-gap 15px
+
+@media (min-width 800px)
+  .about-us
+    width 720px
+    display flex
+    flex-wrap nowrap
+    padding 60px 0
+    text-align left
+
+  .about-us__image
+    width 270px
+    padding 0 15px
+    align-self center
+
+  .about-us__container
+    width 390px
+    padding 0 15px
+
+  .about-us__hand-written
+    margin-top 0
+    font-size 20px
+
+  .about-us__title
+    font-size 35px
+
+  .about-us__paragraph
+    font-size 15px
+    line-height 1.6
+    width 95%
+    margin 0 auto 0 0
+
+  .about-us__bottom-wrapper
+    width 100%
+    margin 30px 0 0 0
+    grid-template-areas "link name signature" "link position signature" ". . signature"
+    grid-template-columns 1.1fr 120px 3fr
+
+  .about-us__name
+    font-size 14px
+
+  .about-us__position
+    font-size 15px
+
+  .about-us__link
+    justify-self start
+    align-self center
+
+@media (min-width 1200px)
+  .about-us
+    width 1200px
+    justify-content space-between
+    padding 0
+    align-items center
+
+  .about-us__image
+    width 570px
+    margin 0
+
+  .about-us__container
+    width 470px
+
+  .about-us__hand-written
+    font-size 24px
+
+  .about-us__title
+    font-size 55px
+    letter-spacing 1.5px
