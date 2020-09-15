@@ -3,6 +3,7 @@ import './modal-cart-item.styl';
 
 import Button from '../../../button/button';
 import HiddenText from '../../../hidden-text/hidden-text';
+import Icon from '../../../icon/icon';
 
 type Props = {
   productId: string,
@@ -21,9 +22,11 @@ const ModalCartItem: React.FC<Props> = ({ productId, productName, quantity, prod
       <div className="cart-item__counter">
         <p className="cart-item__quantity">{quantity}</p>
         <Button className="cart-item__counter-btn cart-item__counter-btn--decrease" onClick={()=>{decrement(productId)}}>
+          <Icon className="cart-item__counter-btn-icon" iconId="minus"/>
           <HiddenText>Remove one</HiddenText>
         </Button>
         <Button className="cart-item__counter-btn cart-item__counter-btn--increase" onClick={()=>{increment(productId)}}>
+          <Icon className="cart-item__counter-btn-icon" iconId="plus"/>
           <HiddenText>Add one more</HiddenText>
         </Button>
       </div>

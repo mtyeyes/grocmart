@@ -3,10 +3,10 @@ import './about-us.styl';
 
 import LinkAsButton from '../link-as-button/link-as-button';
 import HiddenText from '../hidden-text/hidden-text';
+import Icon from '../icon/icon';
 
 import image from '../../resources/images/about.webp';
 import signatureImage from '../../resources/images/about-signature.png';
-import Icon from '../icon/icon';
 
 const AboutUs: React.FC = () => {
   return (
