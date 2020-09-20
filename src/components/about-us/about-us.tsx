@@ -17,7 +17,7 @@ const AboutUs: React.FC = () => {
         <h2 className="about-us__title">About us</h2>
         <p className="about-us__paragraph">Grocmart is a family-owned grocery store that has been offering quality products for your everyday life since 1999, while also providing superior service and competitive prices.</p>
         <div className="about-us__bottom-wrapper">
-          <LinkAsButton className="about-us__link" to='/about' subtype="round-red">
+          <LinkAsButton className="about-us__link" to='/about-us' subtype="round-red">
             <Icon iconId='right' />
             <HiddenText>Learn about our store</HiddenText>
           </LinkAsButton>
