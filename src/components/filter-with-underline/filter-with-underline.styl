@@ -1,0 +1,125 @@
+@import "../../variables.styl"
+.filter__container
+  margin 0 auto
+  font-family $main-font
+  font-size 14px
+  line-height 1
+  font-weight 600
+  letter-spacing 0.5px
+  text-transform uppercase
+  z-index 50
+
+.filter__label
+  color $secondary-font-color
+  cursor pointer
+  transition $animation-speed
+
+.filter__input:checked ~ .filter__label
+  color $accent-green-color
+
+@media (max-width: 749px)
+  .filter__container
+    position relative
+    width 280px
+
+  .filter__btn
+    margin 30px auto
+    padding 5px 15px
+    border 2px solid $main-font-color
+    border-radius 5px
+    box-sizing border-box
+    color $main-font-color
+    transition $animation-speed
+
+  .filter__btn-icon
+    font-size 9px
+    padding-left 5px
+
+  .filter__btn-icon::before
+    vertical-align text-top
+    transform rotate(90deg)
+    transition $animation-speed
+
+  .filter__btn--toggled .filter__btn-icon::before
+    transform rotate(-90deg)
+
+  .filter__btn:hover,
+  .filter__btn:focus
+    border 2px solid $accent-color
+    background-color $accent-color
+    color $handwriting-font-color
+
+  .filter__btn:active
+    transform none
+
+  .filter__form
+    position absolute
+    top 40px
+    width 260px
+    padding 10px
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17);
+    background-color $handwriting-font-color
+    transition $animation-speed
+    visibility hidden
+    opacity 0
+
+  .filter__form--visible
+    visibility visible
+    opacity 1
+
+  .filter__filters-item
+    text-align center
+    margin 10px
+
+  .filter__label:hover
+    color $main-font-color
+
+@media (min-width: 750px)
+  .filter__btn
+    display none
+
+  .filter__container
+    margin 40px auto
+
+  .filter__filters-list
+    position relative
+    width min-content
+    margin 0 auto
+    display flex
+    justify-content center
+    flex-direction row
+    flex-wrap nowrap
+
+  .filter__filters-list::after
+    content ""
+    position absolute
+    width calc(100% - 60px)
+    height 4px
+    border-radius 6px
+    bottom -18px
+    left 30px
+    background-color #d7d7d7;
+
+  .filter__label
+    position relative
+
+  .filter__label::after
+    content ""
+    position absolute
+    bottom -15px
+    left 50%
+    width 0
+    height 4px
+    background-color $accent-green-color
+    border-radius 6px
+    transition $animation-speed
+    z-index 20
+
+  .filter__label:hover::after,
+  .filter__label:focus::after,
+  .filter__input:checked ~ .filter__label::after
+    left 0
+    width 100%
+
+  .filter__filters-item
+    padding 0 30px

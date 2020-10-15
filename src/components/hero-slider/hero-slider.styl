@@ -1,6 +1,7 @@
 @import '../../variables.styl'
 .hero-slider
   position relative
+  min-height 365px
 
 .hero-slider__container
   width 100%
@@ -42,3 +43,11 @@
 @media (min-width: 600px)
   .hero-slider .hero-slider__dots-container
     display none
+
+@media(min-width: 800px)
+  .hero-slider
+    min-height 405px
+
+@media(min-width: 1200px)
+  .hero-slider
+    min-height calc(25vw + 220px)

@@ -17,7 +17,7 @@ const Map = () => {
   return (
     <section className="map">
       <h2 className="map__heading"><HiddenText>Map</HiddenText></h2>
-      <div className="map__container" ref={ref} />;
+      <div className="map__container" ref={ref} />
     </section>
   );
 };

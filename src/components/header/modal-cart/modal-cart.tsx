@@ -12,13 +12,12 @@ import Loader from '../../loader/loader';
 import LinkAsButton from '../../link-as-button/link-as-button';
 
 
-type DispatchAddToCart = (data: ProductId) => CartActionTypes;
-type DispatchRemoveFromCart = (data: ProductId) => CartActionTypes;
+type DispatchCartAction = (data: ProductId) => CartActionTypes;
 
 const ModalCart: React.FC = () => {
   const dispatch: any = useDispatch();
-  const addProductToCart: DispatchAddToCart = productId => dispatch(addToCart(productId));
-  const removeProductFromCart: DispatchRemoveFromCart = productId => dispatch(removeFromCart(productId));
+  const addProductToCart: DispatchCartAction = productId => dispatch(addToCart(productId));
+  const removeProductFromCart: DispatchCartAction = productId => dispatch(removeFromCart(productId));
 
   const selectProductsState = (state: AppState) => {return state.products};
   const selectCartState = (state: AppState) => {return state.cart};
@@ -50,7 +49,15 @@ const ModalCart: React.FC = () => {
   const cartMapCallback = (productId: string) => {
     const productData = productsState[productId];
     const productFinalPrice = (countPriceAfterDiscounts(productId) * cartState[productId]).toLocaleString('en-US', {style:'currency', currency:'USD'});
-    return <ModalCartItem productId={productId} key={productId} productName={productData['name']} productPrice={productFinalPrice} quantity={cartState[productId]} increment={addProductToCart} decrement={removeProductFromCart} />;
+    return <ModalCartItem
+      productId={productId}
+      key={productId}
+      productName={productData['name']}
+      productPrice={productFinalPrice}
+      quantity={cartState[productId]}
+      increment={addProductToCart}
+      decrement={removeProductFromCart}
+    />;
   };
 
   return (

@@ -6,7 +6,7 @@ type Props = {
   onClick?: (...args: any) => void,
   to: string,
   className?: string,
-  subtype: 'rectangular-green' | 'rectangular-red' | 'round-red' | 'round-green',
+  subtype: 'rectangular-green' | 'rectangular-red' | 'round-red' | 'round-green' | 'round-grey',
   [key: string]: any,
 }
 

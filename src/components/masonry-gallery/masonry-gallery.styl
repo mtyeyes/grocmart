@@ -1,0 +1,41 @@
+@import '../../variables.styl'
+.gallery
+  position relative
+  margin 40px 0
+
+.gallery__list
+  min-height calc(85vw - 30px)
+  display flex
+  flex-direction column
+  overflow hidden
+  transition $animation-speed
+
+@media (min-width: 575px)
+  .gallery
+    margin 50px 0
+
+  .gallery__list
+    min-height calc(42.5vw - 30px)
+    flex-direction row
+    flex-wrap wrap
+    justify-content space-between
+    padding 0 30px
+
+@media (min-width: 800px)
+  .gallery__list
+    width 720px
+    margin 0 auto
+    padding 0
+
+@media (min-width: 1000px)
+  .gallery
+    margin 80px 0
+
+  .gallery__list
+    display grid
+    width 85vw
+    max-width 1200px
+    min-height 290px
+    margin-top 60px
+    grid-template-columns repeat(3, 1fr)
+    gap 30px

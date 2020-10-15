@@ -13,7 +13,7 @@ export type Props = {
 const SocialLink: React.FC<Props> = ({ linkTitle, link, iconId }) => {
   return (
     <li className="social-link__item">
-      <a target="_blank" rel="noreferrer" href={link}>
+      <a target="_blank" rel="noreferrer" className="social-link__link" href={link}>
         <Icon className="social-link__icon" iconId={iconId}></Icon>
         <HiddenText>{linkTitle}</HiddenText>
       </a>

@@ -49,6 +49,7 @@
         "normalize.css": "^8.0.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-flip-move": "^3.0.4",
         "react-hook-google-maps": "0.0.3",
         "react-redux": "^7.2.0",
         "react-router-dom": "^5.2.0",

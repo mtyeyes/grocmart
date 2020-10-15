@@ -4,6 +4,7 @@ import { useStore } from 'react-redux';
 import { StateKeys, AppState } from './store/index';
 import useSyncStateWithLocalStorage from './hooks/use-sync-state-with-local-storage';
 
+import ScrollReset from './components/scroll-reset/scroll-reset';
 import Home from './domain/home/home';
 import Error from './domain/error/error';
 import About from './domain/about/about';
@@ -16,6 +17,7 @@ const App = () => {
   for (const key in currentState) {useSyncStateWithLocalStorage(key as StateKeys)}
   return (
     <Router>
+      <ScrollReset />
       <Switch>
         <Route exact path='/' component={ Home } />
         <Route exact path='/about-us' component={ About }/>

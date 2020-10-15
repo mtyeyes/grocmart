@@ -1,0 +1,108 @@
+@import '../../../variables.styl'
+.gallery-item
+  display flex
+  width calc(100vw - 30px)
+  margin 0 auto 30px
+  flex-direction column
+  font-family $main-font
+  letter-spacing 0
+  text-transform uppercase
+  text-align center
+
+.gallery-item__wrapper:last-child .gallery-item
+  margin-bottom 0
+
+.gallery-item__img
+  width 100%
+  height calc(85vw - 30px)
+  object-fit cover
+
+.gallery-item__controls
+  display flex
+  flex-direction row
+  justify-content center
+  flex-wrap wrap
+  padding 15px
+  background-color #f9faf9
+
+.gallery-item__description
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+  width 100%
+  margin 0
+  font-size 16px
+  font-weight 600
+  line-height 1.66667
+  color $main-font-color
+
+.gallery-item__product-price
+  width 100%
+  margin 0
+  font-size 15px
+  font-weight 600
+  line-height 1
+  color $accent-green-color
+
+.gallery-item__controls .gallery-item__btn
+  width 50px
+  height 50px
+  line-height 50px
+  font-size 25px
+  margin 15px 10px 0
+  border-radius 50%
+  text-align center
+
+.gallery-item__controls .gallery-item__btn--add-to-cart
+  background-color $accent-green-color
+  color $handwriting-font-color
+
+.gallery-item__controls .gallery-item__btn--add-to-cart:focus,
+.gallery-item__controls .gallery-item__btn--add-to-cart:hover
+  background-color $accent-color
+
+@media (min-width: 575px)
+  .gallery-item
+    width calc(50vw - 45px)
+    margin 0 0 30px
+
+  .gallery-item__wrapper:last-child .gallery-item,
+  .gallery-item__wrapper:nth-last-child(2) .gallery-item
+    margin-bottom 0
+
+  .gallery-item__img
+    height calc(42.5vw - 30px)
+
+@media (min-width: 800px)
+  .gallery-item
+    width 345px
+    margin 0 0 30px
+
+  .gallery-item__img
+    height 290px
+
+  .gallery-item__description
+    font-size 18px
+
+@media (min-width: 1000px)
+  .gallery-item
+    position relative
+    width 100%
+    margin 0
+
+  .gallery-item__controls
+    position absolute
+    width calc(100% - 30px)
+    height calc(290px - 110px)
+    top 0
+    left 0
+    padding 70px 15px 50px
+    align-items center
+    background-color: rgba(255, 255, 255, 0.9)
+    z-index 20
+    opacity 0
+    transition $animation-speed
+
+  .gallery-item:hover .gallery-item__controls,
+  .gallery-item:focus-within .gallery-item__controls
+    opacity 1
