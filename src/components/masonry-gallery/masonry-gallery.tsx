@@ -5,7 +5,7 @@ import './masonry-gallery.styl';
 
 import { AppState } from '../../store';
 import { addToCart } from '../../store/cart/actions';
-import { ProductId, CartActionTypes } from '../../store/cart/types';
+import { DispatchCartAction } from '../../store/cart/types';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
@@ -17,8 +17,6 @@ type GalleryStateItem = {
   imageDescription: string,
   productId: string,
 }
-
-type DispatchCartAction = (data: ProductId) => CartActionTypes;
 
 const MasonryGallery: React.FC = () => {
   const dispatch: any = useDispatch();

@@ -1,0 +1,89 @@
+@import "../../variables.styl"
+.latest-arrivals
+  padding 40px 0
+
+.latest-arrivals__heading
+  margin-bottom 10px
+  font-family $handwriting-font
+  color $accent-green-color
+  font-size 18px
+  font-weight 700
+  line-height 1.5
+  letter-spacing 1.5px
+  text-align center
+
+.latest-arrivals__exclamation
+  display block
+  font-family $main-font
+  color $main-font-color
+  font-size 26px
+  font-weight 600
+  letter-spacing 1px
+  text-transform uppercase
+  text-align center
+
+.latest-arrivals__item-wrapper
+  position relative
+  width 290px
+  height 350px
+  margin 0 auto 30px
+
+@media (min-width: 590px)
+  .latest-arrivals__list
+    display grid
+    grid-template-columns repeat(2, 1fr)
+    gap 30px
+    margin 0 auto
+    width 510px
+
+  .latest-arrivals__item-wrapper
+    width 240px
+    margin 0
+
+@media (min-width: 800px)
+  .latest-arrivals
+    padding 60px 0
+
+  .latest-arrivals__exclamation
+    font-size 35px
+    letter-spacing 2.5px
+
+  .latest-arrivals__list
+    margin-top 55px
+    width 780px
+    grid-template-columns repeat(3, 1fr)
+    transition $animation-speed
+
+@media (min-width: 1000px)
+  .latest-arrivals
+    padding 80px 0
+
+  .latest-arrivals__heading
+    font-size 22px
+    letter-spacing 2px
+
+  .latest-arrivals__exclamation
+    font-size 45px
+    letter-spacing 3px
+
+  .latest-arrivals__list
+    margin-top 70px
+    width 900px
+    grid-template-columns repeat(4, 1fr)
+    gap 30px 20px
+
+  .latest-arrivals__item-wrapper
+    width 210px
+    height 340px
+    margin 0
+
+@media (min-width: 1200px)
+  .latest-arrivals__list
+    width 1160px
+    grid-template-columns repeat(4, 1fr)
+    gap 40px 20px
+
+  .latest-arrivals__item-wrapper
+    width 270px
+    height 335px
+    margin 0

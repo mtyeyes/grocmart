@@ -103,6 +103,30 @@
     opacity 0
     transition $animation-speed
 
+  .gallery-item__description
+    transform translateY(-40px)
+    transition $animation-speed
+
+  .gallery-item__product-price
+    transform translateY(-20px)
+    transition $animation-speed
+
+  .gallery-item__btn--product-info
+    transform translate(-70px, 40px)
+    transition $animation-speed
+
+  .gallery-item__btn--add-to-cart
+    transform translate(70px, 40px)
+    transition $animation-speed
+
   .gallery-item:hover .gallery-item__controls,
   .gallery-item:focus-within .gallery-item__controls
     opacity 1
+
+  .gallery-item:hover .gallery-item__description,
+  .gallery-item:focus-within .gallery-item__description,
+  .gallery-item:hover .gallery-item__product-price,
+  .gallery-item:focus-within .gallery-item__product-price,
+  .gallery-item:hover .gallery-item__btn,
+  .gallery-item:focus-within .gallery-item__btn
+    transform none

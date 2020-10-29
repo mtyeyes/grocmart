@@ -4,6 +4,8 @@ export interface CartState {
 
 export type ProductId = string;
 
+export type DispatchCartAction = (data: ProductId) => CartActionTypes;
+
 export const LOAD_CART_STATE = 'LOAD_CART_STATE';
 
 interface LoadCartStateAction {

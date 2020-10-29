@@ -21,7 +21,7 @@ const GalleryItem: React.FC<Props> = ({ imgUrl, imgDescription, productId, produ
       <div className="gallery-item__controls">
         <h4 className="gallery-item__description">{imgDescription}</h4>
         <p className="gallery-item__product-price">{productPrice}</p>
-        <LinkAsButton className="gallery-item__btn" subtype="round-grey" to={`/shop/${productId}`}>
+        <LinkAsButton className="gallery-item__btn gallery-item__btn--product-info" subtype="round-grey" to={`/shop/${productId}`}>
           <Icon iconId="search" />
           <HiddenText>Product info</HiddenText>
         </LinkAsButton>

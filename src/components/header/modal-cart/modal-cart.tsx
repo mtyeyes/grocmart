@@ -4,15 +4,13 @@ import './modal-cart.styl';
 
 import { AppState } from '../../../store';
 import { addToCart, removeFromCart } from '../../../store/cart/actions';
-import { ProductId, CartActionTypes } from '../../../store/cart/types';
+import { DispatchCartAction } from '../../../store/cart/types';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 
 import ModalCartItem from './modal-cart-item/modal-cart-item';
 import Loader from '../../loader/loader';
 import LinkAsButton from '../../link-as-button/link-as-button';
 
-
-type DispatchCartAction = (data: ProductId) => CartActionTypes;
 
 const ModalCart: React.FC = () => {
   const dispatch: any = useDispatch();

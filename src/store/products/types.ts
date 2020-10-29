@@ -1,14 +1,13 @@
 export type ProductsState = {[key: string]: ProductInfo};
 
-interface ProductInfo {
+export interface ProductInfo {
   name: string,
   group: string,
   price: number,
-  isNew: boolean,
   userScore: number[],
+  dateOfArrival: string,
+  description: string,
 }
-
-type ProductId = string;
 
 export const LOAD_PRODUCTS_STATE = 'LOAD_PRODUCTS_STATE';
 
