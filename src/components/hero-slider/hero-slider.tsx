@@ -12,9 +12,9 @@ type SlideData = {
 }
 
 const HeroSlider: React.FC = () => {
-  const [sliders, setSliders] = useState([]);
+  const [slides, setSlides] = useState([]);
   const transferData = (requestResults: { [key: string]: any }) => {
-    setSliders(requestResults.sliders);
+    setSlides(requestResults.slides);
   };
 
   const sliderItemsMapCallback = ({title, topParagraph, bottomParagraph}: SlideData) => {
@@ -23,9 +23,9 @@ const HeroSlider: React.FC = () => {
 
   return (
     <section className="hero-slider">
-      <Loader requests={{'sliders': '/mocks/hero-slider.json'}} transferData={transferData}>
+      <Loader requests={{'slides': '/mocks/hero-slider.json'}} transferData={transferData}>
         <EmblaCarousel uniqueClassName="hero-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} options={{draggable: false}}>
-          {sliders.map(sliderItemsMapCallback as typeof sliderItemsMapCallback)}
+          {slides.map(sliderItemsMapCallback as typeof sliderItemsMapCallback)}
         </EmblaCarousel>
       </Loader>
     </section>

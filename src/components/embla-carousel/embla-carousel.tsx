@@ -74,16 +74,16 @@ const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtns
           { children }
         </ul>
       </div>
-      {nextPrevBtnsEnabled && 
-        <EmblaButton className={uniqueClassName} enabled={prevBtnEnabled} nextOrPrevious="previous" onClick={scrollPrev}>Prev</EmblaButton>
+      {nextPrevBtnsEnabled &&
+        <EmblaButton uniqueClassName={uniqueClassName} enabled={prevBtnEnabled} nextOrPrevious="previous" onClick={scrollPrev}>Prev</EmblaButton>
       }
-      {nextPrevBtnsEnabled && 
-        <EmblaButton className={uniqueClassName} enabled={nextBtnEnabled} nextOrPrevious="next" onClick={scrollNext}>Next</EmblaButton>
+      {nextPrevBtnsEnabled &&
+        <EmblaButton uniqueClassName={uniqueClassName} enabled={nextBtnEnabled} nextOrPrevious="next" onClick={scrollNext}>Next</EmblaButton>
       }
       {dotsBtnEnabled &&
         <div className={`embla__dots-container ${uniqueClassName}__dots-container`}>
           {scrollSnaps.map((_, index) => (
-            <EmblaDotButton key={index} className={uniqueClassName} selected={index === selectedIndex} onClick={() => scrollTo(index)} />
+            <EmblaDotButton key={index} uniqueClassName={uniqueClassName} selected={index === selectedIndex} onClick={() => scrollTo(index)} />
           ))}
         </div>
       }

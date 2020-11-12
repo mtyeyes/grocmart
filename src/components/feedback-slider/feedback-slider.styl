@@ -1,0 +1,123 @@
+@import "../../variables.styl"
+.feedback-slider
+  position relative
+  background-image url('../../resources/images/feedback-bg.webp')
+  background-position center
+  padding 50px 15px
+
+.feedback-slider__heading
+  margin 0 0 5px
+  font-size 18px
+  font-family $handwriting-font
+  letter-spacing 1px
+  text-align center
+  text-transform capitalize
+  color $accent-green-color
+
+.feedback-slider__exclamation
+  display block
+  font-size 26px
+  font-weight 600
+  font-family $main-font
+  letter-spacing 1px
+  text-align center
+  text-transform uppercase
+  color $main-font-color
+
+.feedback-slider__wrapper
+  margin-top 20px
+  padding-bottom 50px
+  width 100%
+  overflow hidden
+
+.feedback-slider__btn
+  display none
+
+.feedback-slider__container
+  margin-left -70px
+  width calc(100% + 70px * 2)
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+
+.feedback-slider__dots-container
+  bottom 50px
+
+@media (min-width: 400px)
+  .feedback-slider
+    padding 50px 25px
+
+@media (min-width: 580px)
+  .feedback-slider__wrapper
+    width 540px
+    margin 0 auto
+    padding-bottom: 30px
+
+@media (min-width: 770px)
+  .feedback-slider__heading
+    font-size 20px
+
+  .feedback-slider__exclamation
+    font-size 35px
+
+  .feedback-slider__wrapper
+    margin-top 15px
+
+  .feedback-slider__dots-container
+    display none
+
+  .feedback-slider__btn
+    display block
+    top 52%
+    font-family $main-font
+    font-size 14px
+    font-weight 600
+    letter-spacing 0.2px
+    text-transform lowercase
+    opacity 0.7
+    transition $animation-speed
+    color $secondary-font-color
+
+  .feedback-slider__btn--previous
+    left calc(50vw - 260px - 12vw)
+
+  .feedback-slider__btn--next
+    right calc(50vw - 260px - 15vw)
+    transform translateX(-100%)
+
+  .feedback-slider__btn--next:active
+    transform translateX(-100%) scale(0.9)
+
+  .feedback-slider__btn:hover,
+  .feedback-slider__btn:focus
+    opacity 1
+    color $main-font-color
+
+  .feedback-slider__btn::after
+    content ""
+    position absolute
+    bottom -2px
+    left 50%
+    width 100%
+    height 2px
+    transform translateX(-50%)
+    transition $animation-speed
+    background-color $secondary-font-color
+
+  .feedback-slider__btn:hover::after,
+  .feedback-slider__btn:focus::after
+    width 75%
+    background-color $main-font-color
+
+@media (min-width: 1000px)
+  .feedback-slider__heading
+    font-size 22px
+
+  .feedback-slider__exclamation
+    font-size 45px
+
+  .feedback-slider__wrapper
+    width 620px
+
+  .feedback-slider__btn
+    font-size 18px

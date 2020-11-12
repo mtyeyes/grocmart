@@ -1,5 +1,5 @@
 @import '../../../variables.styl'
-.slider-item
+.hero-slider-item
   position relative
   width 100%
   height 195px
@@ -10,20 +10,20 @@
   background-position center
   color $handwriting-font-color
 
-.slider-item__container
+.hero-slider-item__container
   height 100%
   display flex
   justify-content flex-start
   flex-direction column
 
-.slider-item__paragraph
+.hero-slider-item__paragraph
   margin 0
   max-width 90%
   font-family $handwriting-font
   font-size 18px
   font-weight 700
 
-.slider-item__title
+.hero-slider-item__title
   font-family $main-font
   margin 4px 0
   font-size 32px
@@ -32,52 +32,52 @@
   text-transform uppercase
   text-shadow: 1px 9px 16px rgba(0, 0, 0, 0.18);
 
-.slider-item__paragraph:last-of-type
+.hero-slider-item__paragraph:last-of-type
   margin 0
   font-family $main-font
   font-size 22px
   font-weight 600
   text-transform uppercase
 
-.slider-item__link
+.hero-slider-item__link
   width 170px
   margin-top auto
 
 @media (min-width: 500px)
-  .slider-item__container
+  .hero-slider-item__container
     margin 0 auto
     width 80vw
     max-width 1170px
 
 @media (min-width: 800px)
-  .slider-item
+  .hero-slider-item
     height 235px
 
-  .slider-item__paragraph
+  .hero-slider-item__paragraph
     font-size 20px
 
-  .slider-item__title
+  .hero-slider-item__title
     margin 0
     font-size 50px
 
-  .slider-item__paragraph:last-of-type
+  .hero-slider-item__paragraph:last-of-type
     font-size 26px
 
 @media (min-width: 1200px)
-  .slider-item
+  .hero-slider-item
     padding 170px 0 50px 25px
     max-height 720px
     height 25vw
 
-  .slider-item__paragraph
+  .hero-slider-item__paragraph
     letter-spacing 1.5px
     font-size 24px
 
-  .slider-item__title
+  .hero-slider-item__title
     font-size 100px
 
-  .slider-item__paragraph:last-of-type
+  .hero-slider-item__paragraph:last-of-type
     font-size 36px
 
-  .slider-item__link
+  .hero-slider-item__link
     margin-top 40px

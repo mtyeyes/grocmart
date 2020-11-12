@@ -7,6 +7,7 @@ import HeroSlider from '../../components/hero-slider/hero-slider';
 import AboutUs from '../../components/about-us/about-us';
 import Advantages from '../../components/advantages/advantages';
 import LatestArrivals from '../../components/latest-arrivals/latest-arrivals';
+import FeedbackSlider from '../../components/feedback-slider/feedback-slider';
 
 const Home: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
       <AboutUs />
       <Advantages />
       <LatestArrivals />
+      <FeedbackSlider />
       <Map />
       <Footer />
     </>

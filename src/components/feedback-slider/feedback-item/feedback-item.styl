@@ -1,0 +1,121 @@
+@import "../../../variables.styl"
+.feedback-item
+  position relative
+  width calc(100vw - 15px * 2 + 70px * 2)
+  flex-shrink 0
+  align-content stretch
+
+.feedback-item__wrapper
+  display flex
+  flex-direction column
+  height 100%
+  box-sizing border-box
+  margin 0 70px
+  padding 30px 15px
+  border-radius 60px
+  background-color #ffffff
+
+.feedback-item__review
+  position relative
+  padding-top 40px
+  margin 0 10px
+  font-size 16px
+  font-weight 400
+  line-height 1.44
+  letter-spacing 0.1px
+  font-family $main-font
+  text-align center
+  color $secondary-font-color
+
+.feedback-item__review::before
+  position absolute
+  top 0
+  left 50%
+  content '\201C'
+  font-size 60px
+  line-height 1.3
+  font-weight 700
+  font-style normal
+  letter-spacing 0
+  font-family $handwriting-font
+  color $accent-green-color
+  opacity 0.2
+  transform translate3d(-50%, 0, 0)
+
+.feedback-item__user-info-wrapper
+  padding-top 25px
+  margin auto auto 5px
+
+.feedback-item__user-avatar
+  border-radius 50%
+  margin 0 auto
+
+.feedback-item__user-name
+  display block
+  margin-bottom 0
+  font-size 14px
+  font-weight 600
+  letter-spacing 0.8px
+  text-transform uppercase
+  text-align center
+  font-family $main-font
+  color $main-font-color
+
+.feedback-item__user-badge
+  display block
+  margin 0
+  font-size 13px
+  font-weight 400
+  font-style italic
+  font-family $secondary-font
+  color $accent-green-color
+  text-align center
+
+@media (min-width: 400px)
+  .feedback-item
+    width calc(100vw - 25px * 2 + 70px * 2)
+  
+  .feedback-item__wrapper
+    padding 30px 25px
+
+@media (min-width: 580px)
+  .feedback-item
+    padding 20px 0
+    width calc(470px + 70px * 2)
+
+  .feedback-item__wrapper
+    box-shadow 0 0 18px 0 rgba(0, 0, 0, 0.13)
+
+  .feedback-item__user-info-wrapper
+    display grid
+    grid-template-areas "avatar name" "avatar badge"
+    grid-template-columns 62px 1fr
+    grid-column-gap 20px
+
+  .feedback-item__user-avatar
+    grid-area avatar
+
+  .feedback-item__user-name
+    grid-area name
+    margin-top 10px
+    letter-spacing 1.5px
+
+  .feedback-item__user-badge
+    grid-area badge
+    margin-bottom 10px
+    font-size 15px
+    text-align start
+
+@media (min-width: 1000px)
+  .feedback-item
+    width calc(580px + 70px * 2)
+
+  .feedback-item__review::before
+    font-size 100px
+
+  .feedback-item__review
+    padding-top 65px
+    font-size 18px
+
+  .feedback-item__user-info-wrapper
+    padding-top 20px
