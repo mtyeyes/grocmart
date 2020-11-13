@@ -8,6 +8,7 @@ import AboutUs from '../../components/about-us/about-us';
 import Advantages from '../../components/advantages/advantages';
 import LatestArrivals from '../../components/latest-arrivals/latest-arrivals';
 import FeedbackSlider from '../../components/feedback-slider/feedback-slider';
+import Badges from '../../components/badges/badges';
 
 const Home: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
       <Advantages />
       <LatestArrivals />
       <FeedbackSlider />
+      <Badges isBrightBackground={false} />
       <Map />
       <Footer />
     </>
