@@ -66,15 +66,15 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader'
+        use: ['style-loader', 'css-loader', 'stylus-loader']
       },
       {
         test: /\.(woff|woff2)$/,
-        use: ['file-loader']
+        type: 'asset/inline'
       },
       {
         test: /\.(png|jpg|svg|webp)$/,
-        use: ['file-loader']
+        type: 'asset/resource'
       }
     ]
   }
