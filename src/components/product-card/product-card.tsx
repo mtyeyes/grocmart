@@ -10,12 +10,12 @@ type Props = {
   productId: string,
   priceBeforeDiscounts: string,
   priceAfterDiscounts: string,
-  name: string,
+  productName: string,
   productRating: number,
   addToCart: any,
 }
 
-const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAfterDiscounts, name, productRating, addToCart }) => {
+const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart }) => {
   const isSale = (priceBeforeDiscounts !== priceAfterDiscounts);
   return (
     <div className="product-card">
@@ -27,8 +27,8 @@ const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAf
           <p className="product-card__flag product-card__flag--red"><HiddenText>Product on </HiddenText>sale</p>
         }
       </div>
-      <img src={`/images/${productId}.png`} className="product-card__thumbnail" alt={`${name}`}></img>
-      <h4 className="product-card__title">{name}</h4>
+      <img src={`/images/${productId}.png`} className="product-card__thumbnail" alt={productName}></img>
+      <h4 className="product-card__title">{productName}</h4>
       <div className="product-card__price-container">
         {isSale &&
           <p className="product-card__price product-card__price--original"><HiddenText>Orginal price</HiddenText>{priceBeforeDiscounts}</p>

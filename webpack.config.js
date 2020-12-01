@@ -32,6 +32,7 @@ module.exports = {
     publicPath: '/',
     historyApiFallback: true,
     port: 80,
+    hot: true,
     disableHostCheck: true
   },
   plugins: [

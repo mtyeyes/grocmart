@@ -66,7 +66,7 @@ const LatestArrivals: React.FC = () => {
     const priceAfterDiscounts = countPriceAfterDiscounts(productId).toLocaleString('en-US', {style:'currency', currency:'USD'});
     return(
       <li className="latest-arrivals__item-wrapper" key={productId}>
-        <ProductCard productId={productId} name={name} priceBeforeDiscounts={priceBeforeDiscounts} priceAfterDiscounts={priceAfterDiscounts} productRating={averageUserScore} addToCart={addProductToCart}/>
+        <ProductCard productId={productId} productName={name} priceBeforeDiscounts={priceBeforeDiscounts} priceAfterDiscounts={priceAfterDiscounts} productRating={averageUserScore} addToCart={addProductToCart}/>
       </li>
     );
   };

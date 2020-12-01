@@ -1,0 +1,83 @@
+@import '../../../../variables.styl'
+
+.specials-slider-item
+  position relative
+  flex-shrink 0
+  width calc(100vw - 30px + 70px * 2)
+
+.specials-slider-item__wrapper
+  display flex
+  flex-direction column
+  height calc(100% - 20px - 70px)
+  margin 0 70px
+  padding 20px 10px 70px
+
+.specials-slider-item__image-wrapper
+  flex-grow 1
+  flex-shrink 1
+  margin-bottom 10px
+
+.specials-slider-item__image
+  margin auto
+  width 100%
+  object-fit contain
+
+.specials-slider-item__product-title
+  flex-shrink 0
+  margin 10px auto 10px
+  font-size 18px
+  font-family $main-font
+  color $main-font-color
+  letter-spacing 1.5px
+  text-transform uppercase
+  text-align center
+  flex-shrink 0
+  transition $animation-speed
+
+.specials-slider-item__product-title:hover,
+.specials-slider-item__product-title:focus
+  color $accent-color
+
+.specials-slider-item__price-container
+  flex-shrink 0
+  display flex
+  justify-content center
+  flex-wrap nowrap
+
+.specials-slider-item__price
+  margin 0 10px
+  font-size 18px
+  font-family $secondary-font
+
+.specials-slider-item__price--original
+  color $secondary-font-color
+  text-decoration line-through
+
+.specials-slider-item__price--total
+  color $accent-green-color
+
+@media (min-width: 400px)
+  .specials-slider-item__image
+    width 90%
+
+@media (min-width: 500px)
+  .specials-slider-item
+    width 100%
+
+  .specials-slider-item__wrapper
+    height calc(100% - 30px - 70px)
+    padding 30px 20px 70px
+
+@media (min-width: 1000px)
+  .specials-slider-item__wrapper
+    padding 30px 10px 80px
+    height calc(100% - 30px - 80px)
+    margin 0 95px
+
+  .specials-slider-item__product-title
+    font-size 22px
+    letter-spacing 2px
+
+@media (min-width: 1200px)
+  .specials-slider-item__image
+    width 50%

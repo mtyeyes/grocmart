@@ -1,0 +1,102 @@
+@import '../../../../variables.styl'
+
+.faq-item__expand-btn
+  position relative
+  display flex
+  align-items center
+  justify-content flex-start
+  width 100%
+  margin-bottom 30px
+  font-family $main-font
+  font-size 14px
+  font-weight 500
+  letter-spacing 0.5px
+  color $main-font-color
+
+.faq-item__expand-btn::after
+  content ''
+  position absolute
+  bottom -15px
+  left 0
+  height 1px
+  width 100%
+  background-color #e1e1e1
+  transition $animation-speed
+
+.faq-item__container:last-child .faq-item__expand-btn:not(.faq-item__expand-btn--expanded)::after
+  background-color transparent
+
+.faq-item__icon
+  flex-shrink 0
+  margin-right 10px
+  padding-left 3px
+  width 27px
+  height 30px
+  border-radius 50%
+  background-color $handwriting-font-color
+  color $accent-green-color
+  box-shadow: 0 0 5px 0 rgba(1, 3, 4, 0.19);
+  text-align center
+  line-height 30px
+  transition $animation-speed
+
+.faq-item__expand-btn:active
+  transform none
+
+.faq-item__expand-btn:hover .faq-item__icon,
+.faq-item__expand-btn:focus .faq-item__icon
+  transform rotate(90deg)
+
+.faq-item__expand-btn--expanded .faq-item__icon
+  background-color $accent-green-color
+  color $handwriting-font-color
+  box-shadow none
+  transform rotate(90deg)
+
+.faq-item__expand-btn--expanded:hover .faq-item__icon,
+.faq-item__expand-btn--expanded:focus .faq-item__icon
+  transform rotate(-90deg)
+
+.faq-item__answer
+  margin-left 0
+  max-height 0
+  font-family $secondary-font
+  font-size 13px
+  font-weight 400
+  color $secondary-font-color
+  text-align left
+  transition $animation-speed
+  overflow hidden
+
+.faq-item__answer--expanded
+  max-height 400px
+  padding-bottom 30px
+
+@media (min-width: 800px)
+  .faq-item__icon
+    margin-right 15px
+
+  .faq-item__answer
+    font-size 15px
+    letter-spacing 0.5px
+
+  .faq-item__container:last-child .faq-item__answer
+    padding-bottom 0
+
+@media (min-width: 1000px)
+  .faq-item__expand-btn
+    font-size 16px
+    margin-bottom 45px
+
+  .faq-item__expand-btn::after
+    bottom -22px
+
+  .faq-item__icon
+    padding-left 3px
+    width 33px
+    height 36px
+    line-height 36px
+
+@media (min-width: 1200px)
+  .faq-item__expand-btn
+    font-size 18px
