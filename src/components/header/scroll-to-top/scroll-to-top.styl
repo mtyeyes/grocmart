@@ -1,0 +1,41 @@
+@import '../../../variables.styl'
+
+.scroll-to-top-btn
+  visibility hidden
+  position fixed
+  right 20px
+  bottom -50px
+  width 50px
+  height 50px
+  opacity 0
+  background-color $accent-color
+  border-radius 50%
+  transition $animation-speed
+  text-align center
+  font-size 20px
+  line-height 50px
+  color $handwriting-font-color
+  z-index 40
+
+.scroll-to-top-btn--shown
+  visibility visible
+  bottom 20px
+  opacity 0.5
+
+.scroll-to-top-btn--shown:focus,
+.scroll-to-top-btn--shown:hover
+  opacity 1
+
+@media(min-width 550px)
+  .scroll-to-top-btn
+    right 25px
+
+  .scroll-to-top-btn--shown
+    bottom 25px
+
+@media(min-width 1000px)
+  .scroll-to-top-btn
+    right 40px
+
+  .scroll-to-top-btn--shown
+    bottom 40px

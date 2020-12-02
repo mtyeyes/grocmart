@@ -9,12 +9,20 @@ const filename = ext => {
   isDev ? `[name].${ext}` : `[name].[hash].${ext}` ;
 }
 const optimization = () => {
-  if(isDev) {return};
+  if (isDev) {return};
   return {
     minimize: true,
     minimizer: [
       new TerserWebpackPlugin(),
     ]
+  };
+};
+
+const liveReloadBugfix = () => {
+  if (isDev) {
+    return 'web';
+  } else {
+    return 'browserslist';
   };
 };
 
@@ -54,6 +62,7 @@ module.exports = {
     })
   ],
   optimization: optimization(),
+  target: liveReloadBugfix(),
   module: {
     rules: [
       {
