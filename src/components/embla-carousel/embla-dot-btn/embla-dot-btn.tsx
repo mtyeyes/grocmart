@@ -6,8 +6,7 @@ import Button from '../../button/button';
 type Props = {
   uniqueClassName: string,
   selected: boolean,
-  onClick: (index: number) => void,
-  [key: string]: any,
+  onClick: () => void,
 }
 
 const EmblaDotButton: React.FC<Props> = ({ uniqueClassName, selected, onClick, ...props }) => {

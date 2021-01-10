@@ -4,10 +4,9 @@ import './burger-btn.styl';
 import Button from '../../../button/button';
 
 type Props = {
-  onClick?: (...args: any) => void,
+  onClick?: () => void,
   btnTitle: string,
   className?: string,
-  [key: string]: any
 }
 
 const BurgerBtn: React.FC<Props> = ({ btnTitle, onClick, className, ...props }) => {

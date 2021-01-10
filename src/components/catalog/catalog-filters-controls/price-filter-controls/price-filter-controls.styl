@@ -1,0 +1,65 @@
+@import '../../../../variables.styl'
+.price-filter__container
+  margin 0 10px
+  padding-top 10px 0 0 0
+  border none
+  overflow hidden
+  order 1
+
+.price-filter__heading
+  padding-bottom 14px
+  font-family $main-font
+  font-size 14px
+  font-weight 600
+  color $main-font-color
+  letter-spacing 1px
+  text-transform uppercase
+  text-align center
+  border-bottom 1px solid #e1e1e1
+
+.price-filter
+  height 16px
+  margin 25px 0
+
+.price-filter__thumb
+  width 6px
+  height 16px
+  background-color $accent-green-color
+  transform translateY(-5px)
+  transition $animation-speed
+  cursor grab
+
+.price-filter__thumb--active
+  background-color $accent-color
+  transform translateY(-5px) scale(1.3)
+  cursor grabbing
+
+.price-filter__track
+  height 6px
+  width 100%
+  transition $animation-speed
+
+.price-filter__track-0,
+.price-filter__track-2
+  background-color #f5f5f5
+
+.price-filter__track-1
+  background-color $accent-green-color
+
+@media (min-width: 590px)
+  .price-filter__container
+    grid-area price
+
+  .price-filter__heading
+    margin-top 10px
+
+@media (min-width: 800px)
+  .price-filter__heading
+    font-size 16px
+
+@media (min-width: 1000px)
+  .price-filter__container
+    margin 0
+
+  .price-filter__heading
+    text-align left

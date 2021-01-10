@@ -6,13 +6,15 @@ import Icon from '../icon/icon';
 import LinkAsButton from '../link-as-button/link-as-button';
 import Button from '../button/button';
 
-type Props = {
+import { DispatchCartAction } from '../../store/cart/types';
+
+export type Props = {
   productId: string,
   priceBeforeDiscounts: string,
   priceAfterDiscounts: string,
   productName: string,
   productRating: number,
-  addToCart: any,
+  addToCart: DispatchCartAction,
 }
 
 const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart }) => {

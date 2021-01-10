@@ -35,7 +35,7 @@ const SpecialOffers: React.FC = () => {
   const specialOffersMapCallback = (productId: string) => {
     const { name, price } = productsState[productId];
     const priceBeforeDiscounts = price.toLocaleString('en-US', {style:'currency', currency:'USD'});
-    const priceAfterDiscounts = countPriceAfterDiscounts(productId).toLocaleString('en-US', {style:'currency', currency:'USD'});
+    const priceAfterDiscounts = countPriceAfterDiscounts(productId, 'return stringAsCurrency');
     return <SpecialOfferItem productName={name} productId={productId} priceBeforeDiscounts={priceBeforeDiscounts} priceAfterDiscounts={priceAfterDiscounts} key={productId} />;
   };
 

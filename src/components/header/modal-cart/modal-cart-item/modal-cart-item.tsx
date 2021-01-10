@@ -5,13 +5,15 @@ import Button from '../../../button/button';
 import HiddenText from '../../../hidden-text/hidden-text';
 import Icon from '../../../icon/icon';
 
+import { DispatchCartAction } from '../../../../store/cart/types';
+
 type Props = {
   productId: string,
   productPrice: string,
   productName: string,
   quantity: number,
-  increment: any,
-  decrement: any,
+  increment: DispatchCartAction,
+  decrement: DispatchCartAction,
 }
 
 const ModalCartItem: React.FC<Props> = ({ productId, productName, quantity, productPrice, increment, decrement }) => {

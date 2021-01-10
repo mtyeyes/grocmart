@@ -1,0 +1,55 @@
+@import '../../../variables.styl'
+.sorting-controls
+  position relative
+  font-family $main-font
+  font-size 14px
+  text-align center
+  letter-spacing 0.5px
+  color $main-font-color
+
+.sorting-controls__btn
+  margin 0 auto
+
+.sorting-controls__btn:focus,
+.sorting-controls__btn:hover
+  color $accent-green-color
+
+.sorting-controls__btn-icon
+  display inline-block
+  transform rotate(90deg)
+  transition $animation-speed
+
+.sorting-controls__btn-icon--toggled
+  transform rotate(270deg)
+
+.sorting-controls__input
+  display none
+
+.sorting-controls__label
+  display block
+  padding 5px 0
+  width 100%
+  cursor pointer
+  transition: $animation-speed
+
+.sorting-controls__label:hover,
+.sorting-controls__label:focus
+  background-color $accent-green-color
+  color $handwriting-font-color
+
+.sorting-controls__list
+  position absolute
+  top 200%
+  left calc(50% - 80px)
+  width 160px
+  opacity 0
+  visibility hidden
+  transition $animation-speed
+  z-index 30
+
+.sorting-controls__list--toggled
+  top 120%
+  background-color #ffffff
+  filter drop-shadow(0 0 4px rgba(0, 0, 0, 0.5))
+  visibility visible
+  opacity 1

@@ -40,13 +40,13 @@ const ModalCart: React.FC = () => {
 
   const countTotalPrice = () => {
     let totalPrice = 0;
-    Object.entries(cartState).forEach(([productId, quantity]) => totalPrice += (countPriceAfterDiscounts(productId) * quantity));
+    Object.entries(cartState).forEach(([productId, quantity]) => totalPrice += (countPriceAfterDiscounts(productId, 'return number') * quantity));
     return totalPrice.toLocaleString('en-US', {style:'currency', currency:'USD'});
   };
 
   const cartMapCallback = (productId: string) => {
     const productData = productsState[productId];
-    const productFinalPrice = (countPriceAfterDiscounts(productId) * cartState[productId]).toLocaleString('en-US', {style:'currency', currency:'USD'});
+    const productFinalPrice = (countPriceAfterDiscounts(productId, 'return number') * cartState[productId]).toLocaleString('en-US', {style:'currency', currency:'USD'});
     return <ModalCartItem
       productId={productId}
       key={productId}

@@ -64,7 +64,7 @@ const MasonryGallery: React.FC = () => {
   }, [filterState, galleryState, productsState]);
 
   const galleryMapCallback = ({ imageName, imageDescription, productId }: GalleryStateItem) => {
-    const productFinalPrice = countPriceAfterDiscounts(productId).toLocaleString('en-US', {style:'currency', currency:'USD'});
+    const productFinalPrice = countPriceAfterDiscounts(productId, 'return stringAsCurrency');
     return(
       <li className="gallery-item__wrapper" key={imageName}>
         <GalleryItem

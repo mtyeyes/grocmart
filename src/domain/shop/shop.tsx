@@ -3,15 +3,14 @@ import React from 'react';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
+import Catalog from '../../components/catalog/catalog';
 
 const Shop: React.FC = () => {
   return (
     <>
       <Header />
       <Breadcrumbs />
-      <div style={{height: '90vh', backgroundColor: '#606060', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <p style={{fontSize: '32px', color: '#FFDD00', textTransform: 'uppercase'}}>Under Construction</p>
-      </div>
+      <Catalog />
       <Footer />
     </>
   );

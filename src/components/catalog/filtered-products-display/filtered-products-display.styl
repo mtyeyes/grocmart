@@ -1,0 +1,96 @@
+@import '../../../variables.styl'
+.products-display__sorting-and-info-wrapper
+  margin-bottom 30px
+
+.products-display__range-info
+  font-family $secondary-font
+  font-size 13px
+  letter-spacing 0.5px
+  text-align center
+  color $main-font-color
+
+.products-display__list
+  position relative
+  display flex
+  flex-direction column
+  flex-wrap nowrap
+  width 100%
+  height auto
+
+.products-display__item
+  position relative
+  width 290px
+  height 350px
+  margin 0 auto 30px
+
+@media (min-width: 590px)
+  .products-display__sorting-and-info-wrapper
+    display flex
+    width 530px
+    margin 0 auto
+    justify-content space-between
+    align-items center
+
+  .products-display__range-info
+    order -1
+    font-size 15px
+
+  .products-display__list
+    position relative
+    display flex
+    flex-direction row
+    justify-content space-between
+    margin 0 auto
+    flex-wrap wrap
+    width 530px
+    height auto
+
+  .products-display__item
+    width 240px
+    margin 10px 0 30px
+
+@media (min-width: 800px)
+  .products-display__sorting-and-info-wrapper
+    width 780px
+
+  .products-display__list
+    width 780px
+    justify-content flex-start
+
+  .products-display__item
+    margin-right 30px
+
+@media (min-width: 800px) and (max-width: 999px)
+  .products-display__item:nth-of-type(3n)
+    margin-right 0
+
+@media (min-width: 1000px)
+  .products-display__sorting-and-info-wrapper
+    width 610px
+
+  .products-display__list
+    width 610px
+
+  .products-display__item
+    width 290px
+    height 340px
+
+@media (min-width: 1000px) and (max-width: 1219px)
+  .products-display__item:nth-of-type(2n)
+    margin-right 0
+
+@media (min-width: 1220px)
+  .products-display__sorting-and-info-wrapper
+    width 870px
+    margin-bottom 20px
+
+  .products-display__list
+    width 870px
+    min-height 750px
+
+  .products-display__item
+    width 270px
+    height 335px
+
+  .products-display__item:nth-of-type(3n)
+    margin-right 0

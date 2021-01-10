@@ -6,12 +6,14 @@ import Icon from '../../icon/icon';
 import LinkAsButton from '../../link-as-button/link-as-button';
 import Button from '../../button/button';
 
+import { DispatchCartAction } from '../../../store/cart/types';
+
 type Props = {
   imgUrl: string,
   imgDescription: string,
   productId: string,
   productPrice: string,
-  addToCart: any,
+  addToCart: DispatchCartAction,
 }
 
 const GalleryItem: React.FC<Props> = ({ imgUrl, imgDescription, productId, productPrice, addToCart }) => {

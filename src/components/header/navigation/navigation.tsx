@@ -4,6 +4,10 @@ import './navigation.styl';
 import BurgerBtn from './burger-btn/burger-btn';
 import NavigationTab from './navigation-tab/navigation-tab';
 
+export type Links = {
+  [key: string]: string,
+}
+
 const Navigation: React.FC = () => {
   const [menuToggled, menuToggle] = useState(false);
 

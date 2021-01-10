@@ -1,0 +1,32 @@
+@import '../../variables.styl'
+.pagination__list
+  display flex
+  justify-content center
+  padding 0
+  margin 0 0 30px
+  list-style none
+
+.pagination__link
+  margin 0 8px
+  font-family $main-font
+  color $main-font-color
+  transition $animation-speed
+  cursor pointer
+
+.pagination__link:hover,
+.pagination__link:focus
+  color $accent-green-color
+
+.pagination__list .pagination__link--disabled
+  color $secondary-font-color
+  cursor default
+
+.pagination__list .pagination__link--selected
+  color $accent-color
+  cursor default
+
+.pagination__item--arrow:first-of-type
+  margin 0 50px 0 20px
+
+.pagination__item--arrow:last-of-type
+  margin 0 20px 0 50px

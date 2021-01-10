@@ -1,0 +1,26 @@
+@import '../../variables.styl'
+.rating-select__list
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  justify-content center
+
+.rating-select__item
+  margin 5px 0
+
+.rating-select__input
+  display none
+
+.rating-select__label
+  color #FFCC00
+  font-size 22px
+  cursor pointer
+
+.rating-select__label:hover,
+.rating-select__label:focus,
+.rating-select__label--selected
+  color $accent-green-color
+
+.rating-select__label--selected:hover,
+.rating-select__label--selected:focus
+  color $accent-color

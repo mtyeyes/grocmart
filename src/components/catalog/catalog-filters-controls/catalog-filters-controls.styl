@@ -1,0 +1,67 @@
+@import '../../../variables.styl'
+.filter-controls fieldset
+  padding 0
+  border none
+
+.filter-controls
+  display flex
+  flex-direction column
+  flex-wrap nowrap
+  margin 50px auto
+
+.filter-controls__wrapper
+  order 2
+  margin 0 10px 30px
+  display flex
+  justify-content space-between
+  flex-wrap nowrap
+
+.filter-controls__btn
+  width 90px
+  height 30px
+  font-family $main-font
+  font-size 12px
+  font-weight 700
+  letter-spacing 1px
+  text-transform uppercase
+  text-align center
+  line-height 30px
+  background-color $accent-color
+  border-radius 6px
+  color $handwriting-font-color
+  transition $animation-speed
+
+.filter-controls__btn:focus,
+.filter-controls__btn:hover
+  background-color $darker-accent-color
+
+.filter-controls__price-range-info
+  align-self center
+  margin 0
+  font-family $main-font
+  font-size 15px
+  letter-spacing 1.7px
+  color $main-font-color
+
+@media (min-width: 590px)
+  .filter-controls
+    display grid
+    width 560px
+    grid-template-areas: 'price price' 'controls controls' 'categories rating' 'categories name'
+
+  .filter-controls__wrapper
+    grid-area controls
+
+  .filter-controls__btn
+    height 40px
+    line-height 40px
+
+@media (min-width: 1000px)
+  .filter-controls
+    display flex
+    margin 0 0 30px
+    flex-direction column
+    width 300px
+
+  .filter-controls__wrapper
+    margin 0 0 30px

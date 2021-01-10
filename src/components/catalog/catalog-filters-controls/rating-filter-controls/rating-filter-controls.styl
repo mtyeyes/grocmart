@@ -1,0 +1,35 @@
+@import '../../../../variables.styl'
+.rating-filter__conatainer
+  margin 0 10px 30px
+  order 3
+
+.rating-filter__heading
+  padding-bottom 14px
+  font-family $main-font
+  font-size 14px
+  font-weight 600
+  color $main-font-color
+  letter-spacing 1px
+  text-transform uppercase
+  text-align center
+  border-bottom 1px solid #e1e1e1
+
+@media (min-width: 590px)
+  .rating-filter__conatainer
+    grid-area rating
+    margin-bottom 10px
+
+  .rating-filter__heading
+    margin-top 0
+
+@media (min-width: 800px)
+  .rating-filter__heading
+    font-size 16px
+
+@media (min-width: 1000px)
+  .rating-filter__conatainer
+    margin 0 0 30px
+
+  .rating-filter__heading
+    margin-top 16px
+    text-align left

@@ -63,10 +63,17 @@ const LatestArrivals: React.FC = () => {
     const { name, price, userScore } = productsState[productId];
     const averageUserScore = (userScore.reduce((a: number, b: number) => a + b))/userScore.length;
     const priceBeforeDiscounts = price.toLocaleString('en-US', {style:'currency', currency:'USD'});
-    const priceAfterDiscounts = countPriceAfterDiscounts(productId).toLocaleString('en-US', {style:'currency', currency:'USD'});
+    const priceAfterDiscounts = countPriceAfterDiscounts(productId, 'return stringAsCurrency');
     return(
       <li className="latest-arrivals__item-wrapper" key={productId}>
-        <ProductCard productId={productId} productName={name} priceBeforeDiscounts={priceBeforeDiscounts} priceAfterDiscounts={priceAfterDiscounts} productRating={averageUserScore} addToCart={addProductToCart}/>
+        <ProductCard
+          productId={productId}
+          productName={name}
+          priceBeforeDiscounts={priceBeforeDiscounts}
+          priceAfterDiscounts={priceAfterDiscounts}
+          productRating={averageUserScore}
+          addToCart={addProductToCart}
+        />
       </li>
     );
   };

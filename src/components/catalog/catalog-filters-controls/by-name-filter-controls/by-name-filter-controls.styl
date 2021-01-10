@@ -1,0 +1,34 @@
+@import '../../../../variables.styl'
+.name-filter__container
+  margin 0 10px
+  order 3
+
+.name-filter__input
+  width 100%
+  padding 10px 20px
+  font-family $secondary-font
+  font-size 14px
+  font-weight 400
+  line-height 38px
+  letter-spacing 1px
+  background-color #f9faf9
+  color $main-font
+  box-sizing border-box
+
+.name-filter__input::placeholder
+  color $secondary-font-color
+
+@media (min-width: 590px)
+  .name-filter__container
+    grid-area name
+    align-self end
+
+@media (min-width: 800px)
+  .name-filter__input
+    font-size 16px
+
+@media (min-width: 590px)
+  .name-filter__container
+    width 100%
+    margin 0
+    padding 16px 10px 0

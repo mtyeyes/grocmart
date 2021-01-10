@@ -11,7 +11,7 @@ type AdvantagesItem = {
 
 const Advantages: React.FC = () => {
   const advantagesItems: AdvantagesItem[] = [{
-    icon: 'olive',
+    icon: 'thumbs-up',
     title: 'Quality products',
     text: 'We work with the best suppliers to offer our customers the fresh grocery products of the highest quality.',
   },

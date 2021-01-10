@@ -7,8 +7,7 @@ type Props = {
   uniqueClassName: string,
   nextOrPrevious: 'next' | 'previous',
   enabled: boolean,
-  onClick: (this: Window, ev: MouseEvent) => any | null,
-  [key: string]: any,
+  onClick: (e?: React.MouseEvent<HTMLElement>) => void,
 }
 
 const EmblaButton: React.FC<Props> = ({ uniqueClassName, nextOrPrevious, enabled, onClick, ...props }) => {

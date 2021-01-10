@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, SetStateAction } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 import './embla-carousel.styl';
 
@@ -62,7 +62,7 @@ const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtns
   useEffect(() => {
     if (!embla) return;
     onSelect();
-    setScrollSnaps(embla.scrollSnapList() as any);
+    setScrollSnaps(embla.scrollSnapList() as SetStateAction<never[]>);
     embla.on('select', onSelect);
     embla.on('pointerDown', stop);
   }, [embla, setScrollSnaps, onSelect, stop]);
