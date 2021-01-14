@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
-// export type StateKeys = 'cart' | 'products' | 'discounts';
 export type StateKeys = Exclude<keyof AppState, typeof $CombinedState>;
 
 const configureStore = (preloadedState: {}) => (

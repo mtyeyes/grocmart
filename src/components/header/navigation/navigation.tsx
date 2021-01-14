@@ -17,7 +17,6 @@ const Navigation: React.FC = () => {
 
   const links = {
     'Home': '/',
-    'About us': '/about-us',
     'Shop': '/shop',
     'Gallery': '/gallery'
   };

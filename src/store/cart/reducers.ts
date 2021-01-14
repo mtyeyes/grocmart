@@ -19,15 +19,16 @@ export const cartReducer = (state = initialState, action: CartActionTypes): Cart
     };
   }
   case REMOVE_FROM_CART: {
-    const productId = action.payload;
-    if (state[productId] <= 1) {
+    const productId = action.payload.productId;
+    if (state[productId] <= 1 || action.payload.isRemoveAll) {
       const newState = {...state};
       delete newState[productId];
       return newState;
+    } else {
+      return { ...state,
+        [productId]: state[productId] - 1
+      };
     }
-    return { ...state,
-      [productId]: state[productId] - 1
-    };
   }
   default:
     return state;

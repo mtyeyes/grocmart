@@ -15,7 +15,7 @@ import LinkAsButton from '../../link-as-button/link-as-button';
 const ModalCart: React.FC = () => {
   const dispatch: any = useDispatch();
   const addProductToCart: DispatchCartAction = productId => dispatch(addToCart(productId));
-  const removeProductFromCart: DispatchCartAction = productId => dispatch(removeFromCart(productId));
+  const removeProductFromCart: DispatchCartAction = productId => dispatch(removeFromCart(productId, false));
 
   const selectProductsState = (state: AppState) => {return state.products};
   const selectCartState = (state: AppState) => {return state.cart};
@@ -69,7 +69,7 @@ const ModalCart: React.FC = () => {
           {Object.keys(cartState).map(cartMapCallback as typeof cartMapCallback)}
         </ul>
         <div className="modal-cart__bottom-wrapper">
-          <LinkAsButton className="modal-cart__link-btn" to="/cart" subtype="rectangular-green">Go to cart</LinkAsButton>
+          <LinkAsButton className="modal-cart__link-btn" to="/shop/cart" subtype="rectangular-green">Go to cart</LinkAsButton>
           <LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">Checkout</LinkAsButton>
         </div>
       </Loader>

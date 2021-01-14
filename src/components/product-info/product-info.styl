@@ -1,0 +1,101 @@
+@import '../../variables.styl'
+.product-info
+  position relative
+  margin 50px auto 0
+  min-height 300px
+  max-width 400px
+  width calc(100% - 30px)
+
+.product-info__image
+  padding 20px
+  width 100%
+  background-color #f9faf9
+  box-sizing border-box
+
+.product-info__name
+  margin-top 30px
+  font-family $main-font
+  font-size 22px
+  letter-spacing 1px
+  font-weight 500
+  text-transform capitalize
+  color $main-font-color
+
+.product-info__price-and-rating-wrapper
+  display flex
+  margin-top 20px
+  justify-content flex-start
+
+.product-info__price
+  margin 0 30px 0 0
+  font-family $main-font
+  font-size 24px
+  font-weight 500
+  letter-spacing 1px
+  color $accent-green-color
+
+.product-info__description
+  margin-top 20px
+  padding-bottom 10px
+  font-family $secondary-font
+  font-size 13px
+  font-weight 400
+  line-height 1.6
+  letter-spacing 0.5px
+  color $main-font-color
+  border-bottom 1px solid #e1e1e1
+
+.product-info__buy-and-social
+  margin-top 20px
+  display flex
+  justify-content space-between
+  align-content center
+
+.product-info__trade-btn
+  padding 0 10px
+  font-family $main-font
+  font-size 12px
+  font-weight 700
+  letter-spacing 1px
+  text-transform uppercase
+  text-align center
+  line-height 45px
+  background-color $accent-color
+  border-radius 6px
+  color $handwriting-font-color
+  transition $animation-speed
+
+.filter-controls__btn:focus,
+.filter-controls__btn:hover
+  background-color $darker-accent-color
+
+.product-info__wrong-product-disclaimer
+  position absolute
+  top 50%
+  left 0
+  width 100%
+  display block
+  font-family $secondary-font
+  font-size 34px
+  text-align center
+  color $secondary-font-color
+  transform translateY(-50%)
+
+@media (min-width: 360px)
+  .product-info__trade-btn
+    padding 0 25px
+
+@media (min-width: 740px)
+  .product-info
+    display flex
+    justify-content space-between
+    width 700px
+    max-width none
+
+  .product-info__image
+    width 320px
+    padding 30px
+    align-self center
+
+  .product-info__details
+    width 340px

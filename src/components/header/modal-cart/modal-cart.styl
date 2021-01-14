@@ -19,7 +19,7 @@
   transition $animation-speed
 
 .modal-toggler__btn:active+.modal-cart__container
-  opacity: 0
+  opacity 0
   transform translate(0, 10%)
 
 .modal-cart__container::after
@@ -30,7 +30,7 @@
   width 28px
   height 28px
   clip-path polygon(100% 0, 0% 100%, 100% 100%)
-  background-color: #ffffff
+  background-color #ffffff
 
 .modal-cart__top-wrapper
   flex-grow 0
@@ -63,13 +63,13 @@
   line-height inherit
   color inherit
   min-height 200px
-  max-height 420px
+  max-height 300px
   overflow-y auto
   width calc(100% - 40px)
 
 .modal-cart__bottom-wrapper
   flex-grow 0
-  display: flex
+  display flex
   justify-content space-between
   padding 20px
   border-top 1px solid #e1e1e1
@@ -85,6 +85,9 @@
   .modal-cart__products-list,
   .modal-cart__bottom-wrapper
     padding 10px
+
+  .modal-cart__products-list
+    max-height 255px
 
   .modal-cart__link-btn
     width 145px

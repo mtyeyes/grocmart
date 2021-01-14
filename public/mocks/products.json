@@ -5,6 +5,7 @@
     "price": 15.00,
     "userScore": [5,4,3,4,3,5],
     "dateOfArrival": "Wed Sep 02 2020 11:04:09",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "potatoes": {
@@ -13,6 +14,7 @@
     "price": 13.00,
     "userScore": [5,2,3,1,4,2],
     "dateOfArrival": "Thu Jul 02 2020 22:22:38",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing"
   },
   "carrots": {
@@ -21,6 +23,7 @@
     "price": 17.00,
     "userScore": [5,2,3,4,2],
     "dateOfArrival": "Sun Sep 27 2020 03:17:38",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, c dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "cabbages": {
@@ -29,6 +32,7 @@
     "price": 10.00,
     "userScore": [3,3,5,4,2],
     "dateOfArrival": "Sat Jul 11 2020 22:06:57",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore eteniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "bread": {
@@ -37,6 +41,7 @@
     "price": 11.00,
     "userScore": [4,1,3,2,2],
     "dateOfArrival": "Sun Aug 23 2020 13:19:05",
+    "weight": 0.3,
     "description": "Lorem ipsum dolor sit amet, consectetur adipitempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "peppers": {
@@ -45,6 +50,7 @@
     "price": 14.00,
     "userScore": [4,3,3,1,2,1,2],
     "dateOfArrival": "Fri Oct 09 2020 02:36:01",
+    "weight": 1,
     "description": "Lorem ipsum d adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "strawberries": {
@@ -53,6 +59,7 @@
     "price": 25.00,
     "userScore": [5,4,5,4,3,4,2],
     "dateOfArrival": "Tue Sep 29 2020 08:11:14",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "raspberries": {
@@ -61,6 +68,7 @@
     "price": 19.00,
     "userScore": [5,4,4,3,4],
     "dateOfArrival": "Thu Sep 24 2020 16:17:57",
+    "weight": 1,
     "description": "Lorem ipnt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "oranges": {
@@ -69,6 +77,7 @@
     "price": 22.00,
     "userScore": [5,4,4,2],
     "dateOfArrival": "Tue Jul 21 2020 10:02:16",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
   },
   "yogurt": {
@@ -77,6 +86,7 @@
     "price": 16.00,
     "userScore": [4,3,3,4],
     "dateOfArrival": "Fri Jul 31 2020 10:54:38",
+    "weight": 0.17,
     "description": "Lorem ipsum dolor sit amet, coniusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "parmesan": {
@@ -85,6 +95,7 @@
     "price": 21.00,
     "userScore": [5,3,3],
     "dateOfArrival": "Tue Sep 22 2020 11:14:52",
+    "weight": 0.3,
     "description": "Lorem ipsum dolor sit amet, con tempor incididunt ut labore et dolore mim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "broccoli": {
@@ -93,6 +104,7 @@
     "price": 6.00,
     "userScore": [1,1,2,1,2,1],
     "dateOfArrival": "Thu Sep 17 2020 04:59:11",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore im ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "radishes": {
@@ -101,6 +113,7 @@
     "price": 16.00,
     "userScore": [3,3,4,2],
     "dateOfArrival": "Mon Jul 13 2020 05:23:50",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sbore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "galia": {
@@ -109,6 +122,7 @@
     "price": 6.00,
     "userScore": [5,4,2],
     "dateOfArrival": "Fri Jul 31 2020 13:09:49",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "pears": {
@@ -117,6 +131,7 @@
     "price": 16.00,
     "userScore": [5,4,4,2,3],
     "dateOfArrival": "Sun Aug 09 2020 00:59:13",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor iolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "cucumbers": {
@@ -125,6 +140,7 @@
     "price": 22.00,
     "userScore": [3,2,4,2],
     "dateOfArrival": "Wed Jul 29 2020 22:17:17",
+    "weight": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod teme magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "milk": {
@@ -133,6 +149,7 @@
     "price": 12.00,
     "userScore": [5,4,3,3,4,2],
     "dateOfArrival": "Fri Sep 25 2020 15:51:25",
+    "weight": 1.2,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exisi ut aliquip ex ea commodo consequat."
   },
   "bagels": {
@@ -141,6 +158,7 @@
     "price": 10.00,
     "userScore": [5,4,5],
     "dateOfArrival": "Thu Aug 27 2020 14:28:21",
+    "weight": 0.1,
     "description": "Lorem ipsum dolor sit amet, iusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "bananas": {
@@ -149,6 +167,7 @@
     "price": 23.00,
     "userScore": [5,5,4,5,4,5],
     "dateOfArrival": "Sat Aug 22 2020 20:37:47",
+    "weight": 1,
     "description": "Lorem ipsum dolor spiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   }
 }

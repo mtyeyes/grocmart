@@ -1,8 +1,8 @@
 import React from 'react';
 import './social-link.styl';
 
-import HiddenText from '../../../hidden-text/hidden-text';
-import Icon, {IconId} from '../../../icon/icon';
+import HiddenText from '../../hidden-text/hidden-text';
+import Icon, {IconId} from '../../icon/icon';
 
 export type Props = {
   linkTitle: string,

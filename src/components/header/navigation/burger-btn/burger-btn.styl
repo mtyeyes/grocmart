@@ -1,19 +1,19 @@
 @import '../../../../variables.styl'
 .burger-btn
   position relative
-  display: block
-  width: 28px
-  height: 48px
-  padding: 0 6px
+  display block
+  width 28px
+  height 48px
+  padding 0 6px
 
 .burger-btn__shape
-  position: absolute
-  display: block
-  left: 50%
-  transform: translateX(-50%)
+  position absolute
+  display block
+  left 50%
+  transform translateX(-50%)
   width 60%
   height 2px
-  background-color: $main-font-color
+  background-color $main-font-color
   transition $animation-speed
 
 .burger-btn:hover .burger-btn__shape,
@@ -21,23 +21,23 @@
   background-color $accent-color
 
 .burger-btn__shape:nth-of-type(2)
-  top: 15px
+  top 15px
 
 .burger-btn__shape:nth-of-type(3)
-  top: calc(50% - 1px)
+  top calc(50% - 1px)
 
 .burger-btn__shape:last-of-type
-  bottom: 15px
+  bottom 15px
 
 .burger-btn--toggled .burger-btn__shape:nth-of-type(2)
-  top: calc(50% - 1px)
-  left: 15%
-  transform: rotate(45deg)
+  top calc(50% - 1px)
+  left 15%
+  transform rotate(45deg)
 
 .burger-btn--toggled .burger-btn__shape:last-of-type
-  top: calc(50% - 1px)
-  left: 15%
-  transform: rotate(-45deg)
+  top calc(50% - 1px)
+  left 15%
+  transform rotate(-45deg)
 
 .burger-btn--toggled .burger-btn__shape:nth-of-type(3)
-  opacity: 0
+  opacity 0

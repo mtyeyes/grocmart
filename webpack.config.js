@@ -34,6 +34,7 @@ module.exports = {
   },
   output: {
     filename: filename('js'),
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {

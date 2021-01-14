@@ -16,6 +16,7 @@ import RatingFilterControls from './catalog-filters-controls/rating-filter-contr
 import SortingSelect from './sorting-select/sorting-select';
 import FilteredProductsDisplay from './filtered-products-display/filtered-products-display';
 import {Props as ProductCardProps} from '../product-card/product-card';
+import useFindAverage from '../../hooks/use-find-average';
 
 export type FilterState = {
   price: PriceFilter,
@@ -71,6 +72,7 @@ const Catalog: React.FC = () => {
   };
   
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
+  const findAverage = useFindAverage();
   const dispatch: any = useDispatch();
   const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState);
   const [numberOfItemsInCategories, setNumberOfItemsInCategories] = useState({} as NumberOfItemsInCategories);
@@ -110,9 +112,7 @@ const Catalog: React.FC = () => {
       const sortByRating = (productAId: string, productBId: string) => {
         const AUserScoreArr = productsState[productAId].userScore;
         const BUserScoreArr = productsState[productBId].userScore;
-        const AAverageScore = AUserScoreArr.reduce((acc, value) => acc + value) / AUserScoreArr.length;
-        const BAverageScore = BUserScoreArr.reduce((acc, value) => acc + value) / BUserScoreArr.length;
-        return BAverageScore - AAverageScore;
+        return findAverage(BUserScoreArr) - findAverage(AUserScoreArr);
       };
       setSortedProducts(Object.keys(productsState).sort(sortByRating));
       break;
@@ -139,7 +139,7 @@ const Catalog: React.FC = () => {
         productName: productsState[productId].name,
         priceBeforeDiscounts: productsState[productId].price.toLocaleString('en-US', {style:'currency', currency:'USD'}),
         priceAfterDiscounts: countPriceAfterDiscounts(productId, 'return stringAsCurrency'),
-        productRating: reduceRatingsToAverage(productsState[productId].userScore),
+        productRating: findAverage(productsState[productId].userScore),
         addToCart: addProductToCart
       };
     });
@@ -171,7 +171,7 @@ const Catalog: React.FC = () => {
     if (targetRating) {
       return productsIds.filter(productId => {
         const ratingsArray = productsState[productId].userScore;
-        return Math.round(reduceRatingsToAverage(ratingsArray)) >= targetRating;
+        return Math.round(findAverage(ratingsArray)) >= targetRating;
       });
     } else {
       return productsIds;
@@ -210,10 +210,6 @@ const Catalog: React.FC = () => {
     }, {} as NumberOfItemsInCategories);
     setNumberOfItemsInCategories(newState);
     return productsIds;
-  };
-
-  const reduceRatingsToAverage = (ratingsArray: number[]) => {
-    return ratingsArray.reduce((acc, value) => acc + value) / ratingsArray.length;
   };
 
   return (

@@ -36,6 +36,7 @@ const Header: React.FC = () => {
           </ModalToggler>
         </div>
       </header>
+      <div className="header__phantom" />
       <ScrollToTopBtn isShown={scrollToTopVisibility}/>
     </>
   );

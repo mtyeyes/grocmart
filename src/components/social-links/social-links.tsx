@@ -1,9 +1,10 @@
 import React from 'react';
-import './social.styl';
+import './social-links.styl';
+
 import SocialLink, { Props as SocialLinkType } from './social-link/social-link';
 
-const Social: React.FC = () => {
-  const socialLinks: SocialLinkType[] = [
+const SocialLinks: React.FC = ({children}) => {
+  const links: SocialLinkType[] = [
     {
       linkTitle: 'Facebook',
       link: 'https://www.facebook.com',
@@ -26,18 +27,18 @@ const Social: React.FC = () => {
     }
   ];
 
-  const socialLinksMapCallback = ({linkTitle, link, iconId}: SocialLinkType) => {
+  const linksMapCallback = ({linkTitle, link, iconId}: SocialLinkType) => {
     return <SocialLink linkTitle={linkTitle} key={iconId} link={link} iconId={iconId} />;
   };
 
   return (
     <div className="social-link__container">
-      <h4 className="social-link__heading">Get social</h4>
+      <h4 className="social-link__heading">{children}</h4>
       <ul className="social-link__list">
-        {socialLinks.map(socialLinksMapCallback as typeof socialLinksMapCallback)}
+        {links.map(linksMapCallback as typeof linksMapCallback)}
       </ul>
     </div>
   );
 };
 
-export default Social;
+export default SocialLinks;

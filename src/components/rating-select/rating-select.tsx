@@ -5,8 +5,8 @@ import HiddenText from '../hidden-text/hidden-text';
 import Icon, { IconId } from '../icon/icon';
 
 type Props = {
-  selectedRating: null | number,
-  defaultRating?: null | number,
+  selectedRating: null | number | undefined,
+  defaultRating?: null | number | undefined,
   setSelectedRating: (rating: null | number) => void
 }
 

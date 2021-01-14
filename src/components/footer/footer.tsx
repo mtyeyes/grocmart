@@ -3,7 +3,7 @@ import './footer.styl';
 
 import Logo from '../logo/logo';
 import WorkingHours from './working-hours/working-hours';
-import Social from './social/social';
+import SocialLinks from '../social-links/social-links';
 import Contacts from './contacts/contacts';
 import Newsletter from './newsletter/newsletter';
 
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         <div className="footer__container">
           <Logo className="footer__logo" />
           <WorkingHours />
-          <Social />
+          <SocialLinks>Get social</SocialLinks>
         </div>
         <div className="footer__container">
           <Contacts />

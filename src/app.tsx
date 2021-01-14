@@ -7,10 +7,10 @@ import useSyncStateWithLocalStorage from './hooks/use-sync-state-with-local-stor
 import ScrollReset from './components/scroll-reset/scroll-reset';
 import Home from './domain/home/home';
 import Error from './domain/error/error';
-import About from './domain/about/about';
 import Shop from './domain/shop/shop';
 import Cart from './domain/cart/cart';
 import Gallery from './domain/gallery/gallery';
+import Product from './domain/product/product';
 
 const App = () => {
   const currentState: AppState = useStore().getState();
@@ -20,9 +20,9 @@ const App = () => {
       <ScrollReset />
       <Switch>
         <Route exact path='/' component={ Home } />
-        <Route exact path='/about-us' component={ About }/>
         <Route exact path='/shop' component={ Shop }/>
-        <Route exact path='/cart' component={ Cart }/>
+        <Route exact path='/shop/cart' component={ Cart }/>
+        <Route path='/shop/:productId' component={ Product }/>
         <Route exact path='/gallery' component={ Gallery }/>
         <Route path='*' component={ Error }/>
       </Switch>

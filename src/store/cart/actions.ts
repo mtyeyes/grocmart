@@ -14,9 +14,9 @@ export const addToCart = (productId: ProductId) => {
   };
 };
 
-export const removeFromCart = (productId: ProductId) => {
+export const removeFromCart = (productId: ProductId, isRemoveAll: boolean) => {
   return {
     type: REMOVE_FROM_CART,
-    payload: productId,
+    payload: {productId, isRemoveAll},
   };
 };

@@ -24,7 +24,7 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 interface RemoveFromCartAction {
   type: typeof REMOVE_FROM_CART,
-  payload: ProductId,
+  payload: {productId: ProductId, isRemoveAll: boolean},
 }
 
 export type CartActionTypes = LoadCartStateAction | AddToCartAction | RemoveFromCartAction;
