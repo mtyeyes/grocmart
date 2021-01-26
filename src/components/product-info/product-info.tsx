@@ -4,7 +4,7 @@ import './product-info.styl';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 import useFindAverage from '../../hooks/use-find-average';
 import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
-import { AppState } from '../../store/index';
+import { AppState, AppDispatch } from '../../store/index';
 import { ProductInfo } from '../../store/products/types';
 import { addToCart, removeFromCart } from '../../store/cart/actions';
 import { setCurrentUserScoreAction, removeCurrentUserScoreAction } from '../../store/products/actions';
@@ -20,7 +20,7 @@ type Props = {
 }
 
 const ProductInfo: React.FC<Props> = ({ productId }) => {
-  const dispatch: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const findAverage = useFindAverage();
   const currentState = useStore().getState();
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
@@ -38,7 +38,14 @@ const ProductInfo: React.FC<Props> = ({ productId }) => {
   const transferData = (requestResults: { [key: string]: any }) => {
     Object.entries(requestResults).forEach(([key, data]) => {
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      dispatch({type: `LOAD_${key.toUpperCase()}_STATE`, payload: data});
+      switch(key) {
+      case('products'):
+        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+        break;
+      case('discounts'):
+        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+        break;
+      }
     });
   };
 

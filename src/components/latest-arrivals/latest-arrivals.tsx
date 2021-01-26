@@ -3,9 +3,8 @@ import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import FlipMove from 'react-flip-move';
 import './latest-arrivals.styl';
 
-import { AppState } from '../../store';
+import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
-import { DispatchCartAction } from '../../store/cart/types';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
@@ -13,8 +12,8 @@ import FilterWithUnderline, {FilterState} from '../filter-with-underline/filter-
 import ProductCard from '../product-card/product-card';
 
 const LatestArrivals: React.FC = () => {
-  const dispatch: any = useDispatch();
-  const addProductToCart: DispatchCartAction = productId => dispatch(addToCart(productId));
+  const dispatch = useDispatch<AppDispatch>();
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
 
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const [newestProducts, setNewestProducts] = useState([] as string[]);
@@ -31,7 +30,14 @@ const LatestArrivals: React.FC = () => {
   const transferData = (requestResults: { [key: string]: any }) => {
     Object.entries(requestResults).forEach(([key, data]) => {
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      dispatch({type: `LOAD_${key.toUpperCase()}_STATE`, payload: data});
+      switch(key) {
+      case('products'):
+        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+        break;
+      case('discounts'):
+        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+        break;
+      }
     });
   };
 
@@ -87,7 +93,7 @@ const LatestArrivals: React.FC = () => {
           <FilterWithUnderline selectedFilter={filterState.selectedFilter} setSelectedFilter={setFilterState} availableFilters={filterState.availableFilters} />
         }
         <FlipMove typeName="ul" className="latest-arrivals__list">
-          {displayedProducts.map(galleryMapCallback as typeof galleryMapCallback)}
+          {displayedProducts.map(galleryMapCallback)}
         </FlipMove>
       </Loader>
     </section>

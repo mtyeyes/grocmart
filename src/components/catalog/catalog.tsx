@@ -2,9 +2,8 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import './catalog.styl';
 
-import { AppState } from '../../store';
+import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
-import { DispatchCartAction } from '../../store/cart/types';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
@@ -73,7 +72,7 @@ const Catalog: React.FC = () => {
   
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
   const findAverage = useFindAverage();
-  const dispatch: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState);
   const [numberOfItemsInCategories, setNumberOfItemsInCategories] = useState({} as NumberOfItemsInCategories);
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
@@ -86,7 +85,7 @@ const Catalog: React.FC = () => {
 
   type ValueToSortBy = typeof valuesToSortBy[number];
 
-  const addProductToCart: DispatchCartAction = productId => dispatch(addToCart(productId));
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
   const request: { [key: string]: string } = {
     products: '/mocks/products.json',
     discounts: '/mocks/discounts.json'
@@ -94,8 +93,16 @@ const Catalog: React.FC = () => {
 
   const transferData = (requestResults: { [key: string]: any }) => {
     Object.entries(requestResults).forEach(([key, data]) => {
+      console.log(currentState['products']);
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      dispatch({type: `LOAD_${key.toUpperCase()}_STATE`, payload: data});
+      switch(key) {
+      case('products'):
+        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+        break;
+      case('discounts'):
+        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+        break;
+      }
     });
   };
 

@@ -44,7 +44,7 @@ const SortingSelect: React.FC<Props> = ({ valuesToSortBy, selectedValueToSortBy,
         <Icon className={(controlsVisible) ? 'sorting-controls__btn-icon sorting-controls__btn-icon--toggled' : 'sorting-controls__btn-icon'} iconId="right-open"/>
       </Button>
       <ul className={(controlsVisible) ? 'sorting-controls__list sorting-controls__list--toggled' : 'sorting-controls__list'}>
-        {valuesToSortBy.map(valuesMapCallback as typeof valuesMapCallback)}
+        {valuesToSortBy.map(valuesMapCallback)}
       </ul>
     </div>
   );

@@ -5,12 +5,12 @@ import './special-offers.styl';
 import Loader from '../../loader/loader';
 import EmblaCarousel from '../../embla-carousel/embla-carousel';
 import SpecialOfferItem from './special-offer-item/special-offer-item';
-import { AppState } from '../../../store';
+import { AppState, AppDispatch } from '../../../store';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 
 const SpecialOffers: React.FC = () => {
   const [specialOffers, setSpecialOffers] = useState([] as string[]);
-  const dispatch: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const currentState = useStore().getState();
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
@@ -27,7 +27,14 @@ const SpecialOffers: React.FC = () => {
         setSpecialOffers(requestResults.specialOffers);
       } else {
         if ( Object.keys(currentState[key]).length !== 0 ) { return }
-        dispatch({type: `LOAD_${key.toUpperCase()}_STATE`, payload: data});
+        switch(key) {
+        case('products'):
+          dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+          break;
+        case('discounts'):
+          dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+          break;
+        }
       }
     });
   };
@@ -43,7 +50,7 @@ const SpecialOffers: React.FC = () => {
     <div className="specials-slider__wrapper">
       <Loader requests={requests} transferData={transferData}>
         <EmblaCarousel uniqueClassName="specials-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={false} options={{draggable: true, loop: true}}>
-          {specialOffers.map(specialOffersMapCallback as typeof specialOffersMapCallback)}
+          {specialOffers.map(specialOffersMapCallback)}
         </EmblaCarousel>
       </Loader>
     </div>

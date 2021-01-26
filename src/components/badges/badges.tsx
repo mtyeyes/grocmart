@@ -28,7 +28,7 @@ const Badges: React.FC<Props> = ({ isBrightBackground }) => {
   return (
     <section className={`badges ${(isBrightBackground) ? 'badges--bright' : 'badges--dark'}`}>
       <ul className="badges__list">
-        {Object.keys(badgesList).map(badgesMapCallback as typeof badgesMapCallback)}
+        {Object.keys(badgesList).map(badgesMapCallback)}
       </ul>
     </section>
   );

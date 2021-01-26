@@ -17,7 +17,7 @@ const NavigationTab: React.FC<Props> = ({ links, showMobileMenu }) => {
   return (
     <nav className={classNames} role="navigation" aria-label="Site Navigation">
       <ul className="navigation__list">
-        {Object.keys(links).map(linksMapCallback as typeof linksMapCallback)}
+        {Object.keys(links).map(linksMapCallback)}
       </ul>
     </nav>
   );

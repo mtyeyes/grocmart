@@ -22,7 +22,7 @@ const FeedbackSlider: React.FC = () => {
       <div className="feedback-slider__wrapper">
         <Loader requests={{'slides': '/mocks/feedback.json'}} transferData={transferData}>
           <EmblaCarousel uniqueClassName="feedback-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} options={{draggable: true, loop: true}}>
-            {slides.map(sliderItemsMapCallback as typeof sliderItemsMapCallback)}
+            {slides.map(sliderItemsMapCallback)}
           </EmblaCarousel>
         </Loader>
       </div>

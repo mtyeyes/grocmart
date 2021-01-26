@@ -1,0 +1,156 @@
+@import '../../variables.styl'
+.cart__container
+  margin 50px auto
+  width calc(100vw - 30px)
+  min-height 480px
+
+.cart__empty-cart-disclaimer
+  margin-top 170px
+  font-size 22px
+  font-family $handwriting-font
+  color $accent-green-color
+  font-weight 500
+  letter-spacing 2.5px
+  text-align center
+
+.cart-table__wrapper
+  width calc(100vw - 30px)
+  border 1px solid $light-border-color
+  box-sizing border-box
+  overflow-x scroll
+
+.cart-table
+  box-sizing border-box
+  border-collapse collapse
+
+.cart-table__heading
+  padding 3px
+  text-transform uppercase
+  font-family $main-font
+  font-size 16px
+  font-weight 500
+  letter-spacing 0.5px
+  color $secondary-font-color
+  border-right 1px solid $light-border-color
+  box-sizing border-box
+
+.cart-table__cell
+  padding 0 10px
+
+.cart-table-item__thumbnail-and-title-wrapper
+  padding-top 16px
+  width 120px
+
+.cart-table-item__thumbnail
+  height 80px
+  width 90px
+  object-fit contain
+  padding 5px
+  background-color #f1f1f1
+  margin 0 auto
+
+.cart-table-item__title-wrapper
+  margin 15px 0
+  height 75px
+  display flex
+  justify-content center
+  align-items center
+
+.cart-table-item__title
+  margin 0
+  font-family $main-font
+  font-size 16px
+  font-weight 500
+  text-transform uppercase
+  text-align center
+  letter-spacing 0.5px
+  color $main-font-color
+
+.cart-table-item__price
+  letter-spacing 1px
+  text-align center
+
+@media (min-width: 450px)
+  .cart__container
+    width calc(100vw - 50px)
+
+  .cart-table__wrapper
+    width calc(100vw - 50px)
+
+@media (min-width: 780px)
+  .cart__container
+    width 682px
+    min-height 250px
+
+  .cart__empty-cart-disclaimer
+    margin-top 100px
+
+  .cart-table__wrapper
+    width 100%
+    overflow hidden
+
+  .cart-table__heading
+    border-right none
+    letter-spacing 1.5px
+
+  .cart-table__row:first-child
+    border-bottom 1px solid $light-border-color
+
+  .cart-table-item__thumbnail-and-title-wrapper
+    display flex
+    width 305px
+    padding 15px 20px
+    box-sizing border-box
+
+  .cart-table-item__thumbnail
+    margin 0 auto 0 0
+    align-self center
+
+  .cart-table-item__title-wrapper
+    width 140px
+    white-space normal
+    text-overflow clip
+    letter-spacing 1.5px
+
+  .cart-table-item__price,
+  .cart-table-item__counter
+    width 105px
+    padding 0 10px
+    letter-spacing 1.5px
+
+  .cart-table__cell
+    padding 0
+
+@media (min-width: 1100px)
+  .cart__container
+    margin 100px auto
+    width 832px
+    min-height 290px
+
+  .cart__empty-cart-disclaimer
+    font-size 28px
+    letter-spacing 3px
+
+  .cart-table__heading
+    font-size 18px
+    padding 20px
+
+  .cart-table-item__thumbnail-and-title-wrapper
+    width 410px
+
+  .cart-table-item__thumbnail
+    width 130px
+    height 110px
+    padding 10px
+
+  .cart-table-item__title-wrapper
+    height auto
+    margin 0
+
+  .cart-table-item__title,
+  .cart-table__cell
+    font-size 18px
+
+  .cart-table-item__price,
+  .cart-table-item__counter
+    width 120px

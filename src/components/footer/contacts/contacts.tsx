@@ -30,7 +30,7 @@ const Contacts: React.FC = () => {
     <>
       <h3 className="contacts__heading">Contacts</h3>
       <ul className="contacts__list">
-        {contactsItems.map(contactsMapCallback as typeof contactsMapCallback)}
+        {contactsItems.map(contactsMapCallback)}
       </ul>
     </>
   );

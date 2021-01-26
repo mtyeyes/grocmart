@@ -25,7 +25,7 @@ const HeroSlider: React.FC = () => {
     <section className="hero-slider">
       <Loader requests={{'slides': '/mocks/hero-slider.json'}} transferData={transferData}>
         <EmblaCarousel uniqueClassName="hero-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} options={{draggable: false}}>
-          {slides.map(sliderItemsMapCallback as typeof sliderItemsMapCallback)}
+          {slides.map(sliderItemsMapCallback)}
         </EmblaCarousel>
       </Loader>
     </section>

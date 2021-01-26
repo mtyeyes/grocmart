@@ -6,7 +6,7 @@ import Icon from '../icon/icon';
 import LinkAsButton from '../link-as-button/link-as-button';
 import Button from '../button/button';
 
-import { DispatchCartAction } from '../../store/cart/types';
+import { addToCart } from '../../store/cart/actions';
 
 export type Props = {
   productId: string,
@@ -14,7 +14,7 @@ export type Props = {
   priceAfterDiscounts: string,
   productName: string,
   productRating: number,
-  addToCart: DispatchCartAction,
+  addToCart: typeof addToCart,
 }
 
 const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart }) => {

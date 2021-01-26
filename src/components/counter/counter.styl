@@ -1,0 +1,40 @@
+@import '../../variables.styl'
+.counter
+  width 100%
+  display flex
+  justify-content space-between
+
+.counter__count
+  margin 0 10px
+  line-height 40px
+  font-family $main-font
+
+
+.counter__btn
+  display flex
+  align-items center
+  justify-content center
+  position relative
+  height 38px
+  width 38px
+  font-weight 400
+  border 1px solid $light-border-color
+  border-radius 10%
+  box-sizing border-box
+
+.counter__btn:hover,
+.counter__btn:focus
+  border-width 3px
+
+.counter__btn:active
+    transform scale(0.95)
+
+
+.counter__btn--decrement
+  order -1
+
+.counter__btn-icon
+  font-size 16px
+  line-height 36px
+  text-align center
+  vertical-align baseline

@@ -36,7 +36,7 @@ const Breadcrumbs: React.FC = () => {
       <h1 className="breadcrumbs__page-title">{capitalizeAndRemoveDash(breadcrumbsItems[(breadcrumbsItems.length - 1)])}</h1>
       <nav>
         <ol className="breadcrumbs__list">
-          {breadcrumbsItems.map(breadcrumbsMapCallback as typeof breadcrumbsMapCallback)}
+          {breadcrumbsItems.map(breadcrumbsMapCallback)}
         </ol>
       </nav>
     </section>

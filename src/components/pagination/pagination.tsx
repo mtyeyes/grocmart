@@ -86,7 +86,7 @@ const Pagination: React.FC<Props> = ({ selectedPage, setSelectedPage, itemsPerPa
     return (
       <nav className="pagination" role="navigation" aria-label="Pagination Navigation">
         <ol className="pagination__list">
-          {controls.map(controlsMapCallback as typeof controlsMapCallback)}
+          {controls.map(controlsMapCallback)}
         </ol>
       </nav>
     );

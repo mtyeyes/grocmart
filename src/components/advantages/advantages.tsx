@@ -44,7 +44,7 @@ const Advantages: React.FC = () => {
   return (
     <section className="advantages">
       <ul className="advantages__list">
-        {advantagesItems.map(advantagesMapCallback as typeof advantagesMapCallback)}
+        {advantagesItems.map(advantagesMapCallback)}
       </ul>
     </section>
   );

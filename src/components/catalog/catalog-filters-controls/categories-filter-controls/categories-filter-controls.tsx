@@ -62,7 +62,7 @@ const CategoriesFilterControls: React.FC<Props> = ({ categoriesData, dispatchFil
           <label className="categories-filter__label" htmlFor="all-category">all</label>
           <p className="categories-filter__item-counter"><HiddenText>There are</HiddenText> {`(${selectAllCheckboxState.numberOfItemsTotal})`} <HiddenText>{(selectAllCheckboxState.numberOfItemsTotal === 1) ? 'item total' : 'items total'}</HiddenText></p>
         </li>
-        {Object.keys(categoriesData).sort().map(categoriesMapCallback as typeof categoriesMapCallback)}
+        {Object.keys(categoriesData).sort().map(categoriesMapCallback)}
       </ul>
     </fieldset>
   );

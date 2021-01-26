@@ -1,8 +1,10 @@
-import { LOAD_DISCOUNTS_STATE, DiscountsState } from './types';
+import { DiscountsState } from './types';
 
 export const loadDiscountsState = (discounts: DiscountsState) => {
-  return {
-    type: LOAD_DISCOUNTS_STATE,
+  return <const>{
+    type: 'LOAD_DISCOUNTS_STATE',
     payload: discounts,
   };
 };
+
+export type DiscountsActionTypes = ReturnType<typeof loadDiscountsState>;

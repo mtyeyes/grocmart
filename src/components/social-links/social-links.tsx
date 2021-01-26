@@ -35,7 +35,7 @@ const SocialLinks: React.FC = ({children}) => {
     <div className="social-link__container">
       <h4 className="social-link__heading">{children}</h4>
       <ul className="social-link__list">
-        {links.map(linksMapCallback as typeof linksMapCallback)}
+        {links.map(linksMapCallback)}
       </ul>
     </div>
   );

@@ -3,9 +3,8 @@ import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import FlipMove from 'react-flip-move';
 import './masonry-gallery.styl';
 
-import { AppState } from '../../store';
+import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
-import { DispatchCartAction } from '../../store/cart/types';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
@@ -19,8 +18,8 @@ type GalleryStateItem = {
 }
 
 const MasonryGallery: React.FC = () => {
-  const dispatch: any = useDispatch();
-  const addProductToCart: DispatchCartAction = productId => dispatch(addToCart(productId));
+  const dispatch = useDispatch<AppDispatch>();
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
 
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const [galleryState, setGalleryState] = useState([] as GalleryStateItem[]);
@@ -40,9 +39,18 @@ const MasonryGallery: React.FC = () => {
       if (key === 'gallery') {
         if (galleryState.length === 0) {setGalleryState(data)}
         return;
+      } else {
+        if ( Object.keys(currentState[key]).length !== 0 ) { return }
+        switch(key) {
+        case('products'):
+          dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+          break;
+        case('discounts'):
+          dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+          break;
+        }
       }
-      if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      dispatch({type: `LOAD_${key.toUpperCase()}_STATE`, payload: data});
+
     });
   };
 
@@ -85,7 +93,7 @@ const MasonryGallery: React.FC = () => {
           <FilterWithUnderline selectedFilter={filterState.selectedFilter} setSelectedFilter={setFilterState} availableFilters={filterState.availableFilters} />
         }
         <FlipMove typeName="ul" className="gallery__list">
-          {itemsToDisplay.map(galleryMapCallback as typeof galleryMapCallback)}
+          {itemsToDisplay.map(galleryMapCallback)}
         </FlipMove>
       </Loader>
     </section>

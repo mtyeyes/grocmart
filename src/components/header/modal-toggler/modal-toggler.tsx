@@ -1,4 +1,4 @@
-import React, { useState, cloneElement } from 'react';
+import React, { useState, cloneElement, ReactElement } from 'react';
 import './modal-toggler.styl';
 
 import Button from '../../button/button';
@@ -9,7 +9,7 @@ import HiddenText from '../../hidden-text/hidden-text';
 type Props = {
   parentBlockName: string,
   childrenBlockName: string,
-  children: any,
+  children: ReactElement,
   icon: IconId,
 }
 

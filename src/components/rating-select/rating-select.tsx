@@ -62,7 +62,7 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
 
   return (
     <ul className="rating-select__list">
-      {ratings.map(ratingMapCallback as typeof ratingMapCallback)}
+      {ratings.map(ratingMapCallback)}
     </ul>
   );
 };

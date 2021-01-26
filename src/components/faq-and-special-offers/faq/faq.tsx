@@ -42,7 +42,7 @@ const Faq: React.FC = () => {
       <p className="faq__paragraph">Common questions</p>
       <h2 className="faq__heading">FAQ</h2>
       <dl className="faq__list">
-        {questionAnswerPair.map(questionAnswerPairMapCallback as typeof questionAnswerPairMapCallback)}
+        {questionAnswerPair.map(questionAnswerPairMapCallback)}
       </dl>
     </div>
   );

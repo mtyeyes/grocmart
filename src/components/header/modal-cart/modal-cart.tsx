@@ -2,9 +2,8 @@ import React from 'react';
 import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import './modal-cart.styl';
 
-import { AppState } from '../../../store';
+import { AppState, AppDispatch } from '../../../store';
 import { addToCart, removeFromCart } from '../../../store/cart/actions';
-import { DispatchCartAction } from '../../../store/cart/types';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 
 import ModalCartItem from './modal-cart-item/modal-cart-item';
@@ -13,9 +12,9 @@ import LinkAsButton from '../../link-as-button/link-as-button';
 
 
 const ModalCart: React.FC = () => {
-  const dispatch: any = useDispatch();
-  const addProductToCart: DispatchCartAction = productId => dispatch(addToCart(productId));
-  const removeProductFromCart: DispatchCartAction = productId => dispatch(removeFromCart(productId, false));
+  const dispatch = useDispatch<AppDispatch>();
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
 
   const selectProductsState = (state: AppState) => {return state.products};
   const selectCartState = (state: AppState) => {return state.cart};
@@ -32,7 +31,14 @@ const ModalCart: React.FC = () => {
   const transferData = (requestResults: { [key: string]: any }) => {
     Object.entries(requestResults).forEach(([key, data]) => {
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      dispatch({type: `LOAD_${key.toUpperCase()}_STATE`, payload: data});
+      switch(key) {
+      case('products'):
+        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+        break;
+      case('discounts'):
+        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+        break;
+      }
     });
   };
 
@@ -52,9 +58,9 @@ const ModalCart: React.FC = () => {
       key={productId}
       productName={productData['name']}
       productPrice={productFinalPrice}
-      quantity={cartState[productId]}
-      increment={addProductToCart}
-      decrement={removeProductFromCart}
+      productQuantity={cartState[productId]}
+      addProduct={addProductToCart}
+      removeProduct={removeProductFromCart}
     />;
   };
 
@@ -66,7 +72,7 @@ const ModalCart: React.FC = () => {
           <p className="modal-cart__total-price">Total price: <span>{countTotalPrice()}</span></p>
         </div>
         <ul className="modal-cart__products-list">
-          {Object.keys(cartState).map(cartMapCallback as typeof cartMapCallback)}
+          {Object.keys(cartState).map(cartMapCallback)}
         </ul>
         <div className="modal-cart__bottom-wrapper">
           <LinkAsButton className="modal-cart__link-btn" to="/shop/cart" subtype="rectangular-green">Go to cart</LinkAsButton>

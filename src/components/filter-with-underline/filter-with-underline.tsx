@@ -32,7 +32,7 @@ const FilterWithUnderline: React.FC<Props> = ({ selectedFilter, setSelectedFilte
       <Button className={(filtersVisible) ? 'filter__btn filter__btn--toggled' : 'filter__btn'} onClick={()=>{toggleFiltersVisibility(prevState => !prevState)}}>Filter<Icon className="filter__btn-icon" iconId="right-open" /></Button>
       <form className={filtersVisible ? 'filter__form filter__form--visible' : 'filter__form'}>
         <ul className="filter__filters-list">
-          {availableFilters.map(filtersMapCallback as typeof filtersMapCallback)}
+          {availableFilters.map(filtersMapCallback)}
         </ul>
       </form>
     </div>
