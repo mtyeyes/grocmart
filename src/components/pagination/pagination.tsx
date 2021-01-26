@@ -73,8 +73,8 @@ const Pagination: React.FC<Props> = ({ selectedPage, setSelectedPage, itemsPerPa
           aria-selected={isSelected}
         >
           {(typeof controlValue !== 'string') && <span><HiddenText>{(isSelected) ? 'Current page number' : 'Switch to page number'}</HiddenText>{targetPage}</span>}
-          {(controlValue === '»') && <span><HiddenText>Next page</HiddenText><Icon iconId='right' /></span>}
-          {(controlValue === '«') && <span><HiddenText>Previous page</HiddenText><Icon iconId='left' /></span>}
+          {(controlValue === '»') && <span><HiddenText>Next page</HiddenText><Icon iconId="right" /></span>}
+          {(controlValue === '«') && <span><HiddenText>Previous page</HiddenText><Icon iconId="left" /></span>}
         </a>
       </li>
     );
