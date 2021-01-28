@@ -1,0 +1,40 @@
+@import '../../../../variables.styl'
+.search-controls__form
+  margin 30vh auto 0
+  width 40%
+  min-width 280px
+  display flex
+  justify-content center
+  box-shadow 0 1px 0 0 $handwriting-font-color
+  animation spread $animation-speed
+
+.search-controls__input
+  width calc(100% - 42px)
+  font-weight 400
+  font-size 24px
+  line-height 58px
+  letter-spacing .1em
+  font-family $main-font
+  color $handwriting-font-color
+  transition $animation-speed
+
+.search-controls__input::placeholder
+  color inherit
+  opacity 1
+
+.search-controls__input:focus::placeholder
+  color transparent
+
+.search-controls__btn
+  color #909090
+  font-size 30px
+
+.search-controls__btn:hover,
+.search-controls__btn:focus
+  color $handwriting-font-color
+
+@keyframes spread
+  from
+    width 5%
+  to
+    width 40%

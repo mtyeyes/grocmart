@@ -1,0 +1,67 @@
+@import '../../../../variables.styl'
+.search-results__container
+  position relative
+  margin 30vh auto 0
+  width 40%
+  min-width 280px
+  max-width 400px
+  height 350px
+  color $handwriting-font-color
+  letter-spacing 0.5px
+
+.search-results__reset-btn
+  margin-left auto
+  font-size 20px
+  color $secondary-font-color
+  transition $animation-speed
+  box-shadow 0 1px 0 0 $secondary-font-color
+
+.search-results__reset-btn:hover,
+.search-results__reset-btn:focus
+  color $handwriting-font-color
+  box-shadow 0 1px 0 0 $handwriting-font-color
+
+.search-results__no-results-disclaimer
+  margin-top 50px
+  font-size 24px
+  text-align center
+
+.search-results__list
+  margin-top 30px
+  max-height 280px
+  overflow-y auto
+
+.search-result__link
+  display flex
+  margin-bottom 10px
+  width 100%
+  justify-content center
+  align-items center
+
+.search-result__thumbnail
+  filter grayscale(70%)
+  transition $animation-speed
+
+.search-result__title
+  font-size 20px
+  margin 0 0 0 10px
+  transition $animation-speed
+
+.search-result__link:hover .search-result__thumbnail,
+.search-result__link:focus .search-result__thumbnail
+  filter grayscale(0)
+
+.search-result__link:hover .search-result__title,
+.search-result__link:focus .search-result__title
+  color $accent-green-color
+
+@media (min-width 1000px)
+  .search-results__container
+    height 370px
+
+  .search-results__list
+    margin-top 50px
+
+  .search-results__reset-btn,
+  .search-result__title
+    font-size 24px

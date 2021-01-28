@@ -17,15 +17,15 @@ const FeedbackSlider: React.FC = () => {
 
   return (
     <section className="feedback-slider">
-      <h2 className="feedback-slider__heading">Latest testimonials</h2>
-      <b className="feedback-slider__exclamation">Our clients</b>
-      <div className="feedback-slider__wrapper">
-        <Loader requests={{'slides': '/mocks/feedback.json'}} transferData={transferData}>
-          <EmblaCarousel uniqueClassName="feedback-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} options={{draggable: true, loop: true}}>
+      <Loader requests={{'slides': '/mocks/feedback.json'}} transferData={transferData}>
+        <h2 className="feedback-slider__heading">Latest testimonials</h2>
+        <b className="feedback-slider__exclamation">Our clients</b>
+        <div className="feedback-slider__wrapper">
+          <EmblaCarousel uniqueClassName="feedback-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} autoplaySpeed={4300} options={{draggable: true, loop: true}}>
             {slides.map(sliderItemsMapCallback)}
           </EmblaCarousel>
-        </Loader>
-      </div>
+        </div>
+      </Loader>
     </section>
   );
 };

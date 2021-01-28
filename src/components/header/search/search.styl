@@ -1,4 +1,3 @@
-@import '../../../variables.styl'
 .modal-search__screenblock
   position fixed
   top 0
@@ -7,43 +6,3 @@
   height 100vh
   background-color rgba(0, 0, 0, 0.9)
   z-index 80
-
-.modal-search__container
-  margin 30vh auto 0
-  width 40%
-  min-width 280px
-  display flex
-  justify-content center
-  box-shadow 0 1px 0 0 $handwriting-font-color
-  animation spread $animation-speed
-
-.modal-search__input
-  width calc(100% - 42px)
-  font-weight 400
-  font-size 24px
-  line-height 58px
-  letter-spacing .1em
-  font-family $main-font
-  color $handwriting-font-color
-  transition $animation-speed
-
-.modal-search__input::placeholder
-  color inherit
-  opacity 1
-
-.modal-search__input:focus::placeholder
-  color transparent
-
-.modal-search__btn
-  color #909090
-  font-size 30px
-
-.modal-search__btn:hover,
-.modal-search__btn:focus
-  color $handwriting-font-color
-
-@keyframes spread
-  from
-    width 5%
-  to
-    width 40%

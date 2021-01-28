@@ -93,7 +93,6 @@ const Catalog: React.FC = () => {
 
   const transferData = (requestResults: { [key: string]: any }) => {
     Object.entries(requestResults).forEach(([key, data]) => {
-      console.log(currentState['products']);
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
       switch(key) {
       case('products'):

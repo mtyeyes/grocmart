@@ -86,9 +86,9 @@ const LatestArrivals: React.FC = () => {
 
   return (
     <section className="latest-arrivals">
-      <h2 className="latest-arrivals__heading">Latest arrivals</h2>
-      <b className="latest-arrivals__exclamation">New products</b>
       <Loader requests={request} transferData={transferData}>
+        <h2 className="latest-arrivals__heading">Latest arrivals</h2>
+        <b className="latest-arrivals__exclamation">New products</b>
         {filterState.availableFilters.length >= 2 &&
           <FilterWithUnderline selectedFilter={filterState.selectedFilter} setSelectedFilter={setFilterState} availableFilters={filterState.availableFilters} />
         }

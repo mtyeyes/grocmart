@@ -35,15 +35,10 @@
 .about-us__bottom-wrapper
   width min-content
   display grid
-  grid-template-areas "link name name" "link position position" "signature signature signature"
+  grid-template-areas "name name name" "position position position" "signature signature signature"
   grid-template-columns 60px 60px 60px
   grid-template-rows 20px 20px 75px
   margin 20px auto 40px
-
-.about-us__link
-  grid-area link
-  justify-self center
-  align-self center
 
 .about-us__name
   grid-area name
@@ -79,7 +74,7 @@
 
   .about-us__bottom-wrapper
     margin-top 30px
-    grid-template-areas "link name name signature signature" "link position position signature signature" ". . . signature signature"
+    grid-template-areas ". name name signature signature" ". position position signature signature" ". . . signature signature"
     grid-template-columns repeat(3, 60px) repeat(2, 80px)
     grid-template-rows repeat(2, 25px) 5px
 
@@ -137,7 +132,7 @@
   .about-us__bottom-wrapper
     width 100%
     margin 30px 0 0 0
-    grid-template-areas "link name signature" "link position signature" ". . signature"
+    grid-template-areas ". name signature" ". position signature" ". . signature"
     grid-template-columns 1.1fr 120px 3fr
 
   .about-us__name
@@ -145,10 +140,6 @@
 
   .about-us__position
     font-size 15px
-
-  .about-us__link
-    justify-self start
-    align-self center
 
 @media (min-width 1200px)
   .about-us

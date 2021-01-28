@@ -11,10 +11,13 @@
   height 100%
   transform translate(-50%, -50%)
 
-.loader__error-text
+.loader--error .loader__error-text
   color $accent-color
-  font-family inherit
-  font-size inherit
+  font-family $main-font
+  font-size 20px
+  font-weight 600
+  letter-spacing 1px
+  text-transform uppercase
 
 .loader__shape
   border-radius 50%
@@ -23,6 +26,12 @@
   animation-duration 2s
   animation-iteration-count infinite
   animation-direction alternate
+
+.loader--white .loader__error-text
+  color $handwriting-font-color
+
+.loader--white .loader__shape
+  background-color $handwriting-font-color
 
 .loader__shape:first-of-type
   animation-delay 200ms

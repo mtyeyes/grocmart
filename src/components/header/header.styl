@@ -29,18 +29,18 @@
   height 48px
   transition $animation-speed
 
-.header__modal-toggler--search.header__modal-toggler-toggled .btn
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn
   position relative
   z-index 90
   transform rotate(45deg)
   transform-origin center
   color transparent
 
-.header__modal-toggler--search.header__modal-toggler-toggled .btn:focus
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn:focus
   color transparent
 
-.header__modal-toggler--search .btn::before,
-.header__modal-toggler--search .btn::after
+.header__modal-toggler--search .modal-toggler__btn::before,
+.header__modal-toggler--search .modal-toggler__btn::after
   content ""
   position absolute
   width 24px
@@ -50,17 +50,17 @@
   background-color transparent
   transition $animation-speed
 
-.header__modal-toggler--search.header__modal-toggler-toggled .btn::before,
-.header__modal-toggler--search.header__modal-toggler-toggled .btn::after
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn::before,
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn::after
   background-color #909090
 
-.header__modal-toggler--search.header__modal-toggler-toggled .btn:hover::before,
-.header__modal-toggler--search.header__modal-toggler-toggled .btn:hover::after,
-.header__modal-toggler--search.header__modal-toggler-toggled .btn:focus::before,
-.header__modal-toggler--search.header__modal-toggler-toggled .btn:focus::after
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn:hover::before,
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn:hover::after,
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn:focus::before,
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn:focus::after
   background-color #ffffff
 
-.header__modal-toggler--search.header__modal-toggler-toggled .btn::after
+.header__modal-toggler--search.header__modal-toggler-toggled .modal-toggler__btn::after
   transform rotate(90deg)
 
 @media (max-width 999px)

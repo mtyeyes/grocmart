@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import './loader.styl';
 
-import useFetchJson from '../../hooks/use-fetch-json';
+import useFetchAndCacheJson from '../../hooks/use-fetch-and-cache-json';
 
 type Props = {
   loaderSize?: number,
+  customColor?: 'white' | undefined,
   transferData: (requestResult: any) => void,
   requests: { [key: string]: string },
 }
 
-const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children }) => {
+const fiveMinutes = 300000;
+
+const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children, customColor }) => {
   const [loadingState, setloadingState] = useState('loading');
   const [requestResult, setResult] = useState({});
 
   for (const [requestId, linkToResourse] of Object.entries(requests)) {
-    const request = useFetchJson(linkToResourse);
+    const request = useFetchAndCacheJson(linkToResourse, fiveMinutes);
     useEffect(() => {
       if (request.isLoading === false) {
         (request.isError) ? setloadingState('error') : setResult((prevResult)=>{return {...prevResult, [requestId]: request.data}});
@@ -49,7 +52,7 @@ const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children 
     switch(loadingState) {
     case 'loading':
       return (
-        <div className="loader">
+        <div className={(customColor) ? `lpader loader--${customColor}` : 'loader'}>
           <div className="loader__shape" style={style} />
           <div className="loader__shape" style={style}/>
           <div className="loader__shape" style={style}/>
@@ -57,7 +60,7 @@ const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children 
       );
     case 'error':
       return (
-        <div className="loader loader--error">
+        <div className={(customColor) ? `lpader loader--${customColor} loader--error` : 'loader loader--error'}>
           <p className="loader__error-text">Error getting data</p>
         </div>
       );

@@ -49,7 +49,7 @@ const SpecialOffers: React.FC = () => {
   return (
     <div className="specials-slider__wrapper">
       <Loader requests={requests} transferData={transferData}>
-        <EmblaCarousel uniqueClassName="specials-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={false} options={{draggable: true, loop: true}}>
+        <EmblaCarousel uniqueClassName="specials-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={false} autoplaySpeed={3000} options={{draggable: true, loop: true}}>
           {specialOffers.map(specialOffersMapCallback)}
         </EmblaCarousel>
       </Loader>

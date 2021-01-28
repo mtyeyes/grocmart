@@ -10,10 +10,11 @@ type Props = {
   uniqueClassName: string,
   nextPrevBtnsEnabled: boolean,
   dotsBtnEnabled: boolean,
+  autoplaySpeed?: number,
   options?: Parameters<typeof useEmblaCarousel>[0]
 }
 
-const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnEnabled, children }) => {
+const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnEnabled, autoplaySpeed, children }) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -29,7 +30,7 @@ const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtns
     }
   }, [embla]);
 
-  const { play, stop } = useRecursiveTimeout(autoplay, 4000);
+  const { play, stop } = useRecursiveTimeout(autoplay, (autoplaySpeed) ? autoplaySpeed : 4000);
 
   useEffect(() => {
     play();
@@ -56,7 +57,6 @@ const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtns
     setSelectedIndex(embla.selectedScrollSnap());
     setPrevBtnEnabled(embla.canScrollPrev());
     setNextBtnEnabled(embla.canScrollNext());
-    stop();
   }, [embla, setSelectedIndex, stop]);
 
   useEffect(() => {

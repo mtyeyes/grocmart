@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
-const useRecursiveTimeout = (callback: any, delay: number) => {
+const useRecursiveTimeout = (callback: () => void, delay: number) => {
   const [isRunning, setIsRunning] = useState(false);
   const stop = useCallback(() => setIsRunning(false), [setIsRunning]);
   const play = useCallback(() => setIsRunning(true), [setIsRunning]);
