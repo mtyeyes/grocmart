@@ -18,7 +18,6 @@ const SearchControls: React.FC<Props> = ({ setSearchQuery }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const searchQuery = inputEl.current?.value;
-    console.log(searchQuery?.length);
     if (searchQuery === undefined || searchQuery.length <= 1) { return } else {setSearchQuery(searchQuery)}
   };
 

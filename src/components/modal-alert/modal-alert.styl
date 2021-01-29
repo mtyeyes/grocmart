@@ -1,0 +1,48 @@
+@import '../../variables.styl'
+.modal-alert__wrapper
+  margin 40vh auto 0
+  padding 15px
+  width 40%
+  min-width 260px
+  max-width 350px
+  background-color #f9faf9
+
+.modal-alert__text
+  font-family $main-font
+  font-size 14px
+  letter-spacing 0.7px
+  color $main-font-color
+  text-align center
+
+.modal-alert__close-btn
+  display block
+  margin 20px auto 0
+  padding 5px 32px
+  font-family $main-font
+  font-size 14px
+  font-weight 700
+  line-height 28px
+  letter-spacing 1.5px
+  text-align center
+  text-transform uppercase
+  border 2px solid $main-font-color
+  border-radius 5px
+  box-sizing border-box
+  transition $animation-speed
+
+.modal-alert__close-btn:hover,
+.modal-alert__close-btn:focus
+  color $handwriting-font-color
+  background-color $accent-green-color
+  border 2px solid $accent-green-color
+
+@media (min-width 900px)
+  .modal-alert__wrapper
+    padding 20px
+
+  .modal-alert__text
+    font-size 18px
+
+  .modal-alert__close-btn
+    font-size 16px
+    letter-spacing 2px

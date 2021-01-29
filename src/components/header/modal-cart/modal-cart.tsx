@@ -9,6 +9,7 @@ import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 import ModalCartItem from './modal-cart-item/modal-cart-item';
 import Loader from '../../loader/loader';
 import LinkAsButton from '../../link-as-button/link-as-button';
+import BlockedLinkToCheckout from '../../link-as-button/blocked-link-to-checkout/blocked-link-to-checkout';
 
 
 const ModalCart: React.FC = () => {
@@ -20,14 +21,15 @@ const ModalCart: React.FC = () => {
   const selectCartState = (state: AppState) => {return state.cart};
   const productsState = useSelector(selectProductsState, shallowEqual);
   const cartState = useSelector(selectCartState, shallowEqual);
+  const currentState = useStore().getState();
+
+  const blockedCheckoutLink = BlockedLinkToCheckout(<LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">Checkout</LinkAsButton>);
 
 
   const request: { [key: string]: string } = {
     products: '/mocks/products.json',
     discounts: '/mocks/discounts.json'
   };
-
-  const currentState = useStore().getState();
   const transferData = (requestResults: { [key: string]: any }) => {
     Object.entries(requestResults).forEach(([key, data]) => {
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
@@ -76,7 +78,7 @@ const ModalCart: React.FC = () => {
         </ul>
         <div className="modal-cart__bottom-wrapper">
           <LinkAsButton className="modal-cart__link-btn" to="/shop/cart" subtype="rectangular-green">Go to cart</LinkAsButton>
-          <LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">Checkout</LinkAsButton>
+          {blockedCheckoutLink}
         </div>
       </Loader>
     </div>
