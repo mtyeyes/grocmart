@@ -4,9 +4,7 @@ import { useStore } from 'react-redux';
 import { StateKeys, AppState } from './store/index';
 import useSyncStateWithLocalStorage from './hooks/use-sync-state-with-local-storage';
 // @ts-ignore
-console.log(JSON.stringify(PUBLIC_PATH));
-// @ts-ignore
-export const PATH = JSON.stringify(PUBLIC_PATH);
+export const PATH = JSON.stringify(PUBLIC_PATH).replaceAll('"', '');
 
 import ScrollReset from './components/scroll-reset/scroll-reset';
 import Home from './domain/home/home';
