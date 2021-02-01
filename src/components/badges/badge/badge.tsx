@@ -1,6 +1,8 @@
 import React from 'react';
 import './badge.styl';
 
+import { PATH } from '../../../app';
+
 type Props = {
   badgeId: string,
   badgeDescription: string,
@@ -10,7 +12,7 @@ type Props = {
 const Badge: React.FC<Props> = ({ badgeId, badgeDescription, isBrightBackground }) => {
   return (
     <li className="badge">
-      <img alt={badgeDescription} src={`/images/badge-${badgeId}-${(isBrightBackground) ? 'bright' : 'dark'}.png`} className="badge__img" />
+      <img alt={badgeDescription} src={`${PATH}images/badge-${badgeId}-${(isBrightBackground) ? 'bright' : 'dark'}.png`} className="badge__img" />
     </li>
   );
 };

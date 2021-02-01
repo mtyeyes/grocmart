@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import './user-cart.styl';
 
-import { AppState, AppDispatch } from '../../store/index';
-import { addToCart, removeFromCart } from '../../store/cart/actions';
-import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
-import useWindowWidth from '../../hooks/use-window-width';
-
 import Table, { TableData, TableCellData } from '../table/table';
 import Loader from '../loader/loader';
 import Counter from '../counter/counter';
 import CartControls from './cart-controls/cart-controls';
+
+import { addToCart, removeFromCart } from '../../store/cart/actions';
+import { AppState, AppDispatch } from '../../store/index';
+import useWindowWidth from '../../hooks/use-window-width';
+import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
+import { PATH } from '../../app';
 
 const UserCart: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -27,8 +28,8 @@ const UserCart: React.FC = () => {
   const [tableData, setTableData] = useState([] as TableData);
 
   const request: { [key: string]: string } = {
-    products: '/mocks/products.json',
-    discounts: '/mocks/discounts.json'
+    products: `${PATH}mocks/products.json`,
+    discounts: `${PATH}mocks/discounts.json`
   };
 
   const currentState = useStore().getState();
@@ -64,7 +65,7 @@ const UserCart: React.FC = () => {
         case('title-and-thumbnail'): {
           return (
             <div className="cart-table-item__thumbnail-and-title-wrapper">
-              <img className="cart-table-item__thumbnail" src={`/images/${productId}-small.png`} alt={`${productsState[productId].name}`}></img>
+              <img className="cart-table-item__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productsState[productId].name}`}></img>
               <div className="cart-table-item__title-wrapper">
                 <h6 className="cart-table-item__title">{productsState[productId].name}</h6>
               </div>

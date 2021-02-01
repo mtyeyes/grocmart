@@ -4,6 +4,8 @@ import './modal-cart-item.styl';
 import {addToCart, removeFromCart} from '../../../../store/cart/actions';
 import Counter from '../../../counter/counter';
 
+import { PATH } from '../../../../app';
+
 type Props = {
   productId: string,
   productPrice: string,
@@ -17,7 +19,7 @@ const ModalCartItem: React.FC<Props> = ({ productId, productName, productQuantit
   return (
     <li className="cart-item__container">
       <h6 className="cart-item__title">{productName}</h6>
-      <img src={`/images/${productId}-small.png`} className="cart-item__thumbnail" alt={`${productName}`}></img>
+      <img src={`${PATH}images/${productId}-small.png`} className="cart-item__thumbnail" alt={`${productName}`}></img>
       <Counter classNamePrefix={'cart-item'} count={productQuantity} increment={()=>{addProduct(productId)}} decrement={()=>{removeProduct(productId, false)}} />
       <p className="cart-item__price">{productPrice}</p>
     </li>

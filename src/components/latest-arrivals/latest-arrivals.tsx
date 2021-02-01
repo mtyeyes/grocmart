@@ -3,13 +3,15 @@ import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import FlipMove from 'react-flip-move';
 import './latest-arrivals.styl';
 
-import { AppState, AppDispatch } from '../../store';
-import { addToCart } from '../../store/cart/actions';
-import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
 import FilterWithUnderline, {FilterState} from '../filter-with-underline/filter-with-underline';
 import ProductCard from '../product-card/product-card';
+import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
+
+import { AppState, AppDispatch } from '../../store';
+import { addToCart } from '../../store/cart/actions';
+import { PATH } from '../../app';
 
 const LatestArrivals: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,8 +24,8 @@ const LatestArrivals: React.FC = () => {
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
   const request: { [key: string]: string } = {
-    products: '/mocks/products.json',
-    discounts: '/mocks/discounts.json'
+    products: `${PATH}mocks/products.json`,
+    discounts: `${PATH}mocks/discounts.json`
   };
 
   const currentState = useStore().getState();

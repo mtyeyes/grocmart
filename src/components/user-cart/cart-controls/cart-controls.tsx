@@ -2,14 +2,17 @@ import React from 'react';
 import './cart-controls.styl';
 
 import LinkAsButton from '../../link-as-button/link-as-button';
-import BlockedLinkToCheckout from '../../link-as-button/blocked-link-to-checkout/blocked-link-to-checkout';
+import PreventDefaultAndShowAlert from '../../prevent-default-and-show-alert/prevent-default-and-show-alert';
 
 type Props = {
   totalPrice: string,
 }
 
 const CartControls: React.FC<Props> = ({ totalPrice }) => {
-  const blockedCheckoutLink = BlockedLinkToCheckout(<LinkAsButton to="/checkout" subtype="rectangular-red">Proceed to checkout</LinkAsButton>);
+  const blockedCheckoutLink = PreventDefaultAndShowAlert(
+    <LinkAsButton to="/checkout" subtype="rectangular-red">Proceed to checkout</LinkAsButton>,
+    'This is a static site and checkout link is inactive'
+  );
 
   return (
     <div className="cart-controls">

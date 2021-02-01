@@ -1,19 +1,20 @@
 import React from 'react';
-import './product-info.styl';
-
-import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
-import useFindAverage from '../../hooks/use-find-average';
 import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
-import { AppState, AppDispatch } from '../../store/index';
-import { ProductInfo } from '../../store/products/types';
-import { addToCart, removeFromCart } from '../../store/cart/actions';
-import { setCurrentUserScoreAction, removeCurrentUserScoreAction } from '../../store/products/actions';
+import './product-info.styl';
 
 import Loader from '../loader/loader';
 import RatingSelect from '../rating-select/rating-select';
 import MinorDetail from './minor-detail/minor-detail';
 import Button from '../button/button';
 import SocialLinks from '../social-links/social-links';
+import useFindAverage from '../../hooks/use-find-average';
+import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
+
+import { AppState, AppDispatch } from '../../store/index';
+import { ProductInfo } from '../../store/products/types';
+import { setCurrentUserScoreAction, removeCurrentUserScoreAction } from '../../store/products/actions';
+import { addToCart, removeFromCart } from '../../store/cart/actions';
+import { PATH } from '../../app';
 
 type Props = {
   productId: string,
@@ -31,8 +32,8 @@ const ProductInfo: React.FC<Props> = ({ productId }) => {
 
 
   const request: { [key: string]: string } = {
-    products: '/mocks/products.json',
-    discounts: '/mocks/discounts.json'
+    products: `${PATH}mocks/products.json`,
+    discounts: `${PATH}mocks/discounts.json`
   };
 
   const transferData = (requestResults: { [key: string]: any }) => {
@@ -72,7 +73,7 @@ const ProductInfo: React.FC<Props> = ({ productId }) => {
     if(productsState[productId]) {
       return (
         <>
-          <img src={`/images/${productId}.png`} className="product-info__image" alt={productsState[productId].name}></img>
+          <img src={`${PATH}images/${productId}.png`} className="product-info__image" alt={productsState[productId].name}></img>
           <div className="product-info__details">
             <h1 className="product-info__name">{productsState[productId].name}</h1>
             <div className="product-info__price-and-rating-wrapper">

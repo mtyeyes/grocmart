@@ -4,6 +4,7 @@ import './catalog.styl';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
+import { PATH } from '../../app';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
@@ -87,8 +88,8 @@ const Catalog: React.FC = () => {
 
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
   const request: { [key: string]: string } = {
-    products: '/mocks/products.json',
-    discounts: '/mocks/discounts.json'
+    products: `${PATH}mocks/products.json`,
+    discounts: `${PATH}mocks/discounts.json`
   };
 
   const transferData = (requestResults: { [key: string]: any }) => {

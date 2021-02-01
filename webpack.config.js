@@ -1,13 +1,17 @@
 const path = require('path');
+const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
+const publicPath = isDev ? '/' : '/grocmart/';
+
 const filename = ext => {
   isDev ? `[name].${ext}` : `[name].[hash].${ext}` ;
 }
+
 const optimization = () => {
   if (isDev) {return};
   return {
@@ -34,7 +38,7 @@ module.exports = {
   },
   output: {
     filename: filename('js'),
-    publicPath: '/',
+    publicPath: publicPath,
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
@@ -60,6 +64,9 @@ module.exports = {
           ignore: ['**/index.html']
         }
       }]
+    }),
+    new webpack.DefinePlugin({
+      PUBLIC_PATH: JSON.stringify(publicPath)
     })
   ],
   optimization: optimization(),

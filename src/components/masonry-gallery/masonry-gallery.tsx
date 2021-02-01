@@ -3,13 +3,14 @@ import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
 import FlipMove from 'react-flip-move';
 import './masonry-gallery.styl';
 
-import { AppState, AppDispatch } from '../../store';
-import { addToCart } from '../../store/cart/actions';
-import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
-
 import Loader from '../loader/loader';
 import FilterWithUnderline, {FilterState} from '../filter-with-underline/filter-with-underline';
 import GalleryItem from './gallery-item/gallery-item';
+import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
+
+import { AppState, AppDispatch } from '../../store';
+import { addToCart } from '../../store/cart/actions';
+import { PATH } from '../../app';
 
 type GalleryStateItem = {
   imageName: string,
@@ -28,9 +29,9 @@ const MasonryGallery: React.FC = () => {
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
   const request: { [key: string]: string } = {
-    gallery: '/mocks/gallery-images.json',
-    products: '/mocks/products.json',
-    discounts: '/mocks/discounts.json'
+    gallery: `${PATH}mocks/gallery-images.json`,
+    products: `${PATH}mocks/products.json`,
+    discounts: `${PATH}mocks/discounts.json`
   };
 
   const currentState = useStore().getState();
@@ -76,7 +77,7 @@ const MasonryGallery: React.FC = () => {
     return(
       <li className="gallery-item__wrapper" key={imageName}>
         <GalleryItem
-          imgUrl={`/images/gallery-${imageName}.webp`}
+          imgUrl={`${PATH}images/gallery-${imageName}.webp`}
           imgDescription={imageDescription}
           productId={productId}
           productPrice={productFinalPrice}

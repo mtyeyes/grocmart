@@ -5,8 +5,10 @@ import './special-offers.styl';
 import Loader from '../../loader/loader';
 import EmblaCarousel from '../../embla-carousel/embla-carousel';
 import SpecialOfferItem from './special-offer-item/special-offer-item';
-import { AppState, AppDispatch } from '../../../store';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
+
+import { AppState, AppDispatch } from '../../../store';
+import { PATH } from '../../../app';
 
 const SpecialOffers: React.FC = () => {
   const [specialOffers, setSpecialOffers] = useState([] as string[]);
@@ -16,9 +18,9 @@ const SpecialOffers: React.FC = () => {
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
   const requests = {
-    specialOffers: '/mocks/products-of-the-day.json',
-    products: '/mocks/products.json',
-    discounts: '/mocks/discounts.json'
+    specialOffers: `${PATH}mocks/products-of-the-day.json`,
+    products: `${PATH}mocks/products.json`,
+    discounts: `${PATH}mocks/discounts.json`
   };
 
   const transferData = (requestResults: {[key in keyof typeof requests]: any}) => {

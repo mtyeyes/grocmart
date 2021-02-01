@@ -6,6 +6,7 @@ import Icon from '../icon/icon';
 import LinkAsButton from '../link-as-button/link-as-button';
 import Button from '../button/button';
 
+import { PATH } from '../../app';
 import { addToCart } from '../../store/cart/actions';
 
 export type Props = {
@@ -29,7 +30,7 @@ const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAf
           <p className="product-card__flag product-card__flag--red"><HiddenText>Product on </HiddenText>sale</p>
         }
       </div>
-      <img src={`/images/${productId}.png`} className="product-card__thumbnail" alt={productName}></img>
+      <img src={`${PATH}images/${productId}.png`} className="product-card__thumbnail" alt={productName}></img>
       <h4 className="product-card__title">{productName}</h4>
       <div className="product-card__price-container">
         {isSale &&

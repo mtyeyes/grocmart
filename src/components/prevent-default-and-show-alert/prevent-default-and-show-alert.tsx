@@ -1,7 +1,7 @@
 import React, { useState, cloneElement, ReactElement } from 'react';
-import ModalAlert from '../../modal-alert/modal-alert';
+import ModalAlert from '../modal-alert/modal-alert';
 
-const BlockedLinkToCheckout = (component: ReactElement) => {
+const PreventDefaultAndShowAlert = (component: ReactElement, alertMessage: string) => {
   const [modalAlertVisible, setModalAlertVisibility] = useState(false);
 
   const handleClickOnComponent = (e: React.MouseEvent<HTMLElement>) => {
@@ -12,9 +12,9 @@ const BlockedLinkToCheckout = (component: ReactElement) => {
   return (
     <>
       {cloneElement(component, { onClick: handleClickOnComponent })}
-      {modalAlertVisible && <ModalAlert closeModal={() => {setModalAlertVisibility(false)}}>This is a static site and checkout link is inactive</ModalAlert>}
+      {modalAlertVisible && <ModalAlert closeModal={() => {setModalAlertVisibility(false)}}>{alertMessage}</ModalAlert>}
     </>
   );
 };
 
-export default BlockedLinkToCheckout;
+export default PreventDefaultAndShowAlert;

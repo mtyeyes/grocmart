@@ -5,6 +5,8 @@ import Loader from '../loader/loader';
 import FeedbackItem, { Props as SlideData } from './feedback-item/feedback-item';
 import EmblaCarousel from '../embla-carousel/embla-carousel';
 
+import { PATH } from '../../app';
+
 const FeedbackSlider: React.FC = () => {
   const [slides, setSlides] = useState([] as SlideData[]);
   const transferData = (requestResults: { slides: SlideData[] }) => {
@@ -17,7 +19,7 @@ const FeedbackSlider: React.FC = () => {
 
   return (
     <section className="feedback-slider">
-      <Loader requests={{'slides': '/mocks/feedback.json'}} transferData={transferData}>
+      <Loader requests={{'slides': `${PATH}mocks/feedback.json`}} transferData={transferData}>
         <h2 className="feedback-slider__heading">Latest testimonials</h2>
         <b className="feedback-slider__exclamation">Our clients</b>
         <div className="feedback-slider__wrapper">

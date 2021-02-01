@@ -5,6 +5,8 @@ import Loader from '../loader/loader';
 import HeroSliderItem from './hero-slider-item/hero-slider-item';
 import EmblaCarousel from '../embla-carousel/embla-carousel';
 
+import { PATH } from '../../app';
+
 type SlideData = {
   title: string,
   topParagraph: string,
@@ -23,7 +25,7 @@ const HeroSlider: React.FC = () => {
 
   return (
     <section className="hero-slider">
-      <Loader requests={{'slides': '/mocks/hero-slider.json'}} transferData={transferData}>
+      <Loader requests={{'slides': `${PATH}mocks/hero-slider.json`}} transferData={transferData}>
         <EmblaCarousel uniqueClassName="hero-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} options={{draggable: false}}>
           {slides.map(sliderItemsMapCallback)}
         </EmblaCarousel>

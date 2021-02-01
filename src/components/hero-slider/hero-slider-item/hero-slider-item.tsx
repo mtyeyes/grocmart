@@ -3,6 +3,8 @@ import './hero-slider-item.styl';
 
 import LinkAsButton from '../../link-as-button/link-as-button';
 
+import { PATH } from '../../../app';
+
 type Props = {
   title: string,
   topParagraph: string,
@@ -10,7 +12,7 @@ type Props = {
 }
 
 const HeroSliderItem: React.FC<Props> = ({ title, topParagraph, bottomParagraph}) => {
-  const style = {backgroundImage: `url(/images/hero-slider-${title.replace(/\s/g, '').toLowerCase()}.jpg)`};
+  const style = {backgroundImage: `url(${PATH}images/hero-slider-${title.replace(/\s/g, '').toLowerCase()}.jpg)`};
 
   return (
     <li className="hero-slider__item hero-slider-item" style={style}>

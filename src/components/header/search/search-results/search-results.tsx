@@ -2,11 +2,13 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import './search-results.styl';
 
-import { AppState, AppDispatch } from '../../../../store/index';
-import {ProductsState} from '../../../../store/products/types';
 import Loader from '../../../loader/loader';
 import { Link } from 'react-router-dom';
 import Button from '../../../button/button';
+
+import { AppState, AppDispatch } from '../../../../store/index';
+import {ProductsState} from '../../../../store/products/types';
+import { PATH } from '../../../../app';
 
 type Props = {
   searchQuery: string,
@@ -23,7 +25,7 @@ const SearchResults: React.FC<Props> = ({ searchQuery, setSearchQuery, closeModa
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const [searchResults, setSearchResults] = useState([] as string[]);
 
-  const request = {products: '/mocks/products.json'};
+  const request = {products: `${PATH}mocks/products.json`};
   const transferData = (requestResult: {products: ProductsState}) => {
     if ( Object.keys(productsState).length !== 0 ) { dispatch({type: 'LOAD_PRODUCTS_STATE', payload: requestResult.products}) } else { return }
   };
@@ -42,7 +44,7 @@ const SearchResults: React.FC<Props> = ({ searchQuery, setSearchQuery, closeModa
     return (
       <li className="search-results__item search-result" key={productId}>
         <Link className="search-result__link" to={`/shop/${productId}`} onClick={closeModal}>
-          <img className="search-result__thumbnail" src={`/images/${productId}-small.png`} alt={`${productName}`}></img>
+          <img className="search-result__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productName}`}></img>
           <h6 className="search-result__title">{productName}</h6>
         </Link>
       </li>
