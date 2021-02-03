@@ -62,24 +62,25 @@
   line-height 20px
   transition $animation-speed
 
+.categories-filter__checkbox:focus ~ .categories-filter__label,
 .categories-filter__label:hover,
 .categories-filter__label:focus
   color $accent-green-color
 
+.categories-filter__checkbox:focus ~ .categories-filter__label ~ .categories-filter__item-counter,
 .categories-filter__label:hover ~ .categories-filter__item-counter,
 .categories-filter__label:focus ~ .categories-filter__item-counter
   color $accent-green-color
 
+.categories-filter__checkbox:focus ~ .categories-filter__label::before,
 .categories-filter__label:focus::before,
 .categories-filter__label:hover::before
   border 1px solid $accent-green-color
 
+.categories-filter__checkbox:checked:focus ~ .categories-filter__label::after,
 .categories-filter__checkbox:checked ~ .categories-filter__label:hover::after,
 .categories-filter__checkbox:checked ~ .categories-filter__label:focus::after
   color $accent-green-color
-
-.categories-filter__checkbox
-  display none
 
 @media (min-width: 590px)
   .categories-filter__container

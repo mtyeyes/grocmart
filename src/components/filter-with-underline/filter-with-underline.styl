@@ -90,6 +90,9 @@
     flex-direction row
     flex-wrap nowrap
 
+  .filter__filters-list:not(.filter__filters-list:hover) .filter__input:checked:focus ~ .filter__label
+    color $accent-color
+
   .filter__filters-list::after
     content ""
     position absolute

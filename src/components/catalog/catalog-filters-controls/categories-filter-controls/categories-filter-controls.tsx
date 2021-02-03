@@ -46,7 +46,7 @@ const CategoriesFilterControls: React.FC<Props> = ({ categoriesData, dispatchFil
 
     return(
       <li className="categories-filter__item" key={categoryName}>
-        <input className="categories-filter__checkbox" type="checkbox" name="categories-filter-controls" id={`${categoryName}-category`} checked={isSelected} onChange={handleChange}/>
+        <input className="categories-filter__checkbox visually-hidden" type="checkbox" name="categories-filter-controls" id={`${categoryName}-category`} checked={isSelected} onChange={handleChange}/>
         <label className="categories-filter__label" htmlFor={`${categoryName}-category`} >{categoryName}</label>
         <p className="categories-filter__item-counter"><HiddenText>In this category there are</HiddenText> {`(${amount})`} <HiddenText>{(amount === 1) ? 'item' : 'items'}</HiddenText></p>
       </li>
@@ -58,7 +58,7 @@ const CategoriesFilterControls: React.FC<Props> = ({ categoriesData, dispatchFil
       <h4 className="categories-filter__heading">Categories</h4>
       <ul className="categories-filter__list">
         <li className="categories-filter__item">
-          <input className="categories-filter__checkbox" type="checkbox" name="categories-filter-controls" id="all-category" checked={selectAllCheckboxState.isChecked} onChange={handleChange}/>
+          <input className="categories-filter__checkbox visually-hidden" type="checkbox" name="categories-filter-controls" id="all-category" checked={selectAllCheckboxState.isChecked} onChange={handleChange}/>
           <label className="categories-filter__label" htmlFor="all-category">all</label>
           <p className="categories-filter__item-counter"><HiddenText>There are</HiddenText> {`(${selectAllCheckboxState.numberOfItemsTotal})`} <HiddenText>{(selectAllCheckboxState.numberOfItemsTotal === 1) ? 'item total' : 'items total'}</HiddenText></p>
         </li>

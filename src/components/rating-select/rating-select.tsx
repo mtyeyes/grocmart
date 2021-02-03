@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './rating-select.styl';
 
 import HiddenText from '../hidden-text/hidden-text';
@@ -10,8 +10,14 @@ type Props = {
   setSelectedRating: (rating: null | number) => void
 }
 
+type RatingInFocus = {
+  byKeyboard: number | null,
+  byMouse: number | null,
+}
+
 const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelectedRating }) => {
   const ratings = ['terrible', 'bad', 'normal', 'good', 'great'];
+  const [ratingInFocus, setRatingInFocus] = useState({byKeyboard: null, byMouse: null} as RatingInFocus);
 
   const unselectIfSelected = (inputValue: number) => {
     if(inputValue === selectedRating) {setSelectedRating(null)}
@@ -26,7 +32,12 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
     switch(true) {
     case(selectedRating && selectedRating >= ratingValue): {
       iconType = 'star';
-      labelClassName = `${labelClassName} rating-select__label--selected`;
+      labelClassName = `${labelClassName} ${labelClassName}--selected`;
+      break;
+    }
+    case(ratingInFocus.byKeyboard! >= ratingValue || ratingInFocus.byMouse! >= ratingValue): {
+      iconType = 'star';
+      labelClassName = `${labelClassName} ${labelClassName}--hovered`;
       break;
     }
     case(defaultRating && defaultRating >= ratingValue): {
@@ -44,9 +55,14 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
     }
 
     return (
-      <li className="rating-select__item" key={rating}>
+      <li
+        className="rating-select__item"
+        onMouseEnter={()=>{setRatingInFocus(prevState => { return {...prevState, byMouse: ratingValue} })}}
+        onMouseLeave={()=>{setRatingInFocus(prevState => { return {...prevState, byMouse: null} })}}
+        key={rating}
+      >
         <input
-          className="rating-select__input"
+          className="rating-select__input visually-hidden"
           type="radio"
           id={`${rating}-rating`}
           name={rating}
@@ -54,6 +70,8 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
           checked={selectedRating === ratingValue}
           onChange={()=>{setSelectedRating(ratingValue)}}
           onClick={()=>{unselectIfSelected(ratingValue)}}
+          onFocus={()=>{setRatingInFocus(prevState => { return {...prevState, byKeyboard: ratingValue} })}}
+          onBlur={()=>{setRatingInFocus(prevState => { return {...prevState, byKeyboard: null} })}}
         />
         <label className={labelClassName} htmlFor={`${rating}-rating`}><HiddenText>{rating}</HiddenText><Icon iconId={iconType}/></label>
       </li>

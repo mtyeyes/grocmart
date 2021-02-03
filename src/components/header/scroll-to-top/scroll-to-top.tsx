@@ -15,7 +15,7 @@ const ScrollToTopBtn: React.FC<Props> = ({ isShown }) => {
   };
 
   return (
-    <Button className={(isShown) ? 'scroll-to-top-btn scroll-to-top-btn--shown' : 'scroll-to-top-btn'} onClick={scrollToTop}>
+    <Button className={(isShown) ? 'scroll-to-top-btn scroll-to-top-btn--shown' : 'scroll-to-top-btn'} onClick={scrollToTop} tabIndex={-1}>
       <Icon iconId="up" />
       <HiddenText>Scroll to the top of the page</HiddenText>
     </Button>

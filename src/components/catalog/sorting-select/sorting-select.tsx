@@ -22,7 +22,7 @@ const SortingSelect = <K extends string>({ valuesToSortBy, selectedValueToSortBy
     return(
       <li className="sorting-controls__item" key={valueName}>
         <input
-          className="sorting-controls__input"
+          className="sorting-controls__input visually-hidden"
           type="radio"
           id={`${valueName}`}
           name={`${valuesToSortBy[0]}`}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './hidden-text.styl';
+import '../../index.styl';
 
 type Props = {
   children: string,
