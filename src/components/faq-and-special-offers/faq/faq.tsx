@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import FaqItem from './faq-item/faq-item';
 import './faq.styl';
+
+import FaqItem from './faq-item/faq-item';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 type QuestionAnswerPair = {
   question: string,
@@ -34,16 +36,20 @@ const Faq: React.FC = () => {
   const questionAnswerPairMapCallback = ({question, answer}: QuestionAnswerPair) => {
     const questionId = question.replace(/\s|\?|,/g, '');
     const isExpanded = expandedQuestion === questionId;
-    return <FaqItem questionId={questionId} question={question} answer={answer} key={question} isExpanded={isExpanded} toggle={toggleQuestion}/>;
+    return <FaqItem questionId={questionId} question={question} answer={answer} key={question} isExpanded={isExpanded} toggle={toggleQuestion}/>
   };
 
   return (
     <div className="faq__container">
-      <p className="faq__paragraph">Common questions</p>
-      <h2 className="faq__heading">FAQ</h2>
-      <dl className="faq__list">
-        {questionAnswerPair.map(questionAnswerPairMapCallback)}
-      </dl>
+      <ScrollAnimation animateIn="fade-in-from-top" animateOnce={true}>
+        <p className="faq__paragraph">Common questions</p>
+        <h2 className="faq__heading">FAQ</h2>
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="fade-in-from-right" animateOnce={true}>
+        <dl className="faq__list">
+          {questionAnswerPair.map(questionAnswerPairMapCallback)}
+        </dl>
+      </ScrollAnimation>
     </div>
   );
 };

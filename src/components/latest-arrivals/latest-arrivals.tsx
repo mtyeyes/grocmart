@@ -8,6 +8,7 @@ import Loader from '../loader/loader';
 import FilterWithUnderline, {FilterState} from '../filter-with-underline/filter-with-underline';
 import ProductCard from '../product-card/product-card';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
@@ -68,8 +69,10 @@ const LatestArrivals: React.FC = () => {
   return (
     <section className="latest-arrivals">
       <Loader requests={ {stateRequests: ['products', 'discounts']} }>
-        <h2 className="latest-arrivals__heading">Latest arrivals</h2>
-        <b className="latest-arrivals__exclamation">New products</b>
+        <ScrollAnimation animateIn="fade-in-from-top" animateOnce={true}>
+          <h2 className="latest-arrivals__heading">Latest arrivals</h2>
+          <b className="latest-arrivals__exclamation">New products</b>
+        </ScrollAnimation>
         {filterState.availableFilters.length >= 2 &&
           <FilterWithUnderline selectedFilter={filterState.selectedFilter} setSelectedFilter={setFilterState} availableFilters={filterState.availableFilters} />
         }

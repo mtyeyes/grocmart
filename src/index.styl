@@ -78,23 +78,32 @@ a
 *, *:focus, *:hover
   outline none
 
+.fade-in-from-top
+  animation-name fade-in-from-top
+
 @keyframes fade-in-from-top
   0%
-    transform translate(0, -10%)
+    transform translate(0, -25%)
     opacity 0
   50%
     opacity 1
   100%
     transform translate(0, 0)
 
+.fade-in-from-bottom
+  animation-name fade-in-from-bottom
+
 @keyframes fade-in-from-bottom
   0%
-    transform translate(0, 10%)
+    transform translate(0, 25%)
     opacity 0
   50%
     opacity 1
   100%
     transform translate(0, 0)
+
+.fade-in-from-left
+  animation-name fade-in-from-left
 
 @keyframes fade-in-from-left
   0%
@@ -104,6 +113,9 @@ a
     opacity 1
   100%
     transform translate(0, 0)
+
+.fade-in-from-right
+  animation-name fade-in-from-right
 
 @keyframes fade-in-from-right
   0%
