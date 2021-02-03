@@ -1,11 +1,10 @@
 import React from 'react';
-import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import './modal-cart.styl';
 
 import { AppState, AppDispatch } from '../../../store';
 import { addToCart, removeFromCart } from '../../../store/cart/actions';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
-import { PATH } from '../../../app';
 
 import ModalCartItem from './modal-cart-item/modal-cart-item';
 import Loader from '../../loader/loader';
@@ -23,31 +22,11 @@ const ModalCart: React.FC = () => {
   const selectCartState = (state: AppState) => {return state.cart};
   const productsState = useSelector(selectProductsState, shallowEqual);
   const cartState = useSelector(selectCartState, shallowEqual);
-  const currentState = useStore().getState();
 
   const blockedCheckoutLink = PreventDefaultAndShowAlert(
     <LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">Checkout</LinkAsButton>,
     'This is a static site and checkout link is inactive'
   );
-
-
-  const request: { [key: string]: string } = {
-    products: `${PATH}mocks/products.json`,
-    discounts: `${PATH}mocks/discounts.json`
-  };
-  const transferData = (requestResults: { [key: string]: any }) => {
-    Object.entries(requestResults).forEach(([key, data]) => {
-      if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      switch(key) {
-      case('products'):
-        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-        break;
-      case('discounts'):
-        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-        break;
-      }
-    });
-  };
 
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
@@ -73,7 +52,7 @@ const ModalCart: React.FC = () => {
 
   return (
     <div className="modal-cart__container">
-      <Loader requests={request} transferData={transferData}>
+      <Loader requests={ {stateRequests: ['products', 'discounts']} }>
         <div className="modal-cart__top-wrapper">
           <h5 className="modal-cart__heading">In cart: <span>{Object.keys(cartState).length} products</span></h5>
           <p className="modal-cart__total-price">Total price: <span>{countTotalPrice()}</span></p>

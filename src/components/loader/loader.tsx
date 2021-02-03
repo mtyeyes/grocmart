@@ -1,66 +1,99 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ReactNode } from 'react';
 import './loader.styl';
 
+import { StateKeys } from '../../store/index';
 import useFetchAndCacheJson from '../../hooks/use-fetch-and-cache-json';
+import useLoadState from '../../hooks/use-load-state';
+import { PATH } from '../../app';
 
-type Props = {
-  loaderSize?: number,
+type Props<T extends object, K extends keyof T> = PropsOnlyStateRequests | PropsOnlyResourceRequests<T, K> | PropsStateAndResourceRequests<T, K>;
+
+type PropsOnlyStateRequests = {
   customColor?: 'white' | undefined,
-  transferData: (requestResult: any) => void,
-  requests: { [key: string]: string },
+  children: ReactNode,
+  requests: {
+    stateRequests: StateKeys[]
+  }
 }
+
+type PropsOnlyResourceRequests<T extends object, K extends keyof T> = {
+  customColor?: 'white' | undefined,
+  children: ReactNode,
+  requests: {
+    resourceRequests: K[]
+  },
+  transferRequestedResources: (requestsResults: T) => void
+}
+
+type PropsStateAndResourceRequests<T extends object, K extends keyof T> = {
+  customColor?: 'white' | undefined,
+  children: ReactNode,
+  requests: {
+    stateRequests: StateKeys[],
+    resourceRequests: K[]
+  },
+  transferRequestedResources: (requestsResults: T) => void
+}
+
 
 const fiveMinutes = 300000;
 
-const Loader: React.FC<Props> = ({ loaderSize, transferData, requests, children, customColor }) => {
+const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
+  const { requests, children, customColor } = props;
+  const loadState = useLoadState();
   const [loadingState, setloadingState] = useState('loading');
-  const [requestResult, setResult] = useState({});
+  const [stateRequestsResults, setStateRequestsResults] = useState({} as object);
+  const [resourcesRequestsResults, setResourcesRequestsResults] = useState({} as T);
 
-  for (const [requestId, linkToResourse] of Object.entries(requests)) {
-    const request = useFetchAndCacheJson(linkToResourse, fiveMinutes);
+  const fetchRequest = (requestId: keyof T | string, requestType: 'stateRequests' | 'resourceRequests') => {
+    const request = useFetchAndCacheJson(`${PATH}mocks/${requestId}.json`, fiveMinutes);
     useEffect(() => {
       if (request.isLoading === false) {
-        (request.isError) ? setloadingState('error') : setResult((prevResult)=>{return {...prevResult, [requestId]: request.data}});
+        if(request.isError) { setloadingState('error') } else {
+          (requestType === 'stateRequests')
+            ? setStateRequestsResults(prevState => { return {...prevState, [requestId]: request.data} })
+            : setResourcesRequestsResults(prevState => { return {...prevState, [requestId]: request.data} });
+        }
       }
     }, [request]);
-  }
-  useEffect(() => {
-    if (Object.keys(requests).length === Object.keys(requestResult).length) {
-      if (loadingState !== 'error') {
-        transferData(requestResult);
-        setloadingState('success');
-      }
-    }
-  }, [requestResult]);
-
-  let radiusSize, marginSize;
-  if (loaderSize) {
-    radiusSize = `${loaderSize}px`;
-    marginSize = `${loaderSize * 0.6}`;
-  } else {
-    radiusSize = '10px';
-    marginSize = '6px';
-  }
-  const style = {
-    margin: `0 ${marginSize}`,
-    width: radiusSize,
-    height: radiusSize,
   };
+
+  const fetchRequests = () => {
+    if('stateRequests' in requests) {
+      requests.stateRequests.forEach( requestId => fetchRequest(requestId, 'stateRequests') );
+    }
+    if('resourceRequests' in requests) {
+      requests.resourceRequests.forEach( requestId => fetchRequest(requestId, 'resourceRequests') );
+    }
+  };
+
+  fetchRequests();
+
+  useEffect(() => {
+    const allStateRequestsCompleted = !('stateRequests' in requests) || requests.stateRequests.length === Object.keys(stateRequestsResults).length;
+    const allResourceRequestsCompleted = !('resourceRequests' in requests) || requests.resourceRequests.length === Object.keys(resourcesRequestsResults).length;
+
+    if (allStateRequestsCompleted && allResourceRequestsCompleted && loadingState !== 'error') {
+      loadState(stateRequestsResults);
+      if ('transferRequestedResources' in props) {props.transferRequestedResources!(resourcesRequestsResults)}
+      setloadingState('success');
+    }
+  }, [stateRequestsResults, resourcesRequestsResults]);
 
 
   const loaderRender = (loadingState: string) => {
     switch(loadingState) {
     case 'loading':
       return (
-        <div className={(customColor) ? `lpader loader--${customColor}` : 'loader'}>
-          <div className="loader__shape" style={style} />
-          <div className="loader__shape" style={style}/>
-          <div className="loader__shape" style={style}/>
+        <div className={(customColor !== undefined) ? `loader loader--${customColor}` : 'loader'}>
+          <div className="loader__shape" />
+          <div className="loader__shape" />
+          <div className="loader__shape" />
         </div>
       );
     case 'error':
       return (
-        <div className={(customColor) ? `lpader loader--${customColor} loader--error` : 'loader loader--error'}>
+        <div className={(customColor !== undefined) ? `loader loader--${customColor} loader--error` : 'loader loader--error'}>
           <p className="loader__error-text">Error getting data</p>
         </div>
       );

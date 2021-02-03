@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import FlipMove from 'react-flip-move';
 import './masonry-gallery.styl';
 
@@ -28,32 +28,7 @@ const MasonryGallery: React.FC = () => {
   const [filterState, setFilterState] = useState({selectedFilter: 'all', availableFilters: ['all']} as FilterState);
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
-  const request: { [key: string]: string } = {
-    gallery: `${PATH}mocks/gallery-images.json`,
-    products: `${PATH}mocks/products.json`,
-    discounts: `${PATH}mocks/discounts.json`
-  };
-
-  const currentState = useStore().getState();
-  const transferData = (requestResults: { [key: string]: any }) => {
-    Object.entries(requestResults).forEach(([key, data]) => {
-      if (key === 'gallery') {
-        if (galleryState.length === 0) {setGalleryState(data)}
-        return;
-      } else {
-        if ( Object.keys(currentState[key]).length !== 0 ) { return }
-        switch(key) {
-        case('products'):
-          dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-          break;
-        case('discounts'):
-          dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-          break;
-        }
-      }
-
-    });
-  };
+  const getLoadedData = (requestResults: { 'gallery-images': GalleryStateItem[] }) => { setGalleryState(requestResults['gallery-images']) };
 
   useEffect(()=>{
     const filterGroups: Set<string> = new Set();
@@ -89,7 +64,7 @@ const MasonryGallery: React.FC = () => {
 
   return (
     <section className="gallery">
-      <Loader requests={request} transferData={transferData}>
+      <Loader requests={ {resourceRequests: ['gallery-images'], stateRequests: ['products', 'discounts']} } transferRequestedResources={getLoadedData}>
         {filterState.availableFilters.length >= 2 &&
           <FilterWithUnderline selectedFilter={filterState.selectedFilter} setSelectedFilter={setFilterState} availableFilters={filterState.availableFilters} />
         }

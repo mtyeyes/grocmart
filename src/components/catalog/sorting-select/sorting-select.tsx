@@ -4,23 +4,21 @@ import './sorting-select.styl';
 import Button from '../../button/button';
 import Icon from '../../icon/icon';
 
-type ValuestToSortBy = Readonly<string[]>
-
-type Props = {
-  valuesToSortBy: ValuestToSortBy,
-  selectedValueToSortBy: string,
-  setSelectedValueToSortBy: Dispatch<SetStateAction<any>>,
+type Props<K> = {
+  valuesToSortBy: K[],
+  selectedValueToSortBy: K,
+  setSelectedValueToSortBy: Dispatch<SetStateAction<K>>,
 }
 
-const SortingSelect: React.FC<Props> = ({ valuesToSortBy, selectedValueToSortBy, setSelectedValueToSortBy }) => {
+const SortingSelect = <K extends string>({ valuesToSortBy, selectedValueToSortBy, setSelectedValueToSortBy }: Props<K>) => {
   const [controlsVisible, setControlsVisibility] = useState(false);
 
-  const radioInputChecked = ( valueName: string ) => {
+  const radioInputChecked = ( valueName: K ) => {
     setControlsVisibility(false);
     setSelectedValueToSortBy(valueName);
   };
 
-  const valuesMapCallback = (valueName: string) => {
+  const valuesMapCallback = (valueName: K) => {
     return(
       <li className="sorting-controls__item" key={valueName}>
         <input

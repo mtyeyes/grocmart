@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import './catalog.styl';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
-import { PATH } from '../../app';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import Loader from '../loader/loader';
@@ -78,33 +77,11 @@ const Catalog: React.FC = () => {
   const [numberOfItemsInCategories, setNumberOfItemsInCategories] = useState({} as NumberOfItemsInCategories);
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const [sortedProducts, setSortedProducts] = useState(Object.keys(productsState));
-  const [valueToSortBy, setValueToSortBy] = useState('name' as ValueToSortBy);
-  const valuesToSortBy = ['name', 'rating', 'price'] as const;
+  const [valueToSortBy, setValueToSortBy] = useState('name' as typeof valuesToSortBy[number]);
+  const valuesToSortBy = ['name', 'rating', 'price'];
   const [filteredProducts, setFilteredProducts] = useState([] as string[]);
   const [filteredProductsData, setFilteredProductsData] = useState([] as ProductCardProps[]);
-  const currentState = useStore().getState();
-
-  type ValueToSortBy = typeof valuesToSortBy[number];
-
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
-  const request: { [key: string]: string } = {
-    products: `${PATH}mocks/products.json`,
-    discounts: `${PATH}mocks/discounts.json`
-  };
-
-  const transferData = (requestResults: { [key: string]: any }) => {
-    Object.entries(requestResults).forEach(([key, data]) => {
-      if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      switch(key) {
-      case('products'):
-        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-        break;
-      case('discounts'):
-        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-        break;
-      }
-    });
-  };
 
   useEffect(() => {
     switch (valueToSortBy) {
@@ -221,7 +198,7 @@ const Catalog: React.FC = () => {
 
   return (
     <section className="catalog__container">
-      <Loader requests={request} transferData={transferData}>
+      <Loader requests={ {stateRequests: ['products', 'discounts']} }>
         <CatalogFiltersControls filterProducts={filterProducts} selectedMinPrice={filterState.price.selectedMinPrice} selectedMaxPrice={filterState.price.selectedMaxPrice}>
           <PriceFilterControls dispatchFilterAction={filterDispatch} {...filterState.price} />
           <CategoriesFilterControls categoriesData={filterState.selectedCategories} dispatchFilterAction={filterDispatch} numberOfItems={numberOfItemsInCategories} />

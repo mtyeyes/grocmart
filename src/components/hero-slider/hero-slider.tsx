@@ -5,8 +5,6 @@ import Loader from '../loader/loader';
 import HeroSliderItem from './hero-slider-item/hero-slider-item';
 import EmblaCarousel from '../embla-carousel/embla-carousel';
 
-import { PATH } from '../../app';
-
 type SlideData = {
   title: string,
   topParagraph: string,
@@ -14,10 +12,9 @@ type SlideData = {
 }
 
 const HeroSlider: React.FC = () => {
-  const [slides, setSlides] = useState([]);
-  const transferData = (requestResults: { [key: string]: any }) => {
-    setSlides(requestResults.slides);
-  };
+  const [slides, setSlides] = useState([] as SlideData[]);
+
+  const getLoadedData = (requestResults: { 'hero-slider': SlideData[] }) => { setSlides(requestResults['hero-slider']) };
 
   const sliderItemsMapCallback = ({title, topParagraph, bottomParagraph}: SlideData) => {
     return <HeroSliderItem key={title} title={title} topParagraph={topParagraph} bottomParagraph={bottomParagraph} />;
@@ -25,7 +22,7 @@ const HeroSlider: React.FC = () => {
 
   return (
     <section className="hero-slider">
-      <Loader requests={{'slides': `${PATH}mocks/hero-slider.json`}} transferData={transferData}>
+      <Loader requests={ {resourceRequests: ['hero-slider']} } transferRequestedResources={getLoadedData}>
         <EmblaCarousel uniqueClassName="hero-slider" dotsBtnEnabled={true} nextPrevBtnsEnabled={true} options={{draggable: false}}>
           {slides.map(sliderItemsMapCallback)}
         </EmblaCarousel>

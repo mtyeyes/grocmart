@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import './user-cart.styl';
 
 import Table, { TableData, TableCellData } from '../table/table';
@@ -26,26 +26,6 @@ const UserCart: React.FC = () => {
   const windowWidth = useWindowWidth();
 
   const [tableData, setTableData] = useState([] as TableData);
-
-  const request: { [key: string]: string } = {
-    products: `${PATH}mocks/products.json`,
-    discounts: `${PATH}mocks/discounts.json`
-  };
-
-  const currentState = useStore().getState();
-  const transferData = (requestResults: { [key: string]: any }) => {
-    Object.entries(requestResults).forEach(([key, data]) => {
-      if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      switch(key) {
-      case('products'):
-        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-        break;
-      case('discounts'):
-        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-        break;
-      }
-    });
-  };
 
   const countTotalPrice = () => {
     let totalPrice = 0;
@@ -122,7 +102,7 @@ const UserCart: React.FC = () => {
 
   return (
     <section className="cart__container">
-      <Loader requests={request} transferData={transferData}>
+      <Loader requests={ {stateRequests: ['products', 'discounts']} }>
         {
           (Object.keys(cartState).length) > 0 
             ? (

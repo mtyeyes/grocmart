@@ -1,13 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import './search-results.styl';
 
 import Loader from '../../../loader/loader';
 import { Link } from 'react-router-dom';
 import Button from '../../../button/button';
 
-import { AppState, AppDispatch } from '../../../../store/index';
-import {ProductsState} from '../../../../store/products/types';
+import { AppState } from '../../../../store/index';
 import { PATH } from '../../../../app';
 
 type Props = {
@@ -21,14 +20,8 @@ const capitalizeFirstLetter = (string: string) => {
 };
 
 const SearchResults: React.FC<Props> = ({ searchQuery, setSearchQuery, closeModal }) => {
-  const dispatch = useDispatch<AppDispatch>();
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const [searchResults, setSearchResults] = useState([] as string[]);
-
-  const request = {products: `${PATH}mocks/products.json`};
-  const transferData = (requestResult: {products: ProductsState}) => {
-    if ( Object.keys(productsState).length !== 0 ) { dispatch({type: 'LOAD_PRODUCTS_STATE', payload: requestResult.products}) } else { return }
-  };
 
   const searchByName = (name: string) => {
     const substrToFilter = name.toLowerCase();
@@ -54,7 +47,7 @@ const SearchResults: React.FC<Props> = ({ searchQuery, setSearchQuery, closeModa
   return (
     <div className="search-results__container">
       <Button className="search-results__reset-btn" onClick={()=>{setSearchQuery(null)}}>Search another product</Button>
-      <Loader customColor='white' requests={request} transferData={transferData}>
+      <Loader customColor='white' requests={ {stateRequests: ['products']} }>
         {(searchResults.length) ?
           <ul className="search-results__list">{searchResults.map(searchResultsMapCallback)}</ul> :
           <p className="search-results__no-results-disclaimer">There is no product with such name</p>

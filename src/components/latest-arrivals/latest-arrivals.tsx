@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import FlipMove from 'react-flip-move';
 import './latest-arrivals.styl';
 
@@ -11,7 +11,6 @@ import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
-import { PATH } from '../../app';
 
 const LatestArrivals: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,26 +21,6 @@ const LatestArrivals: React.FC = () => {
   const [displayedProducts, setDisplayedProducts] = useState([] as string[]);
   const [filterState, setFilterState] = useState({selectedFilter: 'all', availableFilters: ['all']} as FilterState);
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
-
-  const request: { [key: string]: string } = {
-    products: `${PATH}mocks/products.json`,
-    discounts: `${PATH}mocks/discounts.json`
-  };
-
-  const currentState = useStore().getState();
-  const transferData = (requestResults: { [key: string]: any }) => {
-    Object.entries(requestResults).forEach(([key, data]) => {
-      if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      switch(key) {
-      case('products'):
-        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-        break;
-      case('discounts'):
-        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-        break;
-      }
-    });
-  };
 
   useEffect(()=>{
     let productsArray;
@@ -88,7 +67,7 @@ const LatestArrivals: React.FC = () => {
 
   return (
     <section className="latest-arrivals">
-      <Loader requests={request} transferData={transferData}>
+      <Loader requests={ {stateRequests: ['products', 'discounts']} }>
         <h2 className="latest-arrivals__heading">Latest arrivals</h2>
         <b className="latest-arrivals__exclamation">New products</b>
         {filterState.availableFilters.length >= 2 &&

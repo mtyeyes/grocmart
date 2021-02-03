@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallowEqual, useSelector, useDispatch, useStore } from 'react-redux';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import './product-info.styl';
 
 import Loader from '../loader/loader';
@@ -23,32 +23,11 @@ type Props = {
 const ProductInfo: React.FC<Props> = ({ productId }) => {
   const dispatch = useDispatch<AppDispatch>();
   const findAverage = useFindAverage();
-  const currentState = useStore().getState();
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
   const selectProductsState = (state: AppState) => {return state.products};
   const selectCartState = (state: AppState) => {return state.cart};
   const productsState = useSelector(selectProductsState);
   const cartState = useSelector(selectCartState, shallowEqual);
-
-
-  const request: { [key: string]: string } = {
-    products: `${PATH}mocks/products.json`,
-    discounts: `${PATH}mocks/discounts.json`
-  };
-
-  const transferData = (requestResults: { [key: string]: any }) => {
-    Object.entries(requestResults).forEach(([key, data]) => {
-      if ( Object.keys(currentState[key]).length !== 0 ) { return }
-      switch(key) {
-      case('products'):
-        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-        break;
-      case('discounts'):
-        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-        break;
-      }
-    });
-  };
 
   const selectRating = ((rating: null | number) => {
     if(rating) {
@@ -109,7 +88,7 @@ const ProductInfo: React.FC<Props> = ({ productId }) => {
 
   return (
     <section className="product-info">
-      <Loader requests={request} transferData={transferData}>
+      <Loader requests={ {stateRequests: ['products', 'discounts']} }>
         {productInfoRender()}
       </Loader>
     </section>
