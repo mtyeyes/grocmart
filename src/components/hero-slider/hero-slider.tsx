@@ -9,6 +9,7 @@ type SlideData = {
   title: string,
   topParagraph: string,
   bottomParagraph: string,
+  imageBackgroundColor: string
 }
 
 const HeroSlider: React.FC = () => {
@@ -16,8 +17,8 @@ const HeroSlider: React.FC = () => {
 
   const getLoadedData = (requestResults: { 'hero-slider': SlideData[] }) => { setSlides(requestResults['hero-slider']) };
 
-  const sliderItemsMapCallback = ({title, topParagraph, bottomParagraph}: SlideData) => {
-    return <HeroSliderItem key={title} title={title} topParagraph={topParagraph} bottomParagraph={bottomParagraph} />;
+  const sliderItemsMapCallback = ({title, topParagraph, bottomParagraph, imageBackgroundColor}: SlideData) => {
+    return <HeroSliderItem key={title} title={title} topParagraph={topParagraph} bottomParagraph={bottomParagraph} imageBackgroundColor={imageBackgroundColor} />;
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import useSessionStorage from './use-session-storage';
+import useSessionStorageAsCache from './use-session-storage-as-cache';
 
 type UseFetchAdnCacheJson = (url: string, cacheMaxAge: number) => FetchJsonState;
 
@@ -11,7 +11,7 @@ type FetchJsonState = {
 }
 
 const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
-  const { setSessionStorageValue, getSessionStorageValue } = useSessionStorage();
+  const { storeInCache, getFromCache } = useSessionStorageAsCache();
   const [state, setState] = useState<FetchJsonState>({
     isLoading: true,
     isError: false,
@@ -22,7 +22,7 @@ const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const cachedData = getSessionStorageValue(url);
+      const cachedData = getFromCache(url);
       if (cachedData !== false && Date.now() - cachedData.age <= cacheMaxAge) {
         setState({
           isLoading: false,
@@ -43,7 +43,7 @@ const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
             isError: false,
             data,
           });
-          setSessionStorageValue(url, data);
+          storeInCache(url, data);
         } catch(e) {
           if (!abortController.signal.aborted) {
             setState({

@@ -12,7 +12,7 @@ const SearchControls: React.FC<Props> = ({ setSearchQuery }) => {
   const inputEl = useRef<HTMLInputElement>(null);
 
   useEffect(()=>{
-    if (inputEl.current) {inputEl.current.focus()}
+    if (inputEl.current !== null) {inputEl.current.focus()}
   }, [inputEl]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

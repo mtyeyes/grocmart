@@ -10,10 +10,11 @@ type Props = {
   parentBlockName: string,
   childrenBlockName: string,
   children: ReactElement,
+  btnChildrenElement?: ReactElement,
   icon: IconId,
 }
 
-const ModalToggler: React.FC<Props> = ({ parentBlockName, childrenBlockName, children, icon }) => {
+const ModalToggler: React.FC<Props> = ({ parentBlockName, childrenBlockName, children, icon, btnChildrenElement }) => {
   const [isModalVisible, setModalVisibility] = useState(false);
 
   const changeModalVisibility = () => {setModalVisibility(!isModalVisible)};
@@ -23,6 +24,9 @@ const ModalToggler: React.FC<Props> = ({ parentBlockName, childrenBlockName, chi
       <Button className="modal-toggler__btn" onClick={changeModalVisibility}>
         <Icon iconId={icon} />
         <HiddenText>{childrenBlockName}</HiddenText>
+        {btnChildrenElement !== undefined &&
+          btnChildrenElement
+        }
       </Button>
       {isModalVisible &&
         cloneElement(children, { switchModalVisibility: changeModalVisibility })
