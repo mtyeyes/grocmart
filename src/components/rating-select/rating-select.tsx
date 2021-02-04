@@ -10,17 +10,14 @@ type Props = {
   setSelectedRating: (rating: null | number) => void
 }
 
-type RatingInFocus = {
-  byKeyboard: number | null,
-  byMouse: number | null,
-}
+type RatingInFocus = number | null;
 
 const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelectedRating }) => {
   const ratings = ['terrible', 'bad', 'normal', 'good', 'great'];
-  const [ratingInFocus, setRatingInFocus] = useState({byKeyboard: null, byMouse: null} as RatingInFocus);
+  const [ratingInFocus, setRatingInFocus] = useState(null as RatingInFocus);
 
-  const unselectIfSelected = (inputValue: number) => {
-    if(inputValue === selectedRating) {setSelectedRating(null)}
+  const handleInput = (inputValue: number) => {
+    (inputValue !== selectedRating) ? setSelectedRating(inputValue) : setSelectedRating(null);
   };
 
   const ratingMapCallback = (rating: string, index: number) => {
@@ -35,7 +32,7 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
       labelClassName = `${labelClassName} ${labelClassName}--selected`;
       break;
     }
-    case(ratingInFocus.byKeyboard! >= ratingValue || ratingInFocus.byMouse! >= ratingValue): {
+    case(ratingInFocus! >= ratingValue): {
       iconType = 'star';
       labelClassName = `${labelClassName} ${labelClassName}--hovered`;
       break;
@@ -57,8 +54,8 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
     return (
       <li
         className="rating-select__item"
-        onMouseEnter={()=>{setRatingInFocus(prevState => { return {...prevState, byMouse: ratingValue} })}}
-        onMouseLeave={()=>{setRatingInFocus(prevState => { return {...prevState, byMouse: null} })}}
+        onMouseEnter={()=>{setRatingInFocus(ratingValue)}}
+        onMouseLeave={()=>{setRatingInFocus(null)}}
         key={rating}
       >
         <input
@@ -68,10 +65,8 @@ const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelec
           name={rating}
           value={rating}
           checked={selectedRating === ratingValue}
-          onChange={()=>{setSelectedRating(ratingValue)}}
-          onClick={()=>{unselectIfSelected(ratingValue)}}
-          onFocus={()=>{setRatingInFocus(prevState => { return {...prevState, byKeyboard: ratingValue} })}}
-          onBlur={()=>{setRatingInFocus(prevState => { return {...prevState, byKeyboard: null} })}}
+          onClick={()=>{handleInput(ratingValue)}}
+          onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>)=>{if (e.key === 'Enter') {handleInput(ratingValue)}}}
         />
         <label className={labelClassName} htmlFor={`${rating}-rating`}><HiddenText>{rating}</HiddenText><Icon iconId={iconType}/></label>
       </li>

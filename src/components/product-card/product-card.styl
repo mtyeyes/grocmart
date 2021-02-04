@@ -1,4 +1,10 @@
 @import "../../variables.styl"
+.product-card__container
+  position relative
+  width 290px
+  height 350px
+  margin 0 auto 30px
+
 .product-card
   position absolute
   top 0
@@ -107,11 +113,26 @@
 .product-card__thumbnail
   max-width 100%
 
+@media (min-width: 590px)
+  .product-card__container
+    width 240px
+    margin 0
+
 @media (min-width: 1000px)
+  .product-card__container
+    width 210px
+    height 340px
+    margin 0
+
   .product-card__title
     font-size 18px
 
 @media (min-width: 1200px)
+  .product-card__container
+    width 270px
+    height 335px
+    margin 0
+
   .product-card
     padding 25px 20px 60px
     height calc(100% - 85px)

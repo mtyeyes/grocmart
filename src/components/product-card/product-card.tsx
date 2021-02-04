@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 import './product-card.styl';
 
 import HiddenText from '../hidden-text/hidden-text';
@@ -16,24 +16,24 @@ export type Props = {
   productName: string,
   productRating: number,
   addToCart: typeof addToCart,
+  className?: string,
 }
 
-const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart }) => {
-  const isSale = (priceBeforeDiscounts !== priceAfterDiscounts);
-  return (
+const ProductCard = forwardRef(({ productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart, className } : Props, ref: Ref<HTMLLIElement>) => (
+  <li key={productId} className={(className) ? `product-card__container ${className}` : 'product-card__container'} ref={ref}>
     <div className="product-card">
       <div className="product-card__flags-container">
         {productRating >= 4 &&
           <p className="product-card__flag product-card__flag--green"><HiddenText>Product is </HiddenText>popular</p>
         }
-        {isSale &&
+        {priceBeforeDiscounts !== priceAfterDiscounts &&
           <p className="product-card__flag product-card__flag--red"><HiddenText>Product on </HiddenText>sale</p>
         }
       </div>
       <img src={`${PATH}images/${productId}.png`} className="product-card__thumbnail" alt={productName}></img>
       <h4 className="product-card__title">{productName}</h4>
       <div className="product-card__price-container">
-        {isSale &&
+        {priceBeforeDiscounts !== priceAfterDiscounts &&
           <p className="product-card__price product-card__price--original"><HiddenText>Orginal price</HiddenText>{priceBeforeDiscounts}</p>
         }
         <p className="product-card__price product-card__price--total"><HiddenText>Total price</HiddenText>{priceAfterDiscounts}</p>
@@ -49,7 +49,9 @@ const ProductCard: React.FC<Props> = ({ productId, priceBeforeDiscounts, priceAf
         </Button>
       </div>
     </div>
-  );
-};
+  </li>
+));
+
+ProductCard.displayName = 'ProductCard';
 
 export default ProductCard;

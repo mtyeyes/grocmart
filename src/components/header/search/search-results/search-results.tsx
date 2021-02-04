@@ -3,11 +3,10 @@ import { shallowEqual, useSelector } from 'react-redux';
 import './search-results.styl';
 
 import Loader from '../../../loader/loader';
-import { Link } from 'react-router-dom';
 import Button from '../../../button/button';
 
 import { AppState } from '../../../../store/index';
-import { PATH } from '../../../../app';
+import SearchResult from './search-result/search-result';
 
 type Props = {
   searchQuery: string,
@@ -35,12 +34,7 @@ const SearchResults: React.FC<Props> = ({ searchQuery, setSearchQuery, closeModa
   const searchResultsMapCallback = (productId: string) => {
     const productName = capitalizeFirstLetter(productsState[productId].name);
     return (
-      <li className="search-results__item search-result" key={productId}>
-        <Link className="search-result__link" to={`/shop/${productId}`} onClick={closeModal}>
-          <img className="search-result__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productName}`}></img>
-          <h6 className="search-result__title">{productName}</h6>
-        </Link>
-      </li>
+      <SearchResult productId={productId} productName={productName} closeModal={closeModal} key={productId}/>
     );
   };
 

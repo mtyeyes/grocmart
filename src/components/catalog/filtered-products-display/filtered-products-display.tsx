@@ -64,7 +64,7 @@ const FilteredProductsDisplay: React.FC<Props> = ({ filteredProductsData, childr
       toIndex = filteredProductsData.length;
     } else {
       fromIndex = itemsPerPage * (selectedPage - 1);
-      toIndex = (itemsPerPage * selectedPage > filteredProductsData.length) ? filteredProductsData.length : (itemsPerPage * selectedPage) - 1;
+      toIndex = (itemsPerPage * selectedPage > filteredProductsData.length - 1) ? filteredProductsData.length - 1 : (itemsPerPage * selectedPage) - 1;
     }
     setDisplayedRange([fromIndex, toIndex]);
   }, [filteredProductsData, itemsPerPage, selectedPage]);
@@ -75,16 +75,16 @@ const FilteredProductsDisplay: React.FC<Props> = ({ filteredProductsData, childr
 
   const displayedProductsMapCallback = ({productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart}: ProductCardProps) => {
     return (
-      <li key={productId} className='products-display__item'>
-        <ProductCard
-          productId={productId}
-          productName={productName}
-          priceBeforeDiscounts={priceBeforeDiscounts}
-          priceAfterDiscounts={priceAfterDiscounts}
-          productRating={productRating}
-          addToCart={addToCart}
-        />
-      </li>
+      <ProductCard
+        className="products-display__item"
+        productId={productId}
+        productName={productName}
+        priceBeforeDiscounts={priceBeforeDiscounts}
+        priceAfterDiscounts={priceAfterDiscounts}
+        productRating={productRating}
+        addToCart={addToCart}
+        key={productId}
+      />
     );
   };
 
@@ -92,7 +92,7 @@ const FilteredProductsDisplay: React.FC<Props> = ({ filteredProductsData, childr
     <div className="products-display">
       <div className="products-display__sorting-and-info-wrapper">
         {children}
-        <p className="products-display__range-info">{`Showing ${(displayedRange[0] === displayedRange[1]) ? `${displayedRange[0]}` : `${displayedRange[0]}–${displayedRange[1]}`} of ${filteredProductsData.length} results`}</p>
+        <p className="products-display__range-info">{`Showing ${(displayedRange[0] === displayedRange[1]) ? `${displayedRange[0] + 1}th` : `${displayedRange[0] + 1}th–${displayedRange[1] + 1}th`} of ${filteredProductsData.length} results`}</p>
       </div>
       <FlipMove typeName="ul" className="products-display__list" leaveAnimation="none">
         {displayedProducts.map(displayedProductsMapCallback)}

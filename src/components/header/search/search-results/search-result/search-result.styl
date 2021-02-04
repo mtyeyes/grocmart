@@ -1,0 +1,28 @@
+@import '../../../../../variables.styl'
+.search-result__link
+  display flex
+  margin-bottom 10px
+  width 100%
+  justify-content center
+  align-items center
+
+.search-result__link:hover .search-result__thumbnail,
+.search-result__link:focus .search-result__thumbnail
+  filter grayscale(0)
+
+.search-result__link:hover .search-result__title,
+.search-result__link:focus .search-result__title
+  color $accent-green-color
+
+.search-result__thumbnail
+  filter grayscale(70%)
+  transition $animation-speed
+
+.search-result__title
+  font-size 20px
+  margin 0 0 0 10px
+  transition $animation-speed
+
+@media (min-width 1000px)
+  .search-result__title
+    font-size 24px
