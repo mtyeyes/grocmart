@@ -76,7 +76,7 @@ const LatestArrivals: React.FC = () => {
         {filterState.availableFilters.length >= 2 &&
           <FilterWithUnderline selectedFilter={filterState.selectedFilter} setSelectedFilter={setFilterState} availableFilters={filterState.availableFilters} />
         }
-        <FlipMove typeName="ul" className="latest-arrivals__list">
+        <FlipMove typeName="ul" className="latest-arrivals__list" leaveAnimation="none">
           {displayedProducts.map(galleryMapCallback)}
         </FlipMove>
       </Loader>

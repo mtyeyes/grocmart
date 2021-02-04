@@ -94,7 +94,7 @@ const FilteredProductsDisplay: React.FC<Props> = ({ filteredProductsData, childr
         {children}
         <p className="products-display__range-info">{`Showing ${(displayedRange[0] === displayedRange[1]) ? `${displayedRange[0]}` : `${displayedRange[0]}–${displayedRange[1]}`} of ${filteredProductsData.length} results`}</p>
       </div>
-      <FlipMove typeName="ul" className="products-display__list">
+      <FlipMove typeName="ul" className="products-display__list" leaveAnimation="none">
         {displayedProducts.map(displayedProductsMapCallback)}
       </FlipMove>
       <Pagination selectedPage={selectedPage} setSelectedPage={setSelectedPage} itemsPerPage={itemsPerPage} numberOfItems={filteredProductsData.length} />
