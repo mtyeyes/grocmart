@@ -23,10 +23,11 @@ const ModalCart: React.FC = () => {
   const productsState = useSelector(selectProductsState, shallowEqual);
   const cartState = useSelector(selectCartState, shallowEqual);
 
-  const blockedCheckoutLink = PreventDefaultAndShowAlert(
-    <LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">Checkout</LinkAsButton>,
-    'This is a static site and checkout link is inactive'
-  );
+  const blockedCheckoutLink = PreventDefaultAndShowAlert({
+    component: <LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">Checkout</LinkAsButton>,
+    eventType: 'onClick',
+    alertMessage: 'This is a static site and checkout link is inactive'
+  });
 
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 

@@ -9,10 +9,11 @@ type Props = {
 }
 
 const CartControls: React.FC<Props> = ({ totalPrice }) => {
-  const blockedCheckoutLink = PreventDefaultAndShowAlert(
-    <LinkAsButton to="/checkout" subtype="rectangular-red">Proceed to checkout</LinkAsButton>,
-    'This is a static site and checkout link is inactive'
-  );
+  const blockedCheckoutLink = PreventDefaultAndShowAlert({
+    component: <LinkAsButton to="/checkout" subtype="rectangular-red">Proceed to checkout</LinkAsButton>,
+    eventType: 'onClick',
+    alertMessage: 'This is a static site and checkout link is inactive'
+  });
 
   return (
     <div className="cart-controls">
