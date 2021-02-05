@@ -52,7 +52,7 @@ const ProductInfo: React.FC<Props> = ({ productId }) => {
     if(productsState[productId]) {
       return (
         <>
-          <img src={`${PATH}images/${productId}.png`} className="product-info__image" alt={productsState[productId].name}></img>
+          <img src={`${PATH}images/${productId}.png`} className="product-info__image" alt={productsState[productId].name} loading="lazy" />
           <div className="product-info__details">
             <h1 className="product-info__name">{productsState[productId].name}</h1>
             <div className="product-info__price-and-rating-wrapper">

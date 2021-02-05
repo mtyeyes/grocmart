@@ -19,7 +19,7 @@ type Props = {
 const GalleryItem: React.FC<Props> = ({ imgUrl, imgDescription, productId, productPrice, addToCart }) => {
   return (
     <div className="gallery-item">
-      <img className="gallery-item__img" src={imgUrl} alt={imgDescription} />
+      <img className="gallery-item__img" src={imgUrl} alt={imgDescription} loading="lazy" />
       <div className="gallery-item__controls">
         <h4 className="gallery-item__description">{imgDescription}</h4>
         <p className="gallery-item__product-price">{productPrice}</p>

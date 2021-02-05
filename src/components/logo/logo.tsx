@@ -12,7 +12,7 @@ const Logo: React.FC<Props> = ({ className }) => {
   const classNames = (className) ? `logo ${className}` : 'logo';
   return (
     <NavLink to='/' className={classNames} exact activeClassName="logo--selected">
-      <img alt='Grocmart logo' width="249" height="52" src={logoImage} />
+      <img alt='Grocmart logo' width="249" height="52" src={logoImage} loading="lazy" />
     </NavLink>
   );
 };

@@ -30,7 +30,7 @@ const ProductCard = forwardRef(({ productId, priceBeforeDiscounts, priceAfterDis
           <p className="product-card__flag product-card__flag--red"><HiddenText>Product on </HiddenText>sale</p>
         }
       </div>
-      <img src={`${PATH}images/${productId}.png`} className="product-card__thumbnail" alt={productName}></img>
+      <img src={`${PATH}images/${productId}.png`} className="product-card__thumbnail" alt={productName} loading="lazy" />
       <h4 className="product-card__title">{productName}</h4>
       <div className="product-card__price-container">
         {priceBeforeDiscounts !== priceAfterDiscounts &&

@@ -45,7 +45,7 @@ const UserCart: React.FC = () => {
         case('title-and-thumbnail'): {
           return (
             <div className="cart-table-item__thumbnail-and-title-wrapper">
-              <img className="cart-table-item__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productsState[productId].name}`}></img>
+              <img className="cart-table-item__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productsState[productId].name}`} loading="lazy" />
               <div className="cart-table-item__title-wrapper">
                 <h6 className="cart-table-item__title">{productsState[productId].name}</h6>
               </div>

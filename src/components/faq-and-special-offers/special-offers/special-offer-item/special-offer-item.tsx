@@ -17,7 +17,7 @@ const SpecialOfferItem: React.FC<Props> = ({ productId, productName, priceBefore
   return (
     <li className="specials-slider-item">
       <div className="specials-slider-item__wrapper">
-        <img className="specials-slider-item__image" src={`${PATH}images/${productId}.png`} alt={productName} />
+        <img className="specials-slider-item__image" src={`${PATH}images/${productId}.png`} alt={productName} loading="lazy" />
         <h5 className="specials-slider-item__product-title">
           <Link to={`/shop/${productId}`}>
             {productName}

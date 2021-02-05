@@ -12,7 +12,7 @@ type Props = {
 const Badge: React.FC<Props> = ({ badgeId, badgeDescription, isBrightBackground }) => {
   return (
     <li className="badge">
-      <img alt={badgeDescription} src={`${PATH}images/badge-${badgeId}-${(isBrightBackground) ? 'bright' : 'dark'}.png`} className="badge__img" />
+      <img alt={badgeDescription} src={`${PATH}images/badge-${badgeId}-${(isBrightBackground) ? 'bright' : 'dark'}.png`} className="badge__img" loading="lazy" />
     </li>
   );
 };

@@ -8,7 +8,7 @@ import signatureImage from '../../resources/images/about-signature.png';
 const AboutUs: React.FC = () => {
   return (
     <section className="about-us">
-      <img className="about-us__image" src={image} alt="Juicy fruits and crunchy vegetables" />
+      <img className="about-us__image" src={image} alt="Juicy fruits and crunchy vegetables" loading="lazy" />
       <div className="about-us__container">
         <ScrollAnimation animateIn="fade-in-from-right" animateOnce={true}>
           <p className="about-us__hand-written">A few words about our store</p>
@@ -17,7 +17,7 @@ const AboutUs: React.FC = () => {
           <div className="about-us__bottom-wrapper">
             <p className="about-us__name">Sam Williams</p>
             <p className="about-us__position">CEO, Founder</p>
-            <img className="about-us__signature" src={signatureImage} alt="Signature" />
+            <img className="about-us__signature" src={signatureImage} alt="Signature" loading="lazy" />
           </div>
         </ScrollAnimation>
       </div>
