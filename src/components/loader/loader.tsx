@@ -36,7 +36,7 @@ type PropsStateAndResourceRequests<T extends object, K extends keyof T> = {
 }
 
 
-const fiveMinutes = 300000;
+const fiveMinutes = 300_000;
 
 const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
   const { requests, children, customColor } = props;

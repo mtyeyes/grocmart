@@ -9,9 +9,10 @@
   margin 5px 0
 
 .rating-select__label
-  color #FFCC00
+  color #ffcc00
   font-size 22px
   cursor pointer
+  border-radius 50%
   transition $animation-speed
 
 .rating-select__label:hover,
@@ -24,5 +25,9 @@
 .rating-select__label--selected:focus
   color $accent-color
 
-.rating-select__input:focus ~ .rating-select__label
-  color $accent-color
+.rating-select__input:focus-visible ~ .rating-select__label
+  box-shadow 0 0 10px 4px #ffcc00
+  border-radius 50%
+
+.rating-select__input:focus-visible ~ .rating-select__label--selected
+  box-shadow 0 0 10px 4px $accent-green-color
