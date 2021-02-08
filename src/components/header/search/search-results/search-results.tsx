@@ -18,7 +18,7 @@ const capitalizeFirstLetter = (string: string) => {
   return (string.charAt(0).toUpperCase() + string.slice(1));
 };
 
-const SearchResults: React.FC<Props> = ({ searchQuery, setSearchQuery, closeModal }) => {
+const SearchResults = ({ searchQuery, setSearchQuery, closeModal }: Props) => {
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const [searchResults, setSearchResults] = useState([] as string[]);
 

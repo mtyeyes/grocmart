@@ -13,7 +13,7 @@ import PreventDefaultAndShowAlert from '../../prevent-default-and-show-alert/pre
 
 
 
-const ModalCart: React.FC = () => {
+const ModalCart = () => {
   const dispatch = useDispatch<AppDispatch>();
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
   const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));

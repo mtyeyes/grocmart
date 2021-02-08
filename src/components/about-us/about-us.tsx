@@ -5,7 +5,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import image from '../../resources/images/about.webp';
 import signatureImage from '../../resources/images/about-signature.png';
 
-const AboutUs: React.FC = () => {
+const AboutUs = () => {
   return (
     <section className="about-us">
       <img className="about-us__image" src={image} alt="Juicy fruits and crunchy vegetables" loading="lazy" />

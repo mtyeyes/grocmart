@@ -9,7 +9,7 @@ type Props = {
   dispatchFilterAction: Dispatch<FilterAction>;
 }
 
-const RatingFilterControls: React.FC<Props> = ({selectedRating, dispatchFilterAction}) => {
+const RatingFilterControls = ({selectedRating, dispatchFilterAction}: Props) => {
   const setSelectedRating = ((rating: null | number) => {
     dispatchFilterAction({type: 'changeRatingToFilterBy', payload: rating});
   });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild } from 'react';
 
 import TableRow from './table-row/table-row';
 
@@ -20,11 +20,11 @@ type TableCellWithPrimitiveData = {
 
 type TableCellWithComponent = {
   isHeading: false,
-  data: JSX.Element,
+  data: ReactChild,
   key: string,
 }
 
-const Table: React.FC<Props> = ({ tableData, classNamePrefix }) => {
+const Table = ({ tableData, classNamePrefix }: Props) => {
   const tableDataMapCallback = ( tableRowData: TableRowData ) => {
     return <TableRow rowData={tableRowData} classNamePrefix={(classNamePrefix) ? classNamePrefix : undefined} key={('key' in tableRowData[0]) ? tableRowData[0].key : tableRowData[0].data} />;
   };

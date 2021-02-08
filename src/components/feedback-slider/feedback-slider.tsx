@@ -6,7 +6,7 @@ import FeedbackItem, { Props as SlideData } from './feedback-item/feedback-item'
 import EmblaCarousel from '../embla-carousel/embla-carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-const FeedbackSlider: React.FC = () => {
+const FeedbackSlider = () => {
   const [slides, setSlides] = useState([] as SlideData[]);
 
   const getLoadedData = (requestResults: { feedback: SlideData[] }) => { setSlides(requestResults.feedback) };

@@ -15,7 +15,7 @@ export type FilterState = {
   availableFilters: string[],
 }
 
-const FilterWithUnderline: React.FC<Props> = ({ selectedFilter, setSelectedFilter, availableFilters }) => {
+const FilterWithUnderline = ({ selectedFilter, setSelectedFilter, availableFilters }: Props) => {
   const [filtersVisible, toggleFiltersVisibility] = useState(false);
 
   const filtersMapCallback = (filterName: string) => {

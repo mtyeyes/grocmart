@@ -9,7 +9,7 @@ type Props = {
   className?: string,
 }
 
-const BurgerBtn: React.FC<Props> = ({ btnTitle, onClick, className, ...props }) => {
+const BurgerBtn = ({ btnTitle, onClick, className, ...props }: Props) => {
   const [isToggled, setToggle] = useState(false);
 
   const toggleBurger = () => {

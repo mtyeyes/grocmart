@@ -8,7 +8,7 @@ type Props = {
   dispatchFilterAction: Dispatch<FilterAction>
 }
 
-const ByNameFilterControls: React.FC<Props> = ({ nameFilter, dispatchFilterAction }) => {
+const ByNameFilterControls = ({ nameFilter, dispatchFilterAction }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if(nameFilter !== inputValue) {dispatchFilterAction({type: 'changeNameToFilterBy', payload: inputValue})}

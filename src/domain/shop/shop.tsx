@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import Catalog from '../../components/catalog/catalog';
 
-const Shop: React.FC = () => {
+const Shop = () => {
   return (
     <>
       <Header />

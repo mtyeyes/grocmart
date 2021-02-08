@@ -9,7 +9,7 @@ import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 
 import { AppState } from '../../../store';
 
-const SpecialOffers: React.FC = () => {
+const SpecialOffers = () => {
   const [specialOffers, setSpecialOffers] = useState([] as string[]);
   const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
   const countPriceAfterDiscounts = usePriceAfterDiscounts();

@@ -8,7 +8,7 @@ type Props = {
   setSearchQuery: Dispatch<SetStateAction<string | null>>
 }
 
-const SearchControls: React.FC<Props> = ({ setSearchQuery }) => {
+const SearchControls = ({ setSearchQuery }: Props) => {
   const inputEl = useRef<HTMLInputElement>(null);
 
   useEffect(()=>{

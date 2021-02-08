@@ -7,7 +7,7 @@ type Props = {
   classNamePrefix?: string,
 }
 
-const TableRow: React.FC<Props> = ({ rowData,  classNamePrefix }) => {
+const TableRow = ({ rowData,  classNamePrefix }: Props) => {
   const rowDataMapCallback = (data: TableCellData) => {
     
     if (data.isHeading) {

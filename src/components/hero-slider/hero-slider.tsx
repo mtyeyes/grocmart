@@ -12,7 +12,7 @@ type SlideData = {
   imageBackgroundColor: string
 }
 
-const HeroSlider: React.FC = () => {
+const HeroSlider = () => {
   const [slides, setSlides] = useState([] as SlideData[]);
 
   const getLoadedData = (requestResults: { 'hero-slider': SlideData[] }) => { setSlides(requestResults['hero-slider']) };

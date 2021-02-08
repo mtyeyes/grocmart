@@ -5,7 +5,7 @@ type Props = {
   children: string,
 }
 
-const HiddenText: React.FC<Props> = ({ children }) => {
+const HiddenText = ({ children }: Props) => {
   return <span className="visually-hidden">{children}</span>;
 };
 

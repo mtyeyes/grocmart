@@ -10,7 +10,7 @@ type Props = {
   closeModal?: () => void,
 }
 
-const SearchResult: React.FC<Props> = ({ productId, productName, closeModal }) => {
+const SearchResult = ({ productId, productName, closeModal }: Props) => {
   return (
     <li className="search-result">
       <Link className="search-result__link" to={`/shop/${productId}`} onClick={closeModal}>

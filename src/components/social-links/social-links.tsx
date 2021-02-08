@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import './social-links.styl';
 
 import SocialLink, { Props as SocialLinkType } from './social-link/social-link';
 
-const SocialLinks: React.FC = ({children}) => {
+type Props = {
+  children: ReactNode
+}
+
+const SocialLinks = ({children}: Props) => {
   const links: SocialLinkType[] = [
     {
       linkTitle: 'Facebook',

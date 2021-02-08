@@ -11,7 +11,7 @@ type QuestionAnswerPair = {
 
 type ExpandedQuestion = null | string;
 
-const Faq: React.FC = () => {
+const Faq = () => {
   const questionAnswerPair = [
     {
       question: 'Why is it important to buy localy produced goods?',
@@ -36,7 +36,7 @@ const Faq: React.FC = () => {
   const questionAnswerPairMapCallback = ({question, answer}: QuestionAnswerPair) => {
     const questionId = question.replace(/\s|\?|,/g, '');
     const isExpanded = expandedQuestion === questionId;
-    return <FaqItem questionId={questionId} question={question} answer={answer} key={question} isExpanded={isExpanded} toggle={toggleQuestion}/>
+    return <FaqItem questionId={questionId} question={question} answer={answer} key={question} isExpanded={isExpanded} toggle={toggleQuestion}/>;
   };
 
   return (

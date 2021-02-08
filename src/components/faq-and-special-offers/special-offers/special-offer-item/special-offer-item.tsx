@@ -13,7 +13,7 @@ type Props = {
   priceAfterDiscounts: string,
 }
 
-const SpecialOfferItem: React.FC<Props> = ({ productId, productName, priceBeforeDiscounts, priceAfterDiscounts }) => {
+const SpecialOfferItem = ({ productId, productName, priceBeforeDiscounts, priceAfterDiscounts }: Props) => {
   return (
     <li className="specials-slider-item">
       <div className="specials-slider-item__wrapper">

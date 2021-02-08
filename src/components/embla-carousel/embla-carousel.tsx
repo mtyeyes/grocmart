@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, SetStateAction } from 'react';
+import React, { useState, useEffect, useCallback, SetStateAction, ReactNode } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 import './embla-carousel.styl';
 
@@ -11,10 +11,11 @@ type Props = {
   nextPrevBtnsEnabled: boolean,
   dotsBtnEnabled: boolean,
   autoplaySpeed?: number,
-  options?: Parameters<typeof useEmblaCarousel>[0]
+  options?: Parameters<typeof useEmblaCarousel>[0],
+  children: ReactNode,
 }
 
-const EmblaCarousel: React.FC<Props> = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnEnabled, autoplaySpeed, children }) => {
+const EmblaCarousel = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnEnabled, autoplaySpeed, children }: Props) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);

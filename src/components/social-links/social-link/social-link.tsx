@@ -10,7 +10,7 @@ export type Props = {
   iconId: IconId
 }
 
-const SocialLink: React.FC<Props> = ({ linkTitle, link, iconId }) => {
+const SocialLink = ({ linkTitle, link, iconId }: Props) => {
   return (
     <li className="social-link__item">
       <a target="_blank" rel="noreferrer" className="social-link__link" href={link}>

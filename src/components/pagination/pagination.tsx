@@ -11,7 +11,7 @@ type Props = {
   numberOfItems: number,
 }
 
-const Pagination: React.FC<Props> = ({ selectedPage, setSelectedPage, itemsPerPage, numberOfItems }) => {
+const Pagination = ({ selectedPage, setSelectedPage, itemsPerPage, numberOfItems }: Props) => {
   const amountOfPages = Math.ceil(numberOfItems / itemsPerPage);
   const [controls, setControls] = useState([] as (number|string)[]);
 

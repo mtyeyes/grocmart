@@ -9,7 +9,7 @@ type Props = {
   closeModal: () => void,
 }
 
-const ModalAlert: React.FC<Props> = ({ closeModal, children }) => {
+const ModalAlert = ({ closeModal, children }: Props) => {
   return (
     <ModalWithScreenblock renderInside="root" closeModal={closeModal}>
       <div className="modal-alert__wrapper">

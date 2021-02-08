@@ -7,7 +7,7 @@ import SocialLinks from '../social-links/social-links';
 import Contacts from './contacts/contacts';
 import Newsletter from './newsletter/newsletter';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__wrapper">

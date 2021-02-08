@@ -13,7 +13,7 @@ import useWindowWidth from '../../hooks/use-window-width';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 import { PATH } from '../../app';
 
-const UserCart: React.FC = () => {
+const UserCart = () => {
   const dispatch = useDispatch<AppDispatch>();
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
   const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
@@ -104,7 +104,7 @@ const UserCart: React.FC = () => {
     <section className="cart__container">
       <Loader requests={ {stateRequests: ['products', 'discounts']} }>
         {
-          (Object.keys(cartState).length) > 0 
+          (Object.keys(cartState).length) > 0
             ? (
               <>
                 <div className="cart-table__wrapper">

@@ -11,7 +11,7 @@ type ParamTypes = {
   productId: string
 }
 
-const Product: React.FC = () => {
+const Product = () => {
   const { productId } = useParams<ParamTypes>();
 
   return (

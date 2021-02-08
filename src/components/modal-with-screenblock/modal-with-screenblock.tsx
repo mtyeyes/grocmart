@@ -1,17 +1,18 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import './modal-with-screenblock.styl';
 
 type Props = {
   closeModal?: () => void
   renderInside: 'component' | 'root',
+  children: ReactNode
 }
 
 type EventKeyup = {
   key: string,
 }
 
-const ModalWithScreenblock: React.FC<Props> = ({ closeModal, renderInside, children }) => {
+const ModalWithScreenblock = ({ closeModal, renderInside, children }: Props) => {
   const screenblock = useRef<HTMLDivElement>(null);
   const root = document.getElementById('root')!;
 

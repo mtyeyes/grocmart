@@ -8,7 +8,7 @@ type Props = {
   totalPrice: string,
 }
 
-const CartControls: React.FC<Props> = ({ totalPrice }) => {
+const CartControls = ({ totalPrice }: Props) => {
   const blockedCheckoutLink = PreventDefaultAndShowAlert({
     component: <LinkAsButton to="/checkout" subtype="rectangular-red">Proceed to checkout</LinkAsButton>,
     eventType: 'onClick',

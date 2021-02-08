@@ -12,7 +12,7 @@ type Props = {
   decrement: () => void,
 }
 
-const Counter: React.FC<Props> = ({classNamePrefix, count, increment, decrement}) => {
+const Counter = ({classNamePrefix, count, increment, decrement}: Props) => {
 
   return (
     <div className={(classNamePrefix) ? `${classNamePrefix}__counter counter` : 'counter'}>

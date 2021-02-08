@@ -3,7 +3,7 @@ import './contacts.styl';
 
 import ContactItem, { Props as ContactItemInfo } from './contactItem/contactItem';
 
-const Contacts: React.FC = () => {
+const Contacts = () => {
   const contactsItems: ContactItemInfo[] = [
     {
       contactText: '523 Sylvan Ave, 5th Floor Mountain View, CA 94041 USA',

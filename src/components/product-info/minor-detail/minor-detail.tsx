@@ -6,7 +6,7 @@ type Props = {
   data: string,
 }
 
-const MinorDetail: React.FC<Props> = ({ name, data }) => {
+const MinorDetail = ({ name, data }: Props) => {
   const capitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };

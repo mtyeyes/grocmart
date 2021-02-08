@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import './breadcrumbs.styl';
 import Icon from '../icon/icon';
 
-const Breadcrumbs: React.FC = () => {
+const Breadcrumbs = () => {
   const path = useLocation();
   const breadcrumbsItems = path.pathname.split('/');
   if (breadcrumbsItems[1] === '') {breadcrumbsItems.splice(1,1)}

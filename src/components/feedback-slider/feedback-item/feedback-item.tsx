@@ -9,7 +9,7 @@ export type Props = {
   userId: string,
 }
 
-const FeedbackItem: React.FC<Props> = ({ review, userName, userId }) => {
+const FeedbackItem = ({ review, userName, userId }: Props) => {
   return (
     <li className="feedback-item slider-item">
       <article className="feedback-item__wrapper">

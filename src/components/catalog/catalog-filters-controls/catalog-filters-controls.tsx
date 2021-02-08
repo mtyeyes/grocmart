@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import './catalog-filters-controls.styl';
 
 import Button from '../../button/button';
@@ -7,9 +7,10 @@ type Props = {
   filterProducts: () => void,
   selectedMinPrice: number,
   selectedMaxPrice: number,
+  children: ReactNode,
 }
 
-const CatalogFiltersControls: React.FC<Props> = ({filterProducts, selectedMinPrice, selectedMaxPrice, children}) => {
+const CatalogFiltersControls = ({filterProducts, selectedMinPrice, selectedMaxPrice, children}: Props) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if(e.key === 'Enter'){
       e.preventDefault();

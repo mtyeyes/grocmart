@@ -12,7 +12,7 @@ import FloatingText from '../floating-text/floating-text';
 
 import { AppState } from '../../store/index';
 
-const Header: React.FC = () => {
+const Header = () => {
   const [isSticked, setStick] = useState(false);
   const [scrollToTopVisibility, setScrollToTopVisibility] = useState(false);
 

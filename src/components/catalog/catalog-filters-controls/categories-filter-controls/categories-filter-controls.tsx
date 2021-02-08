@@ -15,7 +15,7 @@ type SelectAllCheckboxState = {
   numberOfItemsTotal: number,
 }
 
-const CategoriesFilterControls: React.FC<Props> = ({ categoriesData, dispatchFilterAction, numberOfItems }) => {
+const CategoriesFilterControls = ({ categoriesData, dispatchFilterAction, numberOfItems }: Props) => {
   const [selectAllCheckboxState, setSelectAllCheckboxState] = useState({isChecked: true, numberOfItemsTotal: 0} as SelectAllCheckboxState);
 
   useEffect(() => {

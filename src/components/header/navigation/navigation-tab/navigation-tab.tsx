@@ -9,7 +9,7 @@ type Props = {
   showMobileMenu?: boolean,
 }
 
-const NavigationTab: React.FC<Props> = ({ links, showMobileMenu }) => {
+const NavigationTab = ({ links, showMobileMenu }: Props) => {
   const classNames = (showMobileMenu) ? 'navigation__wrapper navigation__wrapper--show' : 'navigation__wrapper';
 
   const linksMapCallback = (linkKey: string) => {return <NavigationLink key={linkKey} linkTitle={linkKey} linkPath={links[linkKey]}></NavigationLink>};

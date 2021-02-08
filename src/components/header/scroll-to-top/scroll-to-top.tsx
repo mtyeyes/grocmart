@@ -9,7 +9,7 @@ type Props = {
   isShown: boolean
 }
 
-const ScrollToTopBtn: React.FC<Props> = ({ isShown }) => {
+const ScrollToTopBtn = ({ isShown }: Props) => {
   const scrollToTop = () => {
     if (window.scrollTo) { window.scrollTo({ top: 0, behavior: 'smooth' }) }
   };

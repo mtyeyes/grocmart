@@ -8,7 +8,7 @@ type Props = {
   switchModalVisibility?: () => void,
 }
 
-const Search: React.FC<Props> = ({ switchModalVisibility }) => {
+const Search = ({ switchModalVisibility }: Props) => {
   const [searchQuery, setSearchQuery] = useState(null as string | null);
 
   return (

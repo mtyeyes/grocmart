@@ -8,7 +8,7 @@ type Props = {
   className?: string,
 }
 
-const Logo: React.FC<Props> = ({ className }) => {
+const Logo = ({ className }: Props) => {
   const classNames = (className) ? `logo ${className}` : 'logo';
   return (
     <NavLink to='/' className={classNames} exact activeClassName="logo--selected">

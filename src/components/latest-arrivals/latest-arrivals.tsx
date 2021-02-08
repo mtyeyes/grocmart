@@ -13,7 +13,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
 
-const LatestArrivals: React.FC = () => {
+const LatestArrivals = () => {
   const dispatch = useDispatch<AppDispatch>();
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
 

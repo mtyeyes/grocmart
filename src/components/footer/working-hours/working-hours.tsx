@@ -1,7 +1,7 @@
 import React from 'react';
 import './working-hours.styl';
 
-const WorkingHours: React.FC = () => {
+const WorkingHours = () => {
   return (
     <dl className="working-hours">
       <div className="working-hours__wrapper">

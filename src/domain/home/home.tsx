@@ -11,7 +11,7 @@ import FeedbackSlider from '../../components/feedback-slider/feedback-slider';
 import Badges from '../../components/badges/badges';
 import FaqAndSpecialOffers from '../../components/faq-and-special-offers/faq-and-special-offers';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <>
       <Header />

@@ -7,7 +7,7 @@ type Props = {
   linkPath: string,
 }
 
-const NavigationLink: React.FC<Props> = ({ linkTitle, linkPath }) => {
+const NavigationLink = ({ linkTitle, linkPath }: Props) => {
   return (
     <li className="navigation__item">
       <NavLink className="navigation__link" exact activeClassName="navigation__link--selected" to={linkPath}>{linkTitle}</NavLink>

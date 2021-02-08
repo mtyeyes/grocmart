@@ -8,7 +8,7 @@ export type Links = {
   [key: string]: string,
 }
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
   const [menuToggled, menuToggle] = useState(false);
 
   const toggleMenu = () => {

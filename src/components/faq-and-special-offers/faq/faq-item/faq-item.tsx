@@ -12,7 +12,7 @@ type Props = {
   toggle: (questionId: string) => void,
 }
 
-const FaqItem: React.FC<Props> = ({ questionId, question, answer, isExpanded, toggle }) => {
+const FaqItem = ({ questionId, question, answer, isExpanded, toggle }: Props) => {
   return (
     <div className="faq-item__container">
       <dt className="faq-item__question">

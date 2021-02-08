@@ -18,7 +18,7 @@ type GalleryStateItem = {
   productId: string,
 }
 
-const MasonryGallery: React.FC = () => {
+const MasonryGallery = () => {
   const dispatch = useDispatch<AppDispatch>();
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
 

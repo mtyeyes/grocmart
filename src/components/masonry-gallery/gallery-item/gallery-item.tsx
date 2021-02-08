@@ -16,7 +16,7 @@ type Props = {
   addToCart: typeof addToCart,
 }
 
-const GalleryItem: React.FC<Props> = ({ imgUrl, imgDescription, productId, productPrice, addToCart }) => {
+const GalleryItem = ({ imgUrl, imgDescription, productId, productPrice, addToCart }: Props) => {
   return (
     <div className="gallery-item">
       <img className="gallery-item__img" src={imgUrl} alt={imgDescription} loading="lazy" />

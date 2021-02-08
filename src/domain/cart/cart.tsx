@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import UserCart from '../../components/user-cart/user-cart';
 
-const Cart: React.FC = () => {
+const Cart = () => {
   return (
     <>
       <Header />

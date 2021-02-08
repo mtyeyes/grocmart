@@ -11,7 +11,7 @@ type BadgesList = {
   [key: string]: string,
 }
 
-const Badges: React.FC<Props> = ({ isBrightBackground }) => {
+const Badges = ({ isBrightBackground }: Props) => {
   const badgesList: BadgesList = {
     organic: 'Some of our products are organic',
     local: 'All products produced locally',

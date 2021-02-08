@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import MasonryGallery from '../../components/masonry-gallery/masonry-gallery';
 
-const Gallery: React.FC = () => {
+const Gallery = () => {
   return (
     <>
       <Header />

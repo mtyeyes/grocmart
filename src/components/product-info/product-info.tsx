@@ -20,7 +20,7 @@ type Props = {
   productId: string,
 }
 
-const ProductInfo: React.FC<Props> = ({ productId }) => {
+const ProductInfo = ({ productId }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const findAverage = useFindAverage();
   const countPriceAfterDiscounts = usePriceAfterDiscounts();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactChild, useEffect, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import './filtered-products-display.styl';
 
@@ -7,13 +7,14 @@ import Pagination from '../../pagination/pagination';
 
 type Props = {
   filteredProductsData: ProductCardProps[],
+  children: ReactChild
 }
 
 type DisplayedRange = [Page, Page];
 
 type Page = number;
 
-const FilteredProductsDisplay: React.FC<Props> = ({ filteredProductsData, children }) => {
+const FilteredProductsDisplay = ({ filteredProductsData, children }: Props) => {
   const [selectedPage, setSelectedPage] = useState(1 as Page);
   const [itemsPerPage, setItemsPerPage] = useState(9 as number);
   const [displayedRange, setDisplayedRange] = useState([0, itemsPerPage] as DisplayedRange);

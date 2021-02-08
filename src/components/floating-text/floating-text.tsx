@@ -15,7 +15,7 @@ type PositionStyle = {
   right?: number | string,
 }
 
-const FloatingText: React.FC<Props> = ({ children, positionStyle, valueToTriggerAnimation }) => {
+const FloatingText = ({ children, positionStyle, valueToTriggerAnimation }: Props) => {
   const spanRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {

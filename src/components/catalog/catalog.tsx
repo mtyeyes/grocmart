@@ -44,7 +44,7 @@ type NumberOfItemsInCategories = {
   [key: string]: number
 }
 
-const Catalog: React.FC = () => {
+const Catalog = () => {
   const initialFilterState: FilterState = {
     price: {
       minPrice: 0,

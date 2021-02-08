@@ -9,7 +9,7 @@ export type Props = {
   contactText: string,
 }
 
-const ContactItem: React.FC<Props> = ({ contactText, contactLink, contactIcon }) => {
+const ContactItem = ({ contactText, contactLink, contactIcon }: Props) => {
   return (
     <li className="contacts__item contact-item">
       <Icon className="contact-item__icon" iconId={contactIcon}/>

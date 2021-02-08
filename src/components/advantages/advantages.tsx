@@ -10,7 +10,7 @@ type AdvantagesItem = {
   text: string,
 }
 
-const Advantages: React.FC = () => {
+const Advantages = () => {
   const advantagesItems: AdvantagesItem[] = [{
     icon: 'thumbs-up',
     title: 'Quality products',

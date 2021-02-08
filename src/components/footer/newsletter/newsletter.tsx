@@ -5,7 +5,7 @@ import HiddenText from '../../hidden-text/hidden-text';
 import Icon from '../../icon/icon';
 import PreventDefaultAndShowAlert from '../../prevent-default-and-show-alert/prevent-default-and-show-alert';
 
-const Newsletter: React.FC = () => {
+const Newsletter = () => {
 
   const formChildrens = (
     <>

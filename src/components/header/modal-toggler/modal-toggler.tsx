@@ -14,7 +14,7 @@ type Props = {
   icon: IconId,
 }
 
-const ModalToggler: React.FC<Props> = ({ parentBlockName, childrenBlockName, children, icon, btnChildrenElement }) => {
+const ModalToggler = ({ parentBlockName, childrenBlockName, children, icon, btnChildrenElement }: Props) => {
   const [isModalVisible, setModalVisibility] = useState(false);
 
   const changeModalVisibility = () => {setModalVisibility(!isModalVisible)};

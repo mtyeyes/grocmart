@@ -12,7 +12,7 @@ type Props = {
   imageBackgroundColor: string,
 }
 
-const HeroSliderItem: React.FC<Props> = ({ title, topParagraph, bottomParagraph, imageBackgroundColor}) => {
+const HeroSliderItem = ({ title, topParagraph, bottomParagraph, imageBackgroundColor}: Props) => {
   const style = {
     backgroundImage: `url(${PATH}images/hero-slider-${title.replace(/\s/g, '').toLowerCase()}.jpg)`,
     backgroundColor: imageBackgroundColor

@@ -12,7 +12,7 @@ type Props = {
 
 type RatingInFocus = number | null;
 
-const RatingSelect: React.FC<Props> = ({ selectedRating, defaultRating, setSelectedRating }) => {
+const RatingSelect = ({ selectedRating, defaultRating, setSelectedRating }: Props) => {
   const ratings = ['terrible', 'bad', 'normal', 'good', 'great'];
   const [ratingInFocus, setRatingInFocus] = useState(null as RatingInFocus);
 
