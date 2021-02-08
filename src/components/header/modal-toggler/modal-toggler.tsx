@@ -1,4 +1,4 @@
-import React, { useState, cloneElement, ReactElement } from 'react';
+import React, { useState, ReactElement, ReactNode } from 'react';
 import './modal-toggler.styl';
 
 import Button from '../../button/button';
@@ -9,19 +9,19 @@ import HiddenText from '../../hidden-text/hidden-text';
 type Props = {
   parentBlockName: string,
   childrenBlockName: string,
-  children: ReactElement,
+  render: (switchModalVisibility: () => void) => ReactNode,
   btnChildrenElement?: ReactElement,
   icon: IconId,
 }
 
-const ModalToggler = ({ parentBlockName, childrenBlockName, children, icon, btnChildrenElement }: Props) => {
+const ModalToggler = ({ parentBlockName, childrenBlockName, icon, render, btnChildrenElement }: Props) => {
   const [isModalVisible, setModalVisibility] = useState(false);
 
-  const changeModalVisibility = () => {setModalVisibility(!isModalVisible)};
+  const switchModalVisibility = () => {setModalVisibility(!isModalVisible)};
 
   return (
     <div className={`modal-toggler ${parentBlockName}__modal-toggler ${parentBlockName}__modal-toggler--${childrenBlockName} ${(isModalVisible) ? `${parentBlockName}__modal-toggler-toggled` : ''}`}>
-      <Button className="modal-toggler__btn" onClick={changeModalVisibility}>
+      <Button className="modal-toggler__btn" onClick={switchModalVisibility}>
         <Icon iconId={icon} />
         <HiddenText>{childrenBlockName}</HiddenText>
         {btnChildrenElement !== undefined &&
@@ -29,7 +29,7 @@ const ModalToggler = ({ parentBlockName, childrenBlockName, children, icon, btnC
         }
       </Button>
       {isModalVisible &&
-        cloneElement(children, { switchModalVisibility: changeModalVisibility })
+        render(switchModalVisibility)
       }
     </div>
   );

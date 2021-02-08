@@ -11,7 +11,7 @@ import SearchResult from './search-result/search-result';
 type Props = {
   searchQuery: string,
   setSearchQuery: Dispatch<SetStateAction<string | null>>,
-  closeModal?: () => void
+  closeModal: () => void
 }
 
 const capitalizeFirstLetter = (string: string) => {

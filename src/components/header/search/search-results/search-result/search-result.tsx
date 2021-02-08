@@ -7,7 +7,7 @@ import { PATH } from '../../../../../app';
 type Props = {
   productId: string,
   productName: string,
-  closeModal?: () => void,
+  closeModal: () => void,
 }
 
 const SearchResult = ({ productId, productName, closeModal }: Props) => {

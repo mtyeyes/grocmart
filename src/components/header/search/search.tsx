@@ -5,7 +5,7 @@ import SearchResults from './search-results/search-results';
 import ModalWithScreenblock from '../../modal-with-screenblock/modal-with-screenblock';
 
 type Props = {
-  switchModalVisibility?: () => void,
+  switchModalVisibility: () => void,
 }
 
 const Search = ({ switchModalVisibility }: Props) => {

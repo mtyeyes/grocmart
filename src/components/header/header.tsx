@@ -35,17 +35,14 @@ const Header = () => {
         <div className="header__wrapper">
           <Logo className="header__logo" />
           <Navigation />
-          <ModalToggler parentBlockName="header" childrenBlockName="search" icon="search">
-            <Search />
-          </ModalToggler>
-          <ModalToggler
-            parentBlockName="header"
-            childrenBlockName="cart"
-            icon="basket"
-            btnChildrenElement={(itemsInCart) ? floatingNumberOfItems : undefined}
-          >
-            <ModalCart />
-          </ModalToggler>
+          <ModalToggler parentBlockName="header" childrenBlockName="search" icon="search" render={switchModalVisibility => (
+            <Search switchModalVisibility={switchModalVisibility}/>
+          )} />
+          <ModalToggler parentBlockName="header" childrenBlockName="cart" icon="basket" btnChildrenElement={(itemsInCart) ? floatingNumberOfItems : undefined}
+            render={switchModalVisibility => (
+              <ModalCart switchModalVisibility={switchModalVisibility} />
+            )}
+          />
         </div>
       </header>
       <div className="header__phantom" />

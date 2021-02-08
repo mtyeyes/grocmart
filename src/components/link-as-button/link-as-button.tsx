@@ -1,10 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import './link-as-button.styl';
 
 type Props = {
   to: string,
   className?: string,
+  onClick?: (e?: MouseEvent<HTMLElement>) => void,
   subtype: 'rectangular-green' | 'rectangular-red' | 'round-red' | 'round-green' | 'round-grey',
   children: ReactNode
 }

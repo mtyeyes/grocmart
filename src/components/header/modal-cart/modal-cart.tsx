@@ -11,9 +11,11 @@ import Loader from '../../loader/loader';
 import LinkAsButton from '../../link-as-button/link-as-button';
 import PreventDefaultAndShowAlert from '../../prevent-default-and-show-alert/prevent-default-and-show-alert';
 
+type Props = {
+  switchModalVisibility: () => void
+}
 
-
-const ModalCart = () => {
+const ModalCart = ({ switchModalVisibility }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const addProductToCart = (productId: string) => dispatch(addToCart(productId));
   const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
@@ -62,7 +64,7 @@ const ModalCart = () => {
           {Object.keys(cartState).map(cartMapCallback)}
         </ul>
         <div className="modal-cart__bottom-wrapper">
-          <LinkAsButton className="modal-cart__link-btn" to="/shop/cart" subtype="rectangular-green">Go to cart</LinkAsButton>
+          <LinkAsButton className="modal-cart__link-btn" to="/shop/cart" subtype="rectangular-green" onClick={switchModalVisibility}>Go to cart</LinkAsButton>
           {blockedCheckoutLink}
         </div>
       </Loader>
