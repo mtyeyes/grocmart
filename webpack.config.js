@@ -87,8 +87,8 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'stylus-loader']
       },
       {
-        test: /\.(woff|woff2)$/,
-        type: 'asset/inline'
+        test: /\.(woff2)$/,
+        type: 'asset/resource'
       },
       {
         test: /\.(png|jpg|svg|webp)$/,
