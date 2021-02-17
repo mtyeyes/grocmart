@@ -34,7 +34,8 @@ module.exports = {
     "react/prop-types": 0,
     "indent": [
       "error",
-      2
+      2,
+      { "SwitchCase": 1 }
     ],
     "quotes": [
       "error",

@@ -35,13 +35,14 @@ type PropsStateAndResourceRequests<T extends object, K extends keyof T> = {
   transferRequestedResources: (requestsResults: T) => void
 }
 
+type LoadingState = 'loading' | 'error' | 'success';
 
 const fiveMinutes = 300_000;
 
 const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
   const { requests, children, customColor } = props;
   const loadState = useLoadState();
-  const [loadingState, setloadingState] = useState('loading');
+  const [loadingState, setloadingState] = useState('loading' as LoadingState);
   const [stateRequestsResults, setStateRequestsResults] = useState({} as object);
   const [resourcesRequestsResults, setResourcesRequestsResults] = useState({} as T);
 
@@ -81,36 +82,32 @@ const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
   }, [stateRequestsResults, resourcesRequestsResults]);
 
 
-  const loaderRender = (loadingState: string) => {
+  const loaderRender = (loadingState: LoadingState) => {
     switch(loadingState) {
-    case 'loading':
-      return (
-        <div className={(customColor !== undefined) ? `loader loader--${customColor}` : 'loader'}>
-          <div className="loader__shape" />
-          <div className="loader__shape" />
-          <div className="loader__shape" />
-        </div>
-      );
-    case 'error':
-      return (
-        <div className={(customColor !== undefined) ? `loader loader--${customColor} loader--error` : 'loader loader--error'}>
-          <p className="loader__error-text">Error getting data</p>
-        </div>
-      );
-    case 'success':
-      return (
-        <>
-          {children}
-        </>
-      );
+      case 'loading':
+        return (
+          <div className={(customColor !== undefined) ? `loader loader--${customColor}` : 'loader'}>
+            <div className="loader__shape" />
+            <div className="loader__shape" />
+            <div className="loader__shape" />
+          </div>
+        );
+      case 'error':
+        return (
+          <div className={(customColor !== undefined) ? `loader loader--${customColor} loader--error` : 'loader loader--error'}>
+            <p className="loader__error-text">Error getting data</p>
+          </div>
+        );
+      case 'success':
+        return (
+          <>
+            {children}
+          </>
+        );
     }
   };
 
-  return (
-    <>
-      {loaderRender(loadingState)}
-    </>
-  );
+  return loaderRender(loadingState);
 };
 
 export default Loader;

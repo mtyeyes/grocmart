@@ -28,22 +28,22 @@ const FilteredProductsDisplay = ({ filteredProductsData, children }: Props) => {
     const adjustItemsPerPage = () => {
       const windowWidth = window.innerWidth;
       switch(true) {
-      case(windowWidth >= 1200): {
-        setItemsPerPage(9);
-        break;
-      }
-      case(windowWidth >= 590): {
-        setItemsPerPage(6);
-        break;
-      }
-      case(windowWidth >= 300): {
-        setItemsPerPage(4);
-        break;
-      }
-      default: {
-        setItemsPerPage(9);
-        break;
-      }
+        case(windowWidth >= 1200): {
+          setItemsPerPage(9);
+          break;
+        }
+        case(windowWidth >= 590): {
+          setItemsPerPage(6);
+          break;
+        }
+        case(windowWidth >= 300): {
+          setItemsPerPage(4);
+          break;
+        }
+        default: {
+          setItemsPerPage(9);
+          break;
+        }
       }
     };
 

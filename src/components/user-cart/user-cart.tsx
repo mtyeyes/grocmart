@@ -42,30 +42,30 @@ const UserCart = () => {
   
       const generateComponent = (productId: string, type: 'title-and-thumbnail' | 'counter' | 'price-per-item' | 'price-total') => {
         switch(type) {
-        case('title-and-thumbnail'): {
-          return (
-            <div className="cart-table-item__thumbnail-and-title-wrapper">
-              <img className="cart-table-item__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productsState[productId].name}`} loading="lazy" />
-              <div className="cart-table-item__title-wrapper">
-                <h6 className="cart-table-item__title">{productsState[productId].name}</h6>
+          case('title-and-thumbnail'): {
+            return (
+              <div className="cart-table-item__thumbnail-and-title-wrapper">
+                <img className="cart-table-item__thumbnail" src={`${PATH}images/${productId}-small.png`} alt={`${productsState[productId].name}`} loading="lazy" />
+                <div className="cart-table-item__title-wrapper">
+                  <h6 className="cart-table-item__title">{productsState[productId].name}</h6>
+                </div>
               </div>
-            </div>
-          );
-        }
-        case('counter'): {
-          return <Counter
-            classNamePrefix="cart-table-item"
-            count={cartState[productId]}
-            increment={()=>{addProductToCart(productId)}}
-            decrement={()=>{removeProductFromCart(productId)}}
-          />;
-        }
-        case('price-per-item'): {
-          return <p className="cart-table-item__price">{productsInCartPrices[productId].toLocaleString('en-US', {style:'currency', currency:'USD'})}</p>;
-        }
-        case('price-total'): {
-          return <p className="cart-table-item__price">{(productsInCartPrices[productId] * cartState[productId]).toLocaleString('en-US', {style:'currency', currency:'USD'})}</p>;
-        }
+            );
+          }
+          case('counter'): {
+            return <Counter
+              classNamePrefix="cart-table-item"
+              count={cartState[productId]}
+              increment={()=>{addProductToCart(productId)}}
+              decrement={()=>{removeProductFromCart(productId)}}
+            />;
+          }
+          case('price-per-item'): {
+            return <p className="cart-table-item__price">{productsInCartPrices[productId].toLocaleString('en-US', {style:'currency', currency:'USD'})}</p>;
+          }
+          case('price-total'): {
+            return <p className="cart-table-item__price">{(productsInCartPrices[productId] * cartState[productId]).toLocaleString('en-US', {style:'currency', currency:'USD'})}</p>;
+          }
         }
       };
 

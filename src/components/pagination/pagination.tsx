@@ -21,22 +21,22 @@ const Pagination = ({ selectedPage, setSelectedPage, itemsPerPage, numberOfItems
     const isLastPage = selectedPage === amountOfPages;
     const isEmpty = amountOfPages <= 0;
     switch(true) {
-    case(isEmpty): {
-      controls = [];
-      break;
-    }
-    case(isFirstPage): {
-      controls = ['«', selectedPage , selectedPage + 1 , selectedPage + 2, '»'];
-      break;
-    }
-    case(isLastPage): {
-      controls = ['«', selectedPage - 2, selectedPage - 1, selectedPage, '»'];
-      break;
-    }
-    case(!isFirstPage && !isLastPage): {
-      controls = ['«', selectedPage - 1, selectedPage, selectedPage + 1, '»'];
-      break;
-    }
+      case(isEmpty): {
+        controls = [];
+        break;
+      }
+      case(isFirstPage): {
+        controls = ['«', selectedPage , selectedPage + 1 , selectedPage + 2, '»'];
+        break;
+      }
+      case(isLastPage): {
+        controls = ['«', selectedPage - 2, selectedPage - 1, selectedPage, '»'];
+        break;
+      }
+      case(!isFirstPage && !isLastPage): {
+        controls = ['«', selectedPage - 1, selectedPage, selectedPage + 1, '»'];
+        break;
+      }
     }
     setControls(controls.filter(value => typeof value === 'string' || value > 0 && value <= amountOfPages));
   }, [selectedPage, numberOfItems]);

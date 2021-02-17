@@ -18,8 +18,8 @@ const usePriceAfterDiscounts = () => {
     const priceAfterDiscounts = productData['price'] * discountForProduct * discountForProductGroup;
 
     switch(returnType){
-    case 'return number': return priceAfterDiscounts;
-    case 'return stringAsCurrency': return priceAfterDiscounts.toLocaleString('en-US', {style:'currency', currency:'USD'});
+      case 'return number': return priceAfterDiscounts;
+      case 'return stringAsCurrency': return priceAfterDiscounts.toLocaleString('en-US', {style:'currency', currency:'USD'});
     }
   };
 

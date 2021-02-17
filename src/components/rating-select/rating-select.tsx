@@ -27,28 +27,28 @@ const RatingSelect = ({ selectedRating, defaultRating, setSelectedRating }: Prop
     let labelClassName: string = 'rating-select__label';
 
     switch(true) {
-    case(selectedRating && selectedRating >= ratingValue): {
-      iconType = 'star';
-      labelClassName = `${labelClassName} ${labelClassName}--selected`;
-      break;
-    }
-    case(ratingInFocus! >= ratingValue): {
-      iconType = 'star';
-      labelClassName = `${labelClassName} ${labelClassName}--hovered`;
-      break;
-    }
-    case(defaultRating && defaultRating >= ratingValue): {
-      iconType = 'star';
-      break;
-    }
-    case(defaultRating && defaultRating + 0.6 >= ratingValue): {
-      iconType = 'star-half';
-      break;
-    }
-    default: {
-      iconType = 'star-empty';
-      break;
-    }
+      case(selectedRating && selectedRating >= ratingValue): {
+        iconType = 'star';
+        labelClassName = `${labelClassName} ${labelClassName}--selected`;
+        break;
+      }
+      case(ratingInFocus! >= ratingValue): {
+        iconType = 'star';
+        labelClassName = `${labelClassName} ${labelClassName}--hovered`;
+        break;
+      }
+      case(defaultRating && defaultRating >= ratingValue): {
+        iconType = 'star';
+        break;
+      }
+      case(defaultRating && defaultRating + 0.6 >= ratingValue): {
+        iconType = 'star-half';
+        break;
+      }
+      default: {
+        iconType = 'star-empty';
+        break;
+      }
     }
 
     return (

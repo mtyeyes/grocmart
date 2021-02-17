@@ -59,14 +59,14 @@ const Catalog = () => {
 
   const filterReducer = (state: FilterState, action: FilterAction): FilterState => {
     switch (action.type) {
-    case 'changeCategoriesToFilterBy':
-      return {...state, selectedCategories: action.payload};
-    case 'changePriceToFilterBy':
-      return {...state, price: {...state.price, ...action.payload}};
-    case 'changeNameToFilterBy':
-      return {...state, name: action.payload};
-    case 'changeRatingToFilterBy':
-      return {...state, rating: action.payload};
+      case 'changeCategoriesToFilterBy':
+        return {...state, selectedCategories: action.payload};
+      case 'changePriceToFilterBy':
+        return {...state, price: {...state.price, ...action.payload}};
+      case 'changeNameToFilterBy':
+        return {...state, name: action.payload};
+      case 'changeRatingToFilterBy':
+        return {...state, rating: action.payload};
     }
   };
   
@@ -85,26 +85,26 @@ const Catalog = () => {
 
   useEffect(() => {
     switch (valueToSortBy) {
-    case 'price': {
-      const sortByPrice = (productAId: string, productBId: string) => {
-        return countPriceAfterDiscounts(productAId, 'return number') - countPriceAfterDiscounts(productBId, 'return number');
-      };
-      setSortedProducts(Object.keys(productsState).sort(sortByPrice));
-      break;
-    }
-    case 'rating': {
-      const sortByRating = (productAId: string, productBId: string) => {
-        const AUserScoreArr = productsState[productAId].userScore;
-        const BUserScoreArr = productsState[productBId].userScore;
-        return findAverage(BUserScoreArr) - findAverage(AUserScoreArr);
-      };
-      setSortedProducts(Object.keys(productsState).sort(sortByRating));
-      break;
-    }
-    case 'name': {
-      setSortedProducts(Object.keys(productsState).sort());
-      break;
-    }
+      case 'price': {
+        const sortByPrice = (productAId: string, productBId: string) => {
+          return countPriceAfterDiscounts(productAId, 'return number') - countPriceAfterDiscounts(productBId, 'return number');
+        };
+        setSortedProducts(Object.keys(productsState).sort(sortByPrice));
+        break;
+      }
+      case 'rating': {
+        const sortByRating = (productAId: string, productBId: string) => {
+          const AUserScoreArr = productsState[productAId].userScore;
+          const BUserScoreArr = productsState[productBId].userScore;
+          return findAverage(BUserScoreArr) - findAverage(AUserScoreArr);
+        };
+        setSortedProducts(Object.keys(productsState).sort(sortByRating));
+        break;
+      }
+      case 'name': {
+        setSortedProducts(Object.keys(productsState).sort());
+        break;
+      }
     }
   }, [productsState, valueToSortBy]);
 

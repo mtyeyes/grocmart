@@ -15,15 +15,15 @@ const useLoadState = () => {
     Object.entries(requestResults).forEach(([key, data]) => {
       if ( Object.keys(currentState[key]).length !== 0 ) { return }
       switch(key) {
-      case('products'):
-        dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
-        break;
-      case('discounts'):
-        dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
-        break;
-      case('cart'):
-        dispatch({type: 'LOAD_CART_STATE', payload: data});
-        break;
+        case('products'):
+          dispatch({type: 'LOAD_PRODUCTS_STATE', payload: data});
+          break;
+        case('discounts'):
+          dispatch({type: 'LOAD_DISCOUNTS_STATE', payload: data});
+          break;
+        case('cart'):
+          dispatch({type: 'LOAD_CART_STATE', payload: data});
+          break;
       }
     });
   };
