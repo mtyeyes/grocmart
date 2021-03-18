@@ -1,7 +1,7 @@
 import React, { Dispatch, ChangeEvent } from 'react';
 import './by-name-filter-controls.styl';
 
-import { FilterAction } from '../../catalog';
+import { FilterAction } from '../../../../hooks/use-filter-products';
 
 type Props = {
   nameFilter: string,

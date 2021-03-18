@@ -2,7 +2,7 @@ import React, { Dispatch, useEffect, useState, ChangeEvent } from 'react';
 import './categories-filter-controls.styl';
 
 import HiddenText from '../../../hidden-text/hidden-text';
-import { SelectedCategories, FilterAction } from '../../catalog';
+import { SelectedCategories, FilterAction } from '../../../../hooks/use-filter-products';
 
 type Props = {
   categoriesData: SelectedCategories,

@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react';
 import './rating-filter-controls.styl';
 
-import { FilterAction } from '../../catalog';
+import { FilterAction } from '../../../../hooks/use-filter-products';
 import RatingSelect from '../../../rating-select/rating-select';
 
 type Props = {

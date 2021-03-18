@@ -7,7 +7,7 @@ import RatingSelect from '../rating-select/rating-select';
 import MinorDetail from './minor-detail/minor-detail';
 import Button from '../button/button';
 import SocialLinks from '../social-links/social-links';
-import useFindAverage from '../../hooks/use-find-average';
+import findAverage from '../../utils/find-average';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import { AppState, AppDispatch } from '../../store/index';
@@ -22,7 +22,6 @@ type Props = {
 
 const ProductInfo = ({ productId }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
-  const findAverage = useFindAverage();
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
   const selectProductsState = (state: AppState) => {return state.products};
   const selectCartState = (state: AppState) => {return state.cart};

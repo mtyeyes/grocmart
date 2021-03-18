@@ -1,12 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StateKeys, AppState } from '../store/index';
-import useLocalStorage from './use-local-storage';
+import { getLocalStorageValue, setLocalStorageValue } from '../utils/local-storage-methods';
 
 type UseSync = (key: StateKeys) => void
 
 const useSyncStateWithLocalStorage: UseSync = (key) => {
-  const { getLocalStorageValue, setLocalStorageValue } = useLocalStorage();
   const keyValueInState = useSelector(((state: AppState) => state[key]));
   const firstRender = useRef(true);
   const dispatch = useDispatch();

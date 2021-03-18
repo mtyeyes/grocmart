@@ -2,7 +2,7 @@ import React, { Dispatch } from 'react';
 import ReactSlider from 'react-slider';
 import './price-filter-controls.styl';
 
-import { FilterAction } from '../../catalog';
+import { FilterAction } from '../../../../hooks/use-filter-products';
 
 type Props = {
   minPrice: number,

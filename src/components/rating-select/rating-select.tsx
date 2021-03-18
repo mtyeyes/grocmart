@@ -10,11 +10,11 @@ type Props = {
   setSelectedRating: (rating: null | number) => void
 }
 
-type RatingInFocus = number | null;
+type HoveredRating = number | null;
 
 const RatingSelect = ({ selectedRating, defaultRating, setSelectedRating }: Props) => {
   const ratings = ['terrible', 'bad', 'normal', 'good', 'great'];
-  const [ratingInFocus, setRatingInFocus] = useState(null as RatingInFocus);
+  const [hoveredRating, setHoveredRating] = useState(null as HoveredRating);
 
   const handleInput = (inputValue: number) => {
     (inputValue !== selectedRating) ? setSelectedRating(inputValue) : setSelectedRating(null);
@@ -32,7 +32,7 @@ const RatingSelect = ({ selectedRating, defaultRating, setSelectedRating }: Prop
         labelClassName = `${labelClassName} ${labelClassName}--selected`;
         break;
       }
-      case(ratingInFocus! >= ratingValue): {
+      case(hoveredRating && hoveredRating >= ratingValue): {
         iconType = 'star';
         labelClassName = `${labelClassName} ${labelClassName}--hovered`;
         break;
@@ -54,8 +54,8 @@ const RatingSelect = ({ selectedRating, defaultRating, setSelectedRating }: Prop
     return (
       <li
         className="rating-select__item"
-        onMouseEnter={()=>{setRatingInFocus(ratingValue)}}
-        onMouseLeave={()=>{setRatingInFocus(null)}}
+        onMouseEnter={()=>{setHoveredRating(ratingValue)}}
+        onMouseLeave={()=>{setHoveredRating(null)}}
         key={rating}
       >
         <input
