@@ -2,9 +2,9 @@ import React from 'react';
 import './minor-detail.styl';
 
 type Props = {
-  name: string,
-  data: string,
-}
+  name: string;
+  data: string;
+};
 
 const MinorDetail = ({ name, data }: Props) => {
   const capitalizeFirstLetter = (string: string) => {

@@ -5,7 +5,6 @@ import SpecialOffers from './special-offers/special-offers';
 import Faq from './faq/faq';
 
 const FaqAndSpecialOffers = () => {
-
   return (
     <section className="faq-and-specials">
       <SpecialOffers />

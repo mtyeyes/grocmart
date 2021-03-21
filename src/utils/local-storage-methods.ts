@@ -1,5 +1,10 @@
-type SetLocalStorageValue = (key: string, value: string | any[] | {[key: string]: any}) => boolean;
-type GetLocalStorageValue = (key: string) => string | any[] | {[key: string]: any} | false;
+type SetLocalStorageValue = (
+  key: string,
+  value: string | any[] | { [key: string]: any },
+) => boolean;
+type GetLocalStorageValue = (
+  key: string,
+) => string | any[] | { [key: string]: any } | false;
 
 export const setLocalStorageValue: SetLocalStorageValue = (key, value) => {
   try {

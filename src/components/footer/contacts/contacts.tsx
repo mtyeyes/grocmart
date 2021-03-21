@@ -1,7 +1,9 @@
 import React from 'react';
 import './contacts.styl';
 
-import ContactItem, { Props as ContactItemInfo } from './contactItem/contactItem';
+import ContactItem, {
+  Props as ContactItemInfo,
+} from './contactItem/contactItem';
 
 const Contacts = () => {
   const contactsItems: ContactItemInfo[] = [
@@ -18,12 +20,23 @@ const Contacts = () => {
     {
       contactText: 'demo@example.dev',
       contactLink: 'mailto:demo@example.dev',
-      contactIcon: 'mail'
-    }
+      contactIcon: 'mail',
+    },
   ];
 
-  const contactsMapCallback = ({contactText, contactLink, contactIcon}: ContactItemInfo) => {
-    return <ContactItem contactText={contactText} key={contactIcon} contactLink={contactLink} contactIcon={contactIcon} />;
+  const contactsMapCallback = ({
+    contactText,
+    contactLink,
+    contactIcon,
+  }: ContactItemInfo) => {
+    return (
+      <ContactItem
+        contactText={contactText}
+        key={contactIcon}
+        contactLink={contactLink}
+        contactIcon={contactIcon}
+      />
+    );
   };
 
   return (

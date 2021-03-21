@@ -4,10 +4,10 @@ import './feedback-item.styl';
 import { PATH } from '../../../app';
 
 export type Props = {
-  review: string,
-  userName: string,
-  userId: string,
-}
+  review: string;
+  userName: string;
+  userId: string;
+};
 
 const FeedbackItem = ({ review, userName, userId }: Props) => {
   return (
@@ -15,7 +15,12 @@ const FeedbackItem = ({ review, userName, userId }: Props) => {
       <article className="feedback-item__wrapper">
         <p className="feedback-item__review">{review}</p>
         <div className="feedback-item__user-info-wrapper">
-          <img src={`${PATH}images/user-avatar-${userId}.jpg`} alt={`${userName} avatar`} className="feedback-item__user-avatar" loading="lazy" />
+          <img
+            src={`${PATH}images/user-avatar-${userId}.jpg`}
+            alt={`${userName} avatar`}
+            className="feedback-item__user-avatar"
+            loading="lazy"
+          />
           <p className="feedback-item__user-name">{userName}</p>
           <p className="feedback-item__user-badge">Client</p>
         </div>

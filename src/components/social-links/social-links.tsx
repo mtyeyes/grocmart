@@ -4,10 +4,10 @@ import './social-links.styl';
 import SocialLink, { Props as SocialLinkType } from './social-link/social-link';
 
 type Props = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
-const SocialLinks = ({children}: Props) => {
+const SocialLinks = ({ children }: Props) => {
   const links: SocialLinkType[] = [
     {
       linkTitle: 'Facebook',
@@ -28,19 +28,24 @@ const SocialLinks = ({children}: Props) => {
       linkTitle: 'Google Plus',
       link: 'https://www.google.com',
       iconId: 'gplus',
-    }
+    },
   ];
 
-  const linksMapCallback = ({linkTitle, link, iconId}: SocialLinkType) => {
-    return <SocialLink linkTitle={linkTitle} key={iconId} link={link} iconId={iconId} />;
+  const linksMapCallback = ({ linkTitle, link, iconId }: SocialLinkType) => {
+    return (
+      <SocialLink
+        linkTitle={linkTitle}
+        key={iconId}
+        link={link}
+        iconId={iconId}
+      />
+    );
   };
 
   return (
     <div className="social-link__container">
       <h4 className="social-link__heading">{children}</h4>
-      <ul className="social-link__list">
-        {links.map(linksMapCallback)}
-      </ul>
+      <ul className="social-link__list">{links.map(linksMapCallback)}</ul>
     </div>
   );
 };

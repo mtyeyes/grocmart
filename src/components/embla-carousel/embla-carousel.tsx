@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, SetStateAction, ReactNode } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  SetStateAction,
+  ReactNode,
+} from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 import './embla-carousel.styl';
 
@@ -7,15 +13,22 @@ import useRecursiveTimeout from '../../hooks/use-recursive-timeout';
 import EmblaDotButton from './embla-dot-btn/embla-dot-btn';
 
 type Props = {
-  uniqueClassName: string,
-  nextPrevBtnsEnabled: boolean,
-  dotsBtnEnabled: boolean,
-  autoplaySpeed?: number,
-  options?: Parameters<typeof useEmblaCarousel>[0],
-  children: ReactNode,
-}
+  uniqueClassName: string;
+  nextPrevBtnsEnabled: boolean;
+  dotsBtnEnabled: boolean;
+  autoplaySpeed?: number;
+  options?: Parameters<typeof useEmblaCarousel>[0];
+  children: ReactNode;
+};
 
-const EmblaCarousel = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnEnabled, autoplaySpeed, children }: Props) => {
+const EmblaCarousel = ({
+  uniqueClassName,
+  options,
+  nextPrevBtnsEnabled,
+  dotsBtnEnabled,
+  autoplaySpeed,
+  children,
+}: Props) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -31,7 +44,10 @@ const EmblaCarousel = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnE
     }
   }, [embla]);
 
-  const { play, stop } = useRecursiveTimeout(autoplay, (autoplaySpeed) ? autoplaySpeed : 4000);
+  const { play, stop } = useRecursiveTimeout(
+    autoplay,
+    autoplaySpeed ? autoplaySpeed : 4000,
+  );
 
   useEffect(() => {
     play();
@@ -50,7 +66,7 @@ const EmblaCarousel = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnE
   }, [embla, stop]);
 
   const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [
-    embla
+    embla,
   ]);
 
   const onSelect = useCallback(() => {
@@ -70,24 +86,48 @@ const EmblaCarousel = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnE
 
   return (
     <>
-      <div className={`embla__viewport ${uniqueClassName}__carousel`} ref={viewportRef}>
+      <div
+        className={`embla__viewport ${uniqueClassName}__carousel`}
+        ref={viewportRef}
+      >
         <ul className={`embla__container ${uniqueClassName}__container`}>
-          { children }
+          {children}
         </ul>
       </div>
-      {nextPrevBtnsEnabled &&
-        <EmblaButton uniqueClassName={uniqueClassName} enabled={prevBtnEnabled} nextOrPrevious="previous" onClick={scrollPrev}>Prev</EmblaButton>
-      }
-      {nextPrevBtnsEnabled &&
-        <EmblaButton uniqueClassName={uniqueClassName} enabled={nextBtnEnabled} nextOrPrevious="next" onClick={scrollNext}>Next</EmblaButton>
-      }
-      {dotsBtnEnabled &&
-        <div className={`embla__dots-container ${uniqueClassName}__dots-container`}>
+      {nextPrevBtnsEnabled && (
+        <EmblaButton
+          uniqueClassName={uniqueClassName}
+          enabled={prevBtnEnabled}
+          nextOrPrevious="previous"
+          onClick={scrollPrev}
+        >
+          Prev
+        </EmblaButton>
+      )}
+      {nextPrevBtnsEnabled && (
+        <EmblaButton
+          uniqueClassName={uniqueClassName}
+          enabled={nextBtnEnabled}
+          nextOrPrevious="next"
+          onClick={scrollNext}
+        >
+          Next
+        </EmblaButton>
+      )}
+      {dotsBtnEnabled && (
+        <div
+          className={`embla__dots-container ${uniqueClassName}__dots-container`}
+        >
           {scrollSnaps.map((_, index) => (
-            <EmblaDotButton key={index} uniqueClassName={uniqueClassName} selected={index === selectedIndex} onClick={() => scrollTo(index)} />
+            <EmblaDotButton
+              key={index}
+              uniqueClassName={uniqueClassName}
+              selected={index === selectedIndex}
+              onClick={() => scrollTo(index)}
+            />
           ))}
         </div>
-      }
+      )}
     </>
   );
 };

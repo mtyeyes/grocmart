@@ -16,17 +16,19 @@ import Product from './domain/product/product';
 
 const App = () => {
   const currentState: AppState = useStore().getState();
-  for (const key in currentState) {useSyncStateWithLocalStorage(key as StateKeys)}
+  for (const key in currentState) {
+    useSyncStateWithLocalStorage(key as StateKeys);
+  }
   return (
     <Router basename={PATH}>
       <ScrollReset />
       <Switch>
-        <Route exact path='/' component={ Home } />
-        <Route exact path='/shop' component={ Shop }/>
-        <Route exact path='/shop/cart' component={ Cart }/>
-        <Route path='/shop/:productId' component={ Product }/>
-        <Route exact path='/gallery' component={ Gallery }/>
-        <Route path='*' component={ Error }/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/shop" component={Shop} />
+        <Route exact path="/shop/cart" component={Cart} />
+        <Route path="/shop/:productId" component={Product} />
+        <Route exact path="/gallery" component={Gallery} />
+        <Route path="*" component={Error} />
       </Switch>
     </Router>
   );

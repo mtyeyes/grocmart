@@ -3,23 +3,35 @@ import { createPortal } from 'react-dom';
 import './modal-with-screenblock.styl';
 
 type Props = {
-  closeModal: () => void
-  renderInside: 'component' | 'root',
-  children: ReactNode
-}
+  closeModal: () => void;
+  renderInside: 'component' | 'root';
+  children: ReactNode;
+};
 
 type EventKeyup = {
-  key: string,
-}
+  key: string;
+};
 
-const ModalWithScreenblock = ({ closeModal, renderInside, children }: Props) => {
+const ModalWithScreenblock = ({
+  closeModal,
+  renderInside,
+  children,
+}: Props) => {
   const screenblock = useRef<HTMLDivElement>(null);
   const root = document.getElementById('root')!;
 
-  const closeModalByClick = (e: React.MouseEvent<HTMLDivElement>) => { if (e.target === screenblock.current) { closeModal() } };
-  const closeModalByEsc = (e: EventKeyup) => { if (e.key === 'Escape') { closeModal() } };
+  const closeModalByClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === screenblock.current) {
+      closeModal();
+    }
+  };
+  const closeModalByEsc = (e: EventKeyup) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     document.addEventListener('keyup', closeModalByEsc);
     return () => {
       document.removeEventListener('keyup', closeModalByEsc);
@@ -27,8 +39,13 @@ const ModalWithScreenblock = ({ closeModal, renderInside, children }: Props) => 
   }, []);
 
   const childrenWrappedInScreenblocker = () => {
-    return(
-      <div className="modal-screenblock" ref={screenblock} role="button" onClick={closeModalByClick}>
+    return (
+      <div
+        className="modal-screenblock"
+        ref={screenblock}
+        role="button"
+        onClick={closeModalByClick}
+      >
         {children}
       </div>
     );

@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 
-import {storeInCache, getFromCache} from '../utils/session-storage-as-cache';
+import { storeInCache, getFromCache } from '../utils/session-storage-as-cache';
 
-type UseFetchAdnCacheJson = (url: string, cacheMaxAge: number) => FetchJsonState;
+type UseFetchAdnCacheJson = (
+  url: string,
+  cacheMaxAge: number,
+) => FetchJsonState;
 
 type FetchJsonState = {
-  isLoading: boolean,
-  isError: boolean,
-  data: any | null,
-}
+  isLoading: boolean;
+  isError: boolean;
+  data: any | null;
+};
 
 const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
   const [state, setState] = useState<FetchJsonState>({
@@ -26,13 +29,13 @@ const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
         setState({
           isLoading: false,
           isError: false,
-          data: cachedData.data
+          data: cachedData.data,
         });
       } else {
         try {
-          const response = await fetch(url, {signal: abortController.signal});
-  
-          if(!response.ok) {
+          const response = await fetch(url, { signal: abortController.signal });
+
+          if (!response.ok) {
             throw new Error(`Request error ${response.status}`);
           }
 
@@ -43,7 +46,7 @@ const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
             data,
           });
           storeInCache(url, data);
-        } catch(e) {
+        } catch (e) {
           if (!abortController.signal.aborted) {
             setState({
               isLoading: false,

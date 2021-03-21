@@ -4,7 +4,10 @@ import './catalog.styl';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
+import { Props as ProductCardProps } from '../product-card/product-card';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
+import useSortProducts from '../../hooks/use-sort-products';
+import useFilterProducts from '../../hooks/use-filter-products';
 
 import Loader from '../loader/loader';
 import CatalogFiltersControls from './catalog-filters-controls/catalog-filters-controls';
@@ -14,33 +17,50 @@ import ByNameFilterControls from './catalog-filters-controls/by-name-filter-cont
 import RatingFilterControls from './catalog-filters-controls/rating-filter-controls/rating-filter-controls';
 import SortingSelect from './sorting-select/sorting-select';
 import FilteredProductsDisplay from './filtered-products-display/filtered-products-display';
-import {Props as ProductCardProps} from '../product-card/product-card';
 import findAverage from '../../utils/find-average';
-import useSortProducts from '../../hooks/use-sort-products';
-import useFilterProducts from '../../hooks/use-filter-products';
 
 const Catalog = () => {
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
   const dispatch = useDispatch<AppDispatch>();
-  const productsState = useSelector(((state: AppState) => state.products), shallowEqual);
-  const [sortedProducts, {valuesToSortBy, valueToSortBy, setValueToSortBy}] = useSortProducts();
-  const {filteredProducts, filterProducts, filterState, filterDispatch, numberOfItemsInCategories} = useFilterProducts(sortedProducts);
-  const [filteredProductsData, setFilteredProductsData] = useState([] as ProductCardProps[]);
-  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const productsState = useSelector(
+    (state: AppState) => state.products,
+    shallowEqual,
+  );
+  const [
+    sortedProducts,
+    { valuesToSortBy, valueToSortBy, setValueToSortBy },
+  ] = useSortProducts();
+  const {
+    filteredProducts,
+    filterProducts,
+    filterState,
+    filterDispatch,
+    numberOfItemsInCategories,
+  } = useFilterProducts(sortedProducts);
+  const [filteredProductsData, setFilteredProductsData] = useState(
+    [] as ProductCardProps[],
+  );
+  const addProductToCart = (productId: string) =>
+    dispatch(addToCart(productId));
 
   useEffect(() => {
     filterProducts();
   }, [productsState, sortedProducts]);
 
   useEffect(() => {
-    const newFiltereProductData = filteredProducts.map(productId => {
+    const newFiltereProductData = filteredProducts.map((productId) => {
       return {
         productId: productId,
         productName: productsState[productId].name,
-        priceBeforeDiscounts: productsState[productId].price.toLocaleString('en-US', {style:'currency', currency:'USD'}),
-        priceAfterDiscounts: countPriceAfterDiscounts(productId, 'return stringAsCurrency'),
+        priceBeforeDiscounts: productsState[
+          productId
+        ].price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+        priceAfterDiscounts: countPriceAfterDiscounts(
+          productId,
+          'return stringAsCurrency',
+        ),
         productRating: findAverage(productsState[productId].userScore),
-        addToCart: addProductToCart
+        addToCart: addProductToCart,
       };
     });
     setFilteredProductsData(newFiltereProductData);
@@ -48,15 +68,36 @@ const Catalog = () => {
 
   return (
     <section className="catalog__container">
-      <Loader requests={ {stateRequests: ['products', 'discounts']} }>
-        <CatalogFiltersControls filterProducts={filterProducts} selectedMinPrice={filterState.price.selectedMinPrice} selectedMaxPrice={filterState.price.selectedMaxPrice}>
-          <PriceFilterControls dispatchFilterAction={filterDispatch} {...filterState.price} />
-          <CategoriesFilterControls categoriesData={filterState.selectedCategories} dispatchFilterAction={filterDispatch} numberOfItems={numberOfItemsInCategories} />
-          <RatingFilterControls selectedRating={filterState.rating} dispatchFilterAction={filterDispatch} />
-          <ByNameFilterControls nameFilter={filterState.name} dispatchFilterAction={filterDispatch} />
+      <Loader requests={{ stateRequests: ['products', 'discounts'] }}>
+        <CatalogFiltersControls
+          filterProducts={filterProducts}
+          selectedMinPrice={filterState.price.selectedMinPrice}
+          selectedMaxPrice={filterState.price.selectedMaxPrice}
+        >
+          <PriceFilterControls
+            dispatchFilterAction={filterDispatch}
+            {...filterState.price}
+          />
+          <CategoriesFilterControls
+            categoriesData={filterState.selectedCategories}
+            dispatchFilterAction={filterDispatch}
+            numberOfItems={numberOfItemsInCategories}
+          />
+          <RatingFilterControls
+            selectedRating={filterState.rating}
+            dispatchFilterAction={filterDispatch}
+          />
+          <ByNameFilterControls
+            nameFilter={filterState.name}
+            dispatchFilterAction={filterDispatch}
+          />
         </CatalogFiltersControls>
         <FilteredProductsDisplay filteredProductsData={filteredProductsData}>
-          <SortingSelect valuesToSortBy={valuesToSortBy} selectedValueToSortBy={valueToSortBy} setSelectedValueToSortBy={setValueToSortBy} />
+          <SortingSelect
+            valuesToSortBy={valuesToSortBy}
+            selectedValueToSortBy={valueToSortBy}
+            setSelectedValueToSortBy={setValueToSortBy}
+          />
         </FilteredProductsDisplay>
       </Loader>
     </section>

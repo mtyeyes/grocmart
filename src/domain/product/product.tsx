@@ -8,8 +8,8 @@ import Badges from '../../components/badges/badges';
 import ProductInfo from '../../components/product-info/product-info';
 
 type ParamTypes = {
-  productId: string
-}
+  productId: string;
+};
 
 const Product = () => {
   const { productId } = useParams<ParamTypes>();
@@ -18,7 +18,7 @@ const Product = () => {
     <>
       <Header />
       <Breadcrumbs />
-      <ProductInfo productId={productId}/>
+      <ProductInfo productId={productId} />
       <Badges isBrightBackground={true} />
       <Footer />
     </>

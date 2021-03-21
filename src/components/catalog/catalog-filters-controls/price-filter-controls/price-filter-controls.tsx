@@ -5,17 +5,26 @@ import './price-filter-controls.styl';
 import { FilterAction } from '../../../../hooks/use-filter-products';
 
 type Props = {
-  minPrice: number,
-  maxPrice: number,
-  selectedMinPrice: number,
-  selectedMaxPrice: number,
-  dispatchFilterAction: Dispatch<FilterAction>,
-}
+  minPrice: number;
+  maxPrice: number;
+  selectedMinPrice: number;
+  selectedMaxPrice: number;
+  dispatchFilterAction: Dispatch<FilterAction>;
+};
 
-const PriceFilterControls = ({minPrice, maxPrice, selectedMinPrice, selectedMaxPrice, dispatchFilterAction}: Props) => {
+const PriceFilterControls = ({
+  minPrice,
+  maxPrice,
+  selectedMinPrice,
+  selectedMaxPrice,
+  dispatchFilterAction,
+}: Props) => {
   const handleChange = (range: number | number[] | null | undefined) => {
-    if(Array.isArray(range)) { 
-      dispatchFilterAction({type: 'changePriceToFilterBy', payload:{selectedMinPrice: range[0], selectedMaxPrice: range[1]}});
+    if (Array.isArray(range)) {
+      dispatchFilterAction({
+        type: 'changePriceToFilterBy',
+        payload: { selectedMinPrice: range[0], selectedMaxPrice: range[1] },
+      });
     }
   };
 

@@ -5,15 +5,26 @@ import SearchResults from './search-results/search-results';
 import ModalWithScreenblock from '../../modal-with-screenblock/modal-with-screenblock';
 
 type Props = {
-  switchModalVisibility: () => void,
-}
+  switchModalVisibility: () => void;
+};
 
 const Search = ({ switchModalVisibility }: Props) => {
   const [searchQuery, setSearchQuery] = useState(null as string | null);
 
   return (
-    <ModalWithScreenblock closeModal={switchModalVisibility} renderInside="component">
-      {searchQuery ? <SearchResults closeModal={switchModalVisibility} searchQuery={searchQuery} setSearchQuery={setSearchQuery} /> : <SearchControls setSearchQuery={setSearchQuery} />}
+    <ModalWithScreenblock
+      closeModal={switchModalVisibility}
+      renderInside="component"
+    >
+      {searchQuery ? (
+        <SearchResults
+          closeModal={switchModalVisibility}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+      ) : (
+        <SearchControls setSearchQuery={setSearchQuery} />
+      )}
     </ModalWithScreenblock>
   );
 };

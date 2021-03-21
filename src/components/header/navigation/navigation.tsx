@@ -5,8 +5,8 @@ import BurgerBtn from './burger-btn/burger-btn';
 import NavigationTab from './navigation-tab/navigation-tab';
 
 export type Links = {
-  [key: string]: string,
-}
+  [key: string]: string;
+};
 
 const Navigation = () => {
   const [menuToggled, menuToggle] = useState(false);
@@ -16,14 +16,18 @@ const Navigation = () => {
   };
 
   const links = {
-    'Home': '/',
-    'Shop': '/shop',
-    'Gallery': '/gallery'
+    Home: '/',
+    Shop: '/shop',
+    Gallery: '/gallery',
   };
 
   return (
     <>
-      <BurgerBtn btnTitle="Menu" className="navigation__menu-toggle" onClick={toggleMenu} />
+      <BurgerBtn
+        btnTitle="Menu"
+        className="navigation__menu-toggle"
+        onClick={toggleMenu}
+      />
       <NavigationTab showMobileMenu={menuToggled} links={links} />
     </>
   );

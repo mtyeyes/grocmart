@@ -7,18 +7,28 @@ export const loadProductsState = (products: ProductsState) => {
   };
 };
 
-export const setCurrentUserScoreAction = (data: {productId: string, rating: number}) => {
+export const setCurrentUserScoreAction = (data: {
+  productId: string;
+  rating: number;
+}) => {
   return <const>{
     type: 'SET_CURRENT_USER_SCORE',
     payload: data,
   };
 };
 
-export const removeCurrentUserScoreAction = (data: {productId: string, rating: number}) => {
+export const removeCurrentUserScoreAction = (data: {
+  productId: string;
+  rating: number;
+}) => {
   return <const>{
     type: 'REMOVE_CURRENT_USER_SCORE',
     payload: data,
   };
 };
 
-export type ProductsActionTypes = ReturnType<typeof loadProductsState | typeof setCurrentUserScoreAction | typeof removeCurrentUserScoreAction>;
+export type ProductsActionTypes = ReturnType<
+  | typeof loadProductsState
+  | typeof setCurrentUserScoreAction
+  | typeof removeCurrentUserScoreAction
+>;

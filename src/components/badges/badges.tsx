@@ -4,12 +4,12 @@ import './badges.styl';
 import Badge from './badge/badge';
 
 type Props = {
-  isBrightBackground: boolean,
-}
+  isBrightBackground: boolean;
+};
 
 type BadgesList = {
-  [key: string]: string,
-}
+  [key: string]: string;
+};
 
 const Badges = ({ isBrightBackground }: Props) => {
   const badgesList: BadgesList = {
@@ -19,14 +19,22 @@ const Badges = ({ isBrightBackground }: Props) => {
   };
 
   const badgesMapCallback = (badgeId: string) => {
-    return(
-      <Badge key={badgeId} badgeId={badgeId} badgeDescription={badgesList[badgeId]} isBrightBackground={isBrightBackground}/>
+    return (
+      <Badge
+        key={badgeId}
+        badgeId={badgeId}
+        badgeDescription={badgesList[badgeId]}
+        isBrightBackground={isBrightBackground}
+      />
     );
   };
 
-
   return (
-    <section className={`badges ${(isBrightBackground) ? 'badges--bright' : 'badges--dark'}`}>
+    <section
+      className={`badges ${
+        isBrightBackground ? 'badges--bright' : 'badges--dark'
+      }`}
+    >
       <ul className="badges__list">
         {Object.keys(badgesList).map(badgesMapCallback)}
       </ul>

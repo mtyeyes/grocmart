@@ -6,16 +6,23 @@ import LinkAsButton from '../../link-as-button/link-as-button';
 import { PATH } from '../../../app';
 
 type Props = {
-  title: string,
-  topParagraph: string,
-  bottomParagraph: string,
-  imageBackgroundColor: string,
-}
+  title: string;
+  topParagraph: string;
+  bottomParagraph: string;
+  imageBackgroundColor: string;
+};
 
-const HeroSliderItem = ({ title, topParagraph, bottomParagraph, imageBackgroundColor}: Props) => {
+const HeroSliderItem = ({
+  title,
+  topParagraph,
+  bottomParagraph,
+  imageBackgroundColor,
+}: Props) => {
   const style = {
-    backgroundImage: `url(${PATH}images/hero-slider-${title.replace(/\s/g, '').toLowerCase()}.jpg)`,
-    backgroundColor: imageBackgroundColor
+    backgroundImage: `url(${PATH}images/hero-slider-${title
+      .replace(/\s/g, '')
+      .toLowerCase()}.jpg)`,
+    backgroundColor: imageBackgroundColor,
   };
 
   return (
@@ -24,7 +31,13 @@ const HeroSliderItem = ({ title, topParagraph, bottomParagraph, imageBackgroundC
         <p className="hero-slider-item__paragraph">{topParagraph}</p>
         <h2 className="hero-slider-item__title">{title}</h2>
         <p className="hero-slider-item__paragraph">{bottomParagraph}</p>
-        <LinkAsButton className="hero-slider-item__link" to="/shop" subtype="rectangular-red">Shop now</LinkAsButton>
+        <LinkAsButton
+          className="hero-slider-item__link"
+          to="/shop"
+          subtype="rectangular-red"
+        >
+          Shop now
+        </LinkAsButton>
       </div>
     </li>
   );

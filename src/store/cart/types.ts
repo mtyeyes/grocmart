@@ -1,5 +1,5 @@
 export interface CartState {
-  [key: string]: number
+  [key: string]: number;
 }
 
 export type ProductId = string;

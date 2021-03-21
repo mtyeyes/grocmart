@@ -2,8 +2,8 @@ import React from 'react';
 import '../../index.styl';
 
 type Props = {
-  children: string,
-}
+  children: string;
+};
 
 const HiddenText = ({ children }: Props) => {
   return <span className="visually-hidden">{children}</span>;
