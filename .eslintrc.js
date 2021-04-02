@@ -2,6 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    node: true,
+    jest: true,
   },
   ignorePatterns: ['.eslintrc.js', 'webpack.config.js'],
   extends: [
@@ -24,6 +26,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
   rules: {
+    'no-console': 'error',
     'react/prop-types': 0,
     indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],

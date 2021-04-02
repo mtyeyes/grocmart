@@ -6,5 +6,6 @@
 *.sublime*
 dist/
 node_modules/
+coverage/
 npm-debug.*
 Thumbs.db
