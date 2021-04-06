@@ -1,19 +1,29 @@
 import findAverage from './find-average';
 
 describe('testing findAverage function', () => {
-  it('when passed number returns that number', () => {
-    expect(findAverage(5)).toBe(5);
+  test.each([
+    [5, 5],
+    [715, 715],
+    [-6, -6],
+  ])('when passed number %i returns that number', (x, expected) => {
+    expect(findAverage(x)).toBe(expected);
   });
-  it('when passed array of numbers returns average', () => {
-    expect(findAverage([5, 5, 4, 4, 3, 3])).toBe(4);
+
+  test.each([
+    [[5, 5, 4, 4, 3, 3], 4],
+    [[2], 2],
+    [[2, 2, 3, 4, 3, 4, 5, 1, 2, 3], 2.9],
+    [[1, 3, 4, 5, 1, 1, 5, 5], 3.125],
+  ])('when passed array returns average', (arr, expected) => {
+    expect(findAverage(arr)).toBe(expected);
   });
-  it('when passed undefined returns null', () => {
-    expect(findAverage(undefined)).toBe(null);
-  });
-  it('when passed null returns null', () => {
-    expect(findAverage(null)).toBe(null);
-  });
-  it('when passed string returns null', () => {
-    expect(findAverage('some words')).toBe(null);
+
+  test.each([
+    [undefined, null],
+    [null, null],
+    ['test', null],
+    ['', null],
+  ])('when passed incorrect value should return null', (value, expected) => {
+    expect(findAverage(value)).toBe(expected);
   });
 });

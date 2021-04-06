@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard component should render product card 1`] = `
+<li
+  className="product-card__container"
+  key="chilli"
+>
+  <div
+    className="product-card"
+  >
+    <div
+      className="product-card__flags-container"
+    />
+    <img
+      alt="chilli peppers"
+      className="product-card__thumbnail"
+      loading="lazy"
+      src="/grocmart/images/chilli.png"
+    />
+    <h4
+      className="product-card__title"
+    >
+      chilli peppers
+    </h4>
+    <div
+      className="product-card__price-container"
+    >
+      <p
+        className="product-card__price product-card__price--total"
+      >
+        <HiddenText>
+          Total price
+        </HiddenText>
+        15
+      </p>
+    </div>
+    <div
+      className="product-card__controls"
+    >
+      <LinkAsButton
+        className="product-card__btn product-card__btn--product-info"
+        subtype="round-grey"
+        to="/shop/chilli"
+      >
+        <Icon
+          iconId="search"
+        />
+        <HiddenText>
+          Product info
+        </HiddenText>
+      </LinkAsButton>
+      <Button
+        className="product-card__btn product-card__btn--add-to-cart"
+        onClick={[Function]}
+      >
+        <Icon
+          iconId="basket"
+        />
+        <HiddenText>
+          Add to cart
+        </HiddenText>
+      </Button>
+    </div>
+  </div>
+</li>
+`;

@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Advantages component should match snapshot 1`] = `
+<section
+  className="advantages"
+>
+  <ul
+    className="advantages__list"
+  >
+    <li
+      className="advantages__item advantages__item--thumbs-up advantages-item"
+      key="thumbs-up"
+    >
+      <ScrollAnimation
+        animateIn="fade-in-from-left"
+        animateOnce={true}
+        animatePreScroll={true}
+        delay={0}
+        duration={1}
+        initiallyVisible={false}
+        offset={150}
+      >
+        <Icon
+          className="advantages-item__icon"
+          iconId="thumbs-up"
+        />
+        <h4
+          className="advantages-item__title"
+        >
+          Quality products
+        </h4>
+        <p
+          className="advantages-item__text"
+        >
+          We work with the best suppliers to offer our customers the fresh grocery products of the highest quality.
+        </p>
+      </ScrollAnimation>
+    </li>
+    <li
+      className="advantages__item advantages__item--wallet advantages-item"
+      key="wallet"
+    >
+      <ScrollAnimation
+        animateIn="fade-in-from-left"
+        animateOnce={true}
+        animatePreScroll={true}
+        delay={0}
+        duration={1}
+        initiallyVisible={false}
+        offset={150}
+      >
+        <Icon
+          className="advantages-item__icon"
+          iconId="wallet"
+        />
+        <h4
+          className="advantages-item__title"
+        >
+          Affordable prices
+        </h4>
+        <p
+          className="advantages-item__text"
+        >
+          Thanks to our affordable pricing policy, our customers don’t have to overpay for the products they need.
+        </p>
+      </ScrollAnimation>
+    </li>
+    <li
+      className="advantages__item advantages__item--truck advantages-item"
+      key="truck"
+    >
+      <ScrollAnimation
+        animateIn="fade-in-from-left"
+        animateOnce={true}
+        animatePreScroll={true}
+        delay={0}
+        duration={1}
+        initiallyVisible={false}
+        offset={150}
+      >
+        <Icon
+          className="advantages-item__icon"
+          iconId="truck"
+        />
+        <h4
+          className="advantages-item__title"
+        >
+          Fast shipping
+        </h4>
+        <p
+          className="advantages-item__text"
+        >
+          Our store offers fast worldwide shipping to all customers regardless of what and how much you order.
+        </p>
+      </ScrollAnimation>
+    </li>
+    <li
+      className="advantages__item advantages__item--clock advantages-item"
+      key="clock"
+    >
+      <ScrollAnimation
+        animateIn="fade-in-from-left"
+        animateOnce={true}
+        animatePreScroll={true}
+        delay={0}
+        duration={1}
+        initiallyVisible={false}
+        offset={150}
+      >
+        <Icon
+          className="advantages-item__icon"
+          iconId="clock"
+        />
+        <h4
+          className="advantages-item__title"
+        >
+          Open 24/7
+        </h4>
+        <p
+          className="advantages-item__text"
+        >
+          Unlike other grocery shops, we are ready to serve you 24/7 and offer the best selection of groceries.
+        </p>
+      </ScrollAnimation>
+    </li>
+  </ul>
+</section>
+`;

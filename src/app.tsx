@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useStore } from 'react-redux';
 import { StateKeys, AppState } from './store/index';
 import useSyncStateWithLocalStorage from './hooks/use-sync-state-with-local-storage';
-// @ts-ignore
-export const PATH = JSON.stringify(PUBLIC_PATH).replaceAll('"', '');
+// @ts-ignore: variable PATH inserted on compilation by webpack
+export const PATH = JSON.stringify(PUBLIC_PATH).replace(/"/g, '');
 
 import ScrollReset from './components/scroll-reset/scroll-reset';
 import Home from './domain/home/home';

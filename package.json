@@ -7,6 +7,7 @@
     "format": "prettier --config .prettierrc \"**/*.+(ts|tsx|js|jsx|json|css)\" --write",
     "test": "jest",
     "test-coverage": "jest --coverage",
+    "test-update-snapshots": "jest --updateSnapshot",
     "dev": "cross-env NODE_ENV=development webpack",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env NODE_ENV=development webpack serve --open 'chrome'",
