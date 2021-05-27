@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import ProductCard, { Props } from './product-card';
+import ProductCard from './product-card';
 
-const setUp = (props: Props) => shallow(<ProductCard {...props} />);
+const setUp = (props) => shallow(<ProductCard {...props} />);
 
 describe('ProductCard component', () => {
-  const actionMock: any = () => {};
   const chilliPropsMock = {
     productId: 'chilli',
     productName: 'chilli peppers',
     priceBeforeDiscounts: '15',
     priceAfterDiscounts: '15',
     productRating: 3,
-    addToCart: actionMock,
+    addToCart: () => {},
   };
 
   it('should render product card', () => {

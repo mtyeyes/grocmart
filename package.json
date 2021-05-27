@@ -23,6 +23,8 @@
   "homepage": "http://mtyeyes.github.io/grocmart/",
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@babel/plugin-transform-react-jsx": "^7.13.12",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
@@ -83,6 +85,16 @@
     "react-router-dom": "^5.2.0",
     "react-slider": "^1.1.2",
     "redux-devtools-extension": "^2.13.8"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs",
+          "@babel/plugin-transform-react-jsx"
+        ]
+      }
+    }
   },
   "browserslist": {
     "production": [

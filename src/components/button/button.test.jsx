@@ -2,8 +2,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import Button from './button';
 
-const setUp = (props?: React.ComponentProps<'button'>) =>
-  shallow(<Button {...props} />);
+const setUp = (props) => shallow(<Button {...props} />);
 
 describe('should render Button component', () => {
   it('should render default button', () => {

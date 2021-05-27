@@ -5,6 +5,7 @@ module.exports = {
   testMatch: ['**/?(*.)+(test).[jt]s?(x)'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
+    '\\.(js|jsx)?$': 'babel-jest',
   },
   preset: 'ts-jest',
   testEnvironment: 'node',
