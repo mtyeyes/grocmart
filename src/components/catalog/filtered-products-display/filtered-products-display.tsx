@@ -2,9 +2,7 @@ import React, { ReactChild, useEffect, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import './filtered-products-display.styl';
 
-import ProductCard, {
-  Props as ProductCardProps,
-} from '../../product-card/product-card';
+import ProductCard, { Props as ProductCardProps } from '../../product-card/product-card';
 import Pagination from '../../pagination/pagination';
 
 type Props = {
@@ -19,13 +17,8 @@ type Page = number;
 const FilteredProductsDisplay = ({ filteredProductsData, children }: Props) => {
   const [selectedPage, setSelectedPage] = useState(1 as Page);
   const [itemsPerPage, setItemsPerPage] = useState(9 as number);
-  const [displayedRange, setDisplayedRange] = useState([
-    0,
-    itemsPerPage,
-  ] as DisplayedRange);
-  const [displayedProducts, setDisplayedProducts] = useState(
-    [] as ProductCardProps[],
-  );
+  const [displayedRange, setDisplayedRange] = useState([0, itemsPerPage] as DisplayedRange);
+  const [displayedProducts, setDisplayedProducts] = useState([] as ProductCardProps[]);
 
   useEffect(() => {
     setSelectedPage(1);
@@ -81,12 +74,7 @@ const FilteredProductsDisplay = ({ filteredProductsData, children }: Props) => {
   }, [filteredProductsData, itemsPerPage, selectedPage]);
 
   useEffect(() => {
-    setDisplayedProducts(
-      [...filteredProductsData].splice(
-        displayedRange[0],
-        displayedRange[1] - displayedRange[0] + 1,
-      ),
-    );
+    setDisplayedProducts([...filteredProductsData].splice(displayedRange[0], displayedRange[1] - displayedRange[0] + 1));
   }, [filteredProductsData, displayedRange]);
 
   const displayedProductsMapCallback = ({
@@ -121,11 +109,7 @@ const FilteredProductsDisplay = ({ filteredProductsData, children }: Props) => {
             : `${displayedRange[0] + 1}th–${displayedRange[1] + 1}th`
         } of ${filteredProductsData.length} results`}</p>
       </div>
-      <FlipMove
-        typeName="ul"
-        className="products-display__list"
-        leaveAnimation="none"
-      >
+      <FlipMove typeName="ul" className="products-display__list" leaveAnimation="none">
         {displayedProducts.map(displayedProductsMapCallback)}
       </FlipMove>
       <Pagination

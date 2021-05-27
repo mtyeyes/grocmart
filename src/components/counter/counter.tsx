@@ -14,23 +14,13 @@ type Props = {
 
 const Counter = ({ classNamePrefix, count, increment, decrement }: Props) => {
   return (
-    <div
-      className={
-        classNamePrefix ? `${classNamePrefix}__counter counter` : 'counter'
-      }
-    >
+    <div className={classNamePrefix ? `${classNamePrefix}__counter counter` : 'counter'}>
       <p className="counter__count">{count}</p>
-      <Button
-        className="counter__btn counter__btn--decrement"
-        onClick={decrement}
-      >
+      <Button className="counter__btn counter__btn--decrement" onClick={decrement}>
         <Icon className="counter__btn-icon" iconId="minus" />
         <HiddenText>Remove</HiddenText>
       </Button>
-      <Button
-        className="counter__btn counter__btn--increment"
-        onClick={increment}
-      >
+      <Button className="counter__btn counter__btn--increment" onClick={increment}>
         <Icon className="counter__btn-icon" iconId="plus" />
         <HiddenText>Add</HiddenText>
       </Button>

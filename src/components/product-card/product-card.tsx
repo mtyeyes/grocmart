@@ -21,26 +21,10 @@ export type Props = {
 
 const ProductCard = forwardRef(
   (
-    {
-      productId,
-      priceBeforeDiscounts,
-      priceAfterDiscounts,
-      productName,
-      productRating,
-      addToCart,
-      className,
-    }: Props,
+    { productId, priceBeforeDiscounts, priceAfterDiscounts, productName, productRating, addToCart, className }: Props,
     ref: Ref<HTMLLIElement>,
   ) => (
-    <li
-      key={productId}
-      className={
-        className
-          ? `product-card__container ${className}`
-          : 'product-card__container'
-      }
-      ref={ref}
-    >
+    <li key={productId} className={className ? `product-card__container ${className}` : 'product-card__container'} ref={ref}>
       <div className="product-card">
         <div className="product-card__flags-container">
           {productRating >= 4 && (
@@ -54,12 +38,7 @@ const ProductCard = forwardRef(
             </p>
           )}
         </div>
-        <img
-          src={`${PATH}images/${productId}.png`}
-          className="product-card__thumbnail"
-          alt={productName}
-          loading="lazy"
-        />
+        <img src={`${PATH}images/${productId}.png`} className="product-card__thumbnail" alt={productName} loading="lazy" />
         <h4 className="product-card__title">{productName}</h4>
         <div className="product-card__price-container">
           {priceBeforeDiscounts !== priceAfterDiscounts && (

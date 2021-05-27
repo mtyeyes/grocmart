@@ -13,13 +13,7 @@ type Props = {
   icon: IconId;
 };
 
-const ModalToggler = ({
-  parentBlockName,
-  childrenBlockName,
-  icon,
-  render,
-  btnChildrenElement,
-}: Props) => {
+const ModalToggler = ({ parentBlockName, childrenBlockName, icon, render, btnChildrenElement }: Props) => {
   const [isModalVisible, setModalVisibility] = useState(false);
 
   const switchModalVisibility = () => {

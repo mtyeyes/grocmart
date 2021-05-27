@@ -10,12 +10,7 @@ type Props = {
   children: ReactNode;
 };
 
-const CatalogFiltersControls = ({
-  filterProducts,
-  selectedMinPrice,
-  selectedMaxPrice,
-  children,
-}: Props) => {
+const CatalogFiltersControls = ({ filterProducts, selectedMinPrice, selectedMaxPrice, children }: Props) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -30,10 +25,10 @@ const CatalogFiltersControls = ({
         <Button className="filter-controls__btn" onClick={filterProducts}>
           Filter
         </Button>
-        <p className="filter-controls__price-range-info">{`Price: ${selectedMinPrice.toLocaleString(
-          'en-US',
-          { style: 'currency', currency: 'USD' },
-        )} – ${selectedMaxPrice.toLocaleString('en-US', {
+        <p className="filter-controls__price-range-info">{`Price: ${selectedMinPrice.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        })} – ${selectedMaxPrice.toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD',
         })}`}</p>

@@ -46,21 +46,11 @@ const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
   const { requests, children, customColor } = props;
   const loadState = useLoadState();
   const [loadingState, setloadingState] = useState('loading' as LoadingState);
-  const [stateRequestsResults, setStateRequestsResults] = useState(
-    {} as object,
-  );
-  const [resourcesRequestsResults, setResourcesRequestsResults] = useState(
-    {} as T,
-  );
+  const [stateRequestsResults, setStateRequestsResults] = useState({} as object);
+  const [resourcesRequestsResults, setResourcesRequestsResults] = useState({} as T);
 
-  const fetchRequest = (
-    requestId: keyof T | string,
-    requestType: 'stateRequests' | 'resourceRequests',
-  ) => {
-    const request = useFetchAndCacheJson(
-      `${PATH}mocks/${requestId}.json`,
-      fiveMinutes,
-    );
+  const fetchRequest = (requestId: keyof T | string, requestType: 'stateRequests' | 'resourceRequests') => {
+    const request = useFetchAndCacheJson(`${PATH}mocks/${requestId}.json`, fiveMinutes);
     useEffect(() => {
       if (request.isLoading === false) {
         if (request.isError) {
@@ -80,14 +70,10 @@ const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
 
   const fetchRequests = () => {
     if ('stateRequests' in requests) {
-      requests.stateRequests.forEach((requestId) =>
-        fetchRequest(requestId, 'stateRequests'),
-      );
+      requests.stateRequests.forEach((requestId) => fetchRequest(requestId, 'stateRequests'));
     }
     if ('resourceRequests' in requests) {
-      requests.resourceRequests.forEach((requestId) =>
-        fetchRequest(requestId, 'resourceRequests'),
-      );
+      requests.resourceRequests.forEach((requestId) => fetchRequest(requestId, 'resourceRequests'));
     }
   };
 
@@ -95,19 +81,11 @@ const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
 
   useEffect(() => {
     const allStateRequestsCompleted =
-      !('stateRequests' in requests) ||
-      requests.stateRequests.length ===
-        Object.keys(stateRequestsResults).length;
+      !('stateRequests' in requests) || requests.stateRequests.length === Object.keys(stateRequestsResults).length;
     const allResourceRequestsCompleted =
-      !('resourceRequests' in requests) ||
-      requests.resourceRequests.length ===
-        Object.keys(resourcesRequestsResults).length;
+      !('resourceRequests' in requests) || requests.resourceRequests.length === Object.keys(resourcesRequestsResults).length;
 
-    if (
-      allStateRequestsCompleted &&
-      allResourceRequestsCompleted &&
-      loadingState !== 'error'
-    ) {
+    if (allStateRequestsCompleted && allResourceRequestsCompleted && loadingState !== 'error') {
       loadState(stateRequestsResults);
       if ('transferRequestedResources' in props) {
         props.transferRequestedResources!(resourcesRequestsResults);
@@ -120,13 +98,7 @@ const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
     switch (loadingState) {
       case 'loading':
         return (
-          <div
-            className={
-              customColor !== undefined
-                ? `loader loader--${customColor}`
-                : 'loader'
-            }
-          >
+          <div className={customColor !== undefined ? `loader loader--${customColor}` : 'loader'}>
             <div className="loader__shape" />
             <div className="loader__shape" />
             <div className="loader__shape" />
@@ -134,13 +106,7 @@ const Loader = <T extends object, K extends keyof T>(props: Props<T, K>) => {
         );
       case 'error':
         return (
-          <div
-            className={
-              customColor !== undefined
-                ? `loader loader--${customColor} loader--error`
-                : 'loader loader--error'
-            }
-          >
+          <div className={customColor !== undefined ? `loader loader--${customColor} loader--error` : 'loader loader--error'}>
             <p className="loader__error-text">Error getting data</p>
           </div>
         );

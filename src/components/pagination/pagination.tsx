@@ -11,12 +11,7 @@ type Props = {
   numberOfItems: number;
 };
 
-const Pagination = ({
-  selectedPage,
-  setSelectedPage,
-  itemsPerPage,
-  numberOfItems,
-}: Props) => {
+const Pagination = ({ selectedPage, setSelectedPage, itemsPerPage, numberOfItems }: Props) => {
   const amountOfPages = Math.ceil(numberOfItems / itemsPerPage);
   const [controls, setControls] = useState([] as (number | string)[]);
 
@@ -43,12 +38,7 @@ const Pagination = ({
         break;
       }
     }
-    setControls(
-      controls.filter(
-        (value) =>
-          typeof value === 'string' || (value > 0 && value <= amountOfPages),
-      ),
-    );
+    setControls(controls.filter((value) => typeof value === 'string' || (value > 0 && value <= amountOfPages)));
   }, [selectedPage, numberOfItems]);
 
   const controlsMapCallback = (controlValue: number | string) => {
@@ -60,8 +50,7 @@ const Pagination = ({
     }
 
     const isSelected = targetPage === selectedPage;
-    const isLinkActive =
-      !isSelected && targetPage > 0 && targetPage <= amountOfPages;
+    const isLinkActive = !isSelected && targetPage > 0 && targetPage <= amountOfPages;
 
     const handleClick = () => {
       setSelectedPage(targetPage);
@@ -73,9 +62,9 @@ const Pagination = ({
       }
     };
 
-    const linkClassName = `pagination__link ${
-      isSelected ? 'pagination__link--selected' : ''
-    } ${isLinkActive ? '' : 'pagination__link--disabled'}`;
+    const linkClassName = `pagination__link ${isSelected ? 'pagination__link--selected' : ''} ${
+      isLinkActive ? '' : 'pagination__link--disabled'
+    }`;
 
     return (
       <li
@@ -94,9 +83,7 @@ const Pagination = ({
         >
           {typeof controlValue !== 'string' && (
             <span>
-              <HiddenText>
-                {isSelected ? 'Current page number' : 'Switch to page number'}
-              </HiddenText>
+              <HiddenText>{isSelected ? 'Current page number' : 'Switch to page number'}</HiddenText>
               {targetPage}
             </span>
           )}
@@ -121,14 +108,8 @@ const Pagination = ({
     return null;
   } else {
     return (
-      <nav
-        className="pagination"
-        role="navigation"
-        aria-label="Pagination Navigation"
-      >
-        <ol className="pagination__list">
-          {controls.map(controlsMapCallback)}
-        </ol>
+      <nav className="pagination" role="navigation" aria-label="Pagination Navigation">
+        <ol className="pagination__list">{controls.map(controlsMapCallback)}</ol>
       </nav>
     );
   }

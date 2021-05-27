@@ -15,23 +15,14 @@ type PositionStyle = {
   right?: number | string;
 };
 
-const FloatingText = ({
-  children,
-  positionStyle,
-  valueToTriggerAnimation,
-}: Props) => {
+const FloatingText = ({ children, positionStyle, valueToTriggerAnimation }: Props) => {
   const spanRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (spanRef.current !== null) {
-      spanRef.current.animate(
-        [
-          { transform: 'scale(0.8)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-        ],
-        { duration: 500 },
-      );
+      spanRef.current.animate([{ transform: 'scale(0.8)' }, { transform: 'scale(1.2)' }, { transform: 'scale(1)' }], {
+        duration: 500,
+      });
     }
   }, [spanRef, valueToTriggerAnimation]);
 

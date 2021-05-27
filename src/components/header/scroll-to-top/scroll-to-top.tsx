@@ -18,11 +18,7 @@ const ScrollToTopBtn = ({ isShown }: Props) => {
 
   return (
     <Button
-      className={
-        isShown
-          ? 'scroll-to-top-btn scroll-to-top-btn--shown'
-          : 'scroll-to-top-btn'
-      }
+      className={isShown ? 'scroll-to-top-btn scroll-to-top-btn--shown' : 'scroll-to-top-btn'}
       onClick={scrollToTop}
       tabIndex={-1}
     >

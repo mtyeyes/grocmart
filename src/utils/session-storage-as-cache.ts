@@ -1,10 +1,5 @@
-type StoreInCache = (
-  key: string,
-  value: string | any[] | { [key: string]: any },
-) => boolean;
-type GetFromCache = (
-  key: string,
-) => { data: string | any[] | { [key: string]: any }; age: number } | false;
+type StoreInCache = (key: string, value: string | any[] | { [key: string]: any }) => boolean;
+type GetFromCache = (key: string) => { data: string | any[] | { [key: string]: any }; age: number } | false;
 
 export const storeInCache: StoreInCache = (key, value) => {
   try {

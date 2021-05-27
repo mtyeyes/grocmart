@@ -12,11 +12,7 @@ type EventKeyup = {
   key: string;
 };
 
-const ModalWithScreenblock = ({
-  closeModal,
-  renderInside,
-  children,
-}: Props) => {
+const ModalWithScreenblock = ({ closeModal, renderInside, children }: Props) => {
   const screenblock = useRef<HTMLDivElement>(null);
   const root = document.getElementById('root')!;
 
@@ -40,12 +36,7 @@ const ModalWithScreenblock = ({
 
   const childrenWrappedInScreenblocker = () => {
     return (
-      <div
-        className="modal-screenblock"
-        ref={screenblock}
-        role="button"
-        onClick={closeModalByClick}
-      >
+      <div className="modal-screenblock" ref={screenblock} role="button" onClick={closeModalByClick}>
         {children}
       </div>
     );

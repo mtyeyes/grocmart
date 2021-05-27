@@ -3,10 +3,7 @@ import { CartActionTypes } from './actions';
 
 const initialState: CartState = {};
 
-export const cartReducer = (
-  state = initialState,
-  action: CartActionTypes,
-): CartState => {
+export const cartReducer = (state = initialState, action: CartActionTypes): CartState => {
   switch (action.type) {
     case 'LOAD_CART_STATE': {
       return action.payload;

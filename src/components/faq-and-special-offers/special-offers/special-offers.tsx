@@ -11,15 +11,10 @@ import { AppState } from '../../../store';
 
 const SpecialOffers = () => {
   const [specialOffers, setSpecialOffers] = useState([] as string[]);
-  const productsState = useSelector(
-    (state: AppState) => state.products,
-    shallowEqual,
-  );
+  const productsState = useSelector((state: AppState) => state.products, shallowEqual);
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
-  const getLoadedData = (requestResults: {
-    'products-of-the-day': string[];
-  }) => {
+  const getLoadedData = (requestResults: { 'products-of-the-day': string[] }) => {
     setSpecialOffers(requestResults['products-of-the-day']);
   };
 
@@ -29,10 +24,7 @@ const SpecialOffers = () => {
       style: 'currency',
       currency: 'USD',
     });
-    const priceAfterDiscounts = countPriceAfterDiscounts(
-      productId,
-      'return stringAsCurrency',
-    );
+    const priceAfterDiscounts = countPriceAfterDiscounts(productId, 'return stringAsCurrency');
     return (
       <SpecialOfferItem
         productName={name}

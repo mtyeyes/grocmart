@@ -19,18 +19,13 @@ const capitalizeFirstLetter = (string: string) => {
 };
 
 const SearchResults = ({ searchQuery, setSearchQuery, closeModal }: Props) => {
-  const productsState = useSelector(
-    (state: AppState) => state.products,
-    shallowEqual,
-  );
+  const productsState = useSelector((state: AppState) => state.products, shallowEqual);
   const [searchResults, setSearchResults] = useState([] as string[]);
 
   const searchByName = (name: string) => {
     const substrToFilter = name.toLowerCase();
     setSearchResults(
-      Object.keys(productsState).filter((productId) =>
-        productsState[productId].name.toLowerCase().includes(substrToFilter),
-      ),
+      Object.keys(productsState).filter((productId) => productsState[productId].name.toLowerCase().includes(substrToFilter)),
     );
   };
 
@@ -40,14 +35,7 @@ const SearchResults = ({ searchQuery, setSearchQuery, closeModal }: Props) => {
 
   const searchResultsMapCallback = (productId: string) => {
     const productName = capitalizeFirstLetter(productsState[productId].name);
-    return (
-      <SearchResult
-        productId={productId}
-        productName={productName}
-        closeModal={closeModal}
-        key={productId}
-      />
-    );
+    return <SearchResult productId={productId} productName={productName} closeModal={closeModal} key={productId} />;
   };
 
   return (
@@ -62,13 +50,9 @@ const SearchResults = ({ searchQuery, setSearchQuery, closeModal }: Props) => {
       </Button>
       <Loader customColor="white" requests={{ stateRequests: ['products'] }}>
         {searchResults.length ? (
-          <ul className="search-results__list">
-            {searchResults.map(searchResultsMapCallback)}
-          </ul>
+          <ul className="search-results__list">{searchResults.map(searchResultsMapCallback)}</ul>
         ) : (
-          <p className="search-results__no-results-disclaimer">
-            There is no product with such name
-          </p>
+          <p className="search-results__no-results-disclaimer">There is no product with such name</p>
         )}
       </Loader>
     </div>

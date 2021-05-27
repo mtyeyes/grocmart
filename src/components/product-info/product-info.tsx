@@ -12,10 +12,7 @@ import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import { AppState, AppDispatch } from '../../store/index';
 import { ProductInfo } from '../../store/products/types';
-import {
-  setCurrentUserScoreAction,
-  removeCurrentUserScoreAction,
-} from '../../store/products/actions';
+import { setCurrentUserScoreAction, removeCurrentUserScoreAction } from '../../store/products/actions';
 import { addToCart, removeFromCart } from '../../store/cart/actions';
 import { PATH } from '../../app';
 
@@ -41,9 +38,7 @@ const ProductInfo = ({ productId }: Props) => {
     } else {
       const currentUserScore = productsState[productId].currentUserScore;
       if (typeof currentUserScore === 'number') {
-        dispatch(
-          removeCurrentUserScoreAction({ productId, rating: currentUserScore }),
-        );
+        dispatch(removeCurrentUserScoreAction({ productId, rating: currentUserScore }));
       }
     }
   };
@@ -67,32 +62,19 @@ const ProductInfo = ({ productId }: Props) => {
             loading="lazy"
           />
           <div className="product-info__details">
-            <h1 className="product-info__name">
-              {productsState[productId].name}
-            </h1>
+            <h1 className="product-info__name">{productsState[productId].name}</h1>
             <div className="product-info__price-and-rating-wrapper">
-              <p className="product-info__price">
-                {countPriceAfterDiscounts(productId, 'return stringAsCurrency')}
-              </p>
+              <p className="product-info__price">{countPriceAfterDiscounts(productId, 'return stringAsCurrency')}</p>
               <RatingSelect
-                selectedRating={
-                  productsState[productId].currentUserScore
-                    ? productsState[productId].currentUserScore
-                    : null
-                }
+                selectedRating={productsState[productId].currentUserScore ? productsState[productId].currentUserScore : null}
                 setSelectedRating={selectRating}
                 defaultRating={findAverage(productsState[productId].userScore)}
               />
             </div>
-            <p className="product-info__description">
-              {productsState[productId].description}
-            </p>
+            <p className="product-info__description">{productsState[productId].description}</p>
             <table className="product-info__minor-details">
               <tbody>
-                <MinorDetail
-                  name={'Category'}
-                  data={productsState[productId].group}
-                />
+                <MinorDetail name={'Category'} data={productsState[productId].group} />
                 <MinorDetail
                   name={'Weight'}
                   data={
@@ -104,10 +86,7 @@ const ProductInfo = ({ productId }: Props) => {
               </tbody>
             </table>
             <div className="product-info__buy-and-social">
-              <Button
-                className="product-info__trade-btn"
-                onClick={handleBtnClick}
-              >
+              <Button className="product-info__trade-btn" onClick={handleBtnClick}>
                 {cartState[productId] ? 'Remove item' : 'Add to cart'}
               </Button>
               <SocialLinks>Share</SocialLinks>
@@ -116,19 +95,13 @@ const ProductInfo = ({ productId }: Props) => {
         </>
       );
     } else {
-      return (
-        <p className="product-info__wrong-product-disclaimer">
-          There is no such product in our catalog
-        </p>
-      );
+      return <p className="product-info__wrong-product-disclaimer">There is no such product in our catalog</p>;
     }
   };
 
   return (
     <section className="product-info">
-      <Loader requests={{ stateRequests: ['products', 'discounts'] }}>
-        {productInfoRender()}
-      </Loader>
+      <Loader requests={{ stateRequests: ['products', 'discounts'] }}>{productInfoRender()}</Loader>
     </section>
   );
 };

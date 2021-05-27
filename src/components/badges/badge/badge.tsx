@@ -14,9 +14,7 @@ const Badge = ({ badgeId, badgeDescription, isBrightBackground }: Props) => {
     <li className="badge">
       <img
         alt={badgeDescription}
-        src={`${PATH}images/badge-${badgeId}-${
-          isBrightBackground ? 'bright' : 'dark'
-        }.png`}
+        src={`${PATH}images/badge-${badgeId}-${isBrightBackground ? 'bright' : 'dark'}.png`}
         className="badge__img"
         loading="lazy"
       />

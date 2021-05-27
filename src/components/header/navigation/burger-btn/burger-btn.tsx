@@ -26,9 +26,7 @@ const BurgerBtn = ({ btnTitle, onClick, className, ...props }: Props) => {
   return (
     <Button
       onClick={combineEventListeners}
-      className={`${className} ${
-        isToggled ? 'burger-btn burger-btn--toggled' : 'burger-btn'
-      }`}
+      className={`${className} ${isToggled ? 'burger-btn burger-btn--toggled' : 'burger-btn'}`}
       {...props}
     >
       <span className="visually-hidden">{btnTitle}</span>

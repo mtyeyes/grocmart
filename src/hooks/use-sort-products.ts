@@ -14,14 +14,9 @@ type UseSortProducts = () => [
 ];
 
 const useSortProducts: UseSortProducts = () => {
-  const productsState = useSelector(
-    (state: AppState) => state.products,
-    shallowEqual,
-  );
+  const productsState = useSelector((state: AppState) => state.products, shallowEqual);
   const [sortedItems, setSortedItems] = useState(Object.keys(productsState));
-  const [valueToSortBy, setValueToSortBy] = useState(
-    'name' as typeof valuesToSortBy[number],
-  );
+  const [valueToSortBy, setValueToSortBy] = useState('name' as typeof valuesToSortBy[number]);
   const valuesToSortBy = ['name', 'rating', 'price'];
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
 
@@ -29,10 +24,7 @@ const useSortProducts: UseSortProducts = () => {
     switch (valueToSortBy) {
       case 'price': {
         const sortByPrice = (productAId: string, productBId: string) => {
-          return (
-            countPriceAfterDiscounts(productAId, 'return number') -
-            countPriceAfterDiscounts(productBId, 'return number')
-          );
+          return countPriceAfterDiscounts(productAId, 'return number') - countPriceAfterDiscounts(productBId, 'return number');
         };
         setSortedItems(Object.keys(productsState).sort(sortByPrice));
         break;

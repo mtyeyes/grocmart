@@ -12,16 +12,9 @@ const Search = ({ switchModalVisibility }: Props) => {
   const [searchQuery, setSearchQuery] = useState(null as string | null);
 
   return (
-    <ModalWithScreenblock
-      closeModal={switchModalVisibility}
-      renderInside="component"
-    >
+    <ModalWithScreenblock closeModal={switchModalVisibility} renderInside="component">
       {searchQuery ? (
-        <SearchResults
-          closeModal={switchModalVisibility}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
+        <SearchResults closeModal={switchModalVisibility} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       ) : (
         <SearchControls setSearchQuery={setSearchQuery} />
       )}

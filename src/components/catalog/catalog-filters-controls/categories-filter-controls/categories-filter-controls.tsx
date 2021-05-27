@@ -2,10 +2,7 @@ import React, { Dispatch, useEffect, useState, ChangeEvent } from 'react';
 import './categories-filter-controls.styl';
 
 import HiddenText from '../../../hidden-text/hidden-text';
-import {
-  SelectedCategories,
-  FilterAction,
-} from '../../../../hooks/use-filter-products';
+import { SelectedCategories, FilterAction } from '../../../../hooks/use-filter-products';
 
 type Props = {
   categoriesData: SelectedCategories;
@@ -18,23 +15,16 @@ type SelectAllCheckboxState = {
   numberOfItemsTotal: number;
 };
 
-const CategoriesFilterControls = ({
-  categoriesData,
-  dispatchFilterAction,
-  numberOfItems,
-}: Props) => {
+const CategoriesFilterControls = ({ categoriesData, dispatchFilterAction, numberOfItems }: Props) => {
   const [selectAllCheckboxState, setSelectAllCheckboxState] = useState({
     isChecked: true,
     numberOfItemsTotal: 0,
   } as SelectAllCheckboxState);
 
   useEffect(() => {
-    const numberOfItemsTotal = Object.keys(numberOfItems).reduce(
-      (acc, value) => {
-        return acc + numberOfItems[value];
-      },
-      0 as number,
-    );
+    const numberOfItemsTotal = Object.keys(numberOfItems).reduce((acc, value) => {
+      return acc + numberOfItems[value];
+    }, 0 as number);
     let isChecked = true;
     if (categoriesData) {
       Object.keys(categoriesData).map((categoryName) => {
@@ -51,9 +41,7 @@ const CategoriesFilterControls = ({
       return { ...prevState, isChecked: e.target.checked };
     });
     const payload = categoriesData;
-    Object.keys(categoriesData).map(
-      (categoryName) => (categoriesData[categoryName] = e.target.checked),
-    );
+    Object.keys(categoriesData).map((categoryName) => (categoriesData[categoryName] = e.target.checked));
     dispatchFilterAction({ type: 'changeCategoriesToFilterBy', payload });
   };
 
@@ -78,10 +66,7 @@ const CategoriesFilterControls = ({
           checked={isSelected}
           onChange={handleChange}
         />
-        <label
-          className="categories-filter__label"
-          htmlFor={`${categoryName}-category`}
-        >
+        <label className="categories-filter__label" htmlFor={`${categoryName}-category`}>
           {categoryName}
         </label>
         <p className="categories-filter__item-counter">
@@ -109,13 +94,8 @@ const CategoriesFilterControls = ({
             all
           </label>
           <p className="categories-filter__item-counter">
-            <HiddenText>There are</HiddenText>{' '}
-            {`(${selectAllCheckboxState.numberOfItemsTotal})`}{' '}
-            <HiddenText>
-              {selectAllCheckboxState.numberOfItemsTotal === 1
-                ? 'item total'
-                : 'items total'}
-            </HiddenText>
+            <HiddenText>There are</HiddenText> {`(${selectAllCheckboxState.numberOfItemsTotal})`}{' '}
+            <HiddenText>{selectAllCheckboxState.numberOfItemsTotal === 1 ? 'item total' : 'items total'}</HiddenText>
           </p>
         </li>
         {Object.keys(categoriesData).sort().map(categoriesMapCallback)}

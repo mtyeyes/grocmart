@@ -14,11 +14,7 @@ const Breadcrumbs = () => {
     return (string.charAt(0).toUpperCase() + string.slice(1)).replace('-', ' ');
   };
 
-  const breadcrumbsMapCallback = (
-    pathName: string,
-    index: number,
-    arrayWithPaths: string[],
-  ) => {
+  const breadcrumbsMapCallback = (pathName: string, index: number, arrayWithPaths: string[]) => {
     const isLastItem = index + 1 === arrayWithPaths.length;
     const generateLink = (i: typeof index, array: typeof arrayWithPaths) => {
       if (i === 0) {
@@ -31,19 +27,14 @@ const Breadcrumbs = () => {
       return totalPath;
     };
 
-    pathName === ''
-      ? (pathName = 'Home')
-      : (pathName = capitalizeAndRemoveDash(pathName));
+    pathName === '' ? (pathName = 'Home') : (pathName = capitalizeAndRemoveDash(pathName));
 
     return (
       <li className="breadcrumbs__item" key={pathName}>
         {isLastItem ? (
           <>{pathName}</>
         ) : (
-          <Link
-            className="breadcrumbs__link"
-            to={generateLink(index, arrayWithPaths)}
-          >
+          <Link className="breadcrumbs__link" to={generateLink(index, arrayWithPaths)}>
             {pathName}
           </Link>
         )}
@@ -54,13 +45,9 @@ const Breadcrumbs = () => {
 
   return (
     <section className="breadcrumbs">
-      <h1 className="breadcrumbs__page-title">
-        {capitalizeAndRemoveDash(breadcrumbsItems[breadcrumbsItems.length - 1])}
-      </h1>
+      <h1 className="breadcrumbs__page-title">{capitalizeAndRemoveDash(breadcrumbsItems[breadcrumbsItems.length - 1])}</h1>
       <nav>
-        <ol className="breadcrumbs__list">
-          {breadcrumbsItems.map(breadcrumbsMapCallback)}
-        </ol>
+        <ol className="breadcrumbs__list">{breadcrumbsItems.map(breadcrumbsMapCallback)}</ol>
       </nav>
     </section>
   );

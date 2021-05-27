@@ -17,10 +17,8 @@ type Props = {
 
 const ModalCart = ({ switchModalVisibility }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
-  const addProductToCart = (productId: string) =>
-    dispatch(addToCart(productId));
-  const removeProductFromCart = (productId: string) =>
-    dispatch(removeFromCart(productId, false));
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
 
   const selectProductsState = (state: AppState) => {
     return state.products;
@@ -33,11 +31,7 @@ const ModalCart = ({ switchModalVisibility }: Props) => {
 
   const blockedCheckoutLink = PreventDefaultAndShowAlert({
     component: (
-      <LinkAsButton
-        className="modal-cart__link-btn"
-        to="/checkout"
-        subtype="rectangular-red"
-      >
+      <LinkAsButton className="modal-cart__link-btn" to="/checkout" subtype="rectangular-red">
         Checkout
       </LinkAsButton>
     ),
@@ -50,9 +44,7 @@ const ModalCart = ({ switchModalVisibility }: Props) => {
   const countTotalPrice = () => {
     let totalPrice = 0;
     Object.entries(cartState).forEach(
-      ([productId, quantity]) =>
-        (totalPrice +=
-          countPriceAfterDiscounts(productId, 'return number') * quantity),
+      ([productId, quantity]) => (totalPrice += countPriceAfterDiscounts(productId, 'return number') * quantity),
     );
     return totalPrice.toLocaleString('en-US', {
       style: 'currency',
@@ -63,8 +55,7 @@ const ModalCart = ({ switchModalVisibility }: Props) => {
   const cartMapCallback = (productId: string) => {
     const productData = productsState[productId];
     const productFinalPrice = (
-      countPriceAfterDiscounts(productId, 'return number') *
-      cartState[productId]
+      countPriceAfterDiscounts(productId, 'return number') * cartState[productId]
     ).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     return (
       <ModalCartItem
@@ -90,9 +81,7 @@ const ModalCart = ({ switchModalVisibility }: Props) => {
             Total price: <span>{countTotalPrice()}</span>
           </p>
         </div>
-        <ul className="modal-cart__products-list">
-          {Object.keys(cartState).map(cartMapCallback)}
-        </ul>
+        <ul className="modal-cart__products-list">{Object.keys(cartState).map(cartMapCallback)}</ul>
         <div className="modal-cart__bottom-wrapper">
           <LinkAsButton
             className="modal-cart__link-btn"

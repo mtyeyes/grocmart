@@ -30,11 +30,7 @@ const Newsletter = () => {
 
   const blockedForm = PreventDefaultAndShowAlert({
     component: (
-      <form
-        className="newsletter__form"
-        action="/newsletter-signup"
-        method="post"
-      >
+      <form className="newsletter__form" action="/newsletter-signup" method="post">
         {formChildrens}
       </form>
     ),
@@ -46,8 +42,7 @@ const Newsletter = () => {
     <>
       <h3 className="newsletter__heading">Newsletter</h3>
       <p className="newsletter__paragraph">
-        Subscribe to our newsletter to receive weekly news, updates, special
-        offers, and exclusive discounts.
+        Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.
       </p>
       {blockedForm}
     </>

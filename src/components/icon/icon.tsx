@@ -33,9 +33,7 @@ export type IconId =
   | 'star-empty';
 
 const Icon = ({ iconId, className }: Props) => {
-  const classNames = className
-    ? `icon-${iconId} icon ${className}`
-    : `icon-${iconId} icon`;
+  const classNames = className ? `icon-${iconId} icon ${className}` : `icon-${iconId} icon`;
 
   return <span className={classNames} />;
 };

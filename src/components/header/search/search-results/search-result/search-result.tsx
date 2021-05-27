@@ -13,11 +13,7 @@ type Props = {
 const SearchResult = ({ productId, productName, closeModal }: Props) => {
   return (
     <li className="search-result">
-      <Link
-        className="search-result__link"
-        to={`/shop/${productId}`}
-        onClick={closeModal}
-      >
+      <Link className="search-result__link" to={`/shop/${productId}`} onClick={closeModal}>
         <img
           className="search-result__thumbnail"
           src={`${PATH}images/${productId}-small.png`}

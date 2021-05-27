@@ -10,25 +10,15 @@ type Props = {
 };
 
 const NavigationTab = ({ links, showMobileMenu }: Props) => {
-  const classNames = showMobileMenu
-    ? 'navigation__wrapper navigation__wrapper--show'
-    : 'navigation__wrapper';
+  const classNames = showMobileMenu ? 'navigation__wrapper navigation__wrapper--show' : 'navigation__wrapper';
 
   const linksMapCallback = (linkKey: string) => {
-    return (
-      <NavigationLink
-        key={linkKey}
-        linkTitle={linkKey}
-        linkPath={links[linkKey]}
-      ></NavigationLink>
-    );
+    return <NavigationLink key={linkKey} linkTitle={linkKey} linkPath={links[linkKey]}></NavigationLink>;
   };
 
   return (
     <nav className={classNames} role="navigation" aria-label="Site Navigation">
-      <ul className="navigation__list">
-        {Object.keys(links).map(linksMapCallback)}
-      </ul>
+      <ul className="navigation__list">{Object.keys(links).map(linksMapCallback)}</ul>
     </nav>
   );
 };

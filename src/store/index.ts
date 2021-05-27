@@ -14,8 +14,7 @@ const rootReducer = combineReducers({
 export type AppState = ReturnType<typeof rootReducer>;
 export type StateKeys = Exclude<keyof AppState, typeof $CombinedState>;
 
-const configureStore = (preloadedState: {}) =>
-  createStore(rootReducer, preloadedState, composeWithDevTools());
+const configureStore = (preloadedState: {}) => createStore(rootReducer, preloadedState, composeWithDevTools());
 
 const store = configureStore({});
 

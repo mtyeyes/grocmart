@@ -9,20 +9,14 @@ type Props = {
   dispatchFilterAction: Dispatch<FilterAction>;
 };
 
-const RatingFilterControls = ({
-  selectedRating,
-  dispatchFilterAction,
-}: Props) => {
+const RatingFilterControls = ({ selectedRating, dispatchFilterAction }: Props) => {
   const setSelectedRating = (rating: null | number) => {
     dispatchFilterAction({ type: 'changeRatingToFilterBy', payload: rating });
   };
   return (
     <fieldset className="filter-controls__rating rating-filter__conatainer">
       <h4 className="rating-filter__heading">Rating</h4>
-      <RatingSelect
-        selectedRating={selectedRating}
-        setSelectedRating={setSelectedRating}
-      />
+      <RatingSelect selectedRating={selectedRating} setSelectedRating={setSelectedRating} />
     </fieldset>
   );
 };

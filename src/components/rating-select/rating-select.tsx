@@ -12,18 +12,12 @@ type Props = {
 
 type HoveredRating = number | null;
 
-const RatingSelect = ({
-  selectedRating,
-  defaultRating,
-  setSelectedRating,
-}: Props) => {
+const RatingSelect = ({ selectedRating, defaultRating, setSelectedRating }: Props) => {
   const ratings = ['terrible', 'bad', 'normal', 'good', 'great'];
   const [hoveredRating, setHoveredRating] = useState(null as HoveredRating);
 
   const handleInput = (inputValue: number) => {
-    inputValue !== selectedRating
-      ? setSelectedRating(inputValue)
-      : setSelectedRating(null);
+    inputValue !== selectedRating ? setSelectedRating(inputValue) : setSelectedRating(null);
   };
 
   const ratingMapCallback = (rating: string, index: number) => {
@@ -92,9 +86,7 @@ const RatingSelect = ({
     );
   };
 
-  return (
-    <ul className="rating-select__list">{ratings.map(ratingMapCallback)}</ul>
-  );
+  return <ul className="rating-select__list">{ratings.map(ratingMapCallback)}</ul>;
 };
 
 export default RatingSelect;

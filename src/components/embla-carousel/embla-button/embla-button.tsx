@@ -11,13 +11,7 @@ type Props = {
   children: string;
 };
 
-const EmblaButton = ({
-  uniqueClassName,
-  nextOrPrevious,
-  enabled,
-  onClick,
-  ...props
-}: Props) => {
+const EmblaButton = ({ uniqueClassName, nextOrPrevious, enabled, onClick, ...props }: Props) => {
   let classNames =
     nextOrPrevious === 'next'
       ? `embla__btn embla__btn--next ${uniqueClassName}__btn ${uniqueClassName}__btn--next `
@@ -25,14 +19,7 @@ const EmblaButton = ({
   if (!enabled) {
     classNames = `${classNames} embla__btn--disabled`;
   }
-  return (
-    <Button
-      className={classNames}
-      disabled={!enabled}
-      onClick={onClick}
-      {...props}
-    />
-  );
+  return <Button className={classNames} disabled={!enabled} onClick={onClick} {...props} />;
 };
 
 export default EmblaButton;

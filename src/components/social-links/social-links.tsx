@@ -32,14 +32,7 @@ const SocialLinks = ({ children }: Props) => {
   ];
 
   const linksMapCallback = ({ linkTitle, link, iconId }: SocialLinkType) => {
-    return (
-      <SocialLink
-        linkTitle={linkTitle}
-        key={iconId}
-        link={link}
-        iconId={iconId}
-      />
-    );
+    return <SocialLink linkTitle={linkTitle} key={iconId} link={link} iconId={iconId} />;
   };
 
   return (

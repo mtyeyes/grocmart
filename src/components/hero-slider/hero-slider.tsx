@@ -19,12 +19,7 @@ const HeroSlider = () => {
     setSlides(requestResults['hero-slider']);
   };
 
-  const sliderItemsMapCallback = ({
-    title,
-    topParagraph,
-    bottomParagraph,
-    imageBackgroundColor,
-  }: SlideData) => {
+  const sliderItemsMapCallback = ({ title, topParagraph, bottomParagraph, imageBackgroundColor }: SlideData) => {
     return (
       <HeroSliderItem
         key={title}
@@ -38,10 +33,7 @@ const HeroSlider = () => {
 
   return (
     <section className="hero-slider">
-      <Loader
-        requests={{ resourceRequests: ['hero-slider'] }}
-        transferRequestedResources={getLoadedData}
-      >
+      <Loader requests={{ resourceRequests: ['hero-slider'] }} transferRequestedResources={getLoadedData}>
         <EmblaCarousel
           uniqueClassName="hero-slider"
           dotsBtnEnabled={true}

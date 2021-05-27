@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StateKeys, AppState } from '../store/index';
-import {
-  getLocalStorageValue,
-  setLocalStorageValue,
-} from '../utils/local-storage-methods';
+import { getLocalStorageValue, setLocalStorageValue } from '../utils/local-storage-methods';
 
 type UseSync = (key: StateKeys) => void;
 

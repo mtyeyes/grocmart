@@ -9,12 +9,7 @@ type Props = {
   onClick: () => void;
 };
 
-const EmblaDotButton = ({
-  uniqueClassName,
-  selected,
-  onClick,
-  ...props
-}: Props) => {
+const EmblaDotButton = ({ uniqueClassName, selected, onClick, ...props }: Props) => {
   const classNames = selected
     ? `embla__dot-btn embla__dot-btn--selected ${uniqueClassName}__dot-btn ${uniqueClassName}__dot-btn--selected`
     : `embla__dot-btn ${uniqueClassName}__dot-btn`;

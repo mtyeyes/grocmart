@@ -22,26 +22,13 @@ import findAverage from '../../utils/find-average';
 const Catalog = () => {
   const countPriceAfterDiscounts = usePriceAfterDiscounts();
   const dispatch = useDispatch<AppDispatch>();
-  const productsState = useSelector(
-    (state: AppState) => state.products,
-    shallowEqual,
-  );
-  const [
+  const productsState = useSelector((state: AppState) => state.products, shallowEqual);
+  const [sortedProducts, { valuesToSortBy, valueToSortBy, setValueToSortBy }] = useSortProducts();
+  const { filteredProducts, filterProducts, filterState, filterDispatch, numberOfItemsInCategories } = useFilterProducts(
     sortedProducts,
-    { valuesToSortBy, valueToSortBy, setValueToSortBy },
-  ] = useSortProducts();
-  const {
-    filteredProducts,
-    filterProducts,
-    filterState,
-    filterDispatch,
-    numberOfItemsInCategories,
-  } = useFilterProducts(sortedProducts);
-  const [filteredProductsData, setFilteredProductsData] = useState(
-    [] as ProductCardProps[],
   );
-  const addProductToCart = (productId: string) =>
-    dispatch(addToCart(productId));
+  const [filteredProductsData, setFilteredProductsData] = useState([] as ProductCardProps[]);
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
 
   useEffect(() => {
     filterProducts();
@@ -52,13 +39,8 @@ const Catalog = () => {
       return {
         productId: productId,
         productName: productsState[productId].name,
-        priceBeforeDiscounts: productsState[
-          productId
-        ].price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-        priceAfterDiscounts: countPriceAfterDiscounts(
-          productId,
-          'return stringAsCurrency',
-        ),
+        priceBeforeDiscounts: productsState[productId].price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+        priceAfterDiscounts: countPriceAfterDiscounts(productId, 'return stringAsCurrency'),
         productRating: findAverage(productsState[productId].userScore),
         addToCart: addProductToCart,
       };
@@ -74,23 +56,14 @@ const Catalog = () => {
           selectedMinPrice={filterState.price.selectedMinPrice}
           selectedMaxPrice={filterState.price.selectedMaxPrice}
         >
-          <PriceFilterControls
-            dispatchFilterAction={filterDispatch}
-            {...filterState.price}
-          />
+          <PriceFilterControls dispatchFilterAction={filterDispatch} {...filterState.price} />
           <CategoriesFilterControls
             categoriesData={filterState.selectedCategories}
             dispatchFilterAction={filterDispatch}
             numberOfItems={numberOfItemsInCategories}
           />
-          <RatingFilterControls
-            selectedRating={filterState.rating}
-            dispatchFilterAction={filterDispatch}
-          />
-          <ByNameFilterControls
-            nameFilter={filterState.name}
-            dispatchFilterAction={filterDispatch}
-          />
+          <RatingFilterControls selectedRating={filterState.rating} dispatchFilterAction={filterDispatch} />
+          <ByNameFilterControls nameFilter={filterState.name} dispatchFilterAction={filterDispatch} />
         </CatalogFiltersControls>
         <FilteredProductsDisplay filteredProductsData={filteredProductsData}>
           <SortingSelect

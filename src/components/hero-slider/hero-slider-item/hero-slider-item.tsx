@@ -12,16 +12,9 @@ type Props = {
   imageBackgroundColor: string;
 };
 
-const HeroSliderItem = ({
-  title,
-  topParagraph,
-  bottomParagraph,
-  imageBackgroundColor,
-}: Props) => {
+const HeroSliderItem = ({ title, topParagraph, bottomParagraph, imageBackgroundColor }: Props) => {
   const style = {
-    backgroundImage: `url(${PATH}images/hero-slider-${title
-      .replace(/\s/g, '')
-      .toLowerCase()}.jpg)`,
+    backgroundImage: `url(${PATH}images/hero-slider-${title.replace(/\s/g, '').toLowerCase()}.jpg)`,
     backgroundColor: imageBackgroundColor,
   };
 
@@ -31,11 +24,7 @@ const HeroSliderItem = ({
         <p className="hero-slider-item__paragraph">{topParagraph}</p>
         <h2 className="hero-slider-item__title">{title}</h2>
         <p className="hero-slider-item__paragraph">{bottomParagraph}</p>
-        <LinkAsButton
-          className="hero-slider-item__link"
-          to="/shop"
-          subtype="rectangular-red"
-        >
+        <LinkAsButton className="hero-slider-item__link" to="/shop" subtype="rectangular-red">
           Shop now
         </LinkAsButton>
       </div>

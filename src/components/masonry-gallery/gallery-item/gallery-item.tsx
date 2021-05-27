@@ -16,21 +16,10 @@ type Props = {
   addToCart: typeof addToCart;
 };
 
-const GalleryItem = ({
-  imgUrl,
-  imgDescription,
-  productId,
-  productPrice,
-  addToCart,
-}: Props) => {
+const GalleryItem = ({ imgUrl, imgDescription, productId, productPrice, addToCart }: Props) => {
   return (
     <div className="gallery-item">
-      <img
-        className="gallery-item__img"
-        src={imgUrl}
-        alt={imgDescription}
-        loading="lazy"
-      />
+      <img className="gallery-item__img" src={imgUrl} alt={imgDescription} loading="lazy" />
       <div className="gallery-item__controls">
         <h4 className="gallery-item__description">{imgDescription}</h4>
         <p className="gallery-item__product-price">{productPrice}</p>

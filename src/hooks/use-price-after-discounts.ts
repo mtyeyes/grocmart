@@ -7,33 +7,21 @@ type CountPriceFunction = {
 };
 
 const usePriceAfterDiscounts = () => {
-  const productsState = useSelector(
-    (state: AppState) => state.products,
-    shallowEqual,
-  );
-  const discountsState = useSelector(
-    (state: AppState) => state.discounts,
-    shallowEqual,
-  );
+  const productsState = useSelector((state: AppState) => state.products, shallowEqual);
+  const discountsState = useSelector((state: AppState) => state.discounts, shallowEqual);
 
-  const countPriceAfterDiscounts: CountPriceFunction = (
-    productId: any,
-    returnType: any,
-  ): any => {
+  const countPriceAfterDiscounts: CountPriceFunction = (productId: any, returnType: any): any => {
     const productData = productsState[productId];
     const discountForProduct =
-      discountsState.discountsByProduct &&
-      discountsState.discountsByProduct[productId]
+      discountsState.discountsByProduct && discountsState.discountsByProduct[productId]
         ? 1 - discountsState.discountsByProduct[productId]
         : 1;
     const discountForProductGroup =
-      discountsState.discountsByGroup &&
-      discountsState.discountsByGroup[productData['group']]
+      discountsState.discountsByGroup && discountsState.discountsByGroup[productData['group']]
         ? 1 - discountsState.discountsByGroup[productData['group']]
         : 1;
 
-    const priceAfterDiscounts =
-      productData['price'] * discountForProduct * discountForProductGroup;
+    const priceAfterDiscounts = productData['price'] * discountForProduct * discountForProductGroup;
 
     switch (returnType) {
       case 'return number':

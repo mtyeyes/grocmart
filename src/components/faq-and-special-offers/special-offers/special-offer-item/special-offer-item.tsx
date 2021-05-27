@@ -13,21 +13,11 @@ type Props = {
   priceAfterDiscounts: string;
 };
 
-const SpecialOfferItem = ({
-  productId,
-  productName,
-  priceBeforeDiscounts,
-  priceAfterDiscounts,
-}: Props) => {
+const SpecialOfferItem = ({ productId, productName, priceBeforeDiscounts, priceAfterDiscounts }: Props) => {
   return (
     <li className="specials-slider-item">
       <div className="specials-slider-item__wrapper">
-        <img
-          className="specials-slider-item__image"
-          src={`${PATH}images/${productId}.png`}
-          alt={productName}
-          loading="lazy"
-        />
+        <img className="specials-slider-item__image" src={`${PATH}images/${productId}.png`} alt={productName} loading="lazy" />
         <h5 className="specials-slider-item__product-title">
           <Link to={`/shop/${productId}`}>{productName}</Link>
         </h5>

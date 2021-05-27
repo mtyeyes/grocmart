@@ -12,22 +12,12 @@ type Props = {
   toggle: (questionId: string) => void;
 };
 
-const FaqItem = ({
-  questionId,
-  question,
-  answer,
-  isExpanded,
-  toggle,
-}: Props) => {
+const FaqItem = ({ questionId, question, answer, isExpanded, toggle }: Props) => {
   return (
     <div className="faq-item__container">
       <dt className="faq-item__question">
         <Button
-          className={
-            isExpanded
-              ? 'faq-item__expand-btn faq-item__expand-btn--expanded'
-              : 'faq-item__expand-btn'
-          }
+          className={isExpanded ? 'faq-item__expand-btn faq-item__expand-btn--expanded' : 'faq-item__expand-btn'}
           onClick={() => {
             toggle(questionId);
           }}
@@ -38,14 +28,7 @@ const FaqItem = ({
           {question}
         </Button>
       </dt>
-      <dd
-        className={
-          isExpanded
-            ? 'faq-item__answer faq-item__answer--expanded'
-            : 'faq-item__answer'
-        }
-        id={questionId}
-      >
+      <dd className={isExpanded ? 'faq-item__answer faq-item__answer--expanded' : 'faq-item__answer'} id={questionId}>
         {answer}
       </dd>
     </div>

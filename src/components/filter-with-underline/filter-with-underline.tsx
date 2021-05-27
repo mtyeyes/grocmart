@@ -15,11 +15,7 @@ export type FilterState = {
   availableFilters: string[];
 };
 
-const FilterWithUnderline = ({
-  selectedFilter,
-  setSelectedFilter,
-  availableFilters,
-}: Props) => {
+const FilterWithUnderline = ({ selectedFilter, setSelectedFilter, availableFilters }: Props) => {
   const [filtersVisible, toggleFiltersVisibility] = useState(false);
 
   const filtersMapCallback = (filterName: string) => {
@@ -47,9 +43,7 @@ const FilterWithUnderline = ({
   return (
     <div className="filter__container">
       <Button
-        className={
-          filtersVisible ? 'filter__btn filter__btn--toggled' : 'filter__btn'
-        }
+        className={filtersVisible ? 'filter__btn filter__btn--toggled' : 'filter__btn'}
         onClick={() => {
           toggleFiltersVisibility((prevState) => !prevState);
         }}
@@ -57,14 +51,8 @@ const FilterWithUnderline = ({
         Filter
         <Icon className="filter__btn-icon" iconId="right-open" />
       </Button>
-      <form
-        className={
-          filtersVisible ? 'filter__form filter__form--visible' : 'filter__form'
-        }
-      >
-        <ul className="filter__filters-list">
-          {availableFilters.map(filtersMapCallback)}
-        </ul>
+      <form className={filtersVisible ? 'filter__form filter__form--visible' : 'filter__form'}>
+        <ul className="filter__filters-list">{availableFilters.map(filtersMapCallback)}</ul>
       </form>
     </div>
   );

@@ -23,11 +23,7 @@ const Navigation = () => {
 
   return (
     <>
-      <BurgerBtn
-        btnTitle="Menu"
-        className="navigation__menu-toggle"
-        onClick={toggleMenu}
-      />
+      <BurgerBtn btnTitle="Menu" className="navigation__menu-toggle" onClick={toggleMenu} />
       <NavigationTab showMobileMenu={menuToggled} links={links} />
     </>
   );

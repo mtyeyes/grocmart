@@ -11,19 +11,8 @@ type Props = {
 const Logo = ({ className }: Props) => {
   const classNames = className ? `logo ${className}` : 'logo';
   return (
-    <NavLink
-      to="/"
-      className={classNames}
-      exact
-      activeClassName="logo--selected"
-    >
-      <img
-        alt="Grocmart logo"
-        width="249"
-        height="52"
-        src={logoImage}
-        loading="lazy"
-      />
+    <NavLink to="/" className={classNames} exact activeClassName="logo--selected">
+      <img alt="Grocmart logo" width="249" height="52" src={logoImage} loading="lazy" />
     </NavLink>
   );
 };

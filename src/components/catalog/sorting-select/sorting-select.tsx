@@ -10,11 +10,7 @@ type Props<K> = {
   setSelectedValueToSortBy: Dispatch<SetStateAction<K>>;
 };
 
-const SortingSelect = <K extends string>({
-  valuesToSortBy,
-  selectedValueToSortBy,
-  setSelectedValueToSortBy,
-}: Props<K>) => {
+const SortingSelect = <K extends string>({ valuesToSortBy, selectedValueToSortBy, setSelectedValueToSortBy }: Props<K>) => {
   const [controlsVisible, setControlsVisibility] = useState(false);
 
   const radioInputChecked = (valueName: K) => {
@@ -54,20 +50,12 @@ const SortingSelect = <K extends string>({
         Sort by {selectedValueToSortBy}
         <Icon
           className={
-            controlsVisible
-              ? 'sorting-controls__btn-icon sorting-controls__btn-icon--toggled'
-              : 'sorting-controls__btn-icon'
+            controlsVisible ? 'sorting-controls__btn-icon sorting-controls__btn-icon--toggled' : 'sorting-controls__btn-icon'
           }
           iconId="right-open"
         />
       </Button>
-      <ul
-        className={
-          controlsVisible
-            ? 'sorting-controls__list sorting-controls__list--toggled'
-            : 'sorting-controls__list'
-        }
-      >
+      <ul className={controlsVisible ? 'sorting-controls__list sorting-controls__list--toggled' : 'sorting-controls__list'}>
         {valuesToSortBy.map(valuesMapCallback)}
       </ul>
     </div>

@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useRef,
-  Dispatch,
-  SetStateAction,
-  FormEvent,
-} from 'react';
+import React, { useEffect, useRef, Dispatch, SetStateAction, FormEvent } from 'react';
 import './search-controls.styl';
 
 import HiddenText from '../../../hidden-text/hidden-text';
@@ -34,16 +28,8 @@ const SearchControls = ({ setSearchQuery }: Props) => {
   };
 
   return (
-    <form
-      className="search-controls__form"
-      action="/search"
-      method="get"
-      onSubmit={handleSubmit}
-    >
-      <label
-        className="search-controls__label visually-hidden"
-        htmlFor="search-controls"
-      >
+    <form className="search-controls__form" action="/search" method="get" onSubmit={handleSubmit}>
+      <label className="search-controls__label visually-hidden" htmlFor="search-controls">
         Search
       </label>
       <input

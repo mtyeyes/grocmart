@@ -24,27 +24,19 @@ const Faq = () => {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
-      question:
-        'What if my order has already been shipped and I need to cancel it?',
+      question: 'What if my order has already been shipped and I need to cancel it?',
       answer:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit incididunt ut labore et dolore magna aliqua. Nostrud exercitation ullamco laboris nisi ut aliquip',
     },
   ];
 
-  const [expandedQuestion, setExpandedQuestion] = useState(
-    null as ExpandedQuestion,
-  );
+  const [expandedQuestion, setExpandedQuestion] = useState(null as ExpandedQuestion);
 
   const toggleQuestion = (questionId: ExpandedQuestion) => {
-    expandedQuestion === questionId
-      ? setExpandedQuestion(null)
-      : setExpandedQuestion(questionId);
+    expandedQuestion === questionId ? setExpandedQuestion(null) : setExpandedQuestion(questionId);
   };
 
-  const questionAnswerPairMapCallback = ({
-    question,
-    answer,
-  }: QuestionAnswerPair) => {
+  const questionAnswerPairMapCallback = ({ question, answer }: QuestionAnswerPair) => {
     const questionId = question.replace(/\s|\?|,/g, '');
     const isExpanded = expandedQuestion === questionId;
     return (
@@ -66,9 +58,7 @@ const Faq = () => {
         <h2 className="faq__heading">FAQ</h2>
       </ScrollAnimation>
       <ScrollAnimation animateIn="fade-in-from-right" animateOnce={true}>
-        <dl className="faq__list">
-          {questionAnswerPair.map(questionAnswerPairMapCallback)}
-        </dl>
+        <dl className="faq__list">{questionAnswerPair.map(questionAnswerPairMapCallback)}</dl>
       </ScrollAnimation>
     </div>
   );

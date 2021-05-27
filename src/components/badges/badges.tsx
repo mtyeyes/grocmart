@@ -20,24 +20,13 @@ const Badges = ({ isBrightBackground }: Props) => {
 
   const badgesMapCallback = (badgeId: string) => {
     return (
-      <Badge
-        key={badgeId}
-        badgeId={badgeId}
-        badgeDescription={badgesList[badgeId]}
-        isBrightBackground={isBrightBackground}
-      />
+      <Badge key={badgeId} badgeId={badgeId} badgeDescription={badgesList[badgeId]} isBrightBackground={isBrightBackground} />
     );
   };
 
   return (
-    <section
-      className={`badges ${
-        isBrightBackground ? 'badges--bright' : 'badges--dark'
-      }`}
-    >
-      <ul className="badges__list">
-        {Object.keys(badgesList).map(badgesMapCallback)}
-      </ul>
+    <section className={`badges ${isBrightBackground ? 'badges--bright' : 'badges--dark'}`}>
+      <ul className="badges__list">{Object.keys(badgesList).map(badgesMapCallback)}</ul>
     </section>
   );
 };

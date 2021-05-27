@@ -1,12 +1,4 @@
-import React, {
-  useState,
-  cloneElement,
-  ReactElement,
-  MouseEvent,
-  FormEvent,
-  ChangeEvent,
-  KeyboardEvent,
-} from 'react';
+import React, { useState, cloneElement, ReactElement, MouseEvent, FormEvent, ChangeEvent, KeyboardEvent } from 'react';
 import ModalAlert from '../modal-alert/modal-alert';
 
 type Props = {
@@ -15,19 +7,11 @@ type Props = {
   alertMessage: string;
 };
 
-const PreventDefaultAndShowAlert = ({
-  component,
-  eventType,
-  alertMessage,
-}: Props) => {
+const PreventDefaultAndShowAlert = ({ component, eventType, alertMessage }: Props) => {
   const [modalAlertVisible, setModalAlertVisibility] = useState(false);
 
   const handleClickOnComponent = (
-    e:
-      | MouseEvent<HTMLElement>
-      | FormEvent<HTMLElement>
-      | ChangeEvent<HTMLInputElement>
-      | KeyboardEvent<HTMLInputElement>,
+    e: MouseEvent<HTMLElement> | FormEvent<HTMLElement> | ChangeEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>,
   ) => {
     e.preventDefault();
     setModalAlertVisibility(true);

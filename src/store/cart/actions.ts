@@ -14,16 +14,11 @@ export const addToCart = (productId: ProductId) => {
   };
 };
 
-export const removeFromCart = (
-  productId: ProductId,
-  isRemoveAllItems: boolean,
-) => {
+export const removeFromCart = (productId: ProductId, isRemoveAllItems: boolean) => {
   return <const>{
     type: 'REMOVE_FROM_CART',
     payload: { productId, isRemoveAllItems },
   };
 };
 
-export type CartActionTypes = ReturnType<
-  typeof loadCartState | typeof addToCart | typeof removeFromCart
->;
+export type CartActionTypes = ReturnType<typeof loadCartState | typeof addToCart | typeof removeFromCart>;

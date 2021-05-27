@@ -15,10 +15,8 @@ import { PATH } from '../../app';
 
 const UserCart = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const addProductToCart = (productId: string) =>
-    dispatch(addToCart(productId));
-  const removeProductFromCart = (productId: string) =>
-    dispatch(removeFromCart(productId, false));
+  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
 
   const selectProductsState = (state: AppState) => {
     return state.products;
@@ -36,9 +34,7 @@ const UserCart = () => {
   const countTotalPrice = () => {
     let totalPrice = 0;
     Object.entries(cartState).forEach(
-      ([productId, quantity]) =>
-        (totalPrice +=
-          countPriceAfterDiscounts(productId, 'return number') * quantity),
+      ([productId, quantity]) => (totalPrice += countPriceAfterDiscounts(productId, 'return number') * quantity),
     );
     return totalPrice.toLocaleString('en-US', {
       style: 'currency',
@@ -48,21 +44,14 @@ const UserCart = () => {
 
   useEffect(() => {
     const generateTableData = () => {
-      const productsInCartPrices = Object.keys(cartState).reduce(
-        (acc, productId) => {
-          acc[productId] = countPriceAfterDiscounts(productId, 'return number');
-          return acc;
-        },
-        {} as { [key: string]: number },
-      );
+      const productsInCartPrices = Object.keys(cartState).reduce((acc, productId) => {
+        acc[productId] = countPriceAfterDiscounts(productId, 'return number');
+        return acc;
+      }, {} as { [key: string]: number });
 
       const generateComponent = (
         productId: string,
-        type:
-          | 'title-and-thumbnail'
-          | 'counter'
-          | 'price-per-item'
-          | 'price-total',
+        type: 'title-and-thumbnail' | 'counter' | 'price-per-item' | 'price-total',
       ) => {
         switch (type) {
           case 'title-and-thumbnail': {
@@ -75,9 +64,7 @@ const UserCart = () => {
                   loading="lazy"
                 />
                 <div className="cart-table-item__title-wrapper">
-                  <h6 className="cart-table-item__title">
-                    {productsState[productId].name}
-                  </h6>
+                  <h6 className="cart-table-item__title">{productsState[productId].name}</h6>
                 </div>
               </div>
             );
@@ -109,9 +96,7 @@ const UserCart = () => {
           case 'price-total': {
             return (
               <p className="cart-table-item__price">
-                {(
-                  productsInCartPrices[productId] * cartState[productId]
-                ).toLocaleString('en-US', {
+                {(productsInCartPrices[productId] * cartState[productId]).toLocaleString('en-US', {
                   style: 'currency',
                   currency: 'USD',
                 })}
@@ -148,9 +133,7 @@ const UserCart = () => {
           rowData[3] = {
             isHeading: false,
             data: generateComponent(productId, 'price-total'),
-            key: (
-              productsInCartPrices[productId] + cartState[productId]
-            ).toString(),
+            key: (productsInCartPrices[productId] + cartState[productId]).toString(),
           };
         });
       } else {
@@ -178,9 +161,7 @@ const UserCart = () => {
           newTableData[3][targetCell] = {
             isHeading: false,
             data: generateComponent(productId, 'price-total'),
-            key: (
-              productsInCartPrices[productId] + cartState[productId]
-            ).toString(),
+            key: (productsInCartPrices[productId] + cartState[productId]).toString(),
           };
         });
       }

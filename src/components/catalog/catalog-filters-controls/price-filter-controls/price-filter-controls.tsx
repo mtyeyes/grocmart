@@ -12,13 +12,7 @@ type Props = {
   dispatchFilterAction: Dispatch<FilterAction>;
 };
 
-const PriceFilterControls = ({
-  minPrice,
-  maxPrice,
-  selectedMinPrice,
-  selectedMaxPrice,
-  dispatchFilterAction,
-}: Props) => {
+const PriceFilterControls = ({ minPrice, maxPrice, selectedMinPrice, selectedMaxPrice, dispatchFilterAction }: Props) => {
   const handleChange = (range: number | number[] | null | undefined) => {
     if (Array.isArray(range)) {
       dispatchFilterAction({
