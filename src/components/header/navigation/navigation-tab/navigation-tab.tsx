@@ -4,10 +4,10 @@ import './navigation-tab.styl';
 import NavigationLink from './navigation-link/navigation-link';
 import { Links } from '../navigation';
 
-type Props = {
+interface Props {
   links: Links;
   showMobileMenu?: boolean;
-};
+}
 
 const NavigationTab = ({ links, showMobileMenu }: Props) => {
   const classNames = showMobileMenu ? 'navigation__wrapper navigation__wrapper--show' : 'navigation__wrapper';

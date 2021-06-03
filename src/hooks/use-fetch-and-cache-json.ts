@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 
 import { storeInCache, getFromCache } from '../utils/session-storage-as-cache';
 
-type UseFetchAdnCacheJson = (url: string, cacheMaxAge: number) => FetchJsonState;
+interface UseFetchAdnCacheJson {
+  (url: string, cacheMaxAge: number): FetchJsonState;
+}
 
-type FetchJsonState = {
+interface FetchJsonState {
   isLoading: boolean;
   isError: boolean;
   data: any | null;
-};
+}
 
 const useFetchAndCacheJson: UseFetchAdnCacheJson = (url, cacheMaxAge) => {
   const [state, setState] = useState<FetchJsonState>({

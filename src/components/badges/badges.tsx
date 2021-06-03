@@ -3,13 +3,13 @@ import './badges.styl';
 
 import Badge from './badge/badge';
 
-type Props = {
+interface Props {
   isBrightBackground: boolean;
-};
+}
 
-type BadgesList = {
+interface BadgesList {
   [key: string]: string;
-};
+}
 
 const Badges = ({ isBrightBackground }: Props) => {
   const badgesList: BadgesList = {

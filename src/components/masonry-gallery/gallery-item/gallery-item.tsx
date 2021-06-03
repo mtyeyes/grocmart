@@ -7,14 +7,15 @@ import LinkAsButton from '../../link-as-button/link-as-button';
 import Button from '../../button/button';
 
 import { addToCart } from '../../../store/cart/actions';
+import { ProductId } from '../../../store/cart/types';
 
-type Props = {
+interface Props {
   imgUrl: string;
   imgDescription: string;
-  productId: string;
+  productId: ProductId;
   productPrice: string;
   addToCart: typeof addToCart;
-};
+}
 
 const GalleryItem = ({ imgUrl, imgDescription, productId, productPrice, addToCart }: Props) => {
   return (

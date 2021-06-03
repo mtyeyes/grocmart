@@ -4,11 +4,11 @@ import './sorting-select.styl';
 import Button from '../../button/button';
 import Icon from '../../icon/icon';
 
-type Props<K> = {
+interface Props<K> {
   valuesToSortBy: K[];
   selectedValueToSortBy: K;
   setSelectedValueToSortBy: Dispatch<SetStateAction<K>>;
-};
+}
 
 const SortingSelect = <K extends string>({ valuesToSortBy, selectedValueToSortBy, setSelectedValueToSortBy }: Props<K>) => {
   const [controlsVisible, setControlsVisibility] = useState(false);

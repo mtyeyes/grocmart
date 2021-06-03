@@ -3,12 +3,13 @@ import './search-result.styl';
 
 import { Link } from 'react-router-dom';
 import { PATH } from '../../../../../app';
+import { ProductId } from '../../../../../store/cart/types';
 
-type Props = {
-  productId: string;
+interface Props {
+  productId: ProductId;
   productName: string;
   closeModal: () => void;
-};
+}
 
 const SearchResult = ({ productId, productName, closeModal }: Props) => {
   return (

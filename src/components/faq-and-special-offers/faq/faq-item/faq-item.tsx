@@ -4,13 +4,13 @@ import './faq-item.styl';
 import Button from '../../../button/button';
 import Icon from '../../../icon/icon';
 
-type Props = {
+interface Props {
   questionId: string;
   question: string;
   answer: string;
   isExpanded: boolean;
   toggle: (questionId: string) => void;
-};
+}
 
 const FaqItem = ({ questionId, question, answer, isExpanded, toggle }: Props) => {
   return (

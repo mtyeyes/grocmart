@@ -5,10 +5,10 @@ import './filtered-products-display.styl';
 import ProductCard, { Props as ProductCardProps } from '../../product-card/product-card';
 import Pagination from '../../pagination/pagination';
 
-type Props = {
+interface Props {
   filteredProductsData: ProductCardProps[];
   children: ReactChild;
-};
+}
 
 type DisplayedRange = [Page, Page];
 

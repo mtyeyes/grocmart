@@ -10,17 +10,18 @@ import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
+import { ProductId } from '../../store/cart/types';
 import { PATH } from '../../app';
 
-type GalleryStateItem = {
+interface GalleryStateItem {
   imageName: string;
   imageDescription: string;
-  productId: string;
-};
+  productId: ProductId;
+}
 
 const MasonryGallery = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const addProductToCart = (productId: ProductId) => dispatch(addToCart(productId));
 
   const productsState = useSelector((state: AppState) => state.products, shallowEqual);
   const [galleryState, setGalleryState] = useState([] as GalleryStateItem[]);

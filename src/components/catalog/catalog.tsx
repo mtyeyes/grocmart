@@ -4,6 +4,7 @@ import './catalog.styl';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
+import { ProductId } from '../../store/cart/types';
 import { Props as ProductCardProps } from '../product-card/product-card';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
 import useSortProducts from '../../hooks/use-sort-products';
@@ -28,7 +29,7 @@ const Catalog = () => {
     sortedProducts,
   );
   const [filteredProductsData, setFilteredProductsData] = useState([] as ProductCardProps[]);
-  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const addProductToCart = (productId: ProductId) => dispatch(addToCart(productId));
 
   useEffect(() => {
     filterProducts();

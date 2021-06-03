@@ -5,9 +5,9 @@ import Button from '../../button/button';
 import Icon from '../../icon/icon';
 import HiddenText from '../../hidden-text/hidden-text';
 
-type Props = {
+interface Props {
   isShown: boolean;
-};
+}
 
 const ScrollToTopBtn = ({ isShown }: Props) => {
   const scrollToTop = () => {

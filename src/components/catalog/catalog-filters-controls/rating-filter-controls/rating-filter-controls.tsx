@@ -4,10 +4,10 @@ import './rating-filter-controls.styl';
 import { FilterAction } from '../../../../hooks/use-filter-products';
 import RatingSelect from '../../../rating-select/rating-select';
 
-type Props = {
+interface Props {
   selectedRating: number | null;
   dispatchFilterAction: Dispatch<FilterAction>;
-};
+}
 
 const RatingFilterControls = ({ selectedRating, dispatchFilterAction }: Props) => {
   const setSelectedRating = (rating: null | number) => {

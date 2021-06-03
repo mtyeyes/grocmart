@@ -1,19 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import './floating-text.styl';
 
-type Props = {
+interface Props {
   children: string | number;
   positionStyle: PositionStyle;
   valueToTriggerAnimation?: string | number;
-};
+}
 
-type PositionStyle = {
+interface PositionStyle {
   width?: string | number;
   top?: number | string;
   bottom?: number | string;
   left?: number | string;
   right?: number | string;
-};
+}
 
 const FloatingText = ({ children, positionStyle, valueToTriggerAnimation }: Props) => {
   const spanRef = useRef<HTMLSpanElement>(null);

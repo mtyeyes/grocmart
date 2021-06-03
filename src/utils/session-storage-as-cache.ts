@@ -1,9 +1,15 @@
-type StoreInCache = (key: string, value: string | any[] | { [key: string]: any }) => boolean;
-type GetFromCache = (key: string) => { data: string | any[] | { [key: string]: any }; age: number } | false;
+interface StoreInCache {
+  (key: string, data: StoredData): boolean;
+}
+interface GetFromCache {
+  (key: string): { data: StoredData; age: number } | false;
+}
 
-export const storeInCache: StoreInCache = (key, value) => {
+type StoredData = string | any[] | { [key: string]: any };
+
+export const storeInCache: StoreInCache = (key, data) => {
   try {
-    const payload = { data: value, age: Date.now() };
+    const payload = { data, age: Date.now() };
     window.sessionStorage.setItem(key, JSON.stringify(payload));
     return true;
   } catch {

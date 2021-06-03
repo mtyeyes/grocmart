@@ -5,13 +5,13 @@ import Button from '../../button/button';
 import Icon, { IconId } from '../../icon/icon';
 import HiddenText from '../../hidden-text/hidden-text';
 
-type Props = {
+interface Props {
   parentBlockName: string;
   childrenBlockName: string;
   render: (switchModalVisibility: () => void) => ReactNode;
   btnChildrenElement?: ReactElement;
   icon: IconId;
-};
+}
 
 const ModalToggler = ({ parentBlockName, childrenBlockName, icon, render, btnChildrenElement }: Props) => {
   const [isModalVisible, setModalVisibility] = useState(false);

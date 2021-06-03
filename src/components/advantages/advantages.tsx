@@ -4,11 +4,11 @@ import './advantages.styl';
 import Icon, { IconId } from '../icon/icon';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-type AdvantagesItem = {
+interface AdvantagesItem {
   icon: IconId;
   title: string;
   text: string;
-};
+}
 
 const Advantages = () => {
   const advantagesItems: AdvantagesItem[] = [

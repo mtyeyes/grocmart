@@ -3,13 +3,13 @@ import './embla-button.styl';
 
 import Button from '../../button/button';
 
-type Props = {
+interface Props {
   uniqueClassName: string;
   nextOrPrevious: 'next' | 'previous';
   enabled: boolean;
   onClick: (e?: React.MouseEvent<HTMLElement>) => void;
   children: string;
-};
+}
 
 const EmblaButton = ({ uniqueClassName, nextOrPrevious, enabled, onClick, ...props }: Props) => {
   let classNames =

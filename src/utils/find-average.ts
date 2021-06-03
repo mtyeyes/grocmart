@@ -1,7 +1,7 @@
-type FindAverage = {
+interface FindAverage {
   (source: number[] | number): number;
   (source: undefined | null | string): null;
-};
+}
 
 const findAverage: FindAverage = (source: any) => {
   if (Array.isArray(source)) {

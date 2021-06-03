@@ -5,12 +5,12 @@ import LinkAsButton from '../../link-as-button/link-as-button';
 
 import { PATH } from '../../../app';
 
-type Props = {
+interface Props {
   title: string;
   topParagraph: string;
   bottomParagraph: string;
   imageBackgroundColor: string;
-};
+}
 
 const HeroSliderItem = ({ title, topParagraph, bottomParagraph, imageBackgroundColor }: Props) => {
   const style = {

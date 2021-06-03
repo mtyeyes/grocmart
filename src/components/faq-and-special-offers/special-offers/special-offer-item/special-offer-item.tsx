@@ -5,13 +5,14 @@ import './special-offer-item.styl';
 import HiddenText from '../../../hidden-text/hidden-text';
 
 import { PATH } from '../../../../app';
+import { ProductId } from '../../../../store/cart/types';
 
-type Props = {
-  productId: string;
+interface Props {
+  productId: ProductId;
   productName: string;
   priceBeforeDiscounts: string;
   priceAfterDiscounts: string;
-};
+}
 
 const SpecialOfferItem = ({ productId, productName, priceBeforeDiscounts, priceAfterDiscounts }: Props) => {
   return (

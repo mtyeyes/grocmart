@@ -1,10 +1,11 @@
 import { shallowEqual, useSelector } from 'react-redux';
 import { AppState } from '../store/index';
+import { ProductId } from '../store/cart/types';
 
-type CountPriceFunction = {
-  (productId: string, returnType: 'return number'): number;
-  (productId: string, returnType: 'return stringAsCurrency'): string;
-};
+interface CountPriceFunction {
+  (productId: ProductId, returnType: 'return number'): number;
+  (productId: ProductId, returnType: 'return stringAsCurrency'): string;
+}
 
 const usePriceAfterDiscounts = () => {
   const productsState = useSelector((state: AppState) => state.products, shallowEqual);

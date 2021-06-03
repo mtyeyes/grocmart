@@ -11,24 +11,24 @@ type Props<T extends object, K extends keyof T> =
   | PropsOnlyResourceRequests<T, K>
   | PropsStateAndResourceRequests<T, K>;
 
-type PropsOnlyStateRequests = {
+interface PropsOnlyStateRequests {
   customColor?: 'white' | undefined;
   children: ReactNode;
   requests: {
     stateRequests: StateKeys[];
   };
-};
+}
 
-type PropsOnlyResourceRequests<T extends object, K extends keyof T> = {
+interface PropsOnlyResourceRequests<T extends object, K extends keyof T> {
   customColor?: 'white' | undefined;
   children: ReactNode;
   requests: {
     resourceRequests: K[];
   };
   transferRequestedResources: (requestsResults: T) => void;
-};
+}
 
-type PropsStateAndResourceRequests<T extends object, K extends keyof T> = {
+interface PropsStateAndResourceRequests<T extends object, K extends keyof T> {
   customColor?: 'white' | undefined;
   children: ReactNode;
   requests: {
@@ -36,7 +36,7 @@ type PropsStateAndResourceRequests<T extends object, K extends keyof T> = {
     resourceRequests: K[];
   };
   transferRequestedResources: (requestsResults: T) => void;
-};
+}
 
 type LoadingState = 'loading' | 'error' | 'success';
 

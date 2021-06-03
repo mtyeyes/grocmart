@@ -4,9 +4,9 @@ import './cart-controls.styl';
 import LinkAsButton from '../../link-as-button/link-as-button';
 import PreventDefaultAndShowAlert from '../../prevent-default-and-show-alert/prevent-default-and-show-alert';
 
-type Props = {
+interface Props {
   totalPrice: string;
-};
+}
 
 const CartControls = ({ totalPrice }: Props) => {
   const blockedCheckoutLink = PreventDefaultAndShowAlert({

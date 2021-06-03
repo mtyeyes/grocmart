@@ -8,16 +8,17 @@ import Button from '../button/button';
 
 import { PATH } from '../../app';
 import { addToCart } from '../../store/cart/actions';
+import { ProductId } from '../../store/cart/types';
 
-export type Props = {
-  productId: string;
+export interface Props {
+  productId: ProductId;
   priceBeforeDiscounts: string;
   priceAfterDiscounts: string;
   productName: string;
   productRating: number;
   addToCart: typeof addToCart;
   className?: string;
-};
+}
 
 const ProductCard = forwardRef(
   (

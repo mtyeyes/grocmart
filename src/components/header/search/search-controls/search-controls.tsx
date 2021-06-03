@@ -4,9 +4,9 @@ import './search-controls.styl';
 import HiddenText from '../../../hidden-text/hidden-text';
 import Icon from '../../../icon/icon';
 
-type Props = {
+interface Props {
   setSearchQuery: Dispatch<SetStateAction<string | null>>;
-};
+}
 
 const SearchControls = ({ setSearchQuery }: Props) => {
   const inputEl = useRef<HTMLInputElement>(null);

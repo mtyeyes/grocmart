@@ -4,14 +4,18 @@ import usePriceAfterDiscounts from './use-price-after-discounts';
 import findAverage from '../utils/find-average';
 import { AppState } from '../store/index';
 
-type UseSortProducts = () => [
-  string[],
-  {
-    valuesToSortBy: string[];
-    valueToSortBy: string;
-    setValueToSortBy: Dispatch<SetStateAction<string>>;
-  },
-];
+interface UseSortProducts {
+  (): [
+    SortedItems,
+    {
+      valuesToSortBy: string[];
+      valueToSortBy: string;
+      setValueToSortBy: Dispatch<SetStateAction<string>>;
+    },
+  ];
+}
+
+type SortedItems = string[];
 
 const useSortProducts: UseSortProducts = () => {
   const productsState = useSelector((state: AppState) => state.products, shallowEqual);

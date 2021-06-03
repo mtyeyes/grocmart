@@ -3,11 +3,11 @@ import './contactItem.styl';
 
 import Icon, { IconId } from '../../../icon/icon';
 
-export type Props = {
+export interface Props {
   contactIcon: IconId;
   contactLink: string;
   contactText: string;
-};
+}
 
 const ContactItem = ({ contactText, contactLink, contactIcon }: Props) => {
   return (

@@ -4,16 +4,16 @@ import './categories-filter-controls.styl';
 import HiddenText from '../../../hidden-text/hidden-text';
 import { SelectedCategories, FilterAction } from '../../../../hooks/use-filter-products';
 
-type Props = {
+interface Props {
   categoriesData: SelectedCategories;
   dispatchFilterAction: Dispatch<FilterAction>;
   numberOfItems: { [key: string]: number };
-};
+}
 
-type SelectAllCheckboxState = {
+interface SelectAllCheckboxState {
   isChecked: boolean;
   numberOfItemsTotal: number;
-};
+}
 
 const CategoriesFilterControls = ({ categoriesData, dispatchFilterAction, numberOfItems }: Props) => {
   const [selectAllCheckboxState, setSelectAllCheckboxState] = useState({

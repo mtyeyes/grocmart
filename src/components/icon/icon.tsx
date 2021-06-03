@@ -1,10 +1,10 @@
 import React from 'react';
 import './icon.styl';
 
-type Props = {
+interface Props {
   iconId: IconId;
   className?: string;
-};
+}
 
 export type IconId =
   | 'phone'

@@ -3,10 +3,10 @@ import './by-name-filter-controls.styl';
 
 import { FilterAction } from '../../../../hooks/use-filter-products';
 
-type Props = {
+interface Props {
   nameFilter: string;
   dispatchFilterAction: Dispatch<FilterAction>;
-};
+}
 
 const ByNameFilterControls = ({ nameFilter, dispatchFilterAction }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

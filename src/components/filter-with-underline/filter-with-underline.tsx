@@ -4,16 +4,16 @@ import './filter-with-underline.styl';
 import Button from '../button/button';
 import Icon from '../icon/icon';
 
-type Props = {
+interface Props {
   selectedFilter: string;
   setSelectedFilter: Dispatch<SetStateAction<FilterState>>;
   availableFilters: string[];
-};
+}
 
-export type FilterState = {
+export interface FilterState {
   selectedFilter: string;
   availableFilters: string[];
-};
+}
 
 const FilterWithUnderline = ({ selectedFilter, setSelectedFilter, availableFilters }: Props) => {
   const [filtersVisible, toggleFiltersVisibility] = useState(false);

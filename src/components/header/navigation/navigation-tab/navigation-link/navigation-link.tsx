@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './navigation-link.styl';
 
-type Props = {
+interface Props {
   linkTitle: string;
   linkPath: string;
-};
+}
 
 const NavigationLink = ({ linkTitle, linkPath }: Props) => {
   return (

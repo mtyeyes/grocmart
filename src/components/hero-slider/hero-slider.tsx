@@ -5,12 +5,12 @@ import Loader from '../loader/loader';
 import HeroSliderItem from './hero-slider-item/hero-slider-item';
 import EmblaCarousel from '../embla-carousel/embla-carousel';
 
-type SlideData = {
+interface SlideData {
   title: string;
   topParagraph: string;
   bottomParagraph: string;
   imageBackgroundColor: string;
-};
+}
 
 const HeroSlider = () => {
   const [slides, setSlides] = useState([] as SlideData[]);

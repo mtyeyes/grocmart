@@ -2,10 +2,10 @@ import React from 'react';
 
 import { TableCellData } from '../table';
 
-type Props = {
+interface Props {
   rowData: TableCellData[];
   classNamePrefix?: string;
-};
+}
 
 const TableRow = ({ rowData, classNamePrefix }: Props) => {
   const rowDataMapCallback = (data: TableCellData) => {

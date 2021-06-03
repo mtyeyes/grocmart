@@ -4,11 +4,11 @@ import './rating-select.styl';
 import HiddenText from '../hidden-text/hidden-text';
 import Icon, { IconId } from '../icon/icon';
 
-type Props = {
+interface Props {
   selectedRating: null | number | undefined;
   defaultRating?: null | number | undefined;
   setSelectedRating: (rating: null | number) => void;
-};
+}
 
 type HoveredRating = number | null;
 

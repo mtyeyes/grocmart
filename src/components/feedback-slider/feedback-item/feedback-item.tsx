@@ -3,11 +3,11 @@ import './feedback-item.styl';
 
 import { PATH } from '../../../app';
 
-export type Props = {
+export interface Props {
   review: string;
   userName: string;
   userId: string;
-};
+}
 
 const FeedbackItem = ({ review, userName, userId }: Props) => {
   return (

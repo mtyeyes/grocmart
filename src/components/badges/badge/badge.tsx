@@ -3,11 +3,11 @@ import './badge.styl';
 
 import { PATH } from '../../../app';
 
-type Props = {
+interface Props {
   badgeId: string;
   badgeDescription: string;
   isBrightBackground: boolean;
-};
+}
 
 const Badge = ({ badgeId, badgeDescription, isBrightBackground }: Props) => {
   return (

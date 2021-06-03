@@ -6,10 +6,11 @@ import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import Footer from '../../components/footer/footer';
 import Badges from '../../components/badges/badges';
 import ProductInfo from '../../components/product-info/product-info';
+import { ProductId } from '../../store/cart/types';
 
-type ParamTypes = {
-  productId: string;
-};
+interface ParamTypes {
+  productId: ProductId;
+}
 
 const Product = () => {
   const { productId } = useParams<ParamTypes>();

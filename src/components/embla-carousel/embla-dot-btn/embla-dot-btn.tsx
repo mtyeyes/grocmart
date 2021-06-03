@@ -3,11 +3,11 @@ import './embla-dot-btn.styl';
 
 import Button from '../../button/button';
 
-type Props = {
+interface Props {
   uniqueClassName: string;
   selected: boolean;
   onClick: () => void;
-};
+}
 
 const EmblaDotButton = ({ uniqueClassName, selected, onClick, ...props }: Props) => {
   const classNames = selected

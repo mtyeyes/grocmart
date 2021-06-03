@@ -4,10 +4,10 @@ import './faq.styl';
 import FaqItem from './faq-item/faq-item';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-type QuestionAnswerPair = {
+interface QuestionAnswerPair {
   question: string;
   answer: string;
-};
+}
 
 type ExpandedQuestion = null | string;
 

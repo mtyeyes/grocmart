@@ -5,15 +5,16 @@ import { addToCart, removeFromCart } from '../../../../store/cart/actions';
 import Counter from '../../../counter/counter';
 
 import { PATH } from '../../../../app';
+import { ProductId } from '../../../../store/cart/types';
 
-type Props = {
-  productId: string;
+interface Props {
+  productId: ProductId;
   productPrice: string;
   productName: string;
   productQuantity: number;
   addProduct: typeof addToCart;
   removeProduct: typeof removeFromCart;
-};
+}
 
 const ModalCartItem = ({ productId, productName, productQuantity, productPrice, addProduct, removeProduct }: Props) => {
   return (

@@ -4,23 +4,23 @@ import usePriceAfterDiscounts from './use-price-after-discounts';
 import findAverage from '../utils/find-average';
 import { AppState } from '../store/index';
 
-export type FilterState = {
+export interface FilterState {
   price: PriceFilter;
   selectedCategories: SelectedCategories;
   name: string;
   rating: null | number;
-};
+}
 
-type PriceFilter = {
+interface PriceFilter {
   minPrice: number;
   maxPrice: number;
   selectedMinPrice: number;
   selectedMaxPrice: number;
-};
+}
 
-export type SelectedCategories = {
+export interface SelectedCategories {
   [key: string]: boolean;
-};
+}
 
 export type FilterAction =
   | { type: 'changeCategoriesToFilterBy'; payload: SelectedCategories }
@@ -31,9 +31,9 @@ export type FilterAction =
   | { type: 'changeNameToFilterBy'; payload: string }
   | { type: 'changeRatingToFilterBy'; payload: null | number };
 
-type NumberOfItemsInCategories = {
+interface NumberOfItemsInCategories {
   [key: string]: number;
-};
+}
 
 const useFilterProducts = (productsToFilter: string[]) => {
   const initialFilterState: FilterState = {

@@ -1,7 +1,7 @@
-export type DiscountsState = {
+export interface DiscountsState {
   discountsByGroup?: DiscountsByGroup;
   discountsByProduct?: DiscountsByProduct;
-};
+}
 
 interface DiscountsByGroup {
   [key: string]: number;

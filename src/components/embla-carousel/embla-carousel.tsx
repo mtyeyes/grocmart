@@ -6,14 +6,14 @@ import EmblaButton from './embla-button/embla-button';
 import useRecursiveTimeout from '../../hooks/use-recursive-timeout';
 import EmblaDotButton from './embla-dot-btn/embla-dot-btn';
 
-type Props = {
+interface Props {
   uniqueClassName: string;
   nextPrevBtnsEnabled: boolean;
   dotsBtnEnabled: boolean;
   autoplaySpeed?: number;
   options?: Parameters<typeof useEmblaCarousel>[0];
   children: ReactNode;
-};
+}
 
 const EmblaCarousel = ({ uniqueClassName, options, nextPrevBtnsEnabled, dotsBtnEnabled, autoplaySpeed, children }: Props) => {
   const [viewportRef, embla] = useEmblaCarousel(options);

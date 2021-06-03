@@ -1,4 +1,5 @@
 import { ProductsState } from './types';
+import { ProductId } from '../cart/types';
 
 export const loadProductsState = (products: ProductsState) => {
   return <const>{
@@ -7,14 +8,14 @@ export const loadProductsState = (products: ProductsState) => {
   };
 };
 
-export const setCurrentUserScoreAction = (data: { productId: string; rating: number }) => {
+export const setCurrentUserScoreAction = (data: { productId: ProductId; rating: number }) => {
   return <const>{
     type: 'SET_CURRENT_USER_SCORE',
     payload: data,
   };
 };
 
-export const removeCurrentUserScoreAction = (data: { productId: string; rating: number }) => {
+export const removeCurrentUserScoreAction = (data: { productId: ProductId; rating: number }) => {
   return <const>{
     type: 'REMOVE_CURRENT_USER_SCORE',
     payload: data,

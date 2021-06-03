@@ -2,10 +2,10 @@ import React, { ReactChild } from 'react';
 
 import TableRow from './table-row/table-row';
 
-type Props = {
+interface Props {
   tableData: TableData;
   classNamePrefix?: string;
-};
+}
 
 export type TableData = TableRowData[];
 
@@ -13,16 +13,16 @@ type TableRowData = TableCellData[];
 
 export type TableCellData = TableCellWithPrimitiveData | TableCellWithComponent;
 
-type TableCellWithPrimitiveData = {
+interface TableCellWithPrimitiveData {
   isHeading: boolean;
   data: string | number;
-};
+}
 
-type TableCellWithComponent = {
+interface TableCellWithComponent {
   isHeading: false;
   data: ReactChild;
   key: string;
-};
+}
 
 const Table = ({ tableData, classNamePrefix }: Props) => {
   const tableDataMapCallback = (tableRowData: TableRowData) => {

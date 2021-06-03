@@ -14,11 +14,12 @@ import { AppState, AppDispatch } from '../../store/index';
 import { ProductInfo } from '../../store/products/types';
 import { setCurrentUserScoreAction, removeCurrentUserScoreAction } from '../../store/products/actions';
 import { addToCart, removeFromCart } from '../../store/cart/actions';
+import { ProductId } from '../../store/cart/types';
 import { PATH } from '../../app';
 
-type Props = {
-  productId: string;
-};
+interface Props {
+  productId: ProductId;
+}
 
 const ProductInfo = ({ productId }: Props) => {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../index.styl';
 
-type Props = {
+interface Props {
   children: string;
-};
+}
 
 const HiddenText = ({ children }: Props) => {
   return <span className="visually-hidden">{children}</span>;

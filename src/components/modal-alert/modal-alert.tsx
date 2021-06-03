@@ -4,10 +4,10 @@ import './modal-alert.styl';
 import Button from '../button/button';
 import ModalWithScreenblock from '../modal-with-screenblock/modal-with-screenblock';
 
-type Props = {
+interface Props {
   children: string;
   closeModal: () => void;
-};
+}
 
 const ModalAlert = ({ closeModal, children }: Props) => {
   return (

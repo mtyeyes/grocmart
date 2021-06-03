@@ -4,12 +4,12 @@ import './pagination.styl';
 import HiddenText from '../hidden-text/hidden-text';
 import Icon from '../icon/icon';
 
-type Props = {
+interface Props {
   selectedPage: number;
   setSelectedPage: Dispatch<number>;
   itemsPerPage: number;
   numberOfItems: number;
-};
+}
 
 const Pagination = ({ selectedPage, setSelectedPage, itemsPerPage, numberOfItems }: Props) => {
   const amountOfPages = Math.ceil(numberOfItems / itemsPerPage);

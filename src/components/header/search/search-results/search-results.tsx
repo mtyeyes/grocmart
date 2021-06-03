@@ -6,13 +6,14 @@ import Loader from '../../../loader/loader';
 import Button from '../../../button/button';
 
 import { AppState } from '../../../../store/index';
+import { ProductId } from '../../../../store/cart/types';
 import SearchResult from './search-result/search-result';
 
-type Props = {
+interface Props {
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string | null>>;
   closeModal: () => void;
-};
+}
 
 const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -33,7 +34,7 @@ const SearchResults = ({ searchQuery, setSearchQuery, closeModal }: Props) => {
     searchByName(searchQuery);
   }, [productsState]);
 
-  const searchResultsMapCallback = (productId: string) => {
+  const searchResultsMapCallback = (productId: ProductId) => {
     const productName = capitalizeFirstLetter(productsState[productId].name);
     return <SearchResult productId={productId} productName={productName} closeModal={closeModal} key={productId} />;
   };

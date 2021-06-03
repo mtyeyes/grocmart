@@ -3,12 +3,12 @@ import './catalog-filters-controls.styl';
 
 import Button from '../../button/button';
 
-type Props = {
+interface Props {
   filterProducts: () => void;
   selectedMinPrice: number;
   selectedMaxPrice: number;
   children: ReactNode;
-};
+}
 
 const CatalogFiltersControls = ({ filterProducts, selectedMinPrice, selectedMaxPrice, children }: Props) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLFormElement>) => {

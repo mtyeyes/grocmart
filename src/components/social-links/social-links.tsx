@@ -3,9 +3,9 @@ import './social-links.styl';
 
 import SocialLink, { Props as SocialLinkType } from './social-link/social-link';
 
-type Props = {
+interface Props {
   children: ReactNode;
-};
+}
 
 const SocialLinks = ({ children }: Props) => {
   const links: SocialLinkType[] = [

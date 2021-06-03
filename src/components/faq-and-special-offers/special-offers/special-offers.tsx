@@ -8,6 +8,7 @@ import SpecialOfferItem from './special-offer-item/special-offer-item';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 
 import { AppState } from '../../../store';
+import { ProductId } from '../../../store/cart/types';
 
 const SpecialOffers = () => {
   const [specialOffers, setSpecialOffers] = useState([] as string[]);
@@ -18,7 +19,7 @@ const SpecialOffers = () => {
     setSpecialOffers(requestResults['products-of-the-day']);
   };
 
-  const specialOffersMapCallback = (productId: string) => {
+  const specialOffersMapCallback = (productId: ProductId) => {
     const { name, price } = productsState[productId];
     const priceBeforeDiscounts = price.toLocaleString('en-US', {
       style: 'currency',

@@ -4,9 +4,9 @@ import './logo.styl';
 
 import logoImage from '../../resources/images/logo.png';
 
-type Props = {
+interface Props {
   className?: string;
-};
+}
 
 const Logo = ({ className }: Props) => {
   const classNames = className ? `logo ${className}` : 'logo';

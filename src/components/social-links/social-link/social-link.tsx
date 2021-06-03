@@ -4,11 +4,11 @@ import './social-link.styl';
 import HiddenText from '../../hidden-text/hidden-text';
 import Icon, { IconId } from '../../icon/icon';
 
-export type Props = {
+export interface Props {
   linkTitle: string;
   link: string;
   iconId: IconId;
-};
+}
 
 const SocialLink = ({ linkTitle, link, iconId }: Props) => {
   return (

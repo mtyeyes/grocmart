@@ -8,6 +8,7 @@ import Counter from '../counter/counter';
 import CartControls from './cart-controls/cart-controls';
 
 import { addToCart, removeFromCart } from '../../store/cart/actions';
+import { ProductId } from '../../store/cart/types';
 import { AppState, AppDispatch } from '../../store/index';
 import useWindowWidth from '../../hooks/use-window-width';
 import usePriceAfterDiscounts from '../../hooks/use-price-after-discounts';
@@ -15,8 +16,8 @@ import { PATH } from '../../app';
 
 const UserCart = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
-  const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
+  const addProductToCart = (productId: ProductId) => dispatch(addToCart(productId));
+  const removeProductFromCart = (productId: ProductId) => dispatch(removeFromCart(productId, false));
 
   const selectProductsState = (state: AppState) => {
     return state.products;
@@ -50,7 +51,7 @@ const UserCart = () => {
       }, {} as { [key: string]: number });
 
       const generateComponent = (
-        productId: string,
+        productId: ProductId,
         type: 'title-and-thumbnail' | 'counter' | 'price-per-item' | 'price-total',
       ) => {
         switch (type) {

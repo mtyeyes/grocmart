@@ -3,11 +3,11 @@ import './burger-btn.styl';
 
 import Button from '../../../button/button';
 
-type Props = {
+interface Props {
   onClick?: () => void;
   btnTitle: string;
   className?: string;
-};
+}
 
 const BurgerBtn = ({ btnTitle, onClick, className, ...props }: Props) => {
   const [isToggled, setToggle] = useState(false);

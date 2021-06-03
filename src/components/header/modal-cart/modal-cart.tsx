@@ -4,6 +4,7 @@ import './modal-cart.styl';
 
 import { AppState, AppDispatch } from '../../../store';
 import { addToCart, removeFromCart } from '../../../store/cart/actions';
+import { ProductId } from '../../../store/cart/types';
 import usePriceAfterDiscounts from '../../../hooks/use-price-after-discounts';
 
 import ModalCartItem from './modal-cart-item/modal-cart-item';
@@ -11,14 +12,14 @@ import Loader from '../../loader/loader';
 import LinkAsButton from '../../link-as-button/link-as-button';
 import PreventDefaultAndShowAlert from '../../prevent-default-and-show-alert/prevent-default-and-show-alert';
 
-type Props = {
+interface Props {
   switchModalVisibility: () => void;
-};
+}
 
 const ModalCart = ({ switchModalVisibility }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
-  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
-  const removeProductFromCart = (productId: string) => dispatch(removeFromCart(productId, false));
+  const addProductToCart = (productId: ProductId) => dispatch(addToCart(productId));
+  const removeProductFromCart = (productId: ProductId) => dispatch(removeFromCart(productId, false));
 
   const selectProductsState = (state: AppState) => {
     return state.products;
@@ -52,7 +53,7 @@ const ModalCart = ({ switchModalVisibility }: Props) => {
     });
   };
 
-  const cartMapCallback = (productId: string) => {
+  const cartMapCallback = (productId: ProductId) => {
     const productData = productsState[productId];
     const productFinalPrice = (
       countPriceAfterDiscounts(productId, 'return number') * cartState[productId]

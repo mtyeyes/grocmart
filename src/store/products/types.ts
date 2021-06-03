@@ -1,4 +1,6 @@
-export type ProductsState = { [key: string]: ProductInfo };
+export interface ProductsState {
+  [key: string]: ProductInfo;
+}
 
 export interface ProductInfo {
   name: string;

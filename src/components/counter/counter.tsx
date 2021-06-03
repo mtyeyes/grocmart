@@ -5,12 +5,12 @@ import Button from '../button/button';
 import HiddenText from '../hidden-text/hidden-text';
 import Icon from '../icon/icon';
 
-type Props = {
+interface Props {
   classNamePrefix?: string;
   count: number;
   increment: () => void;
   decrement: () => void;
-};
+}
 
 const Counter = ({ classNamePrefix, count, increment, decrement }: Props) => {
   return (

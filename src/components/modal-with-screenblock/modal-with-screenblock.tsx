@@ -2,15 +2,11 @@ import React, { useRef, useEffect, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import './modal-with-screenblock.styl';
 
-type Props = {
+interface Props {
   closeModal: () => void;
   renderInside: 'component' | 'root';
   children: ReactNode;
-};
-
-type EventKeyup = {
-  key: string;
-};
+}
 
 const ModalWithScreenblock = ({ closeModal, renderInside, children }: Props) => {
   const screenblock = useRef<HTMLDivElement>(null);
@@ -21,7 +17,7 @@ const ModalWithScreenblock = ({ closeModal, renderInside, children }: Props) => 
       closeModal();
     }
   };
-  const closeModalByEsc = (e: EventKeyup) => {
+  const closeModalByEsc = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeModal();
     }

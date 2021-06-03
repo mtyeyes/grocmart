@@ -1,11 +1,11 @@
 import React, { useState, cloneElement, ReactElement, MouseEvent, FormEvent, ChangeEvent, KeyboardEvent } from 'react';
 import ModalAlert from '../modal-alert/modal-alert';
 
-type Props = {
+interface Props {
   component: ReactElement;
   eventType: 'onClick' | 'onSubmit' | 'onChange' | 'onKeyPress';
   alertMessage: string;
-};
+}
 
 const PreventDefaultAndShowAlert = ({ component, eventType, alertMessage }: Props) => {
   const [modalAlertVisible, setModalAlertVisibility] = useState(false);

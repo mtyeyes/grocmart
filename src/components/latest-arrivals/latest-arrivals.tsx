@@ -11,10 +11,11 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 import { AppState, AppDispatch } from '../../store';
 import { addToCart } from '../../store/cart/actions';
+import { ProductId } from '../../store/cart/types';
 
 const LatestArrivals = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const addProductToCart = (productId: string) => dispatch(addToCart(productId));
+  const addProductToCart = (productId: ProductId) => dispatch(addToCart(productId));
 
   const productsState = useSelector((state: AppState) => state.products, shallowEqual);
   const [newestProducts, setNewestProducts] = useState([] as string[]);
@@ -51,7 +52,7 @@ const LatestArrivals = () => {
     }
   }, [filterState, productsState, newestProducts]);
 
-  const galleryMapCallback = (productId: string) => {
+  const galleryMapCallback = (productId: ProductId) => {
     const { name, price, userScore } = productsState[productId];
     const averageUserScore = userScore.reduce((a: number, b: number) => a + b) / userScore.length;
     const priceBeforeDiscounts = price.toLocaleString('en-US', {
