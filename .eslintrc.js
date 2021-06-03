@@ -11,6 +11,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:jsx-a11y/recommended',
+    'prettier',
   ],
   globals: {
     Atomics: 'readonly',
@@ -24,11 +25,21 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
+  plugins: ['prettier', 'react', '@typescript-eslint', 'jsx-a11y'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        semi: true,
+        trailingComma: 'all',
+        singleQuote: true,
+        printWidth: 130,
+        jsxBracketSameLine: false,
+        arrowParens: 'always',
+      },
+    ],
     'no-console': 'error',
     'react/prop-types': 0,
-    indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     semi: [
       'error',
